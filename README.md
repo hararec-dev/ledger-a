@@ -1,97 +1,136 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# 📖 Ledger-A 💰📊
 
-# Getting Started
+## 📋 Índice
+- [📖 Descripción](#-descripción)
+- [🛠️ Tecnologías Utilizadas](#️-tecnologías-utilizadas)
+- [⚙️ Configuración del Proyecto](#️-configuración-del-proyecto)
+- [🤝 Contribución](#-contribución)
+- [📄 Licencia](#-licencia)
+- [👏 Creditos](#-creditos)
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+---
 
-## Step 1: Start Metro
+<div id="-descripción">
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## 📖 Descripción 
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+> Ledger-A es una aplicación móvil para la gestión de finanzas personales, enfocada en el control y seguimiento de gastos. Inspirada en la libreta personal de [John D. Rockefeller](https://es.wikipedia.org/wiki/John_D._Rockefeller#Infancia), quien meticulosamente registraba cada transacción en su famoso "Ledger A", esta app busca brindarte la misma disciplina financiera en la era digital.
 
-```sh
-# Using npm
-npm start
+> 🚀 Características
+- ✅ Registro rápido y sencillo de gastos e ingresos
+- 📊 Gráficos y reportes detallados para visualizar tus finanzas
+- 🔔 Notificaciones y recordatorios para mantener el control
+- 🔐 Seguridad en tus datos financieros
 
-# OR using Yarn
-yarn start
-```
+> 💡 ¡Lleva un mejor control de tu dinero con Ledger-A y toma decisiones financieras más inteligentes! 
 
-## Step 2: Build and run your app
+</div>
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+---
 
-### Android
+<div id="️-tecnologías-utilizadas">
 
-```sh
-# Using npm
-npm run android
+## 🛠️ Tecnologías Utilizadas
 
-# OR using Yarn
-yarn android
-```
+> El proyecto fue desarrollado utilizando las siguientes tecnologías y herramientas:
 
-### iOS
+- **@react-navigation/native: ^7.0.0** - Para la gestión de rutas.
+- **react-native:0.77.0** - Framework para construir aplicaciones móviles multiplataforma.
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+</div>
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+<div id="️-configuración-del-proyecto">
 
-```sh
-bundle install
-```
+## ⚙️ Configuración del Proyecto
 
-Then, and every time you update your native dependencies, run:
+Para configurar este proyecto en tu máquina local, sigue estos pasos:
 
-```sh
-bundle exec pod install
-```
+> Requisitos Previos
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+- **Node.js**: Asegúrate de tener Node.js instalado (versión 14 o superior). [Descargar Node.js](https://nodejs.org/)
+- **Yarn**: Instala el gestor de paquetes Yarn (recomendado). [Instalar Yarn](https://yarnpkg.com/getting-started/install)
+- **Android Studio**: Requerido para desarrollo en Android. [Descargar Android Studio](https://developer.android.com/studio)
+- **Xcode**: Requerido para desarrollo en iOS (solo Mac). Disponible en la Mac App Store
+- **React Native**: Sigue los pasos en la [Documentación Oficial](https://reactnative.dev/docs/set-up-your-environment)
 
-```sh
-# Using npm
-npm run ios
+> Pasos de Instalación
 
-# OR using Yarn
-yarn ios
-```
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/hararec-dev/Ledger-A.git
+   ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+2. Instala las dependencias:
+   ```bash
+   cd Ledger-A
+   yarn install
+   ```
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+3. Para iOS (solo Mac), instala los pods:
+   ```bash
+   cd ios
+   pod install
+   cd ..
+   ```
 
-## Step 3: Modify your app
+5. Inicia el empaquetador Metro:
+   ```bash
+   yarn start
+   ```
 
-Now that you have successfully run the app, let's make changes!
+6. Ejecuta la aplicación:
+   ```bash
+   # Para Android
+   yarn android
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+   # Para iOS (solo Mac)
+   yarn ios
+   ```
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+> Solución de Problemas
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+- Si encuentras errores de compilación, intenta limpiar el proyecto:
+  ```bash
+  # Para Android
+  cd android
+  ./gradlew clean
+  cd ..
 
-## Congratulations! :tada:
+  # Para iOS
+  cd ios
+  xcodebuild clean
+  cd ..
+  ```
 
-You've successfully run and modified your React Native App. :partying_face:
+</div>
 
-### Now what?
+<div id="-contribución">
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+## 🤝 Contribución
 
-# Troubleshooting
+Las contribuciones son siempre bienvenidas. Por favor, sigue estos pasos:
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+1. Haz Fork del proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/amazing-feature`)
+3. Usa las pautas de [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) (`git commit -m '<type>[optional scope]: <description> [optional body] [optional footer(s)]'`)
+4. Push a la rama (`git push origin feature/amazing-feature`)
+5. Abre un Pull Request
 
-# Learn More
+</div>
 
-To learn more about React Native, take a look at the following resources:
+<div id="-licencia">
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT - mira el archivo [LICENSE](LICENSE) para detalles
+
+</div>
+
+<div id="-creditos">
+
+## 👏 Creditos
+
+- Inspirado en la disciplina financiera de John D. Rockefeller
+- Diseño UI [Nombre del Diseñador]
+
+</div>
