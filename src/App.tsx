@@ -26,6 +26,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import { CartesianPlaneChart } from './components';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -59,7 +60,7 @@ function Section({ children, title }: SectionProps): React.JSX.Element {
 
 export const App = (): React.JSX.Element => {
   const isDarkMode = useColorScheme() === 'dark';
-  
+
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
@@ -75,6 +76,32 @@ export const App = (): React.JSX.Element => {
           contentInsetAdjustmentBehavior="automatic"
           style={backgroundStyle}>
           <Header />
+          <CartesianPlaneChart data={[
+            {
+              value: Math.random() * 100,
+              label: "January"
+            },
+            {
+              value: Math.random() * 100,
+              label: "February"
+            },
+            {
+              value: Math.random() * 100,
+              label: "March"
+            },
+            {
+              value: Math.random() * 100,
+              label: "April"
+            },
+            {
+              value: Math.random() * 100,
+              label: "May"
+            },
+            {
+              value: Math.random() * 100,
+              label: "June"
+            }
+          ]} />
           <Icon name="git" size={30} color="#900" />
           <View
             style={{
