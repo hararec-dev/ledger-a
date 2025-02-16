@@ -19,6 +19,7 @@ import {
 import { NavigationContainer } from '@react-navigation/native';
 import 'react-native-gesture-handler';
 import Icon from '@react-native-vector-icons/material-design-icons';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import {
   Colors,
   DebugInstructions,
@@ -31,6 +32,8 @@ import { CartesianPlaneChart } from './components';
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
+
+const queryClient = new QueryClient()
 
 function Section({ children, title }: SectionProps): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -66,65 +69,68 @@ export const App = (): React.JSX.Element => {
   };
 
   return (
-    <NavigationContainer>
-      <SafeAreaView style={backgroundStyle}>
-        <StatusBar
-          barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-          backgroundColor={backgroundStyle.backgroundColor}
-        />
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={backgroundStyle}>
-          <Header />
-          <CartesianPlaneChart data={[
-            {
-              value: Math.random() * 100,
-              label: "January"
-            },
-            {
-              value: Math.random() * 100,
-              label: "February"
-            },
-            {
-              value: Math.random() * 100,
-              label: "March"
-            },
-            {
-              value: Math.random() * 100,
-              label: "April"
-            },
-            {
-              value: Math.random() * 100,
-              label: "May"
-            },
-            {
-              value: Math.random() * 100,
-              label: "June"
-            }
-          ]} />
-          <Icon name="git" size={30} color="#900" />
-          <View
-            style={{
-              backgroundColor: isDarkMode ? Colors.black : Colors.white,
-            }}>
-            <Section title="Step One">
-              Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-              screen and then come back to see your edits.
-            </Section>
-            <Section title="See Your Changes">
-              <ReloadInstructions />
-            </Section>
-            <Section title="Debug">
-              <DebugInstructions />
-            </Section>
-            <Section title="Learn More">
-              Read the docs to discover what to do next:
-            </Section>
-            <LearnMoreLinks />
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </NavigationContainer>
+    <QueryClientProvider client={queryClient}>
+
+      <NavigationContainer>
+        <SafeAreaView style={backgroundStyle}>
+          <StatusBar
+            barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+            backgroundColor={backgroundStyle.backgroundColor}
+          />
+          <ScrollView
+            contentInsetAdjustmentBehavior="automatic"
+            style={backgroundStyle}>
+            <Header />
+            <CartesianPlaneChart data={[
+              {
+                value: Math.random() * 100,
+                label: "January"
+              },
+              {
+                value: Math.random() * 100,
+                label: "February"
+              },
+              {
+                value: Math.random() * 100,
+                label: "March"
+              },
+              {
+                value: Math.random() * 100,
+                label: "April"
+              },
+              {
+                value: Math.random() * 100,
+                label: "May"
+              },
+              {
+                value: Math.random() * 100,
+                label: "June"
+              }
+            ]} />
+            <Icon name="git" size={30} color="#900" />
+            <View
+              style={{
+                backgroundColor: isDarkMode ? Colors.black : Colors.white,
+              }}>
+              <Section title="Step One">
+                Edit <Text style={styles.highlight}>App.tsx</Text> to change this
+                screen and then come back to see your edits.
+              </Section>
+              <Section title="See Your Changes">
+                <ReloadInstructions />
+              </Section>
+              <Section title="Debug">
+                <DebugInstructions />
+              </Section>
+              <Section title="Learn More">
+                Read the docs to discover what to do next:
+              </Section>
+              <LearnMoreLinks />
+            </View>
+          </ScrollView>
+        </SafeAreaView>
+      </NavigationContainer>
+    </QueryClientProvider>
   );
 }
 
