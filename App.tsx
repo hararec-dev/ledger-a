@@ -18,7 +18,7 @@ import {
 } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import 'react-native-gesture-handler';
-
+import Icon from '@react-native-vector-icons/material-design-icons';
 import {
   Colors,
   DebugInstructions,
@@ -59,7 +59,7 @@ function Section({ children, title }: SectionProps): React.JSX.Element {
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
-
+  
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
@@ -75,6 +75,7 @@ function App(): React.JSX.Element {
           contentInsetAdjustmentBehavior="automatic"
           style={backgroundStyle}>
           <Header />
+          <Icon name="git" size={30} color="#900" />
           <View
             style={{
               backgroundColor: isDarkMode ? Colors.black : Colors.white,
