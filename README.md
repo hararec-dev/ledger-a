@@ -34,8 +34,16 @@
 
 > El proyecto fue desarrollado utilizando las siguientes tecnologías y herramientas:
 
-- **@react-navigation/native: ^7.0.0** - Para la gestión de rutas.
-- **react-native:0.77.0** - Framework para construir aplicaciones móviles multiplataforma.
+- **react-native: 0.77.0** - Framework para construir aplicaciones móviles hibridas.
+- **@react-navigation/native: ^7.0.14** - Para la gestión de rutas.
+- **@nozbe/watermelondb: ^0.27.1** - Base de datos local optimizada para React Native.
+- **@react-native-async-storage/async-storage: ^2.1.1** - Almacenamiento local asíncrono.
+- **@react-native-vector-icons/material-design-icons: ^7.4.47** - Íconos de Material Design.
+- **@tanstack/react-query: ^5.66.0** - Manejo eficiente de estados y peticiones HTTP.
+- **formik: ^2.4.6** - Manejo de formularios.
+- **react-native-biometrics: ^3.0.1** - Autenticación biométrica en dispositivos móviles.
+- **react-native-chart-kit: ^6.12.0** - Librería para gráficos y visualización de datos.
+- **xlsx: ^0.18.5** - Manipulación de archivos Excel en la aplicación.
 
 </div>
 
