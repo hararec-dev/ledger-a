@@ -17,8 +17,8 @@ export const MainBottomTabNavigation: React.FC = () => {
       component: DashboardStackNavigation,
       options: {
         title: 'Inicio',
-        tabBarIcon: ({ color, size }) => (
-          <Icon name="home" color={color} size={size} />
+        tabBarIcon: ({ color, size, focused }) => (
+          <Icon name={focused ? "home" : "home-outline"} color={color} size={size} />
         ),
       },
     },
@@ -27,8 +27,8 @@ export const MainBottomTabNavigation: React.FC = () => {
       component: AccountsStackNavigation,
       options: {
         title: 'Cuentas',
-        tabBarIcon: ({ color, size }) => (
-          <Icon name="bank" color={color} size={size} />
+        tabBarIcon: ({ color, size, focused }) => (
+          <Icon name={focused ? "bank" : "bank-outline"} color={color} size={size} />
         ),
       },
     },
@@ -37,8 +37,8 @@ export const MainBottomTabNavigation: React.FC = () => {
       component: TransactionsStackNavigation,
       options: {
         title: 'Transacciones',
-        tabBarIcon: ({ color, size }) => (
-          <Icon name="swap-horizontal" color={color} size={size} />
+        tabBarIcon: ({ color, size, focused }) => (
+          <Icon name={focused ? "swap-horizontal-circle" : "swap-horizontal-circle-outline"} color={color} size={size} />
         ),
       },
     },
@@ -47,8 +47,8 @@ export const MainBottomTabNavigation: React.FC = () => {
       component: ReportsStackNavigation,
       options: {
         title: 'Reportes',
-        tabBarIcon: ({ color, size }) => (
-          <Icon name="chart-bar" color={color} size={size} />
+        tabBarIcon: ({ color, size, focused }) => (
+          <Icon name={focused ? "chart-bar-stacked" : "chart-bar"} color={color} size={size} />
         ),
       },
     },
@@ -57,8 +57,8 @@ export const MainBottomTabNavigation: React.FC = () => {
       component: SettingsStackNavigation,
       options: {
         title: 'Configuración',
-        tabBarIcon: ({ color, size }) => (
-          <Icon name="cog" color={color} size={size} />
+        tabBarIcon: ({ color, size, focused }) => (
+          <Icon name={focused ? "cog" : "cog-outline"} color={color} size={size} />
         ),
       },
     },
