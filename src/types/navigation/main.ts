@@ -10,6 +10,7 @@ export type MainBottomTabRoute = {
     name: keyof MainBottomTabParamList;
     component: React.ComponentType<any>;
     options: {
-        title: string;
+      title: string;
+      tabBarIcon: (props: { color: string; size: number }) => React.ReactNode;
     };
-};
+  };

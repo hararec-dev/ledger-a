@@ -1,33 +1,59 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar, useColorScheme, View } from 'react-native';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { ScrollView } from 'react-native-gesture-handler';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import Icon from '@react-native-vector-icons/material-design-icons';
+import { CartesianPlaneChart } from '../../components';
 
 export const DashboardScreen = () => {
-    return (
-        <View style={styles.container}>
-            <Text>DashboardScreen</Text>
-            <View style={styles.box1} />
-            <View style={styles.box2} />
-            <View style={styles.box3} />
+    const isDarkMode = useColorScheme() === 'dark';
 
-        </View>
+    const backgroundStyle = {
+        backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    };
+
+    return (
+        <SafeAreaView style={backgroundStyle}>
+            <StatusBar
+                barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+                backgroundColor={backgroundStyle.backgroundColor}
+            />
+            <ScrollView
+                contentInsetAdjustmentBehavior="automatic"
+                style={backgroundStyle}>
+                <View
+                    style={{
+                        backgroundColor: isDarkMode ? Colors.black : Colors.white,
+                    }}>
+                    <CartesianPlaneChart data={[
+                        {
+                            value: Math.random() * 100,
+                            label: "January"
+                        },
+                        {
+                            value: Math.random() * 100,
+                            label: "February"
+                        },
+                        {
+                            value: Math.random() * 100,
+                            label: "March"
+                        },
+                        {
+                            value: Math.random() * 100,
+                            label: "April"
+                        },
+                        {
+                            value: Math.random() * 100,
+                            label: "May"
+                        },
+                        {
+                            value: Math.random() * 100,
+                            label: "June"
+                        }
+                    ]} />
+                    <Icon name="git" size={30} color="#900" />
+                </View>
+            </ScrollView>
+        </SafeAreaView>
     );
 };
-
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: 'gray',
-    },
-    box1: {
-        backgroundColor: '#5856D6',
-        flex: 1,
-    },
-    box2: {
-        backgroundColor: '#4240a2',
-        flex: 2,
-    },
-    box3: {
-        backgroundColor: '#2e2d71',
-        flex: 3,
-    },
-});
