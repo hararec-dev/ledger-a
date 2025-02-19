@@ -4,10 +4,10 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Icon from '@react-native-vector-icons/material-design-icons';
 import { CartesianPlaneChart } from '../../components';
-import { useAppTheme } from '../../hooks';
+import { useThemeStore } from '../../hooks';
 
 export const DashboardScreen = () => {
-    const { isDark, colors, setTheme } = useAppTheme();
+    const { isDark, colors, setTheme } = useThemeStore();
 
     return (
         <SafeAreaView style={{ backgroundColor: colors.background }}>
