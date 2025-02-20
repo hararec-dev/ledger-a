@@ -6,11 +6,14 @@ import { TransactionsStackNavigation } from './TransactionsStackNavigation';
 import { AccountsStackNavigation } from './AccountsStackNavigation';
 import { ReportsStackNavigation } from './ReportsStackNavigation';
 import { SettingsStackNavigation } from './SettingsStackNavigation';
+import { CustomTabBarButton } from '../components';
 import { MainBottomTabParamList, MainBottomTabRoute } from '../types';
+
 
 const Tab = createBottomTabNavigator<MainBottomTabParamList>();
 
 export const MainBottomTabNavigation: React.FC = () => {
+
   const tabRoutes = useMemo<MainBottomTabRoute[]>(() => ([
     {
       name: "DashboardTab",
@@ -20,6 +23,7 @@ export const MainBottomTabNavigation: React.FC = () => {
         tabBarIcon: ({ color, size, focused }) => (
           <Icon name={focused ? "home" : "home-outline"} color={color} size={size} />
         ),
+        tabBarButton: (props) => <CustomTabBarButton {...props} />,
       },
     },
     {
@@ -30,6 +34,7 @@ export const MainBottomTabNavigation: React.FC = () => {
         tabBarIcon: ({ color, size, focused }) => (
           <Icon name={focused ? "bank" : "bank-outline"} color={color} size={size} />
         ),
+        tabBarButton: (props) => <CustomTabBarButton {...props} />,
       },
     },
     {
@@ -40,6 +45,7 @@ export const MainBottomTabNavigation: React.FC = () => {
         tabBarIcon: ({ color, size, focused }) => (
           <Icon name={focused ? "swap-horizontal-circle" : "swap-horizontal-circle-outline"} color={color} size={size} />
         ),
+        tabBarButton: (props) => <CustomTabBarButton {...props} />,
       },
     },
     {
@@ -50,6 +56,7 @@ export const MainBottomTabNavigation: React.FC = () => {
         tabBarIcon: ({ color, size, focused }) => (
           <Icon name={focused ? "chart-bar-stacked" : "chart-bar"} color={color} size={size} />
         ),
+        tabBarButton: (props) => <CustomTabBarButton {...props} />,
       },
     },
     {
@@ -60,6 +67,7 @@ export const MainBottomTabNavigation: React.FC = () => {
         tabBarIcon: ({ color, size, focused }) => (
           <Icon name={focused ? "cog" : "cog-outline"} color={color} size={size} />
         ),
+        tabBarButton: (props) => <CustomTabBarButton {...props} />,
       },
     },
   ]), []);
