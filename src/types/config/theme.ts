@@ -1,11 +1,3 @@
-export interface ThemeColors {
-    dominant: string;
-    complementary: string;
-    accent: string;
-    background: string;
-    foreground: string;
-}
-
 interface ColorShades {
     50: string;
     100: string;
@@ -32,4 +24,14 @@ export interface FullColorPallete {
     lime: ColorShades;
     green: ColorShades;
     emerald: ColorShades;
+    teal: ColorShades;
+    cyan: ColorShades;
+    sky: ColorShades;
+    blue: ColorShades;
+    indigo: ColorShades;
+    violet: ColorShades;
+    purple: ColorShades;
+    fuchsia: ColorShades;
+    pink: ColorShades;
+    rose: ColorShades;
 }
