@@ -1,5 +1,4 @@
 import { StatusBar, View, TouchableOpacity } from 'react-native';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { ScrollView } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { CartesianPlaneChart, CustomIcon } from '../../components';
@@ -9,10 +8,10 @@ export const DashboardScreen = () => {
     const { isDark, colors, setTheme } = useThemeStore();
 
     return (
-        <SafeAreaView style={{ backgroundColor: colors.background }}>
+        <SafeAreaView style={{ backgroundColor: isDark ? colors.warmGray[900] : colors.coolGray[50] }}>
             <StatusBar
                 barStyle={isDark ? 'light-content' : 'dark-content'}
-                backgroundColor={colors.background}
+                backgroundColor={colors.cyan[500]}
             />
             <TouchableOpacity
                 onPress={() => setTheme(isDark ? 'light' : 'dark')}
@@ -22,23 +21,23 @@ export const DashboardScreen = () => {
                     left: 10,
                     zIndex: 1,
                     padding: 10,
-                    backgroundColor: colors.accent,
+                    backgroundColor: isDark ? colors.coolGray[50] : colors.warmGray[900],
                     borderRadius: 25,
                     marginBottom: 10,
                 }}>
                 <CustomIcon
                     name={isDark ? "white-balance-sunny" : "weather-night"}
                     size={30}
-                    color="#900"
+                    color={colors.cyan[500]}
                 />
             </TouchableOpacity>
             <ScrollView
                 contentInsetAdjustmentBehavior="automatic"
-                style={{ backgroundColor: colors.background }}
+                style={{ backgroundColor: colors.purple[500] }}
             >
                 <View
                     style={{
-                        backgroundColor: isDark ? Colors.black : Colors.white,
+                        backgroundColor: '#212121',
                     }}>
                     <CartesianPlaneChart data={[
                         {

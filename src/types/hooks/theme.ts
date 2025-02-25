@@ -1,11 +1,11 @@
-import type { ThemeColors } from "../config";
+import type { FullColorPallete } from "../config";
 
 export type ThemeColor = 'light' | 'dark';
 
 export type ThemeState = {
     currentTheme: ThemeColor;
     isDark: boolean;
-    colors: ThemeColors;
+    colors: FullColorPallete;
     loadTheme: () => Promise<void>;
     setTheme: (theme: ThemeColor) => Promise<void>;
 };
@@ -13,6 +13,6 @@ export type ThemeState = {
 export interface UseThemeReturn {
     currentTheme: ThemeColor;
     isDark: boolean;
-    colors: ThemeColors;
+    colors: FullColorPallete;
     setTheme: (theme: ThemeColor) => Promise<void>;
 }

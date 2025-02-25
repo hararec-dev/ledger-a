@@ -1,4 +1,4 @@
-import { TouchableOpacity, StyleProp, ViewStyle } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import type { CustomIconProps } from '../../types';
 
