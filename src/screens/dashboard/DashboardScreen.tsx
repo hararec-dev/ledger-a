@@ -2,12 +2,11 @@ import { StatusBar, View, TouchableOpacity } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { ScrollView } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import Icon from '@react-native-vector-icons/material-design-icons';
-import { CartesianPlaneChart } from '../../components';
-import { useAppTheme } from '../../hooks';
+import { CartesianPlaneChart, CustomIcon } from '../../components';
+import { useThemeStore } from '../../hooks';
 
 export const DashboardScreen = () => {
-    const { isDark, colors, setTheme } = useAppTheme();
+    const { isDark, colors, setTheme } = useThemeStore();
 
     return (
         <SafeAreaView style={{ backgroundColor: colors.background }}>
@@ -27,10 +26,10 @@ export const DashboardScreen = () => {
                     borderRadius: 25,
                     marginBottom: 10,
                 }}>
-                <Icon
+                <CustomIcon
                     name={isDark ? "white-balance-sunny" : "weather-night"}
-                    size={24}
-                    color={colors.background}
+                    size={30}
+                    color="#900"
                 />
             </TouchableOpacity>
             <ScrollView
@@ -67,7 +66,7 @@ export const DashboardScreen = () => {
                             label: "June"
                         }
                     ]} />
-                    <Icon name="git" size={30} color="#900" />
+                    {/* <Icon name="git" size={30} color="#900" /> */}
                 </View>
             </ScrollView>
         </SafeAreaView>
