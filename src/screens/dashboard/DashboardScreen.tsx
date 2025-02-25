@@ -2,7 +2,7 @@ import { StatusBar, View, TouchableOpacity } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { ScrollView } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import Icon from '@react-native-vector-icons/material-design-icons';
+/* import Icon from '@react-native-vector-icons/material-design-icons'; */
 import { CartesianPlaneChart } from '../../components';
 import { useThemeStore } from '../../hooks';
 
@@ -27,11 +27,11 @@ export const DashboardScreen = () => {
                     borderRadius: 25,
                     marginBottom: 10,
                 }}>
-                <Icon
+                {/* <Icon
                     name={isDark ? "white-balance-sunny" : "weather-night"}
                     size={24}
                     color={colors.background}
-                />
+                /> */}
             </TouchableOpacity>
             <ScrollView
                 contentInsetAdjustmentBehavior="automatic"
@@ -67,7 +67,7 @@ export const DashboardScreen = () => {
                             label: "June"
                         }
                     ]} />
-                    <Icon name="git" size={30} color="#900" />
+                    {/* <Icon name="git" size={30} color="#900" /> */}
                 </View>
             </ScrollView>
         </SafeAreaView>
