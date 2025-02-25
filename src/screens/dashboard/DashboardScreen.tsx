@@ -2,8 +2,7 @@ import { StatusBar, View, TouchableOpacity } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { ScrollView } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
-/* import Icon from '@react-native-vector-icons/material-design-icons'; */
-import { CartesianPlaneChart } from '../../components';
+import { CartesianPlaneChart, CustomIcon } from '../../components';
 import { useThemeStore } from '../../hooks';
 
 export const DashboardScreen = () => {
@@ -27,11 +26,11 @@ export const DashboardScreen = () => {
                     borderRadius: 25,
                     marginBottom: 10,
                 }}>
-                {/* <Icon
+                <CustomIcon
                     name={isDark ? "white-balance-sunny" : "weather-night"}
-                    size={24}
-                    color={colors.background}
-                /> */}
+                    size={30}
+                    color="#900"
+                />
             </TouchableOpacity>
             <ScrollView
                 contentInsetAdjustmentBehavior="automatic"
