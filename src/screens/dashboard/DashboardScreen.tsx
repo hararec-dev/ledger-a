@@ -1,6 +1,4 @@
-import { StatusBar, View, TouchableOpacity } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { TouchableOpacity, View, ScrollView } from 'react-native';
 import { CartesianPlaneChart, CustomIcon } from '../../components';
 import { useThemeStore } from '../../hooks';
 
@@ -8,11 +6,7 @@ export const DashboardScreen = () => {
     const { isDark, colors, setTheme } = useThemeStore();
 
     return (
-        <SafeAreaView style={{ backgroundColor: isDark ? colors.warmGray[900] : colors.coolGray[50] }}>
-            <StatusBar
-                barStyle={isDark ? 'light-content' : 'dark-content'}
-                backgroundColor={colors.cyan[500]}
-            />
+        <View>
             <TouchableOpacity
                 onPress={() => setTheme(isDark ? 'light' : 'dark')}
                 style={{
@@ -68,6 +62,6 @@ export const DashboardScreen = () => {
                     {/* <Icon name="git" size={30} color="#900" /> */}
                 </View>
             </ScrollView>
-        </SafeAreaView>
+        </View>
     );
 };
