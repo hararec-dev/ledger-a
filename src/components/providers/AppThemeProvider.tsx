@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Platform, useColorScheme } from 'react-native';
+import { Platform, StatusBar, useColorScheme } from 'react-native';
 import { lightColors, createTheme, ThemeProvider, darkColors } from '@rneui/themed';
 import { useThemeStore } from '../../hooks';
 import type { AppThemeProviderProps } from '../../types';
@@ -7,7 +7,7 @@ import type { AppThemeProviderProps } from '../../types';
 
 export const AppThemeProvider = ({ children }: AppThemeProviderProps) => {
   const colorScheme = useColorScheme();
-  const { loadTheme, currentTheme } = useThemeStore();
+  const { loadTheme, currentTheme, isDark, colors } = useThemeStore();
   const [isThemeLoaded, setIsThemeLoaded] = useState(false);
 
   useEffect(() => {
@@ -53,6 +53,10 @@ export const AppThemeProvider = ({ children }: AppThemeProviderProps) => {
     ? null
     : (
       <ThemeProvider theme={theme}>
+        <StatusBar
+        barStyle={isDark ? 'light-content' : 'dark-content'}
+        backgroundColor={colors.cyan[500]}
+      />
         {children}
       </ThemeProvider>
     );
