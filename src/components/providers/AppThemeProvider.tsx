@@ -54,9 +54,9 @@ export const AppThemeProvider = ({ children }: AppThemeProviderProps) => {
     : (
       <ThemeProvider theme={theme}>
         <StatusBar
-        barStyle={isDark ? 'light-content' : 'dark-content'}
-        backgroundColor={colors.cyan[500]}
-      />
+          barStyle={isDark ? 'light-content' : 'dark-content'}
+          backgroundColor={isDark ? colors.warmGray[900]: colors.coolGray[50]}
+        />
         {children}
       </ThemeProvider>
     );
