@@ -22,13 +22,13 @@ export const AppThemeProvider = ({ children }: AppThemeProviderProps) => {
   const theme = useMemo(() => createTheme({
     lightColors: {
       ...Platform.select({
-        default: lightColors.platform.android,
+        android: lightColors.platform.android,
         ios: lightColors.platform.ios,
       }),
     },
     darkColors: {
       ...Platform.select({
-        default: darkColors.platform.android,
+        android: darkColors.platform.android,
         ios: darkColors.platform.ios,
       }),
     },
