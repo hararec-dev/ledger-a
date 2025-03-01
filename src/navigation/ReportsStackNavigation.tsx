@@ -40,7 +40,10 @@ export const ReportsStackNavigation: React.FC = () => {
                     key={route.name}
                     name={route.name}
                     component={route.component}
-                    options={route.options}
+                    options={{
+                        ...route.options,
+                        headerShown: false,
+                    }}
                 />
             ))}
         </ReportsStack.Navigator>

@@ -1,6 +1,7 @@
 /* Colors obtained from https://v2.tailwindcss.com/docs/customizing-colors */
 
-import { FullColorPallete } from "../types";
+import type { Theme } from "@react-navigation/native";
+import type { FullColorPallete } from "../types";
 
 export const colorPalette: FullColorPallete = {
     blueGray: {
@@ -196,5 +197,65 @@ export const colorPalette: FullColorPallete = {
         50: "#FFF1F2", 100: "#FFE4E6", 200: "#FECDD3", 300: "#FDA4AF",
         400: "#FB7185", 500: "#F43F5E", 600: "#E11D48", 700: "#BE123C",
         800: "#9F1239", 900: "#881337"
+    }
+};
+
+export const LightNavigationTheme: Theme = {
+    dark: false,
+    colors: {
+        primary: colorPalette.warmGray[900],
+        background: colorPalette.coolGray[50],
+        text: colorPalette.warmGray[600],
+        card: colorPalette.gray[100],
+        border: colorPalette.gray[200],
+        notification: colorPalette.red[500]
+    },
+    fonts: {
+        regular: {
+            fontFamily: 'System',
+            fontWeight: '400'
+        },
+        medium: {
+            fontFamily: 'System',
+            fontWeight: '500'
+        },
+        bold: {
+            fontFamily: 'System',
+            fontWeight: '700'
+        },
+        heavy: {
+            fontFamily: 'System',
+            fontWeight: '900'
+        }
+    }
+};
+
+export const DarkNavigationTheme: Theme = {
+    dark: true,
+    colors: {
+        primary: colorPalette.coolGray[50],
+        background: colorPalette.warmGray[900],
+        text: colorPalette.coolGray[400],
+        card: colorPalette.gray[800],
+        border: colorPalette.gray[700],
+        notification: colorPalette.red[800]
+    },
+    fonts: {
+        regular: {
+            fontFamily: 'System',
+            fontWeight: '400'
+        },
+        medium: {
+            fontFamily: 'System',
+            fontWeight: '500'
+        },
+        bold: {
+            fontFamily: 'System',
+            fontWeight: '700'
+        },
+        heavy: {
+            fontFamily: 'System',
+            fontWeight: '900'
+        }
     }
 };

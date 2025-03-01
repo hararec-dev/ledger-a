@@ -1,17 +1,16 @@
-import { AppThemeProvider, HttpProvider, NavigationProvider } from "./components/providers";
+import { AppThemeProvider, HttpProvider, NavigationProvider, SafeProvider } from "./components/providers";
 import { MainBottomTabNavigation } from "./navigation";
-import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 export const App = (): React.JSX.Element => {
   return (
     <HttpProvider>
-      <SafeAreaProvider>
+      <SafeProvider>
         <AppThemeProvider>
           <NavigationProvider>
             <MainBottomTabNavigation />
           </NavigationProvider>
         </AppThemeProvider>
-      </SafeAreaProvider>
+      </SafeProvider>
     </HttpProvider>
   );
 }

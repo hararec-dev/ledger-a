@@ -33,7 +33,10 @@ export const DashboardStackNavigation: React.FC = () => {
                     key={route.name}
                     name={route.name}
                     component={route.component}
-                    options={route.options}
+                    options={{
+                        ...route.options,
+                        headerShown: false,
+                    }}
                 />
             ))}
         </DashboardStack.Navigator>

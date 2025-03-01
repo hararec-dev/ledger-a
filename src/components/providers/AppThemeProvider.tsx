@@ -22,13 +22,13 @@ export const AppThemeProvider = ({ children }: AppThemeProviderProps) => {
   const theme = useMemo(() => createTheme({
     lightColors: {
       ...Platform.select({
-        default: lightColors.platform.android,
+        android: lightColors.platform.android,
         ios: lightColors.platform.ios,
       }),
     },
     darkColors: {
       ...Platform.select({
-        default: darkColors.platform.android,
+        android: darkColors.platform.android,
         ios: darkColors.platform.ios,
       }),
     },
@@ -54,9 +54,9 @@ export const AppThemeProvider = ({ children }: AppThemeProviderProps) => {
     : (
       <ThemeProvider theme={theme}>
         <StatusBar
-        barStyle={isDark ? 'light-content' : 'dark-content'}
-        backgroundColor={colors.cyan[500]}
-      />
+          barStyle={isDark ? 'light-content' : 'dark-content'}
+          backgroundColor={isDark ? colors.warmGray[900]: colors.coolGray[50]}
+        />
         {children}
       </ThemeProvider>
     );
