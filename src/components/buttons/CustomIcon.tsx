@@ -1,17 +1,19 @@
 import { TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import LinearGradient from 'react-native-linear-gradient';
+import MaskedView from '@react-native-masked-view/masked-view';
 import type { CustomIconProps } from '../../types';
-
 
 export const CustomIcon = ({
     name,
     size = 24,
     color = 'black',
+    gradientColors,
     onPress,
     style,
     disabled = false,
 }: CustomIconProps) => {
-    const IconComponent = (
+    const IconContent = (
         <Icon
             name={name}
             size={size}
@@ -19,6 +21,26 @@ export const CustomIcon = ({
             style={style}
         />
     );
+
+    const IconComponent = gradientColors ? (
+        <MaskedView
+            maskElement={IconContent}
+        >
+            <LinearGradient
+                colors={gradientColors}
+                style={{ flex: 1 }}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 0 }}
+            >
+                <Icon
+                    name={name}
+                    size={size}
+                    color="transparent"
+                    style={style}
+                />
+            </LinearGradient>
+        </MaskedView>
+    ) : IconContent;
 
     return !onPress
         ? IconComponent

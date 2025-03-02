@@ -16,8 +16,9 @@ export type MainBottomTabRoute = {
       size: number;
       focused: boolean;
     }) => React.ReactNode;
-    tabBarLabel: (props: { 
-      color: string; 
+    tabBarLabel: (props: {
+      focused: boolean;
+      color: string;
     }) => React.ReactNode;
     tabBarButton?: (props: any) => React.ReactNode;
   };
