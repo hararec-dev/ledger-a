@@ -1,13 +1,13 @@
 import { useMemo } from 'react';
+import { Text } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { DashboardStackNavigation } from './DashboardStackNavigation';
 import { TransactionsStackNavigation } from './TransactionsStackNavigation';
 import { AccountsStackNavigation } from './AccountsStackNavigation';
 import { ReportsStackNavigation } from './ReportsStackNavigation';
 import { SettingsStackNavigation } from './SettingsStackNavigation';
-import { CustomIcon, CustomTabBarButton } from '../components';
+import { CustomIcon } from '../components';
 import type { MainBottomTabParamList, MainBottomTabRoute } from '../types';
-import { Text } from 'react-native';
 
 const Tab = createBottomTabNavigator<MainBottomTabParamList>();
 
@@ -21,7 +21,6 @@ export const MainBottomTabNavigation: React.FC = () => {
         tabBarIcon: ({ color, focused }) => (
           <CustomIcon name={focused ? "home" : "home-outline"} color={color} size={25} />
         ),
-        tabBarButton: (props) => <CustomTabBarButton {...props} />,
         tabBarLabel: ({ color }) => (
           <Text style={{ color, fontSize: 9, fontWeight: 'bold' }}>
             Inicio
@@ -37,7 +36,6 @@ export const MainBottomTabNavigation: React.FC = () => {
         tabBarIcon: ({ color, focused }) => (
           <CustomIcon name={focused ? "bank" : "bank-outline"} color={color} size={25} />
         ),
-        tabBarButton: (props) => <CustomTabBarButton {...props} />,
         tabBarLabel: ({ color }) => (
           <Text style={{ color, fontSize: 9, fontWeight: 'bold' }}>
             Cuentas
@@ -53,7 +51,6 @@ export const MainBottomTabNavigation: React.FC = () => {
         tabBarIcon: ({ color, focused }) => (
           <CustomIcon name={focused ? "swap-horizontal-circle" : "swap-horizontal-circle-outline"} color={color} size={25} />
         ),
-        tabBarButton: (props) => <CustomTabBarButton {...props} />,
         tabBarLabel: ({ color }) => (
           <Text style={{ color, fontSize: 9, fontWeight: 'bold' }}>
             Transacciones
@@ -69,7 +66,6 @@ export const MainBottomTabNavigation: React.FC = () => {
         tabBarIcon: ({ color, focused }) => (
           <CustomIcon name={focused ? "chart-bar" : "chart-bar-stacked"} color={color} size={25} />
         ),
-        tabBarButton: (props) => <CustomTabBarButton {...props} />,
         tabBarLabel: ({ color }) => (
           <Text style={{ color, fontSize: 9, fontWeight: 'bold' }}>
             Reportes
@@ -85,7 +81,6 @@ export const MainBottomTabNavigation: React.FC = () => {
         tabBarIcon: ({ color, focused }) => (
           <CustomIcon name={focused ? "cog" : "cog-outline"} color={color} size={25} />
         ),
-        tabBarButton: (props) => <CustomTabBarButton {...props} />,
         tabBarLabel: ({ color }) => (
           <Text style={{ color, fontSize: 9, fontWeight: 'bold' }}>
             Configuración
@@ -97,17 +92,13 @@ export const MainBottomTabNavigation: React.FC = () => {
 
   return (
     <Tab.Navigator
-      safeAreaInsets={{ bottom: 10 }}
       screenOptions={({ theme }) => ({
         headerShown: false,
         tabBarActiveTintColor: theme.colors.primary,
         tabBarInactiveTintColor: theme.colors.text,
         tabBarStyle: {
           backgroundColor: theme.colors.background,
-          height: 50,
-        },
-        tabBarIconStyle: {
-          marginTop: 10,
+          height: 55,
         },
         tabBarLabelStyle: {
           color: theme.colors.primary,
