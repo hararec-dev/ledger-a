@@ -1,5 +1,4 @@
-import { useMemo, useState } from 'react';
-import { Text } from 'react-native';
+import { useMemo } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { DashboardStackNavigation } from './DashboardStackNavigation';
 import { TransactionsStackNavigation } from './TransactionsStackNavigation';
@@ -7,12 +6,18 @@ import { AccountsStackNavigation } from './AccountsStackNavigation';
 import { ReportsStackNavigation } from './ReportsStackNavigation';
 import { SettingsStackNavigation } from './SettingsStackNavigation';
 import { CustomIcon, CustomText } from '../components';
+import { useThemeStore } from '../hooks';
 import type { MainBottomTabParamList, MainBottomTabRoute } from '../types';
 
 const Tab = createBottomTabNavigator<MainBottomTabParamList>();
 
 export const MainBottomTabNavigation: React.FC = () => {
-  const [gradientColors] = useState<string[]>(['#38BDF8', '#A855F7', '#F472B6' ]);
+  const { colors } = useThemeStore();
+  const gradientColors = useMemo<string[]>(() => [
+    colors.blue[500], 
+    colors.purple[500], 
+    colors.red[400]
+  ],[colors]);
   const tabRoutes = useMemo<MainBottomTabRoute[]>(() => ([
     {
       name: "DashboardTab",
@@ -21,7 +26,7 @@ export const MainBottomTabNavigation: React.FC = () => {
         title: 'Inicio',
         tabBarIcon: ({ color, focused }) => (
           <CustomIcon
-            name={focused ? "home" : "home-outline"}
+            name={"home-outline"}
             color={color}
             size={25}
             gradientColors={focused ? gradientColors : undefined}
@@ -43,7 +48,7 @@ export const MainBottomTabNavigation: React.FC = () => {
         title: 'Cuentas',
         tabBarIcon: ({ color, focused }) => (
           <CustomIcon
-            name={focused ? "bank" : "bank-outline"}
+            name={"bank-outline"}
             color={color}
             size={25}
             gradientColors={focused ? gradientColors : undefined}
@@ -65,7 +70,7 @@ export const MainBottomTabNavigation: React.FC = () => {
         title: 'Transacciones',
         tabBarIcon: ({ color, focused }) => (
           <CustomIcon
-            name={focused ? "swap-horizontal-circle" : "swap-horizontal-circle-outline"}
+            name={"swap-horizontal-circle-outline"}
             color={color}
             size={25}
             gradientColors={focused ? gradientColors : undefined}
@@ -87,7 +92,7 @@ export const MainBottomTabNavigation: React.FC = () => {
         title: 'Reportes',
         tabBarIcon: ({ color, focused }) => (
           <CustomIcon
-            name={focused ? "chart-bar" : "chart-bar-stacked"}
+            name={"chart-bar"}
             color={color}
             size={25}
             gradientColors={focused ? gradientColors : undefined}
@@ -109,7 +114,7 @@ export const MainBottomTabNavigation: React.FC = () => {
         title: 'Configuración',
         tabBarIcon: ({ color, focused }) => (
           <CustomIcon
-            name={focused ? "cog" : "cog-outline"}
+            name={"cog-outline"}
             color={color}
             size={25}
             gradientColors={focused ? gradientColors : undefined}
@@ -139,10 +144,6 @@ export const MainBottomTabNavigation: React.FC = () => {
         tabBarLabelStyle: {
           color: theme.colors.primary,
         }
-        /* tabBarBadge: '1',
-        tabBarBadgeStyle: {
-          backgroundColor: theme.colors.notification,
-        }, */
       })}
     >
       {tabRoutes.map((route) => (
