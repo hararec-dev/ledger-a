@@ -212,19 +212,19 @@ export const LightNavigationTheme: Theme = {
     },
     fonts: {
         regular: {
-            fontFamily: 'System',
+            fontFamily: 'Pacifico-Regular',
             fontWeight: '400'
         },
         medium: {
-            fontFamily: 'System',
+            fontFamily: 'Pacifico-Regular',
             fontWeight: '500'
         },
         bold: {
-            fontFamily: 'System',
+            fontFamily: 'Pacifico-Regular',
             fontWeight: '700'
         },
         heavy: {
-            fontFamily: 'System',
+            fontFamily: 'Pacifico-Regular',
             fontWeight: '900'
         }
     }
@@ -242,19 +242,19 @@ export const DarkNavigationTheme: Theme = {
     },
     fonts: {
         regular: {
-            fontFamily: 'System',
+            fontFamily: 'Pacifico-Regular',
             fontWeight: '400'
         },
         medium: {
-            fontFamily: 'System',
+            fontFamily: 'Pacifico-Regular',
             fontWeight: '500'
         },
         bold: {
-            fontFamily: 'System',
+            fontFamily: 'Pacifico-Regular',
             fontWeight: '700'
         },
         heavy: {
-            fontFamily: 'System',
+            fontFamily: 'Pacifico-Regular',
             fontWeight: '900'
         }
     }
