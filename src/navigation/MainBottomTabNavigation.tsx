@@ -17,12 +17,18 @@ const useMainBottomTabNavigation = (): {
   screenOptions: (props: { theme: ReactNavigation.Theme }) => BottomTabNavigationOptions;
   tabRoutes: MainBottomTabRoute[];
 } => {
-  const { colors } = useThemeStore();
-  const gradientColors = useMemo<string[]>(() => [
-    colors.blue[500],
-    colors.purple[500],
-    colors.red[400]
-  ], [colors]);
+  const { colors, isDark } = useThemeStore();
+  const gradientColors = useMemo<string[]>(() => isDark 
+  ? [
+    colors.amber[100],
+    colors.emerald[200],
+    colors.blue[400],
+  ]
+  : [
+    colors.blue[600],
+    colors.fuchsia[700],
+    colors.rose[600]
+  ], [colors, isDark]);
   const screenOptions = useCallback((props: {
     theme: ReactNavigation.Theme;
   }): BottomTabNavigationOptions => ({
@@ -153,7 +159,7 @@ const useMainBottomTabNavigation = (): {
         ),
       },
     },
-  ], [gradientColors]);
+  ], [gradientColors, isDark]);
 
   return {
     screenOptions,
