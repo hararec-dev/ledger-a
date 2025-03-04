@@ -205,7 +205,7 @@ export const LightNavigationTheme: Theme = {
     colors: {
         primary: colorPalette.warmGray[900],
         background: colorPalette.coolGray[50],
-        text: colorPalette.warmGray[500],
+        text: colorPalette.warmGray[900],
         card: colorPalette.gray[100],
         border: colorPalette.gray[200],
         notification: colorPalette.red[500]
@@ -235,7 +235,7 @@ export const DarkNavigationTheme: Theme = {
     colors: {
         primary: colorPalette.coolGray[50],
         background: colorPalette.warmGray[900],
-        text: colorPalette.coolGray[400],
+        text: colorPalette.coolGray[50],
         card: colorPalette.gray[800],
         border: colorPalette.gray[700],
         notification: colorPalette.red[800]

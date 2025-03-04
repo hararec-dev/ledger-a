@@ -20,13 +20,13 @@ const useMainBottomTabNavigation = (): {
   const { colors, isDark } = useThemeStore();
   const gradientColors = useMemo<string[]>(() => isDark 
   ? [
-    colors.amber[100],
-    colors.emerald[200],
     colors.blue[400],
+    colors.fuchsia[400],
+    colors.rose[400],
   ]
   : [
     colors.blue[600],
-    colors.fuchsia[700],
+    colors.fuchsia[600],
     colors.rose[600]
   ], [colors, isDark]);
   const screenOptions = useCallback((props: {
