@@ -205,26 +205,26 @@ export const LightNavigationTheme: Theme = {
     colors: {
         primary: colorPalette.warmGray[900],
         background: colorPalette.coolGray[50],
-        text: colorPalette.warmGray[600],
+        text: colorPalette.warmGray[900],
         card: colorPalette.gray[100],
         border: colorPalette.gray[200],
         notification: colorPalette.red[500]
     },
     fonts: {
         regular: {
-            fontFamily: 'System',
+            fontFamily: 'Pacifico-Regular',
             fontWeight: '400'
         },
         medium: {
-            fontFamily: 'System',
+            fontFamily: 'Pacifico-Regular',
             fontWeight: '500'
         },
         bold: {
-            fontFamily: 'System',
+            fontFamily: 'Pacifico-Regular',
             fontWeight: '700'
         },
         heavy: {
-            fontFamily: 'System',
+            fontFamily: 'Pacifico-Regular',
             fontWeight: '900'
         }
     }
@@ -235,26 +235,26 @@ export const DarkNavigationTheme: Theme = {
     colors: {
         primary: colorPalette.coolGray[50],
         background: colorPalette.warmGray[900],
-        text: colorPalette.coolGray[400],
+        text: colorPalette.coolGray[50],
         card: colorPalette.gray[800],
         border: colorPalette.gray[700],
         notification: colorPalette.red[800]
     },
     fonts: {
         regular: {
-            fontFamily: 'System',
+            fontFamily: 'Pacifico-Regular',
             fontWeight: '400'
         },
         medium: {
-            fontFamily: 'System',
+            fontFamily: 'Pacifico-Regular',
             fontWeight: '500'
         },
         bold: {
-            fontFamily: 'System',
+            fontFamily: 'Pacifico-Regular',
             fontWeight: '700'
         },
         heavy: {
-            fontFamily: 'System',
+            fontFamily: 'Pacifico-Regular',
             fontWeight: '900'
         }
     }

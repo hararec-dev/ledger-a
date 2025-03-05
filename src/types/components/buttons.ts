@@ -10,11 +10,13 @@ export type CustomIconProps = {
     gradientColors?: string[];
 };
 
-export interface CustomTextProps {
-    text: string;
-    color?: string;
-    gradientColors?: string[];
+export interface CustomFontProps {
     fontSize?: number;
     fontFamily?: string;
     fontWeight?: 'normal' | 'bold' | '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900';
+}
+export interface CustomTextProps extends CustomFontProps {
+    text: string;
+    color?: string;
+    gradientColors?: string[];
 }
