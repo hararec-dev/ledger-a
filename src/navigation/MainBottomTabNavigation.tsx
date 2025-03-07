@@ -74,7 +74,7 @@ const useMainBottomTabNavigation = (): {
         title: 'Cuentas',
         tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
           <CustomIcon
-            name={'bank-outline'}
+            name={'grid-outline'}
             color={color}
             size={26}
             style={{ marginBottom: focused ? 0 : -4 }}
@@ -97,7 +97,7 @@ const useMainBottomTabNavigation = (): {
         title: 'Transacciones',
         tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
           <CustomIcon
-            name={'swap-horizontal-circle-outline'}
+            name={'arrow-redo-outline'}
             color={color}
             size={26}
             style={{ marginBottom: focused ? 0 : -4 }}
@@ -120,7 +120,7 @@ const useMainBottomTabNavigation = (): {
         title: 'Reportes',
         tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
           <CustomIcon
-            name={'chart-bar'}
+            name={'stats-chart-outline'}
             color={color}
             size={26}
             style={{ marginBottom: focused ? 0 : -4 }}
@@ -143,7 +143,7 @@ const useMainBottomTabNavigation = (): {
         title: 'Configuración',
         tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
           <CustomIcon
-            name={'cog-outline'}
+            name={'settings-outline'}
             color={color}
             size={26}
             style={{ marginBottom: focused ? 0 : -4 }}

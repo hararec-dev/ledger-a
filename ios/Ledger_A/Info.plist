@@ -32,10 +32,10 @@
 		<true/>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
+	<string></string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>MaterialCommunityIcons.ttf</string>
+		<string>Ionicons.ttf</string>
 		<string>Nunito-Bold.ttf</string>
 		<string>Nunito-Medium.ttf</string>
 		<string>Nunito-Regular.ttf</string>
