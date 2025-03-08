@@ -20,7 +20,7 @@ export const DashboardScreen = () => {
                     marginBottom: 10,
                 }}>
                 <CustomIcon
-                    name={isDark ? "white-balance-sunny" : "weather-night"}
+                    name={isDark ? "sunny-outline" : "moon-outline"}
                     size={30}
                     color={colors.cyan[500]}
                 />

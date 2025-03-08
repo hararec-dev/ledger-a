@@ -10,7 +10,7 @@ export const CustomText: React.FC<CustomTextProps> = ({
     text,
     fontFamily = 'Pacifico-Regular',
     fontSize = 12,
-    fontWeight = 'bold'
+    fontWeight = '100'
 }) => {
     const [textStyle] = useState<CustomFontProps>({
         fontSize,
