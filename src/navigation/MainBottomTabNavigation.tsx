@@ -18,17 +18,17 @@ const useMainBottomTabNavigation = (): {
   tabRoutes: MainBottomTabRoute[];
 } => {
   const { colors, isDark } = useThemeStore();
-  const gradientColors = useMemo<string[]>(() => isDark 
-  ? [
-    colors.blue[400],
-    colors.fuchsia[400],
-    colors.rose[400],
-  ]
-  : [
-    colors.blue[600],
-    colors.fuchsia[600],
-    colors.rose[600]
-  ], [colors, isDark]);
+  const gradientColors = useMemo<string[]>(() => isDark
+    ? [
+      colors.yellow[300],
+      colors.orange[400],
+      colors.pink[400],
+    ]
+    : [
+      colors.blue[600],
+      colors.purple[600],
+      colors.rose[600]
+    ], [colors, isDark]);
   const screenOptions = useCallback((props: {
     theme: ReactNavigation.Theme;
   }): BottomTabNavigationOptions => ({
@@ -51,7 +51,7 @@ const useMainBottomTabNavigation = (): {
         title: 'Inicio',
         tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
           <CustomIcon
-            name={'home-outline'}
+            name={focused ? 'home' : 'home-outline'}
             color={color}
             size={26}
             style={{ marginBottom: focused ? 0 : -4 }}
@@ -74,7 +74,7 @@ const useMainBottomTabNavigation = (): {
         title: 'Cuentas',
         tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
           <CustomIcon
-            name={'grid-outline'}
+            name={focused ? 'wallet' : 'wallet-outline'}
             color={color}
             size={26}
             style={{ marginBottom: focused ? 0 : -4 }}
@@ -97,7 +97,7 @@ const useMainBottomTabNavigation = (): {
         title: 'Transacciones',
         tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
           <CustomIcon
-            name={'arrow-redo-outline'}
+            name={focused ? 'arrow-redo' : 'arrow-redo-outline'}
             color={color}
             size={26}
             style={{ marginBottom: focused ? 0 : -4 }}
@@ -120,7 +120,7 @@ const useMainBottomTabNavigation = (): {
         title: 'Reportes',
         tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
           <CustomIcon
-            name={'stats-chart-outline'}
+            name={focused ? 'document-text' : 'document-text-outline'}
             color={color}
             size={26}
             style={{ marginBottom: focused ? 0 : -4 }}
@@ -140,10 +140,10 @@ const useMainBottomTabNavigation = (): {
       name: "SettingsTab",
       component: SettingsStackNavigation,
       options: {
-        title: 'Configuración',
+        title: 'Más',
         tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
           <CustomIcon
-            name={'settings-outline'}
+            name={focused ? 'ellipsis-vertical-circle-sharp' : 'ellipsis-vertical-circle-outline'}
             color={color}
             size={26}
             style={{ marginBottom: focused ? 0 : -4 }}
@@ -152,7 +152,7 @@ const useMainBottomTabNavigation = (): {
         ),
         tabBarLabel: ({ color, focused }: { color: string; focused: boolean }) => (
           <CustomText
-            text={'Configuración'}
+            text={'Más'}
             color={!focused ? color : undefined}
             gradientColors={focused ? gradientColors : undefined}
           />
