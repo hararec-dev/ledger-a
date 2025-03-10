@@ -138,7 +138,8 @@ Este proyecto está bajo la Licencia MIT - mira el archivo [LICENSE](LICENSE) pa
 
 ## 👏 Creditos
 
-- Inspirado en la disciplina financiera de John D. Rockefeller
+- _Inspirado en la disciplina financiera inquebrantable de John D. Rockefeller._
+- _Esta app utiliza ilustraciones de [unDraw](https://undraw.co/) bajo licencia MIT, un proyecto de [Katerina Limpitsouni](https://x.com/ninalimpi). Agradecemos su increíble trabajo y contribución a la comunidad de diseño._
 - Diseño UI [Nombre del Diseñador]
 
 </div>

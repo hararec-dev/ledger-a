@@ -1,5 +1,5 @@
-import { AppThemeProvider, HttpProvider, NavigationProvider, SafeProvider } from "./components/providers";
-import { MainBottomTabNavigation } from "./navigation";
+import { AppThemeProvider, HttpProvider, NavigationProvider, SafeProvider } from "./components";
+import { RootStackNavigation } from "./navigation";
 
 export const App = (): React.JSX.Element => {
   return (
@@ -7,7 +7,7 @@ export const App = (): React.JSX.Element => {
       <SafeProvider>
         <AppThemeProvider>
           <NavigationProvider>
-            <MainBottomTabNavigation />
+            <RootStackNavigation />
           </NavigationProvider>
         </AppThemeProvider>
       </SafeProvider>
