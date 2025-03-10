@@ -1,19 +1,10 @@
 import { useState } from 'react';
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
-import type { StackNavigationProp } from '@react-navigation/stack';
+import { Button, Text, TextInput, View } from 'react-native';
 import { useCurrentStatusAppStore, useThemeStore } from '../../hooks';
-import type { RootStackParamList } from '../../types';
+import type { OnboardingSetupProps } from '../../types';
 
-type OnboardingSetupNavigationProp = StackNavigationProp<
-  RootStackParamList,
-  'OnboardingSetup'
->;
 
-type Props = {
-  navigation: OnboardingSetupNavigationProp;
-};
-
-export const OnboardingSetupScreen = ({ navigation }: Props) => {
+export const OnboardingSetupScreen = ({ navigation }: OnboardingSetupProps) => {
   const { colors } = useThemeStore();
   const { setUserCurrency } = useCurrentStatusAppStore();
   const [currency, setCurrency] = useState('MXN');

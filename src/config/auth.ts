@@ -6,11 +6,11 @@ export const AUTH_CONFIG = {
 
 export const AUTH_TEXTS = {
     ERROR_TITLE: 'Error',
-    MAX_ATTEMPTS_MESSAGE: 'You have exceeded the maximum number of attempts. Please try again after 30 seconds.',
+    MAX_ATTEMPTS_MESSAGE: 'Has excedido el número máximo de intentos. Por favor, intenta de nuevo después de 30 segundos.',
     FAILED_ATTEMPT_MESSAGE: (attempts: number, max: number) => 
-        `Failed attempt (${attempts}/${max}). Please try again.`,
-    BIOMETRIC_UNAVAILABLE: 'Biometric authentication is not available on this device.',
+        `Intento fallido (${attempts}/${max}). Por favor, intenta de nuevo.`,
+    BIOMETRIC_UNAVAILABLE: 'La autenticación biométrica no está disponible en este dispositivo.',
     FINGERPRINT_PROMPT: 'Ingresa con tu huella 💸',
-    CANCEL_BUTTON: 'Cancel',
-    USER_SESSION_KEY: 'userSession'
+    CANCEL_BUTTON: 'Cancelar',
+    USER_SESSION_KEY: 'sesionUsuario'
 } as const;

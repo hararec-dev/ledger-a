@@ -1,8 +1,8 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import { AuthenticationScreen, OnboardingAuthSetupScreen, OnboardingCarouselScreen, OnboardingSetupScreen } from '../screens';
 import { MainBottomTabNavigation } from './MainBottomTabNavigation';
-import type { RootStackParamList } from '../types';
 import { useCurrentStatusAppStore } from '../hooks';
+import type { RootStackParamList } from '../types';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
