@@ -9,6 +9,7 @@ export interface LastActivity {
 export interface CurrentStatusAppState {
     hasOnboarded: boolean | null;
     biometricEnabled: boolean | null;
+    pinCode: string | null;
     userCurrency: Currency | null;
     lastActivity: LastActivity | null;
     loadStoredData: () => Promise<void>;
