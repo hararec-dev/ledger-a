@@ -1,11 +1,16 @@
 import { View, Text, Button, ActivityIndicator } from 'react-native';
-import { useAuthentication } from '../../hooks';
-import { useCallback } from 'react';
+import { useAuthAttempts, useAuthentication } from '../../hooks';
+import { useCallback, useEffect } from 'react';
 import type { AuthenticationProps } from '../../types';
 
 
 export const AuthenticationScreen = ({ navigation }: AuthenticationProps) => {
-    const { authenticate, loading, lockout } = useAuthentication();
+    const { lockout, handleFailedAttempt } = useAuthAttempts();
+    const { authenticate, loadingAuth } = useAuthentication(handleFailedAttempt);
+
+    useEffect(() => {
+        handleAuthentication();
+    }, []);
 
     const handleAuthentication = useCallback(async () => {
         const success = await authenticate();
@@ -17,7 +22,7 @@ export const AuthenticationScreen = ({ navigation }: AuthenticationProps) => {
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', padding: 20 }}>
             <Text style={{ marginBottom: 20, fontSize: 18 }}>Autenticación con Touch ID (Offline)</Text>
-            {loading ? (
+            {loadingAuth ? (
                 <ActivityIndicator size="large" color="#0000ff" />
             ) : (
                 <Button title="Iniciar Autenticación" onPress={handleAuthentication} disabled={lockout} />

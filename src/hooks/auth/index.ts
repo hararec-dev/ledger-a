@@ -1,2 +1,2 @@
+export * from './useAuthAttempts';
 export * from './useAuthentication';
-export * from './useBiometrics';

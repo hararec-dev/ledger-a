@@ -1,86 +1,48 @@
-import { useCallback, useEffect, useState } from 'react';
-import { Alert } from 'react-native';
+import { useCallback, useState } from 'react';
 import * as Keychain from 'react-native-keychain';
-import { useBiometrics } from './useBiometrics';
+import { useBiometricStore } from '../store';
 import { AUTH_CONFIG, AUTH_TEXTS } from '../../config';
-import type { AuthenticationState } from '../../types';
 
-
-export const useAuthentication = () => {
-    const {
-        createSignature,
-        checkBiometricAvailability,
-        sensorStatus,
-        biometricKeysExist,
-        createKeys,
-    } = useBiometrics();
-
-    const [state, setState] = useState<AuthenticationState>({
-        attempts: 0,
-        loading: false,
-        lockout: false
-    });
-
-    useEffect(() => {
-        const initializeBiometrics = async () => {
-            try {
-                await checkBiometricAvailability();
-                const keysExist = await biometricKeysExist();
-                if (!keysExist) {
-                    await createKeys();
-                }
-            } catch (error) { }
-        };
-
-        initializeBiometrics();
-    }, [checkBiometricAvailability, biometricKeysExist, createKeys]);
-
-    useEffect(() => {
-        if (state.attempts >= AUTH_CONFIG.MAX_ATTEMPTS) {
-            setState(prev => ({ ...prev, lockout: true }));
-            const timer = setTimeout(() => {
-                setState(prev => ({ ...prev, attempts: 0, lockout: false }));
-            }, AUTH_CONFIG.LOCKOUT_DURATION);
-            return () => clearTimeout(timer);
-        }
-    }, [state.attempts]);
+export const useAuthentication = (handleFailedAttempt?: () => void) => {
+    const { createSignature } = useBiometricStore();
+    const [loadingAuth, setLoadingAuth] = useState(false);
 
     const generateRandomPayload = useCallback((): string => {
         const array = new Uint8Array(AUTH_CONFIG.PAYLOAD_LENGTH);
         if (global.crypto?.getRandomValues) {
             global.crypto.getRandomValues(array);
-        } else {
+            const timestamp = new Date().getTime();
+            const performanceMark = global.performance?.now() || 0;
             for (let i = 0; i < array.length; i++) {
-                array[i] = Math.floor(Math.random() * 256);
+                array[i] = array[i] ^
+                    ((timestamp >> (i % 8)) & 0xFF) ^
+                    ((performanceMark * 1000 >> (i % 8)) & 0xFF);
+            }
+        } else {
+            const timeStamp = new Date().getTime();
+            for (let i = 0; i < array.length; i++) {
+                const random = Math.random();
+                const timeFragment = (timeStamp >> (i % 8)) & 0xFF;
+                const iterationNoise = (i * 13) & 0xFF;
+                array[i] = Math.floor(
+                    (random * 256) ^ timeFragment ^ iterationNoise
+                ) & 0xFF;
             }
         }
         return Array.from(array, byte => byte.toString(16).padStart(2, '0')).join('');
     }, []);
 
-    const storeSessionToken = async (): Promise<void> => {
+    const storeSessionToken = useCallback(async (): Promise<void> => {
         try {
             const token = generateRandomPayload();
             await Keychain.setGenericPassword(AUTH_TEXTS.USER_SESSION_KEY, token);
         } catch (error) {
             throw error;
         }
-    };
+    }, [generateRandomPayload]);
 
-    const handleFailedAttempt = useCallback(() => {
-        const newAttempts = state.attempts + 1;
-        setState(prev => ({ ...prev, attempts: newAttempts }));
-        const message = newAttempts >= AUTH_CONFIG.MAX_ATTEMPTS
-            ? AUTH_TEXTS.MAX_ATTEMPTS_MESSAGE
-            : AUTH_TEXTS.FAILED_ATTEMPT_MESSAGE(newAttempts, AUTH_CONFIG.MAX_ATTEMPTS);
-        Alert.alert(AUTH_TEXTS.ERROR_TITLE, message);
-    }, [state.attempts]);
-
-    const authenticate = async (): Promise<boolean> => {
-        if (!sensorStatus?.available) {
-            Alert.alert(AUTH_TEXTS.ERROR_TITLE, AUTH_TEXTS.BIOMETRIC_UNAVAILABLE);
-            return false;
-        }
-        setState(prev => ({ ...prev, loading: true }));
+    const authenticate = useCallback(async (): Promise<boolean> => {
+        setLoadingAuth(true);
         try {
             const randomPayload = generateRandomPayload();
             const { success } = await createSignature({
@@ -92,19 +54,24 @@ export const useAuthentication = () => {
                 await storeSessionToken();
                 return true;
             }
-            handleFailedAttempt();
+            if (handleFailedAttempt) handleFailedAttempt();
             return false;
         } catch (error) {
-            handleFailedAttempt();
+            if (handleFailedAttempt) handleFailedAttempt();
             return false;
         } finally {
-            setState(prev => ({ ...prev, loading: false }));
+            setLoadingAuth(false);
         }
-    };
+    }, [
+        generateRandomPayload,
+        storeSessionToken,
+        createSignature,
+        handleFailedAttempt,
+        setLoadingAuth
+    ]);
 
     return {
         authenticate,
-        loading: state.loading,
-        lockout: state.lockout
+        loadingAuth,
     };
 };
