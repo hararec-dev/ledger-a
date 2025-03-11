@@ -1,15 +1,23 @@
-import { AppThemeProvider, HttpProvider, NavigationProvider, SafeProvider } from "./components";
 import { RootStackNavigation } from "./navigation";
+import {
+  AppThemeProvider,
+  BiometricAuthProvider,
+  HttpProvider,
+  NavigationProvider,
+  SafeProvider,
+} from "./components";
 
 export const App = (): React.JSX.Element => {
   return (
     <HttpProvider>
       <SafeProvider>
-        <AppThemeProvider>
-          <NavigationProvider>
-            <RootStackNavigation />
-          </NavigationProvider>
-        </AppThemeProvider>
+        <BiometricAuthProvider>
+          <AppThemeProvider>
+            <NavigationProvider>
+              <RootStackNavigation />
+            </NavigationProvider>
+          </AppThemeProvider>
+        </BiometricAuthProvider>
       </SafeProvider>
     </HttpProvider>
   );
