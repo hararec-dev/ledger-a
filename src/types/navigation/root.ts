@@ -1,5 +1,5 @@
 export type RootStackParamList = {
-    OnboardingCarousel: undefined;
+    OnboardingSlides: undefined;
     OnboardingSetup: undefined;
     OnboardingAuthSetup: undefined;
     Authentication: undefined;

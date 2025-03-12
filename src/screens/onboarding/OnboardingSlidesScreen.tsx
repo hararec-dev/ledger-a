@@ -5,7 +5,7 @@ import type { OnboardingCarouselProps } from '../../types';
 
 const { width } = Dimensions.get('window');
 
-export const OnboardingCarouselScreen = ({ navigation }: OnboardingCarouselProps) => {
+export const OnboardingSlidesScreen = ({ navigation }: OnboardingCarouselProps) => {
     const { colors } = useThemeStore();
     const slides = [
         'Bienvenido a FinanApp',
