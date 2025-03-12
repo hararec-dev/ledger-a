@@ -1,19 +1,10 @@
-import { View, Text, Alert, TouchableOpacity, TextInput } from 'react-native';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { useCurrentStatusAppStore, useThemeStore } from '../../hooks';
-import type { RootStackParamList } from '../../types';
 import { useState } from 'react';
+import { View, Text, Alert, TouchableOpacity, TextInput } from 'react-native';
+import { useCurrentStatusAppStore, useThemeStore } from '../../hooks';
+import type { OnboardingAuthSetupProps } from '../../types';
 
-type OnboardingAuthSetupNavigationProp = StackNavigationProp<
-    RootStackParamList,
-    'OnboardingAuthSetup'
->;
 
-type Props = {
-    navigation: OnboardingAuthSetupNavigationProp;
-};
-
-export const OnboardingAuthSetupScreen = ({ navigation }: Props) => {
+export const OnboardingAuthSetupScreen = ({ navigation }: OnboardingAuthSetupProps) => {
     const { colors } = useThemeStore();
     const [pin, setPin] = useState('');
     const [confirmPin, setConfirmPin] = useState('');

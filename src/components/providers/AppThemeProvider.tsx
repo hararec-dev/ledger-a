@@ -1,61 +1,49 @@
-import { useEffect, useMemo, useState } from 'react';
-import { Platform, StatusBar, useColorScheme } from 'react-native';
-import { lightColors, createTheme, ThemeProvider, darkColors } from '@rneui/themed';
-import { useThemeStore } from '../../hooks';
+import { useMemo } from 'react';
+import { Platform, StatusBar } from 'react-native';
+import { createTheme, darkColors, lightColors, ThemeProvider } from '@rneui/themed';
+import { useAsyncStorageLoad } from '../../hooks';
 import type { AppThemeProviderProps } from '../../types';
 
 
 export const AppThemeProvider = ({ children }: AppThemeProviderProps) => {
-  const colorScheme = useColorScheme();
-  const { loadTheme, currentTheme, isDark, colors } = useThemeStore();
-  const [isThemeLoaded, setIsThemeLoaded] = useState(false);
-
-  useEffect(() => {
-    const initTheme = async () => {
-      await loadTheme();
-      setIsThemeLoaded(true);
-    };
-
-    initTheme();
-  }, [colorScheme]);
-
+  const { isLoaded, isDark, colors, currentTheme } = useAsyncStorageLoad();
   const theme = useMemo(() => createTheme({
     lightColors: {
-      ...Platform.select({
-        android: lightColors.platform.android,
-        ios: lightColors.platform.ios,
-      }),
+        ...Platform.select({
+            android: lightColors.platform.android,
+            ios: lightColors.platform.ios,
+        }),
     },
     darkColors: {
-      ...Platform.select({
-        android: darkColors.platform.android,
-        ios: darkColors.platform.ios,
-      }),
+        ...Platform.select({
+            android: darkColors.platform.android,
+            ios: darkColors.platform.ios,
+        }),
     },
     components: {
-      Button: {
-        titleStyle: {
-          color: 'red',
+        Button: {
+            titleStyle: {
+                color: 'red',
+            },
         },
-      },
     },
     mode: currentTheme || 'light',
     spacing: {
-      xs: 4,
-      sm: 8,
-      md: 16,
-      lg: 24,
-      xl: 40,
+        xs: 4,
+        sm: 8,
+        md: 16,
+        lg: 24,
+        xl: 40,
     },
-  }), [currentTheme]);
+}), [currentTheme]);
 
-  return !isThemeLoaded
+  return !isLoaded
     ? null
     : (
       <ThemeProvider theme={theme}>
         <StatusBar
           barStyle={isDark ? 'light-content' : 'dark-content'}
-          backgroundColor={isDark ? colors.warmGray[900]: colors.coolGray[50]}
+          backgroundColor={isDark ? colors.warmGray[900] : colors.coolGray[50]}
         />
         {children}
       </ThemeProvider>

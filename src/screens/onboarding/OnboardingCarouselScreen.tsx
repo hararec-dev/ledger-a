@@ -1,20 +1,11 @@
 import { View, Text, Button, ScrollView, Dimensions } from 'react-native';
-import type { StackNavigationProp } from '@react-navigation/stack';
-import type { RootStackParamList } from '../../types';
 import { useThemeStore } from '../../hooks';
+import type { OnboardingCarouselProps } from '../../types';
 
-type OnboardingCarouselNavigationProp = StackNavigationProp<
-    RootStackParamList,
-    'OnboardingCarousel'
->;
-
-type Props = {
-    navigation: OnboardingCarouselNavigationProp;
-};
 
 const { width } = Dimensions.get('window');
 
-export const OnboardingCarouselScreen = ({ navigation }: Props) => {
+export const OnboardingCarouselScreen = ({ navigation }: OnboardingCarouselProps) => {
     const { colors } = useThemeStore();
     const slides = [
         'Bienvenido a FinanApp',

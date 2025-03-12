@@ -1,31 +1,28 @@
 import { View, Text, Button, ActivityIndicator } from 'react-native';
-import type { StackNavigationProp } from '@react-navigation/stack';
-import { useAuthentication } from '../../hooks';
-import type { RootStackParamList } from '../../types';
+import { useAuthAttempts, useAuthentication } from '../../hooks';
+import { useCallback, useEffect } from 'react';
+import type { AuthenticationProps } from '../../types';
 
-type AuthenticationScreenNavigationProp = StackNavigationProp<
-    RootStackParamList,
-    'Authentication'
->;
 
-type Props = {
-    navigation: AuthenticationScreenNavigationProp;
-};
+export const AuthenticationScreen = ({ navigation }: AuthenticationProps) => {
+    const { lockout, handleFailedAttempt } = useAuthAttempts();
+    const { authenticate, loadingAuth } = useAuthentication(handleFailedAttempt);
 
-export const AuthenticationScreen = ({ navigation }: Props) => {
-    const { authenticate, loading, lockout } = useAuthentication();
+    useEffect(() => {
+        handleAuthentication();
+    }, []);
 
-    const handleAuthentication = async () => {
+    const handleAuthentication = useCallback(async () => {
         const success = await authenticate();
         if (success) {
             navigation.replace('MainNavigation');
         }
-    };
+    }, [authenticate, navigation]);
 
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', padding: 20 }}>
             <Text style={{ marginBottom: 20, fontSize: 18 }}>Autenticación con Touch ID (Offline)</Text>
-            {loading ? (
+            {loadingAuth ? (
                 <ActivityIndicator size="large" color="#0000ff" />
             ) : (
                 <Button title="Iniciar Autenticación" onPress={handleAuthentication} disabled={lockout} />
