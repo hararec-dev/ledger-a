@@ -1,7 +1,7 @@
 /* Colors obtained from https://v2.tailwindcss.com/docs/customizing-colors */
 
 import type { Theme } from "@react-navigation/native";
-import type { FullColorPallete } from "../types";
+import type { FullColorPallete, RneuiPlatformColors } from "../types";
 
 export const colorPalette: FullColorPallete = {
     blueGray: {
@@ -198,6 +198,26 @@ export const colorPalette: FullColorPallete = {
         400: "#FB7185", 500: "#F43F5E", 600: "#E11D48", 700: "#BE123C",
         800: "#9F1239", 900: "#881337"
     }
+};
+
+export const rneuiLightColors: RneuiPlatformColors = {
+    primary: colorPalette.fuchsia[600],
+    secondary: colorPalette.indigo[500],
+    grey: colorPalette.coolGray[400],
+    searchBg: colorPalette.coolGray[100],
+    success: colorPalette.green[500],
+    error: colorPalette.red[500],
+    warning: colorPalette.amber[500]
+};
+
+export const rneuiDarkColors: RneuiPlatformColors = {
+    primary: colorPalette.fuchsia[500],
+    secondary: colorPalette.indigo[300],
+    grey: colorPalette.coolGray[500],
+    searchBg: colorPalette.coolGray[800],
+    success: colorPalette.green[400],
+    error: colorPalette.red[400],
+    warning: colorPalette.amber[400]
 };
 
 export const LightNavigationTheme: Theme = {

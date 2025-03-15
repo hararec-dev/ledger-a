@@ -6,36 +6,43 @@ import type { AppThemeProviderProps } from '../../types';
 
 
 export const AppThemeProvider = ({ children }: AppThemeProviderProps) => {
-  const { isLoaded, isDark, colors, currentTheme } = useAsyncStorageLoad();
+  const {
+    isLoaded,
+    isDark,
+    colors,
+    currentTheme,
+    rneuiDarkColors,
+    rneuiLightColors
+  } = useAsyncStorageLoad();
   const theme = useMemo(() => createTheme({
     lightColors: {
-        ...Platform.select({
-            android: lightColors.platform.android,
-            ios: lightColors.platform.ios,
-        }),
+      ...Platform.select({
+        android: rneuiLightColors,
+        ios: rneuiLightColors,
+      }),
     },
     darkColors: {
-        ...Platform.select({
-            android: darkColors.platform.android,
-            ios: darkColors.platform.ios,
-        }),
+      ...Platform.select({
+        android: rneuiDarkColors,
+        ios: rneuiDarkColors,
+      }),
     },
     components: {
-        Button: {
-            titleStyle: {
-                color: 'red',
-            },
+      Button: {
+        titleStyle: {
+          color: 'red',
         },
+      },
     },
     mode: currentTheme || 'light',
     spacing: {
-        xs: 4,
-        sm: 8,
-        md: 16,
-        lg: 24,
-        xl: 40,
+      xs: 4,
+      sm: 8,
+      md: 16,
+      lg: 24,
+      xl: 40,
     },
-}), [currentTheme]);
+  }), [currentTheme]);
 
   return !isLoaded
     ? null
