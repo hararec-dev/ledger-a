@@ -1,4 +1,4 @@
-import type { StyleProp, ViewStyle } from "react-native";
+import type { StyleProp, TextStyle, ViewStyle } from "react-native";
 
 export type CustomIconProps = {
     name: string;
@@ -19,4 +19,5 @@ export interface CustomTextProps extends CustomFontProps {
     text: string;
     color?: string;
     gradientColors?: string[];
+    style?: StyleProp<TextStyle>;
 }

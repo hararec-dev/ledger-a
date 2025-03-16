@@ -1,6 +1,6 @@
 import { useCallback, useRef, useState } from "react";
 import { FlatList, NativeScrollEvent, NativeSyntheticEvent, useWindowDimensions, View } from "react-native";
-import { OnboardingButtons, PaginationDots, SlideItem } from "../../components";
+import { PaginationButtons, PaginationDots, SlideItem } from "../../components";
 import { useOnboardingSlides, useThemeStore } from "../../hooks";
 import type { OnboardingSlidesProps, Slide } from "../../types";
 
@@ -44,11 +44,18 @@ export const OnboardingSlidesScreen: React.FC<OnboardingSlidesProps> = ({ naviga
             <PaginationDots
                 currentIndex={currentSlideIndex}
                 numberOfIndexes={slides.length}
+                style={{ flex: 1, width }}
             />
-            <OnboardingButtons
+            <PaginationButtons
                 currentIndex={currentSlideIndex}
+                numberOfIndexes={slides.length}
                 onNext={scrollToSlide}
                 onNavigate={navigation.navigate}
+                style={{
+                    flex: 1,
+                    paddingHorizontal: width * 0.3,
+                    paddingBottom: height * 0.05,
+                }}
             />
         </View>
     );

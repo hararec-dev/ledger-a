@@ -1,3 +1,3 @@
-export * from './OnboardingButtons';
+export * from './PaginationButtons';
 export * from './PaginationDots';
 export * from './SlideItem';
