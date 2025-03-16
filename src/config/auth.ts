@@ -10,7 +10,7 @@ export const AUTH_TEXTS = {
     FAILED_ATTEMPT_MESSAGE: (attempts: number, max: number) =>
         `Intento fallido (${attempts}/${max}). Por favor, intenta de nuevo.`,
     BIOMETRIC_UNAVAILABLE: 'La autenticación biométrica no está disponible en este dispositivo.',
-    FINGERPRINT_PROMPT: 'Ingresa con tu huella 💸',
+    FINGERPRINT_PROMPT: 'Ingresa con tu huella 💸✨',
     CANCEL_BUTTON: 'Cancelar',
     USER_SESSION_KEY: 'sesionUsuario'
 } as const;

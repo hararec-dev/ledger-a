@@ -10,13 +10,13 @@ export type OnboardingAuthSetupProps = {
     navigation: OnboardingAuthSetupNavigationProp;
 };
 
-export type OnboardingCarouselNavigationProp = StackNavigationProp<
+export type OnboardingSlidesNavigationProp = StackNavigationProp<
     RootStackParamList,
-    'OnboardingCarousel'
+    'OnboardingSlides'
 >;
 
-export type OnboardingCarouselProps = {
-    navigation: OnboardingCarouselNavigationProp;
+export type OnboardingSlidesProps = {
+    navigation: OnboardingSlidesNavigationProp;
 };
 
 export type OnboardingSetupNavigationProp = StackNavigationProp<
