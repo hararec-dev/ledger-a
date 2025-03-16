@@ -1,8 +1,8 @@
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Platform } from "react-native";
 import { FAB } from "@rneui/themed";
-import type { PaginationButtonsProps } from "../../types";
 import { useThemeStore } from "../../hooks";
-import { Platform } from "react-native";
+import { PAGINATION_BUTTONS_CONFIG } from "../../config";
+import type { PaginationButtonsProps } from "../../types";
 
 
 export const PaginationButtons: React.FC<PaginationButtonsProps> = ({
@@ -22,14 +22,16 @@ export const PaginationButtons: React.FC<PaginationButtonsProps> = ({
         ]}>
             <FAB
                 icon={{
-                    name: 'golf-outline',
-                    type: 'ionicon',
-                    color: 'white',
+                    name: PAGINATION_BUTTONS_CONFIG.ICONS.START,
+                    type: PAGINATION_BUTTONS_CONFIG.ICON_TYPE,
+                    color: PAGINATION_BUTTONS_CONFIG.ICON_COLOR,
                 }}
-                title="Empezar"
-                size='large'
+                title={PAGINATION_BUTTONS_CONFIG.BUTTON_TITLES.START}
+                size={PAGINATION_BUTTONS_CONFIG.ICON_SIZE}
                 color={colors.fuchsia[600]}
-                onPress={() => onNavigate('OnboardingSetup')}
+                onPress={() => onNavigate(PAGINATION_BUTTONS_CONFIG.NAVIGATION.SETUP)}
+                buttonStyle={styles.fabButton}
+                titleStyle={styles.fabTitle}
             />
         </View>
     );
@@ -43,13 +45,16 @@ export const PaginationButtons: React.FC<PaginationButtonsProps> = ({
                 ]}>
                     <FAB
                         icon={{
-                            name: 'arrow-back-circle-outline',
-                            type: 'ionicon',
-                            color: 'white',
+                            name: PAGINATION_BUTTONS_CONFIG.ICONS.PREVIOUS,
+                            type: PAGINATION_BUTTONS_CONFIG.ICON_TYPE,
+                            color: PAGINATION_BUTTONS_CONFIG.ICON_COLOR,
                         }}
-                        size='large'
+                        size={PAGINATION_BUTTONS_CONFIG.ICON_SIZE}
+                        title={PAGINATION_BUTTONS_CONFIG.BUTTON_TITLES.PREVIOUS}
                         color={colors.fuchsia[600]}
                         onPress={() => onNext(currentIndex - 1)}
+                        buttonStyle={styles.fabButton}
+                        titleStyle={styles.fabTitle}
                     />
                 </View>
             )}
@@ -60,13 +65,16 @@ export const PaginationButtons: React.FC<PaginationButtonsProps> = ({
             ]}>
                 <FAB
                     icon={{
-                        name: 'arrow-forward-circle-outline',
-                        type: 'ionicon',
-                        color: 'white',
+                        name: PAGINATION_BUTTONS_CONFIG.ICONS.NEXT,
+                        type: PAGINATION_BUTTONS_CONFIG.ICON_TYPE,
+                        color: PAGINATION_BUTTONS_CONFIG.ICON_COLOR,
                     }}
-                    size='large'
+                    size={PAGINATION_BUTTONS_CONFIG.ICON_SIZE}
+                    title={PAGINATION_BUTTONS_CONFIG.BUTTON_TITLES.NEXT}
                     color={colors.fuchsia[600]}
                     onPress={() => onNext(currentIndex + 1)}
+                    buttonStyle={styles.fabButton}
+                    titleStyle={styles.fabTitle}
                 />
             </View>
         </>
@@ -87,6 +95,7 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         alignItems: 'center',
+        columnGap: 10,
     },
     centeredContainer: {
         justifyContent: 'center',
@@ -100,8 +109,18 @@ const styles = StyleSheet.create({
     buttonContainer: {
         borderRadius: 50,
         overflow: 'hidden',
+        height: '80%',
     },
     androidShadow: {
         shadowColor: '#000',
+    },
+    fabButton: {
+        height: '100%',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    fabTitle: {
+        marginTop: 0,
+        lineHeight: Platform.OS === 'ios' ? 0 : undefined,
     }
 });
