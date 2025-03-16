@@ -1,5 +1,5 @@
 import { createStackNavigator } from '@react-navigation/stack';
-import { AuthenticationScreen, OnboardingAuthSetupScreen, OnboardingCarouselScreen, OnboardingSetupScreen } from '../screens';
+import { AuthenticationScreen, OnboardingAuthSetupScreen, OnboardingSlidesScreen, OnboardingSetupScreen } from '../screens';
 import { MainBottomTabNavigation } from './MainBottomTabNavigation';
 import { useCurrentStatusAppStore } from '../hooks';
 import type { RootStackParamList } from '../types';
@@ -14,8 +14,8 @@ export const RootStackNavigation: React.FC = () => {
             {!hasOnboarded ? (
                 <>
                     <Stack.Screen
-                        name="OnboardingCarousel"
-                        component={OnboardingCarouselScreen}
+                        name="OnboardingSlides"
+                        component={OnboardingSlidesScreen}
                     />
                     <Stack.Screen
                         name="OnboardingSetup"

@@ -4,9 +4,16 @@ import { useCurrentStatusAppStore, useThemeStore } from "../store";
 
 export const useAsyncStorageLoad = () => {
     const colorScheme = useColorScheme();
-    const { loadTheme, currentTheme, isDark, colors } = useThemeStore();
     const [isThemeLoaded, setIsThemeLoaded] = useState(false);
     const [isStoredDataLoaded, setIsStoredDataLoaded] = useState(false);
+    const {
+        loadTheme,
+        currentTheme,
+        isDark,
+        colors,
+        rneuiDarkColors,
+        rneuiLightColors
+    } = useThemeStore();
     const {
         loadStoredData,
         biometricEnabled,
@@ -39,5 +46,7 @@ export const useAsyncStorageLoad = () => {
         isDark,
         colors,
         currentTheme,
+        rneuiDarkColors,
+        rneuiLightColors,
     };
 };

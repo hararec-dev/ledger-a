@@ -35,3 +35,13 @@ export interface FullColorPallete {
     pink: ColorShades;
     rose: ColorShades;
 }
+
+export interface RneuiPlatformColors {
+    primary: string;
+    secondary: string;
+    grey: string;
+    searchBg: string;
+    success: string;
+    error: string;
+    warning: string;
+}

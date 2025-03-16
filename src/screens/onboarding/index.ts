@@ -1,3 +1,3 @@
 export * from './OnboardingAuthSetupScreen';
-export * from './OnboardingCarouselScreen';
+export * from './OnboardingSlidesScreen';
 export * from './OnboardingSetupScreen';

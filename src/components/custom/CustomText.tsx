@@ -10,7 +10,8 @@ export const CustomText: React.FC<CustomTextProps> = ({
     text,
     fontFamily = 'Pacifico-Regular',
     fontSize = 12,
-    fontWeight = '100'
+    fontWeight = '100',
+    style,
 }) => {
     const [textStyle] = useState<CustomFontProps>({
         fontSize,
@@ -22,7 +23,7 @@ export const CustomText: React.FC<CustomTextProps> = ({
         ? (
             <MaskedView
                 maskElement={
-                    <Text style={textStyle}>
+                    <Text style={[textStyle, style]}>
                         {text}
                     </Text>
                 }
@@ -32,14 +33,14 @@ export const CustomText: React.FC<CustomTextProps> = ({
                     start={{ x: 0, y: 0 }}
                     end={{ x: 1, y: 0 }}
                 >
-                    <Text style={{ ...textStyle, opacity: 0 }}>
+                    <Text style={[{ ...textStyle, opacity: 0 }, style]}>
                         {text}
                     </Text>
                 </LinearGradient>
             </MaskedView>
         )
         : (
-            <Text style={{ ...textStyle, color: color || '#000' }}>
+            <Text style={[{ ...textStyle, color: color || '#000' }, style]}>
                 {text}
             </Text>
         );

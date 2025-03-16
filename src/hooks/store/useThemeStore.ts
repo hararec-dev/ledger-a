@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { colorPalette } from '../../config';
+import { colorPalette, rneuiDarkColors, rneuiLightColors } from '../../config';
 import type { ThemeColor, ThemeState } from '../../types';
 
 const THEME_STORAGE_KEY = 'app-theme';
@@ -9,6 +9,8 @@ export const useThemeStore = create<ThemeState>((set, get) => ({
     currentTheme: 'light',
     isDark: false,
     colors: colorPalette,
+    rneuiDarkColors,
+    rneuiLightColors,
     loadTheme: async () => {
         try {
             const storedTheme = await AsyncStorage.getItem(THEME_STORAGE_KEY);
