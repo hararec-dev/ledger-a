@@ -13,7 +13,7 @@ export const PaginationDots: React.FC<PaginationDotsProps> = ({
         <View style={[{
             flexDirection: 'row',
             justifyContent: 'center',
-            alignItems: 'center',
+            alignItems: currentIndex === numberOfIndexes - 1 ? 'flex-start' : 'center',
         }, style]}>
             {new Array(numberOfIndexes).fill(undefined).map((_, index) => (
                 <View

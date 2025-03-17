@@ -1,8 +1,8 @@
-import { useCallback, useRef, useState } from "react";
-import { FlatList, NativeScrollEvent, NativeSyntheticEvent, useWindowDimensions, View } from "react-native";
-import { PaginationButtons, PaginationDots, SlideItem } from "../../components";
-import { useOnboardingSlides, useThemeStore } from "../../hooks";
-import type { OnboardingSlidesProps, Slide } from "../../types";
+import { useCallback, useRef, useState } from 'react';
+import { FlatList, NativeScrollEvent, NativeSyntheticEvent, useWindowDimensions, View } from 'react-native';
+import { PaginationButtons, PaginationDots, SlideItem } from '../../components';
+import { useOnboardingSlides, useThemeStore } from '../../hooks';
+import type { OnboardingSlidesProps, Slide } from '../../types';
 
 export const OnboardingSlidesScreen: React.FC<OnboardingSlidesProps> = ({ navigation }) => {
     const { colors } = useThemeStore();
