@@ -1,3 +1,4 @@
+import type { RouteProp } from "@react-navigation/native";
 import type { StackNavigationOptions } from "@react-navigation/stack";
 
 export type TransactionsStackParamList = {
@@ -6,6 +7,10 @@ export type TransactionsStackParamList = {
     TransactionDetails: {
         transactionId: string;
     };
+};
+
+export type TransactionDetailsProps = {
+    route: RouteProp<TransactionsStackParamList, "TransactionDetails">;
 };
 
 export interface TransactionsStackRoute {

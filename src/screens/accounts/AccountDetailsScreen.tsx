@@ -1,9 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native';
+import type { AccountDetailsProps } from '../../types';
 
-export const AccountDetailsScreen = () => {
+
+export const AccountDetailsScreen: React.FC<AccountDetailsProps> = ({ route }) => {
     return (
         <View style={styles.container}>
-            <Text>AccountDetailsScreen</Text>
+            <Text>AccountDetailsScreen - {route.params.accountId}</Text>
             <View style={styles.box1} />
             <View style={styles.box2} />
             <View style={styles.box3} />
