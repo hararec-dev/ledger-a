@@ -5,25 +5,28 @@ import type { Currency, CurrentStatusAppState, LastActivity } from '../../types'
 
 
 export const useCurrentStatusAppStore = create<CurrentStatusAppState>((set, get) => ({
-    hasOnboarded: null,
     biometricEnabled: null,
-    userCurrency: null,
-    pinCode: null,
+    hasOnboarded: null,
     lastActivity: null,
+    pinCode: null,
+    userCurrency: null,
+    legalConditionsAreAccepted: false,
     loadStoredData: async () => {
         try {
             const storedData = await AsyncStorage.multiGet([
-                CURRENT_STATUS_APP_KEYS.HAS_ONBOARDED,
                 CURRENT_STATUS_APP_KEYS.BIOMETRIC_ENABLED,
-                CURRENT_STATUS_APP_KEYS.USER_CURRENCY,
+                CURRENT_STATUS_APP_KEYS.HAS_ONBOARDED,
                 CURRENT_STATUS_APP_KEYS.LAST_ACTIVITY,
+                CURRENT_STATUS_APP_KEYS.LEGAL_CONDITIONS,
+                CURRENT_STATUS_APP_KEYS.USER_CURRENCY,
             ]);
-            const [onboarded, biometric, userCurrency, lastActivity] = storedData;
+            const [biometric, onboarded, lastActivity, legalConditions, userCurrency] = storedData;
             set({
-                hasOnboarded: onboarded[1] === 'true',
                 biometricEnabled: biometric[1] === 'true',
-                userCurrency: userCurrency[1] ? userCurrency[1] as Currency : null,
+                hasOnboarded: onboarded[1] === 'true',
                 lastActivity: lastActivity[1] ? JSON.parse(lastActivity[1]) as LastActivity : null,
+                legalConditionsAreAccepted: legalConditions[1] === 'true',
+                userCurrency: userCurrency[1] ? userCurrency[1] as Currency : null,
             });
         } catch (error) { }
     },
@@ -43,6 +46,12 @@ export const useCurrentStatusAppStore = create<CurrentStatusAppState>((set, get)
         try {
             await AsyncStorage.setItem(CURRENT_STATUS_APP_KEYS.BIOMETRIC_ENABLED, String(enabled));
             set({ biometricEnabled: enabled });
+        } catch (error) { }
+    },
+    setLegalConditionsAreAccepted: async (isAccepted: boolean) => {
+        try {
+            await AsyncStorage.setItem(CURRENT_STATUS_APP_KEYS.LEGAL_CONDITIONS, String(isAccepted));
+            set({ legalConditionsAreAccepted: isAccepted });
         } catch (error) { }
     },
     setLastActivity: async (activity: LastActivity) => {
