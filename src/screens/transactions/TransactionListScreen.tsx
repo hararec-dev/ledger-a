@@ -1,12 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native';
+import { TimelineExample } from '../../components';
 
 export const TransactionListScreen = () => {
     return (
         <View style={styles.container}>
-            <Text>TransactionListScreen</Text>
-            <View style={styles.box1} />
-            <View style={styles.box2} />
-            <View style={styles.box3} />
+            <TimelineExample />
 
         </View>
     );
@@ -16,7 +14,7 @@ export const TransactionListScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'gray',
+        backgroundColor: 'blue',
     },
     box1: {
         backgroundColor: '#5856D6',
