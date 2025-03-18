@@ -1,9 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native';
+import type { TransferProps } from '../../types';
 
-export const TransferScreen = () => {
+export const TransferScreen: React.FC<TransferProps> = ({ route }) => {
     return (
         <View style={styles.container}>
-            <Text>TransferScreen</Text>
+            <Text>TransferScreen - {route.params.fromAccountId}</Text>
             <View style={styles.box1} />
             <View style={styles.box2} />
             <View style={styles.box3} />

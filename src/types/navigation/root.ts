@@ -1,7 +1,12 @@
+export type TypeLegalInfo = 'terms' | 'privacy';
+
 export type RootStackParamList = {
-    OnboardingSlides: undefined;
-    OnboardingSetup: undefined;
-    OnboardingAuthSetup: undefined;
     Authentication: undefined;
+    LegalInfo: {
+        typeInfo: TypeLegalInfo;
+    };
     MainNavigation: undefined;
+    OnboardingAuthSetup: undefined;
+    OnboardingSetup: undefined;
+    OnboardingSlides: undefined;
 };

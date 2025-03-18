@@ -1,3 +1,4 @@
+import type { RouteProp } from "@react-navigation/native";
 import type { StackNavigationOptions } from "@react-navigation/stack";
 
 export type AccountsStackParamList = {
@@ -8,6 +9,14 @@ export type AccountsStackParamList = {
     Transfer: {
         fromAccountId?: string;
     };
+};
+
+export type TransferProps = {
+    route: RouteProp<AccountsStackParamList, "Transfer">;
+};
+
+export type AccountDetailsProps = {
+    route: RouteProp<AccountsStackParamList, "AccountDetails">;
 };
 
 export type AccountsStackRoute = {

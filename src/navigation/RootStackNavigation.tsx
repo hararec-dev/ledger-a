@@ -1,5 +1,11 @@
 import { createStackNavigator } from '@react-navigation/stack';
-import { AuthenticationScreen, OnboardingAuthSetupScreen, OnboardingSlidesScreen, OnboardingSetupScreen } from '../screens';
+import {
+    AuthenticationScreen,
+    LegalInfoScreen,
+    OnboardingAuthSetupScreen,
+    OnboardingSetupScreen,
+    OnboardingSlidesScreen,
+} from '../screens';
 import { MainBottomTabNavigation } from './MainBottomTabNavigation';
 import { useCurrentStatusAppStore } from '../hooks';
 import type { RootStackParamList } from '../types';
@@ -24,6 +30,10 @@ export const RootStackNavigation: React.FC = () => {
                     <Stack.Screen
                         name="OnboardingAuthSetup"
                         component={OnboardingAuthSetupScreen}
+                    />
+                    <Stack.Screen
+                        name="LegalInfo"
+                        component={LegalInfoScreen}
                     />
                 </>
             ) : (

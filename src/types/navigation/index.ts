@@ -1,6 +1,7 @@
 export * from './accounts';
 export * from './auth';
 export * from './dashboard';
+export * from './legal';
 export * from './main';
 export * from './onboarding';
 export * from './reports';

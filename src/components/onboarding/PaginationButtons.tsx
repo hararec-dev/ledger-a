@@ -1,6 +1,7 @@
 import { View, StyleSheet, Platform } from "react-native";
-import { FAB } from "@rneui/themed";
-import { useThemeStore } from "../../hooks";
+import { LegalAcceptanceFooter } from "./LegalAcceptanceFooter";
+import { PaginationFAB } from "./PaginationFAB";
+import { useCurrentStatusAppStore, useThemeStore } from "../../hooks";
 import { PAGINATION_BUTTONS_CONFIG } from "../../config";
 import type { PaginationButtonsProps } from "../../types";
 
@@ -14,25 +15,25 @@ export const PaginationButtons: React.FC<PaginationButtonsProps> = ({
 }) => {
     const isLastPage = currentIndex === numberOfIndexes - 1;
     const { colors } = useThemeStore();
+    const { legalConditionsAreAccepted } = useCurrentStatusAppStore();
 
     const renderFinishButton = () => (
         <View style={[
-            styles.buttonContainer,
-            Platform.OS === 'android' && styles.androidShadow
+            Platform.OS === 'android' && styles.androidShadow,
+            styles.finishButtonContainer
         ]}>
-            <FAB
-                icon={{
-                    name: PAGINATION_BUTTONS_CONFIG.ICONS.START,
-                    type: PAGINATION_BUTTONS_CONFIG.ICON_TYPE,
-                    color: PAGINATION_BUTTONS_CONFIG.ICON_COLOR,
-                }}
-                title={PAGINATION_BUTTONS_CONFIG.BUTTON_TITLES.START}
-                size={PAGINATION_BUTTONS_CONFIG.ICON_SIZE}
-                color={colors.fuchsia[600]}
-                onPress={() => onNavigate(PAGINATION_BUTTONS_CONFIG.NAVIGATION.SETUP)}
-                buttonStyle={styles.fabButton}
-                titleStyle={styles.fabTitle}
-            />
+            <View style={styles.finishButtonWrapper}>
+                <PaginationFAB
+                    icon={PAGINATION_BUTTONS_CONFIG.ICONS.START}
+                    title={PAGINATION_BUTTONS_CONFIG.BUTTON_TITLES.START}
+                    onPress={() => onNavigate(PAGINATION_BUTTONS_CONFIG.NAVIGATION.SETUP)}
+                    colors={colors}
+                    disabled={!legalConditionsAreAccepted}
+                    disabledStyle={[{ backgroundColor: colors.fuchsia[300] }, styles.fabButton]}
+                    disabledTitleStyle={[{ color: colors.coolGray[200] }, styles.fabTitle]}
+                />
+            </View>
+            <LegalAcceptanceFooter />
         </View>
     );
 
@@ -43,18 +44,11 @@ export const PaginationButtons: React.FC<PaginationButtonsProps> = ({
                     styles.buttonContainer,
                     Platform.OS === 'android' && styles.androidShadow
                 ]}>
-                    <FAB
-                        icon={{
-                            name: PAGINATION_BUTTONS_CONFIG.ICONS.PREVIOUS,
-                            type: PAGINATION_BUTTONS_CONFIG.ICON_TYPE,
-                            color: PAGINATION_BUTTONS_CONFIG.ICON_COLOR,
-                        }}
-                        size={PAGINATION_BUTTONS_CONFIG.ICON_SIZE}
+                    <PaginationFAB
+                        icon={PAGINATION_BUTTONS_CONFIG.ICONS.PREVIOUS}
                         title={PAGINATION_BUTTONS_CONFIG.BUTTON_TITLES.PREVIOUS}
-                        color={colors.fuchsia[600]}
                         onPress={() => onNext(currentIndex - 1)}
-                        buttonStyle={styles.fabButton}
-                        titleStyle={styles.fabTitle}
+                        colors={colors}
                     />
                 </View>
             )}
@@ -63,18 +57,11 @@ export const PaginationButtons: React.FC<PaginationButtonsProps> = ({
                 styles.buttonContainer,
                 Platform.OS === 'android' && styles.androidShadow
             ]}>
-                <FAB
-                    icon={{
-                        name: PAGINATION_BUTTONS_CONFIG.ICONS.NEXT,
-                        type: PAGINATION_BUTTONS_CONFIG.ICON_TYPE,
-                        color: PAGINATION_BUTTONS_CONFIG.ICON_COLOR,
-                    }}
-                    size={PAGINATION_BUTTONS_CONFIG.ICON_SIZE}
+                <PaginationFAB
+                    icon={PAGINATION_BUTTONS_CONFIG.ICONS.NEXT}
                     title={PAGINATION_BUTTONS_CONFIG.BUTTON_TITLES.NEXT}
-                    color={colors.fuchsia[600]}
                     onPress={() => onNext(currentIndex + 1)}
-                    buttonStyle={styles.fabButton}
-                    titleStyle={styles.fabTitle}
+                    colors={colors}
                 />
             </View>
         </>
@@ -122,5 +109,15 @@ const styles = StyleSheet.create({
     fabTitle: {
         marginTop: 0,
         lineHeight: Platform.OS === 'ios' ? 0 : undefined,
+    },
+    finishButtonContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100%',
+    },
+    finishButtonWrapper: {
+        overflow: 'hidden',
+        height: '80%',
+        borderRadius: 50,
     }
 });

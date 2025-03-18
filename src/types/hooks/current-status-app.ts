@@ -7,14 +7,16 @@ export interface LastActivity {
 }
 
 export interface CurrentStatusAppState {
-    hasOnboarded: boolean | null;
     biometricEnabled: boolean | null;
+    hasOnboarded: boolean | null;
+    lastActivity: LastActivity | null;
+    legalConditionsAreAccepted: boolean;
     pinCode: string | null;
     userCurrency: Currency | null;
-    lastActivity: LastActivity | null;
     loadStoredData: () => Promise<void>;
-    setHasOnboarded: (value: boolean) => Promise<void>;
-    setUserCurrency: (currency: Currency) => Promise<void>;
     setBiometricEnabled: (enabled: boolean) => Promise<void>;
+    setHasOnboarded: (value: boolean) => Promise<void>;
     setLastActivity: (activity: LastActivity) => Promise<void>;
+    setLegalConditionsAreAccepted: (activity: boolean) => Promise<void>;
+    setUserCurrency: (currency: Currency) => Promise<void>;
 }
