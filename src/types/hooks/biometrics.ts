@@ -27,6 +27,8 @@ export interface CreateSignatureParams {
 
 export interface BiometricsState {
     sensorStatus: SensorStatus | null;
+    allowBiometricAuth: boolean;
+    isLoadingBiometricAuth: boolean;
     rnBiometrics: ReactNativeBiometrics;
     checkBiometricAvailability: (handleErrorCallback?: HandleErrorCallback) => Promise<void>;
     createKeys: (handleErrorCallback?: HandleErrorCallback) => Promise<string | void>;
@@ -34,4 +36,6 @@ export interface BiometricsState {
     deleteKeys: (handleErrorCallback?: HandleErrorCallback) => Promise<boolean | void>;
     createSignature: (params: CreateSignatureParams) => Promise<any>;
     handleBiometricOperation: <T>(params: BiometricOperation<T>) => Promise<T | void>;
+    setAllowBiometricAuth: (allow: boolean) => Promise<void>;
+    loadBiometricAuth: () => Promise<void>;
 }

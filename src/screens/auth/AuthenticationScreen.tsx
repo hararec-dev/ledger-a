@@ -6,10 +6,10 @@ import type { AuthenticationProps } from '../../types';
 
 export const AuthenticationScreen = ({ navigation }: AuthenticationProps) => {
     const { lockout, handleFailedAttempt } = useAuthAttempts();
-    const { authenticate, loadingAuth } = useAuthentication(handleFailedAttempt);
+    const { authenticate, allowBiometricAuth, loadingAuth } = useAuthentication(handleFailedAttempt);
 
     useEffect(() => {
-        handleAuthentication();
+        if (allowBiometricAuth) handleAuthentication();
     }, []);
 
     const handleAuthentication = useCallback(async () => {

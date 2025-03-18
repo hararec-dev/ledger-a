@@ -9,7 +9,9 @@ export const BiometricAuthProvider = ({ children }: BiometricAuthProviderProps) 
         checkBiometricAvailability,
         biometricKeysExist,
         createKeys,
-        sensorStatus
+        sensorStatus,
+        isLoadingBiometricAuth,
+        loadBiometricAuth
     } = useBiometricStore();
 
     useEffect(() => {
@@ -19,12 +21,13 @@ export const BiometricAuthProvider = ({ children }: BiometricAuthProviderProps) 
             if (!keysExist) {
                 await createKeys();
             }
+            await loadBiometricAuth();
         };
 
         initializeBiometrics();
     }, [checkBiometricAvailability, biometricKeysExist, createKeys]);
 
-    return !sensorStatus
+    return !sensorStatus && !isLoadingBiometricAuth
         ? null
         : (
             <View style={{ flex: 1 }}>

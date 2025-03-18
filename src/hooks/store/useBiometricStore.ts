@@ -1,12 +1,16 @@
 import { create } from 'zustand';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import ReactNativeBiometrics, { BiometryTypes } from 'react-native-biometrics';
 import { handleError } from '../../helpers';
 import { BIOMETRIC_MESSAGES } from '../../config';
 import type { BiometricOperation, BiometricsState, CreateSignatureParams } from '../../types';
 
+const ALLOW_BIOMETRIC_AUTH = 'allowBiometricAuth';
 
 export const useBiometricStore = create<BiometricsState>((set, get) => ({
     sensorStatus: null,
+    allowBiometricAuth: false,
+    isLoadingBiometricAuth: false,
     rnBiometrics: new ReactNativeBiometrics(),
 
     handleBiometricOperation: async <T,>({ operation, handleErrorCallback }: BiometricOperation<T>): Promise<T | void> => {
@@ -90,5 +94,23 @@ export const useBiometricStore = create<BiometricsState>((set, get) => ({
             },
             handleErrorCallback
         });
+    },
+    setAllowBiometricAuth: async (allowBiometricAuth: boolean) => {
+        try {
+            await AsyncStorage.setItem(ALLOW_BIOMETRIC_AUTH, String(allowBiometricAuth));
+            set({ allowBiometricAuth })
+        } catch (error) { }
+    },
+    loadBiometricAuth: async () => {
+        set({ isLoadingBiometricAuth: true });
+        try {
+            const allowBiometricAuth = await AsyncStorage.getItem(ALLOW_BIOMETRIC_AUTH);
+            if (allowBiometricAuth) {
+                set({ allowBiometricAuth: allowBiometricAuth === 'true' });
+            }
+        } catch (error) { }
+        finally {
+            set({ isLoadingBiometricAuth: false });
+        }
     }
 }));
