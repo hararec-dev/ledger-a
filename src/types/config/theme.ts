@@ -34,6 +34,7 @@ export interface FullColorPallete {
     fuchsia: ColorShades;
     pink: ColorShades;
     rose: ColorShades;
+    splashscreen: ColorShades;
 }
 
 export interface RneuiPlatformColors {
