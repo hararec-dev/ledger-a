@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     buttonContainer: {
         borderRadius: 50,
         overflow: 'hidden',
-        height: '80%',
+        height: 60,
     },
     androidShadow: {
         shadowColor: '#000',
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
     },
     finishButtonWrapper: {
         overflow: 'hidden',
-        height: '80%',
+        height: 60,
         borderRadius: 50,
     }
 });
