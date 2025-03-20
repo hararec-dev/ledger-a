@@ -1,17 +1,12 @@
 import { Text, useWindowDimensions, View } from "react-native";
-import { CustomText } from "../custom";
-import { useThemeStore } from "../../hooks";
+import { CustomText } from "../../components";
+import { useGradient, useThemeStore } from "../../hooks";
 import type { SlideItemProps } from "../../types";
-import { useMemo } from "react";
 
 export const SlideItem: React.FC<SlideItemProps> = ({ desc, img, title, style }) => {
     const { colors } = useThemeStore();
     const { width, height, fontScale } = useWindowDimensions();
-    const gradientColors = useMemo<string[]>(() => [
-        colors.blue[600],
-        colors.purple[600],
-        colors.rose[600],
-    ], [colors]);
+    const { gradientLightColors } = useGradient();
 
     return (
         <View style={[{
@@ -32,7 +27,7 @@ export const SlideItem: React.FC<SlideItemProps> = ({ desc, img, title, style })
             <CustomText
                 text={title}
                 fontSize={fontScale * 30}
-                gradientColors={gradientColors}
+                gradientColors={gradientLightColors}
                 fontWeight='black'
             />
             <Text style={{

@@ -1,17 +1,12 @@
 import { useMemo } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { useThemeStore } from "../../hooks";
+import { useGradient, useThemeStore } from "../../hooks";
 import { CustomIcon, CustomText } from "../custom";
 import type { LegalInfoHeaderProps } from "../../types";
 
 
 export const LegalInfoHeader: React.FC<LegalInfoHeaderProps> = ({ navigation, title, lastUpdate }) => {
-    const { colors } = useThemeStore();
-    const gradientColors = useMemo<string[]>(() => [
-        colors.blue[600],
-        colors.purple[600],
-        colors.rose[600],
-    ], [colors]);
+    const { gradientLightColors } = useGradient();
 
     return (
         <View style={styles.header}>
@@ -24,7 +19,7 @@ export const LegalInfoHeader: React.FC<LegalInfoHeaderProps> = ({ navigation, ti
             <CustomText
                 text={title}
                 fontSize={22}
-                gradientColors={gradientColors}
+                gradientColors={gradientLightColors}
                 fontWeight='black'
                 style={{ textAlign: 'center' }}
             />
