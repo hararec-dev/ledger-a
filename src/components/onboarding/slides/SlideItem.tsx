@@ -6,7 +6,7 @@ import type { SlideItemProps } from "../../../types";
 export const SlideItem: React.FC<SlideItemProps> = ({ desc, img, title, style }) => {
     const { colors } = useThemeStore();
     const { width, height, fontScale } = useWindowDimensions();
-    const { gradientLightColors } = useGradient();
+    const { gradientLight } = useGradient();
 
     return (
         <View style={[{
@@ -27,7 +27,7 @@ export const SlideItem: React.FC<SlideItemProps> = ({ desc, img, title, style })
             <CustomText
                 text={title}
                 fontSize={fontScale * 30}
-                gradientColors={gradientLightColors}
+                gradientColors={gradientLight}
                 fontWeight='black'
             />
             <Text style={{

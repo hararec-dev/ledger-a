@@ -10,7 +10,7 @@ import LinearGradient from 'react-native-linear-gradient';
 
 export const OnboardingSetupScreen: React.FC<OnboardingSetupProps> = ({ navigation }) => {
   const { setUserCurrency, userCurrency } = useCurrentStatusAppStore();
-  const { gradientDarkColors, gradientLightColors } = useGradient();
+  const { gradientDark, gradientLight, gradientOnboarding } = useGradient();
   const formik = useFormik({
     initialValues: {
       currency: userCurrency || 'MXN',
@@ -35,7 +35,7 @@ export const OnboardingSetupScreen: React.FC<OnboardingSetupProps> = ({ navigati
             text={ONBOARDING_SETUP_TEXT.title}
             fontSize={30}
             fontWeight='bold'
-            gradientColors={gradientDarkColors}
+            gradientColors={gradientDark}
             style={{ textAlign: 'center', lineHeight: 40 }}
           />
           <Text style={styles.subtitle}>{ONBOARDING_SETUP_TEXT.subtitle}</Text>
@@ -55,7 +55,7 @@ export const OnboardingSetupScreen: React.FC<OnboardingSetupProps> = ({ navigati
             error={formik.errors.accountName}
             touched={formik.touched.accountName}
           >
-            <CustomGradientBorder gradientColors={gradientLightColors}>
+            <CustomGradientBorder gradientColors={gradientLight}>
               <TextInput
                 style={styles.input}
                 value={formik.values.accountName}
@@ -71,7 +71,7 @@ export const OnboardingSetupScreen: React.FC<OnboardingSetupProps> = ({ navigati
             error={formik.errors.initialAmount}
             touched={formik.touched.initialAmount}
           >
-            <CustomGradientBorder gradientColors={gradientLightColors}>
+            <CustomGradientBorder gradientColors={gradientLight}>
               <TextInput
                 style={styles.input}
                 value={formik.values.initialAmount}
@@ -85,7 +85,7 @@ export const OnboardingSetupScreen: React.FC<OnboardingSetupProps> = ({ navigati
 
           <TouchableOpacity onPress={() => formik.handleSubmit()}>
             <LinearGradient
-              colors={gradientDarkColors}
+              colors={gradientOnboarding}
               style={styles.button}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 0 }}
@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   buttonText: {
-    color: colorPalette.coolGray[900],
+    color: colorPalette.coolGray[50],
     fontSize: 18,
     fontWeight: '700',
     fontFamily: 'Quicksand-Regular',
