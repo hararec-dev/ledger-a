@@ -1,9 +1,9 @@
 import { View, StyleSheet, Platform } from "react-native";
 import { LegalAcceptanceFooter } from "./LegalAcceptanceFooter";
 import { PaginationFAB } from "./PaginationFAB";
-import { useCurrentStatusAppStore, useThemeStore } from "../../hooks";
-import { PAGINATION_BUTTONS_CONFIG } from "../../config";
-import type { PaginationButtonsProps } from "../../types";
+import { useCurrentStatusAppStore, useThemeStore } from "../../../hooks";
+import { PAGINATION_BUTTONS_CONFIG } from "../../../config";
+import type { PaginationButtonsProps } from "../../../types";
 
 
 export const PaginationButtons: React.FC<PaginationButtonsProps> = ({

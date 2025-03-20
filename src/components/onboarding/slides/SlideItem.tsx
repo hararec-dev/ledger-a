@@ -1,7 +1,7 @@
 import { Text, useWindowDimensions, View } from "react-native";
-import { CustomText } from "../../components";
-import { useGradient, useThemeStore } from "../../hooks";
-import type { SlideItemProps } from "../../types";
+import { CustomText } from "../../../components";
+import { useGradient, useThemeStore } from "../../../hooks";
+import type { SlideItemProps } from "../../../types";
 
 export const SlideItem: React.FC<SlideItemProps> = ({ desc, img, title, style }) => {
     const { colors } = useThemeStore();

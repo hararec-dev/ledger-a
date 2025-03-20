@@ -29,5 +29,5 @@ export const ONBOARDING_SETUP_TEXT: OnboardingSetupTextContent = {
     accountNamePlaceholder: "¿Qué tal 'Mi Dinero' o 'Mis Ahorros'?",
     initialAmountLabel: '¿Con cuánto dinero empiezas?',
     initialAmountPlaceholder: '9999999.00',
-    submitButton: '¡Siguiente paso! 👉'
+    submitButton: '¡Siguiente paso!'
 };

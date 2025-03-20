@@ -1,6 +1,6 @@
 import { TouchableOpacity, Text, View } from 'react-native';
 import { CheckBox } from '@rneui/themed';
-import { useCurrentStatusAppStore, useCustomNavigation, useThemeStore } from '../../hooks';
+import { useCurrentStatusAppStore, useCustomNavigation, useThemeStore } from '../../../hooks';
 
 export const LegalAcceptanceFooter = () => {
     const {

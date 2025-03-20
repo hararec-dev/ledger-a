@@ -1,7 +1,7 @@
 import { Platform, StyleSheet } from "react-native";
 import { FAB, FABProps } from "@rneui/themed";
-import { PAGINATION_BUTTONS_CONFIG } from "../../config";
-import type { FullColorPallete } from "../../types";
+import { PAGINATION_BUTTONS_CONFIG } from "../../../config";
+import type { FullColorPallete } from "../../../types";
 
 interface PaginationFABProps extends Omit<FABProps, 'icon'> {
     colors: FullColorPallete;
