@@ -1,11 +1,10 @@
+import { useMemo } from 'react';
 import { View, Text, TextInput, StyleSheet, ScrollView, TouchableOpacity, Platform } from 'react-native';
 import { useFormik } from 'formik';
-import { CurrencyPicker, CustomGradientBorder, CustomText, FormSetupGroup } from '../../components';
+import { CurrencyPicker, CustomGradientBackground, CustomGradientBorder, CustomText, FormSetupGroup } from '../../components';
 import { useCurrentStatusAppStore, useGradient } from '../../hooks';
 import { colorPalette, currencies, ONBOARDING_SETUP_TEXT, validationOnboardingSetupSchema as validationSchema } from '../../config';
 import type { OnboardingSetupProps } from '../../types';
-import { useMemo } from 'react';
-import LinearGradient from 'react-native-linear-gradient';
 
 
 export const OnboardingSetupScreen: React.FC<OnboardingSetupProps> = ({ navigation }) => {
@@ -84,14 +83,12 @@ export const OnboardingSetupScreen: React.FC<OnboardingSetupProps> = ({ navigati
           </FormSetupGroup>
 
           <TouchableOpacity onPress={() => formik.handleSubmit()}>
-            <LinearGradient
-              colors={gradientOnboarding}
+            <CustomGradientBackground
+              gradient={gradientOnboarding}
               style={styles.button}
-              start={{ x: 0, y: 0 }}
-              end={{ x: 1, y: 0 }}
             >
               <Text style={styles.buttonText}>{ONBOARDING_SETUP_TEXT.submitButton}</Text>
-            </LinearGradient>
+            </CustomGradientBackground>
           </TouchableOpacity>
         </View>
       </ScrollView>
