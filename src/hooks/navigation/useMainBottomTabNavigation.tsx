@@ -11,24 +11,19 @@ import {
 import { CustomIcon, CustomText } from '../../components';
 import { useThemeStore } from '../store';
 import type { MainBottomTabRoute } from '../../types';
+import { useGradient } from '../gradient';
 
 
 export const useMainBottomTabNavigation = (): {
     screenOptions: (props: { theme: ReactNavigation.Theme }) => BottomTabNavigationOptions;
     tabRoutes: MainBottomTabRoute[];
 } => {
-    const { colors, isDark } = useThemeStore();
+    const { isDark } = useThemeStore();
+    const { gradientDark, gradientLight } = useGradient();
     const gradientColors = useMemo<string[]>(() => isDark
-        ? [
-            colors.yellow[300],
-            colors.orange[400],
-            colors.pink[400],
-        ]
-        : [
-            colors.blue[600],
-            colors.purple[600],
-            colors.rose[600]
-        ], [colors, isDark]);
+        ? gradientDark
+        : gradientLight,
+        [gradientDark, gradientLight, isDark]);
     const screenOptions = useCallback((props: {
         theme: ReactNavigation.Theme;
     }): BottomTabNavigationOptions => ({

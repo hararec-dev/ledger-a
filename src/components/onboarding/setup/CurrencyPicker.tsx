@@ -3,12 +3,13 @@ import { Modal, Platform, StyleSheet, Text, TouchableOpacity, View } from "react
 import { Picker } from "@react-native-picker/picker";
 import { CustomGradientBorder } from "../../../components";
 import { colorPalette, currencies, ONBOARDING_SETUP_TEXT } from "../../../config";
-import { useGradient } from "../../../hooks";
+import { useGradient, useThemeStore } from "../../../hooks";
 import type { CurrencyInfo, CurrencyPickerProps } from "../../../types";
 
 export const CurrencyPicker: React.FC<CurrencyPickerProps> = ({ formik, selectedCurrency }) => {
     const [showPicker, setShowPicker] = useState(false);
     const { gradientLight } = useGradient();
+    const { isDark, colors } = useThemeStore();
 
     return (
         <>
@@ -43,7 +44,11 @@ export const CurrencyPicker: React.FC<CurrencyPickerProps> = ({ formik, selected
                             >
                                 <View style={styles.pickerHeader}>
                                     <TouchableOpacity onPress={() => setShowPicker(false)}>
-                                        <Text style={styles.doneButtonText}>{ONBOARDING_SETUP_TEXT.doneButton}</Text>
+                                        <Text style={{
+                                            color: isDark ? colorPalette.orange[500]: colors.purple[700],
+                                            fontSize: 16,
+                                            fontWeight: '600',
+                                        }}>{ONBOARDING_SETUP_TEXT.doneButton}</Text>
                                     </TouchableOpacity>
                                 </View>
                                 <Picker
@@ -59,7 +64,7 @@ export const CurrencyPicker: React.FC<CurrencyPickerProps> = ({ formik, selected
                                             key={currency.code}
                                             label={`${currency.code} - ${currency.description}`}
                                             value={currency.code}
-                                            color={colorPalette.warmGray[900]}
+                                            color={isDark ? colorPalette.orange[500]: colors.purple[600]}
                                         />
                                     ))}
                                 </Picker>
@@ -133,11 +138,11 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         borderBottomColor: colorPalette.gray[200],
     },
-    doneButtonText: {
+    /* doneButtonText: {
         color: colorPalette.orange[500],
         fontSize: 16,
         fontWeight: '600',
-    },
+    }, */
     pickerItem: {
         fontSize: 18,
         height: 150,
@@ -148,8 +153,8 @@ const styles = StyleSheet.create({
     pickerItemAndroid: {
         fontSize: 16,
         width: '100%',
-        color: colorPalette.warmGray[900],
+        color: colorPalette.coolGray[900],
         fontFamily: 'Nunito-Regular',
-        backgroundColor: 'transparent',
+        backgroundColor: colorPalette.coolGray[50],
     }
 });

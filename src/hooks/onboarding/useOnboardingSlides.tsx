@@ -11,7 +11,7 @@ import type { Slide } from '../../types';
 export const useOnboardingSlides = (props?: SvgProps) => {
     const slides = useMemo<Slide[]>(() => [
         {
-            title: '¡Bienvenido a Ledger A!',
+            title: '¡Bienvenido!',
             desc: 'Gestiona tus finanzas sin esfuerzo y con funciones gratis. ¡Tu billetera te lo agradecerá!',
             img: <OnboardingWelcomePair {...props} />,
         },

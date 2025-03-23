@@ -10,7 +10,8 @@ export const CustomInput: React.FC<CustomInputProps> = ({
     onBlur, 
     placeholder, 
     gradientLight, 
-    keyboardType = 'default' 
+    keyboardType = 'default',
+    maxLength 
 }) => (
     <CustomGradientBorder gradientColors={gradientLight}>
         <TextInput
@@ -19,7 +20,9 @@ export const CustomInput: React.FC<CustomInputProps> = ({
             onChangeText={onChangeText}
             onBlur={onBlur}
             placeholder={placeholder}
+            placeholderTextColor={colorPalette.gray[400]}
             keyboardType={keyboardType}
+            maxLength={maxLength}
         />
     </CustomGradientBorder>
 );

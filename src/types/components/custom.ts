@@ -15,4 +15,11 @@ export interface CustomInputProps {
     placeholder: string;
     gradientLight: string[];
     keyboardType?: 'numeric' | 'default';
+    maxLength?: number;
+}
+
+export interface CustomSwitchProps {
+    value: boolean;
+    onValueChange: (value: boolean) => void;
+    gradientLight: string[];
 }

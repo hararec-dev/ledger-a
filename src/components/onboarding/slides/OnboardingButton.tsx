@@ -1,22 +1,22 @@
-import { Platform, StyleSheet, Text, View } from "react-native";
+import { Platform, StyleSheet, Text, useWindowDimensions, View } from "react-native";
 import { CustomGradientButton, CustomIcon } from "../../custom";
 import { useCurrentStatusAppStore, useGradient } from "../../../hooks";
 import { colorPalette, PAGINATION_BUTTONS_CONFIG } from "../../../config";
 import type { OnboardingButtonProps } from "../../../types";
 
 
-export const OnboardingButton: React.FC<OnboardingButtonProps> = ({
-    onNavigate
-}) => {
+export const OnboardingButton: React.FC<OnboardingButtonProps> = ({ onNavigate }) => {
     const { legalConditionsAreAccepted } = useCurrentStatusAppStore();
     const { gradientLight } = useGradient();
+    const { width } = useWindowDimensions();
 
     return (
         <CustomGradientButton
-            onPress={() => onNavigate(PAGINATION_BUTTONS_CONFIG.NAVIGATION.SETUP)}
+            onPress={() => onNavigate()}
             gradientColors={gradientLight}
             disabled={!legalConditionsAreAccepted}
             disabledStyle={styles.disabledButton}
+            style={{ width: width * 0.7 }}
         >
             <View style={styles.horizontalContainer}>
                 <CustomIcon name="golf-outline" size={24} color={colorPalette.coolGray[50]} />
@@ -27,10 +27,6 @@ export const OnboardingButton: React.FC<OnboardingButtonProps> = ({
 };
 
 const styles = StyleSheet.create({
-    formContainer: {
-        rowGap: 15,
-        width: '90%',
-    },
     buttonText: {
         color: colorPalette.coolGray[50],
         fontSize: 18,
@@ -41,11 +37,12 @@ const styles = StyleSheet.create({
         opacity: 0.4,
         backgroundColor: colorPalette.coolGray[300],
         borderColor: colorPalette.coolGray[400],
-        borderRadius: 10,
     },
     horizontalContainer: {
         flexDirection: 'row',
         alignItems: 'center',
+        justifyContent: 'center',
+        width: '100%',
         columnGap: 10,
         ...(Platform.OS === 'ios' && { paddingHorizontal: 20 }),
     }

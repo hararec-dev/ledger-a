@@ -7,13 +7,14 @@ export const CustomGradientButton = ({
     onPress,
     children,
     gradientColors,
+    style,
     disabled = false,
     disabledStyle
 }: CustomGradientButtonProps) => (
     <TouchableOpacity
         onPress={onPress}
         disabled={disabled}
-        style={disabled && disabledStyle}
+        style={[style, disabled && disabledStyle]}
     >
         <CustomGradientBackground
             gradient={gradientColors}

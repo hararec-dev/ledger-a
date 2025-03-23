@@ -1,6 +1,12 @@
-export type OnboardingSetupTextContent = {
+export interface OnboardingSetupTextHeader {
     title: string;
     subtitle: string;
+    submitButton: string;
+}
+
+export type OnboardingSetupTextContent = {
+    setup: OnboardingSetupTextHeader;
+    app: OnboardingSetupTextHeader;
     currencyLabel: string;
     currencyPlaceholder: string;
     doneButton: string;
@@ -8,5 +14,14 @@ export type OnboardingSetupTextContent = {
     accountNamePlaceholder: string;
     initialAmountLabel: string;
     initialAmountPlaceholder: string;
-    submitButton: string;
+    themeLabel: string;
+    biometricAuthLabel: string;
+    pinLabel: string;
+    pinPlaceholder: string;
+    confirmPinLabel: string;
+    confirmPinPlaceholder: string;
+    createPinLabel: string;
+    createPinPlaceholder: string;
+    confirmCreatePinLabel: string;
+    confirmCreatePinPlaceholder: string;
 };

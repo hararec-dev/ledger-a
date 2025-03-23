@@ -27,7 +27,7 @@ export const SlideItem: React.FC<SlideItemProps> = ({ desc, img, title, style })
             fontSize: fontScale * 15,
             fontWeight: '500',
             textAlign: 'left',
-            paddingHorizontal: 60,
+            width: width * 0.7,
             paddingTop: 5,
             fontFamily: 'Nunito-Regular',
             color: colors.coolGray[900],

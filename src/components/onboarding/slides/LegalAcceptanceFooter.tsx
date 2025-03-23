@@ -26,9 +26,9 @@ export const LegalAcceptanceFooter: React.FC = () => {
     const { width } = useWindowDimensions();
     const { goToLegalInfo } = useCustomNavigation();
     const handleCheckboxPress = () => setLegalConditionsAreAccepted(!legalConditionsAreAccepted);
-    
+
     return (
-        <View style={styles.container}>
+        <View style={[styles.container, { width: width * 0.6 }]}>
             <CheckBox
                 iconType='ionicon'
                 checkedIcon='checkbox-outline'
@@ -42,7 +42,7 @@ export const LegalAcceptanceFooter: React.FC = () => {
                     backgroundColor: colors.coolGray[100]
                 }}
             />
-            <View style={[styles.textContainer, { width: width * 0.5 }]}>
+            <View style={[styles.textContainer]}>
                 <Text style={[styles.baseText, { color: colors.coolGray[900] }]}>
                     {LEGAL_ACCEPTANCE_LABELS.accept}
                 </Text>
@@ -69,7 +69,7 @@ export const LegalAcceptanceFooter: React.FC = () => {
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         alignItems: 'center',
     },
     checkboxContainer: {

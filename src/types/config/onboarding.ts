@@ -25,7 +25,4 @@ export interface PaginationButtonsConfig {
         readonly NEXT: string;
     };
     readonly ICON_TYPE: string;
-    readonly NAVIGATION: {
-        readonly SETUP: string;
-    };
 }

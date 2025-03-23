@@ -1,4 +1,6 @@
 export * from './CurrencyPicker';
 export * from './FormSetupGroup';
-export * from './OnboardingSetupForm';
+export * from './OnboardingSetupAccount';
+export * from './OnboardingSetupApp';
+export * from './OnboardingSetupAccountForm';
 export * from './OnboardingSetupHeader';
