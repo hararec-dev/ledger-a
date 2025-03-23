@@ -1,5 +1,6 @@
 import type { StackNavigationProp } from "@react-navigation/stack";
 import type { RootStackParamList } from "../navigation";
+import type { FullColorPallete } from "../config";
 
 export interface LegalItem {
     text: string;
@@ -35,4 +36,11 @@ export interface LegalItemProps {
 export interface LegalInfoSectionProps {
     section: LegalSection;
     index: number;
+}
+
+export interface LegalLinkProps {
+    onPress: () => void;
+    text: string;
+    marginStyle?: object;
+    colors: FullColorPallete;
 }

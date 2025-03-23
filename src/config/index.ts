@@ -5,3 +5,4 @@ export * from './global-styles';
 export * from './legal';
 export * from './onboarding';
 export * from './theme';
+export * from './validation';

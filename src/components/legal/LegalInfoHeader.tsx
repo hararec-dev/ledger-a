@@ -1,20 +1,31 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { CustomIcon } from "../custom";
+import { useGradient } from "../../hooks";
+import { CustomIcon, CustomText } from "../custom";
 import type { LegalInfoHeaderProps } from "../../types";
 
 
-export const LegalInfoHeader: React.FC<LegalInfoHeaderProps> = ({ navigation, title, lastUpdate }) => (
-    <View style={styles.header}>
-        <TouchableOpacity
-            onPress={() => navigation.goBack()}
-            style={styles.backButton}
-        >
-            <CustomIcon name="arrow-back" size={24} color="#333" />
-        </TouchableOpacity>
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.subtitle}>{lastUpdate}</Text>
-    </View>
-);
+export const LegalInfoHeader: React.FC<LegalInfoHeaderProps> = ({ navigation, title, lastUpdate }) => {
+    const { gradientLight } = useGradient();
+
+    return (
+        <View style={styles.header}>
+            <TouchableOpacity
+                onPress={() => navigation.goBack()}
+                style={styles.backButton}
+            >
+                <CustomIcon name="arrow-back" size={24} color="#333" />
+            </TouchableOpacity>
+            <CustomText
+                text={title}
+                fontSize={22}
+                gradientColors={gradientLight}
+                fontWeight='black'
+                style={{ textAlign: 'center' }}
+            />
+            <Text style={styles.subtitle}>{lastUpdate}</Text>
+        </View>
+    );
+}
 
 const styles = StyleSheet.create({
     header: {
@@ -29,7 +40,8 @@ const styles = StyleSheet.create({
         fontSize: 24,
         fontWeight: 'bold',
         marginBottom: 8,
-        fontFamily: 'Pacifico-Regular'
+        fontFamily: 'Quicksand-Regular',
+        textAlign: 'center',
     },
     subtitle: {
         fontSize: 16,

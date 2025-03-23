@@ -12,30 +12,31 @@ export const useOnboardingSlides = (props?: SvgProps) => {
     const slides = useMemo<Slide[]>(() => [
         {
             title: '¡Bienvenido a Ledger A!',
-            desc: 'Controla tus finanzas sin complicaciones. Todas las funcionalidades que esperas 100% gratis. ¡Tu billetera te lo agradecerá!',
+            desc: 'Gestiona tus finanzas sin esfuerzo y con funciones gratis. ¡Tu billetera te lo agradecerá!',
             img: <OnboardingWelcomePair {...props} />,
         },
         {
             title: 'Tus datos, solo tuyos',
-            desc: 'Tu privacidad es prioridad. Tus datos nunca salen de tu teléfono. Usa la app sin necesidad de internet ni de crear una cuenta. ¡Seguridad total!',
+            desc: 'Tu privacidad es lo primero: tus datos se quedan en tu teléfono. Usa la app sin internet ni cuenta. ¡Seguridad total!',
             img: <OnboardingShield {...props} />,
         },
         {
             title: 'Fácil y sin rollos',
-            desc: 'Registra gastos con un toque, usa la detección automática de categorías y los atajos para gastos frecuentes. ¡Simplicidad es la clave!',
+            desc: 'Registra tus gastos al instante con detección automática. ¡Simplicidad al máximo!',
             img: <OnboardingPayments {...props} />,
         },
         {
             title: 'Todo claro, en gráficas',
-            desc: 'Obtén reportes y gráficas de tus finanzas. Filtra y descarga en Excel, CSV o JSON. ¡Tus datos, a tu manera!',
+            desc: 'Visualiza tus finanzas con reportes y gráficos. Filtra y descarga en Excel. ¡Control total de tus datos!',
             img: <OnboardingDataAnalytics {...props} />,
         },
         {
             title: '¡Empieza ya!',
-            desc: 'Ledger-A te ayuda a controlar tu dinero. ¡Comienza ahora y mejora tus finanzas de manera fácil y divertida!',
+            desc: 'Empieza a manejar tu dinero con Ledger-A. ¡Mejora tus finanzas de forma divertida!',
             img: <OnboardingParty {...props} />,
         },
     ], []);
 
     return { slides };
 };
+

@@ -4,7 +4,7 @@ import { useBiometricStore } from '../store';
 import { AUTH_CONFIG, AUTH_TEXTS } from '../../config';
 
 export const useAuthentication = (handleFailedAttempt?: () => void) => {
-    const { createSignature } = useBiometricStore();
+    const { createSignature, allowBiometricAuth } = useBiometricStore();
     const [loadingAuth, setLoadingAuth] = useState(false);
 
     const generateRandomPayload = useCallback((): string => {
@@ -73,5 +73,6 @@ export const useAuthentication = (handleFailedAttempt?: () => void) => {
     return {
         authenticate,
         loadingAuth,
+        allowBiometricAuth,
     };
 };

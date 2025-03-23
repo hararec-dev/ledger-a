@@ -1,6 +1,6 @@
 import { View } from "react-native";
-import { useThemeStore } from "../../hooks";
-import type { PaginationDotsProps } from "../../types";
+import { useThemeStore } from "../../../hooks";
+import type { PaginationDotsProps } from "../../../types";
 
 export const PaginationDots: React.FC<PaginationDotsProps> = ({
     currentIndex,
