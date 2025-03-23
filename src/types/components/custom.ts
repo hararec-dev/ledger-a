@@ -7,3 +7,12 @@ export type CustomGradientBackgroundProps = PropsWithChildren<{
     gradient: string[];
     style?: ViewStyle;
 }>;
+
+export interface CustomInputProps {
+    value: string;
+    onChangeText: (text: string) => void;
+    onBlur: () => void;
+    placeholder: string;
+    gradientLight: string[];
+    keyboardType?: 'numeric' | 'default';
+}

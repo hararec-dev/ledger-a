@@ -31,3 +31,5 @@ export const ONBOARDING_SETUP_TEXT: OnboardingSetupTextContent = {
     initialAmountPlaceholder: '9999999.00',
     submitButton: '¡Siguiente paso!'
 };
+
+export const SLIDE_INTERVAL_MS = 4000;

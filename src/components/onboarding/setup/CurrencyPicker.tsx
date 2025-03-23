@@ -1,25 +1,20 @@
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import { Modal, Platform, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import { CustomGradientBorder } from "../../../components";
 import { colorPalette, currencies, ONBOARDING_SETUP_TEXT } from "../../../config";
-import { useThemeStore } from "../../../hooks";
+import { useGradient } from "../../../hooks";
 import type { CurrencyInfo, CurrencyPickerProps } from "../../../types";
 
 export const CurrencyPicker: React.FC<CurrencyPickerProps> = ({ formik, selectedCurrency }) => {
     const [showPicker, setShowPicker] = useState(false);
-    const { colors } = useThemeStore();
-    const gradientColors = useMemo<string[]>(() => [
-        colors.blue[600],
-        colors.purple[600],
-        colors.rose[600],
-    ], []);
+    const { gradientLight } = useGradient();
 
     return (
         <>
             {Platform.OS === 'ios' ? (
                 <>
-                    <CustomGradientBorder gradientColors={gradientColors}>
+                    <CustomGradientBorder gradientColors={gradientLight}>
                         <TouchableOpacity
                             style={styles.pickerButton}
                             onPress={() => setShowPicker(true)}
@@ -57,12 +52,14 @@ export const CurrencyPicker: React.FC<CurrencyPickerProps> = ({ formik, selected
                                         formik.setFieldValue('currency', itemValue);
                                     }}
                                     itemStyle={styles.pickerItem}
+                                    style={styles.pickerIOS}
                                 >
                                     {currencies.map((currency: CurrencyInfo) => (
                                         <Picker.Item
                                             key={currency.code}
                                             label={`${currency.code} - ${currency.description}`}
                                             value={currency.code}
+                                            color={colorPalette.warmGray[900]}
                                         />
                                     ))}
                                 </Picker>
@@ -71,18 +68,20 @@ export const CurrencyPicker: React.FC<CurrencyPickerProps> = ({ formik, selected
                     </Modal>
                 </>
             ) : (
-                <CustomGradientBorder gradientColors={gradientColors}>
+                <CustomGradientBorder gradientColors={gradientLight}>
                     <View style={styles.pickerContainer}>
                         <Picker
                             selectedValue={formik.values.currency}
                             onValueChange={(itemValue) => formik.setFieldValue('currency', itemValue)}
-                            style={styles.picker}
+                            style={styles.pickerAndroid}
+                            dropdownIconColor={colorPalette.warmGray[900]}
                         >
                             {currencies.map((currency: CurrencyInfo) => (
                                 <Picker.Item
                                     key={currency.code}
                                     label={`${currency.code} - ${currency.description}`}
                                     value={currency.code}
+                                    style={styles.pickerItemAndroid}
                                 />
                             ))}
                         </Picker>
@@ -96,13 +95,20 @@ export const CurrencyPicker: React.FC<CurrencyPickerProps> = ({ formik, selected
 const styles = StyleSheet.create({
     pickerContainer: {
         backgroundColor: colorPalette.gray[50],
+        borderRadius: 8,
     },
-    picker: {
+    pickerAndroid: {
         height: 50,
+        color: colorPalette.warmGray[900],
+        backgroundColor: 'transparent',
+    },
+    pickerIOS: {
+        backgroundColor: colorPalette.gray[50],
     },
     pickerButton: {
         padding: 12,
         backgroundColor: colorPalette.gray[50],
+        borderRadius: 8,
     },
     pickerButtonText: {
         fontSize: 16,
@@ -117,20 +123,33 @@ const styles = StyleSheet.create({
         backgroundColor: colorPalette.gray[50],
         width: '100%',
         height: '35%',
+        borderTopLeftRadius: 16,
+        borderTopRightRadius: 16,
     },
     pickerHeader: {
         flexDirection: 'row',
         justifyContent: 'flex-end',
         padding: 16,
+        borderBottomWidth: 1,
+        borderBottomColor: colorPalette.gray[200],
     },
     doneButtonText: {
-        color: colorPalette.green[500],
+        color: colorPalette.orange[500],
         fontSize: 16,
         fontWeight: '600',
     },
     pickerItem: {
-        fontSize: 16,
+        fontSize: 18,
         height: 150,
         color: colorPalette.warmGray[900],
+        fontWeight: '500',
+        justifyContent: 'center',
+    },
+    pickerItemAndroid: {
+        fontSize: 16,
+        width: '100%',
+        color: colorPalette.warmGray[900],
+        fontFamily: 'Nunito-Regular',
+        backgroundColor: 'transparent',
     }
 });
