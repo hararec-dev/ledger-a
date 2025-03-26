@@ -42,5 +42,5 @@ const styles = StyleSheet.create({
     marginVertical: 20,
     color: '#444',
     fontFamily: 'Quicksand-Regular',
-  }
+  },
 });

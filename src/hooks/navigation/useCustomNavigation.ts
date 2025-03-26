@@ -21,6 +21,6 @@ export const useCustomNavigation = () => {
 
     return {
         goToLegalInfo,
-        goToSetup
+        goToSetup,
     };
 };

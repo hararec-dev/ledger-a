@@ -9,4 +9,4 @@ export const SafeProvider = ({ children }: SafeProviderProps) => {
             </SafeAreaView>
         </SafeAreaProvider>
     );
-}
+};

@@ -10,7 +10,7 @@ export const AuthenticationScreen = ({ navigation }: AuthenticationProps) => {
     const { authenticate, loadingAuth } = useAuthentication(handleFailedAttempt);
 
     useEffect(() => {
-        if (biometricEnabled) handleAuthentication();
+        if (biometricEnabled) {handleAuthentication();}
     }, []);
 
     const handleAuthentication = useCallback(async () => {

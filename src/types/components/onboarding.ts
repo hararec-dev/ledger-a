@@ -1,8 +1,8 @@
-import type { PropsWithChildren } from "react";
-import type { StyleProp, ViewStyle } from "react-native";
+import type { PropsWithChildren } from 'react';
+import type { StyleProp, ViewStyle } from 'react-native';
 import type { FormikProps } from 'formik';
-import type { Currency, CurrencyInfo } from "../config";
-import type { ThemeColor } from "../hooks";
+import type { Currency, CurrencyInfo } from '../config';
+import type { ThemeColor } from '../hooks';
 
 export interface FormOnboardingSetupValues {
     currency: Currency;
@@ -45,7 +45,7 @@ export interface OnboardingSetupHeaderProps {
     gradientDark: string[];
 }
 
-export type CustomGradientButtonProps = PropsWithChildren<{
+export type GradientButtonProps = PropsWithChildren<{
     onPress?: () => void;
     gradientColors: string[];
     disabled?: boolean;

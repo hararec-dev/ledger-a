@@ -1,14 +1,14 @@
-import { StyleSheet, Text, View } from "react-native";
-import { CurrencyPicker, CustomInput, FormSetupGroup, CustomGradientButton } from "../../../components";
-import { colorPalette, ONBOARDING_SETUP_TEXT } from "../../../config";
-import type { OnboardingSetupFormProps } from "../../../types";
-import { useGradient, useThemeStore } from "../../../hooks";
+import { StyleSheet, Text, View } from 'react-native';
+import { CurrencyPicker, CustomInput, FormSetupGroup, CustomGradientButton } from '../../../components';
+import { colorPalette, ONBOARDING_SETUP_TEXT } from '../../../config';
+import type { OnboardingSetupFormProps } from '../../../types';
+import { useGradient, useThemeStore } from '../../../hooks';
 
 
 export const OnboardingSetupAccountForm: React.FC<OnboardingSetupFormProps> = ({
     formik,
     selectedCurrency,
-    gradientOnboarding
+    gradientOnboarding,
 }) => {
     const { gradientDark, gradientLight } = useGradient();
     const { isDark } = useThemeStore();
@@ -62,7 +62,7 @@ export const OnboardingSetupAccountForm: React.FC<OnboardingSetupFormProps> = ({
             </CustomGradientButton>
         </View>
     );
-}
+};
 
 const styles = StyleSheet.create({
     formContainer: {
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Quicksand-Regular',
     },
     button: {
-        marginTop: 10
+        marginTop: 10,
     },
     disabledButton: {
         opacity: 0.4,

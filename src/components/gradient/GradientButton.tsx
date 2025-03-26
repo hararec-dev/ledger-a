@@ -1,27 +1,27 @@
-import { Platform, StyleSheet, TouchableOpacity } from "react-native";
-import { CustomGradientBackground } from "./CustomGradientBackground";
-import type { CustomGradientButtonProps } from "../../types";
+import { Platform, StyleSheet, TouchableOpacity } from 'react-native';
+import { GradientBackground } from './GradientBackground';
+import type { GradientButtonProps } from '../../types';
 
 
-export const CustomGradientButton = ({
+export const GradientButton = ({
     onPress,
     children,
     gradientColors,
     style,
     disabled = false,
-    disabledStyle
-}: CustomGradientButtonProps) => (
+    disabledStyle,
+}: GradientButtonProps) => (
     <TouchableOpacity
         onPress={onPress}
         disabled={disabled}
         style={[style, disabled && disabledStyle]}
     >
-        <CustomGradientBackground
+        <GradientBackground
             gradient={gradientColors}
             style={styles.button}
         >
             {children}
-        </CustomGradientBackground>
+        </GradientBackground>
     </TouchableOpacity>
 );
 

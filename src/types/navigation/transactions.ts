@@ -1,5 +1,5 @@
-import type { RouteProp } from "@react-navigation/native";
-import type { StackNavigationOptions } from "@react-navigation/stack";
+import type { RouteProp } from '@react-navigation/native';
+import type { StackNavigationOptions } from '@react-navigation/stack';
 
 export type TransactionsStackParamList = {
     TransactionList: undefined;
@@ -10,7 +10,7 @@ export type TransactionsStackParamList = {
 };
 
 export type TransactionDetailsProps = {
-    route: RouteProp<TransactionsStackParamList, "TransactionDetails">;
+    route: RouteProp<TransactionsStackParamList, 'TransactionDetails'>;
 };
 
 export interface TransactionsStackRoute {

@@ -12,7 +12,7 @@ export const AppThemeProvider = ({ children }: AppThemeProviderProps) => {
     colors,
     currentTheme,
     rneuiDarkColors,
-    rneuiLightColors
+    rneuiLightColors,
   } = useAsyncStorageLoad();
   const theme = useMemo(() => createTheme({
     lightColors: {

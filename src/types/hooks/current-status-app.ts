@@ -1,4 +1,4 @@
-import type{ Currency } from "../config";
+import type{ Currency } from '../config';
 
 export interface LastActivity {
     type: 'transaction' | 'budget' | 'report' | 'settings';

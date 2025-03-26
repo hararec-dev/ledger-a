@@ -1,11 +1,11 @@
-import { StyleSheet, Text, View } from "react-native";
-import type { FormSetupGroupProps } from "../../../types";
-import { colorPalette } from "../../../config";
-import { useThemeStore } from "../../../hooks";
+import { StyleSheet, Text, View } from 'react-native';
+import type { FormSetupGroupProps } from '../../../types';
+import { colorPalette } from '../../../config';
+import { useThemeStore } from '../../../hooks';
 
 
 export const FormSetupGroup: React.FC<FormSetupGroupProps> = ({ label, error, touched, children, style }) => {
-  const { colors, isDark } = useThemeStore();
+  const { isDark } = useThemeStore();
   const styles = StyleSheet.create({
     label: {
       fontSize: 16,
@@ -20,7 +20,7 @@ export const FormSetupGroup: React.FC<FormSetupGroupProps> = ({ label, error, to
       marginTop: 5,
       fontWeight: '500',
       fontFamily: 'Nunito-Regular',
-    }
+    },
   });
 
   return (
@@ -32,4 +32,4 @@ export const FormSetupGroup: React.FC<FormSetupGroupProps> = ({ label, error, to
       )}
     </View>
   );
-}
+};

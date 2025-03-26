@@ -55,5 +55,5 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         rowGap: 30,
-    }
+    },
 });

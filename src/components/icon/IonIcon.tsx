@@ -2,9 +2,9 @@ import { TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
 import MaskedView from '@react-native-masked-view/masked-view';
-import type { CustomIconProps } from '../../types';
+import type { IonIconProps } from '../../types';
 
-export const CustomIcon = ({
+export const IonIcon = ({
     name,
     size = 24,
     color = 'black',
@@ -12,7 +12,7 @@ export const CustomIcon = ({
     onPress,
     style,
     disabled = false,
-}: CustomIconProps) => {
+}: IonIconProps) => {
     const IconContent = (
         <Icon
             name={name}

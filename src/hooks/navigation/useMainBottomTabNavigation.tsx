@@ -6,12 +6,11 @@ import {
     DashboardStackNavigation,
     ReportsStackNavigation,
     SettingsStackNavigation,
-    TransactionsStackNavigation
+    TransactionsStackNavigation,
 } from '../../navigation';
-import { CustomIcon, CustomText } from '../../components';
-import { useThemeStore } from '../store';
+import { IonIcon, GradientText } from '../../components';
+import { useGradient, useThemeStore } from '../../hooks';
 import type { MainBottomTabRoute } from '../../types';
-import { useGradient } from '../gradient';
 
 
 export const useMainBottomTabNavigation = (): {
@@ -36,16 +35,16 @@ export const useMainBottomTabNavigation = (): {
         },
         tabBarLabelStyle: {
             color: props.theme.colors.primary,
-        }
+        },
     }), []);
     const tabRoutes = useMemo<MainBottomTabRoute[]>(() => [
         {
-            name: "DashboardTab",
+            name: 'DashboardTab',
             component: DashboardStackNavigation,
             options: {
                 title: 'Inicio',
                 tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
-                    <CustomIcon
+                    <IonIcon
                         name={focused ? 'home' : 'home-outline'}
                         color={color}
                         size={26}
@@ -54,7 +53,7 @@ export const useMainBottomTabNavigation = (): {
                     />
                 ),
                 tabBarLabel: ({ color, focused }: { color: string; focused: boolean }) => (
-                    <CustomText
+                    <GradientText
                         text={'Inicio'}
                         color={!focused ? color : undefined}
                         gradientColors={focused ? gradientColors : undefined}
@@ -63,12 +62,12 @@ export const useMainBottomTabNavigation = (): {
             },
         },
         {
-            name: "AccountsTab",
+            name: 'AccountsTab',
             component: AccountsStackNavigation,
             options: {
                 title: 'Cuentas',
                 tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
-                    <CustomIcon
+                    <IonIcon
                         name={focused ? 'wallet' : 'wallet-outline'}
                         color={color}
                         size={26}
@@ -77,7 +76,7 @@ export const useMainBottomTabNavigation = (): {
                     />
                 ),
                 tabBarLabel: ({ color, focused }: { color: string; focused: boolean }) => (
-                    <CustomText
+                    <GradientText
                         text={'Cuentas'}
                         color={!focused ? color : undefined}
                         gradientColors={focused ? gradientColors : undefined}
@@ -86,12 +85,12 @@ export const useMainBottomTabNavigation = (): {
             },
         },
         {
-            name: "TransactionsTab",
+            name: 'TransactionsTab',
             component: TransactionsStackNavigation,
             options: {
                 title: 'Transacciones',
                 tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
-                    <CustomIcon
+                    <IonIcon
                         name={focused ? 'arrow-redo' : 'arrow-redo-outline'}
                         color={color}
                         size={26}
@@ -100,7 +99,7 @@ export const useMainBottomTabNavigation = (): {
                     />
                 ),
                 tabBarLabel: ({ color, focused }: { color: string; focused: boolean }) => (
-                    <CustomText
+                    <GradientText
                         text={'Transacciones'}
                         color={!focused ? color : undefined}
                         gradientColors={focused ? gradientColors : undefined}
@@ -109,12 +108,12 @@ export const useMainBottomTabNavigation = (): {
             },
         },
         {
-            name: "ReportsTab",
+            name: 'ReportsTab',
             component: ReportsStackNavigation,
             options: {
                 title: 'Reportes',
                 tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
-                    <CustomIcon
+                    <IonIcon
                         name={focused ? 'document-text' : 'document-text-outline'}
                         color={color}
                         size={26}
@@ -123,7 +122,7 @@ export const useMainBottomTabNavigation = (): {
                     />
                 ),
                 tabBarLabel: ({ color, focused }: { color: string; focused: boolean }) => (
-                    <CustomText
+                    <GradientText
                         text={'Reportes'}
                         color={!focused ? color : undefined}
                         gradientColors={focused ? gradientColors : undefined}
@@ -132,12 +131,12 @@ export const useMainBottomTabNavigation = (): {
             },
         },
         {
-            name: "SettingsTab",
+            name: 'SettingsTab',
             component: SettingsStackNavigation,
             options: {
                 title: 'Más',
                 tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
-                    <CustomIcon
+                    <IonIcon
                         name={focused ? 'ellipsis-vertical-circle-sharp' : 'ellipsis-vertical-circle-outline'}
                         color={color}
                         size={26}
@@ -146,7 +145,7 @@ export const useMainBottomTabNavigation = (): {
                     />
                 ),
                 tabBarLabel: ({ color, focused }: { color: string; focused: boolean }) => (
-                    <CustomText
+                    <GradientText
                         text={'Más'}
                         color={!focused ? color : undefined}
                         gradientColors={focused ? gradientColors : undefined}
@@ -158,6 +157,6 @@ export const useMainBottomTabNavigation = (): {
 
     return {
         screenOptions,
-        tabRoutes
+        tabRoutes,
     };
 };

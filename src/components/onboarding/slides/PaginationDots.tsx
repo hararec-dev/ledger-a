@@ -1,11 +1,11 @@
-import { View } from "react-native";
-import { useThemeStore } from "../../../hooks";
-import type { PaginationDotsProps } from "../../../types";
+import { View } from 'react-native';
+import { useThemeStore } from '../../../hooks';
+import type { PaginationDotsProps } from '../../../types';
 
 export const PaginationDots: React.FC<PaginationDotsProps> = ({
     currentIndex,
     numberOfIndexes,
-    style
+    style,
 }) => {
     const { colors } = useThemeStore();
 
@@ -25,7 +25,7 @@ export const PaginationDots: React.FC<PaginationDotsProps> = ({
                         backgroundColor: currentIndex === index
                             ? colors.fuchsia[600]
                             : colors.fuchsia[900],
-                        width: currentIndex === index ? 25 : 5
+                        width: currentIndex === index ? 25 : 5,
                     }}
                 />
             ))}

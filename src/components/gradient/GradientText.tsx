@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { Text } from "react-native";
-import MaskedView from "@react-native-masked-view/masked-view";
+import { Text } from 'react-native';
+import MaskedView from '@react-native-masked-view/masked-view';
 import LinearGradient from 'react-native-linear-gradient';
-import type { CustomFontProps, CustomTextProps } from "../../types";
+import type { GradientFontProps, GradientTextProps } from '../../types';
 
-export const CustomText: React.FC<CustomTextProps> = ({
+
+export const GradientText: React.FC<GradientTextProps> = ({
     color,
     gradientColors,
     text,
@@ -13,10 +14,10 @@ export const CustomText: React.FC<CustomTextProps> = ({
     fontWeight = '100',
     style,
 }) => {
-    const [textStyle] = useState<CustomFontProps>({
+    const [textStyle] = useState<GradientFontProps>({
         fontSize,
         fontFamily,
-        fontWeight: fontFamily === 'Pacifico-Regular' ? undefined : fontWeight
+        fontWeight: fontFamily === 'Pacifico-Regular' ? undefined : fontWeight,
     });
 
     return gradientColors

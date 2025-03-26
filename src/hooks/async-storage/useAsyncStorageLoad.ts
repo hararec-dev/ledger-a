@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { useColorScheme } from "react-native";
-import { useCurrentStatusAppStore, useThemeStore } from "../store";
+import { useEffect, useState } from 'react';
+import { useColorScheme } from 'react-native';
+import { useCurrentStatusAppStore, useThemeStore } from '../store';
 
 export const useAsyncStorageLoad = () => {
     const colorScheme = useColorScheme();
@@ -12,7 +12,7 @@ export const useAsyncStorageLoad = () => {
         isDark,
         colors,
         rneuiDarkColors,
-        rneuiLightColors
+        rneuiLightColors,
     } = useThemeStore();
     const {
         loadStoredData,
@@ -30,7 +30,14 @@ export const useAsyncStorageLoad = () => {
         };
 
         initStoredData();
-    }, [biometricEnabled, hasOnboarded, lastActivity, pinCode, userCurrency]);
+    }, [
+        biometricEnabled,
+        hasOnboarded,
+        lastActivity,
+        pinCode,
+        userCurrency,
+        loadStoredData,
+    ]);
 
     useEffect(() => {
         const initTheme = async () => {

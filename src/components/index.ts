@@ -1,5 +1,6 @@
 export * from './charts';
-export * from './custom';
+export * from './gradient';
+export * from './icon';
 export * from './legal';
 export * from './onboarding';
 export * from './providers';

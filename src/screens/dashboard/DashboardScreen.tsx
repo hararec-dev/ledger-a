@@ -1,5 +1,5 @@
 import { TouchableOpacity, View, ScrollView } from 'react-native';
-import { CartesianPlaneChart, CustomIcon } from '../../components';
+import { CartesianPlaneChart, IonIcon } from '../../components';
 import { useThemeStore } from '../../hooks';
 
 export const DashboardScreen = () => {
@@ -19,8 +19,8 @@ export const DashboardScreen = () => {
                     borderRadius: 25,
                     marginBottom: 10,
                 }}>
-                <CustomIcon
-                    name={isDark ? "sunny-outline" : "moon-outline"}
+                <IonIcon
+                    name={isDark ? 'sunny-outline' : 'moon-outline'}
                     size={30}
                     color={colors.cyan[500]}
                 />
@@ -36,28 +36,28 @@ export const DashboardScreen = () => {
                     <CartesianPlaneChart data={[
                         {
                             value: Math.random() * 100,
-                            label: "January"
+                            label: 'January',
                         },
                         {
                             value: Math.random() * 100,
-                            label: "February"
+                            label: 'February',
                         },
                         {
                             value: Math.random() * 100,
-                            label: "March"
+                            label: 'March',
                         },
                         {
                             value: Math.random() * 100,
-                            label: "April"
+                            label: 'April',
                         },
                         {
                             value: Math.random() * 100,
-                            label: "May"
+                            label: 'May',
                         },
                         {
                             value: Math.random() * 100,
-                            label: "June"
-                        }
+                            label: 'June',
+                        },
                     ]} />
                     {/* <Icon name="git" size={30} color="#900" /> */}
                 </View>

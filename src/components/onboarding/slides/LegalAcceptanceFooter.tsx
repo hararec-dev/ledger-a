@@ -10,7 +10,7 @@ const LegalLink: React.FC<LegalLinkProps> = ({ onPress, text, marginStyle, color
         <Text style={{
             ...styles.linkText,
             color: colors.coolGray[500],
-            ...marginStyle
+            ...marginStyle,
         }}>
             {text}
         </Text>
@@ -20,7 +20,7 @@ const LegalLink: React.FC<LegalLinkProps> = ({ onPress, text, marginStyle, color
 export const LegalAcceptanceFooter: React.FC = () => {
     const {
         legalConditionsAreAccepted,
-        setLegalConditionsAreAccepted
+        setLegalConditionsAreAccepted,
     } = useCurrentStatusAppStore();
     const { colors } = useThemeStore();
     const { width } = useWindowDimensions();
@@ -30,16 +30,16 @@ export const LegalAcceptanceFooter: React.FC = () => {
     return (
         <View style={[styles.container, { width: width * 0.6 }]}>
             <CheckBox
-                iconType='ionicon'
-                checkedIcon='checkbox-outline'
-                uncheckedIcon='square-outline'
+                iconType="ionicon"
+                checkedIcon="checkbox-outline"
+                uncheckedIcon="square-outline"
                 checked={legalConditionsAreAccepted}
                 checkedColor={colors.fuchsia[600]}
                 uncheckedColor={colors.fuchsia[100]}
                 onPress={handleCheckboxPress}
                 containerStyle={{
                     ...styles.checkboxContainer,
-                    backgroundColor: colors.coolGray[100]
+                    backgroundColor: colors.coolGray[100],
                 }}
             />
             <View style={[styles.textContainer]}>
@@ -64,7 +64,7 @@ export const LegalAcceptanceFooter: React.FC = () => {
             </View>
         </View>
     );
-}
+};
 
 const styles = StyleSheet.create({
     container: {
@@ -87,5 +87,5 @@ const styles = StyleSheet.create({
     linkText: {
         textDecorationLine: 'underline',
         fontSize: 12,
-    }
+    },
 });

@@ -11,7 +11,7 @@ export const BiometricAuthProvider = ({ children }: BiometricAuthProviderProps) 
         createKeys,
         sensorStatus,
         isLoadingBiometricAuth,
-        loadBiometricAuth
+        loadBiometricAuth,
     } = useBiometricStore();
 
     useEffect(() => {

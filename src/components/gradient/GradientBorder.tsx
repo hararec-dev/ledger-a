@@ -1,9 +1,9 @@
 import { StyleSheet, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { colorPalette } from '../../config';
-import type { CustomGradientBorderProps } from '../../types';
+import type { GradientBorderProps } from '../../types';
 
-export const CustomGradientBorder: React.FC<CustomGradientBorderProps> = ({ children, gradientColors }) => {
+export const GradientBorder: React.FC<GradientBorderProps> = ({ children, gradientColors }) => {
     return (
         <View style={styles.gradientContainer}>
             <LinearGradient
@@ -17,7 +17,7 @@ export const CustomGradientBorder: React.FC<CustomGradientBorderProps> = ({ chil
             </View>
         </View>
     );
-}
+};
 
 const styles = StyleSheet.create({
     gradientContainer: {

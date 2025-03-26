@@ -15,7 +15,7 @@ export const genericHttpRequest = async <RequestType, ResponseType>({
     body,
     endpoint,
     method,
-    timeout = 10000
+    timeout = 10000,
 }: RequestConfig<RequestType>): Promise<ResponseType> => {
     const url = new URL(endpoint, baseURL).toString();
     const controller = new AbortController();
@@ -26,7 +26,7 @@ export const genericHttpRequest = async <RequestType, ResponseType>({
             method,
             headers: {
                 'Content-Type': 'application/json',
-                ...headers
+                ...headers,
             },
             signal: controller.signal,
         };

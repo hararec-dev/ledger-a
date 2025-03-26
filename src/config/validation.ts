@@ -17,8 +17,8 @@ const VALIDATION_CONSTANTS: ValidationConstants = {
             length: 'El PIN debe tener exactamente 4 dígitos',
             match: 'Los PINs no coinciden',
             onlyNumbers: 'El PIN debe contener solo números',
-        }
-    }
+        },
+    },
 };
 
 export const validationOnboardingSetup = Yup.object().shape({

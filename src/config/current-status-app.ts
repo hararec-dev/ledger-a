@@ -4,4 +4,4 @@ export const CURRENT_STATUS_APP_KEYS = {
     HAS_ONBOARDED: 'hasOnboarded',
     LAST_ACTIVITY: 'lastActivity',
     USER_CURRENCY: 'userCurrency',
-}
+};

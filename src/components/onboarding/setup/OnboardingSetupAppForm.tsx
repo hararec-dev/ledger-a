@@ -1,49 +1,9 @@
-import { StyleSheet, Text, View, Switch, Platform } from "react-native";
-import { CustomInput, FormSetupGroup, CustomGradientButton, CustomIcon } from "../..";
-import { ONBOARDING_SETUP_TEXT } from "../../../config";
-import type { CustomSwitchProps, OnboardingAppFormProps, OnboardingFormProps } from "../../../types";
-import LinearGradient from 'react-native-linear-gradient';
-import { useGradient, useThemeStore } from "../../../hooks";
+import { StyleSheet, Text, View } from 'react-native';
+import { GradientInput, FormSetupGroup, GradientButton, IonIcon, GradientSwitch } from '../../../components';
+import { useGradient, useThemeStore } from '../../../hooks';
+import { ONBOARDING_SETUP_TEXT } from '../../../config';
+import type { OnboardingAppFormProps, OnboardingFormProps } from '../../../types';
 
-
-const CustomSwitch: React.FC<CustomSwitchProps> = ({ value, onValueChange, gradientLight }) => {
-    const { colors, isDark } = useThemeStore();
-
-    const styles = StyleSheet.create({
-        gradientTrack: {
-            overflow: 'hidden',
-            justifyContent: 'center',
-            alignItems: 'center',
-            height: Platform.OS === 'ios' ? 30 : 25,
-            width: 51,
-        },
-        gradientBackground: {
-            width: '100%',
-            height: '100%',
-            justifyContent: 'center',
-            alignItems: 'center',
-        }
-    });
-
-    return (
-        <View style={[styles.gradientTrack, { borderRadius: 15 }]}>
-            <LinearGradient
-                colors={gradientLight}
-                style={styles.gradientBackground}
-                start={{ x: 0, y: 0 }}
-                end={{ x: 1, y: 0 }}
-            >
-                <Switch
-                    value={value}
-                    onValueChange={onValueChange}
-                    trackColor={{ false: 'transparent', true: 'transparent' }}
-                    thumbColor={isDark ? colors.coolGray[50] : colors.purple[200]}
-                    ios_backgroundColor="transparent"
-                />
-            </LinearGradient>
-        </View>
-    );
-}
 
 const ThemeSwitch: React.FC<OnboardingFormProps> = ({ formik }) => {
     const { isDark, colors, setTheme } = useThemeStore();
@@ -66,22 +26,22 @@ const ThemeSwitch: React.FC<OnboardingFormProps> = ({ formik }) => {
             fontSize: 16,
             color: isDark ? colors.coolGray[50] : colors.coolGray[900],
             fontFamily: 'Quicksand-Regular',
-        }
+        },
     });
 
     return (
         <FormSetupGroup
-            label={ONBOARDING_SETUP_TEXT.themeLabel || "Tema"}
+            label={ONBOARDING_SETUP_TEXT.themeLabel || 'Tema'}
             error={formik.errors.theme}
             touched={formik.touched.theme}
         >
             <View style={styles.switchContainer}>
-                <CustomIcon name={'moon'} size={30} color={isDark
+                <IonIcon name={'moon'} size={30} color={isDark
                     ? colors.coolGray[50]
                     : colors.coolGray[900]
                 } />
                 <View style={styles.switchAndText}>
-                    <CustomSwitch
+                    <GradientSwitch
                         value={formik.values.theme === 'dark'}
                         onValueChange={(value) => {
                             formik.setFieldValue('theme', value ? 'dark' : 'light');
@@ -96,7 +56,7 @@ const ThemeSwitch: React.FC<OnboardingFormProps> = ({ formik }) => {
             </View>
         </FormSetupGroup>
     );
-}
+};
 
 const BiometricSwitch: React.FC<OnboardingFormProps> = ({ formik }) => {
     const { isDark, colors } = useThemeStore();
@@ -119,22 +79,22 @@ const BiometricSwitch: React.FC<OnboardingFormProps> = ({ formik }) => {
             fontSize: 16,
             color: isDark ? colors.coolGray[50] : colors.coolGray[900],
             fontFamily: 'Quicksand-Regular',
-        }
+        },
     });
 
     return (
         <FormSetupGroup
-            label={ONBOARDING_SETUP_TEXT.biometricAuthLabel || "Autenticación biométrica"}
+            label={ONBOARDING_SETUP_TEXT.biometricAuthLabel || 'Autenticación biométrica'}
             error={formik.errors.biometricAuth}
             touched={formik.touched.biometricAuth}
         >
             <View style={styles.switchContainer}>
-                <CustomIcon name={'finger-print'} size={30} color={isDark
+                <IonIcon name={'finger-print'} size={30} color={isDark
                     ? colors.coolGray[50]
                     : colors.coolGray[900]
                 } />
                 <View style={styles.switchAndText}>
-                    <CustomSwitch
+                    <GradientSwitch
                         value={formik.values.biometricAuth}
                         onValueChange={(value) => formik.setFieldValue('biometricAuth', value)}
                         gradientLight={isDark ? gradientDark : gradientLight}
@@ -146,7 +106,7 @@ const BiometricSwitch: React.FC<OnboardingFormProps> = ({ formik }) => {
             </View>
         </FormSetupGroup>
     );
-}
+};
 
 const PinInput: React.FC<{
     label: string;
@@ -164,7 +124,7 @@ const PinInput: React.FC<{
             error={formik.errors[fieldName]}
             touched={formik.touched[fieldName]}
         >
-            <CustomInput
+            <GradientInput
                 value={value}
                 onChangeText={formik.handleChange(fieldName)}
                 onBlur={() => formik.handleBlur(fieldName)}
@@ -175,7 +135,7 @@ const PinInput: React.FC<{
             />
         </FormSetupGroup>
     );
-}
+};
 
 const PinSetup: React.FC<OnboardingFormProps> = ({ formik }) => {
     const { isDark } = useThemeStore();
@@ -183,28 +143,28 @@ const PinSetup: React.FC<OnboardingFormProps> = ({ formik }) => {
     return (
         <>
             <PinInput
-                label={ONBOARDING_SETUP_TEXT.pinLabel || "Crear PIN"}
+                label={ONBOARDING_SETUP_TEXT.pinLabel || 'Crear PIN'}
                 value={formik.values.pin}
                 fieldName="pin"
-                placeholder={ONBOARDING_SETUP_TEXT.pinPlaceholder || "Ingresa un PIN de 4 dígitos"}
+                placeholder={ONBOARDING_SETUP_TEXT.pinPlaceholder || 'Ingresa un PIN de 4 dígitos'}
                 formik={formik}
                 gradientLight={isDark ? gradientDark : gradientLight}
             />
             <PinInput
-                label={ONBOARDING_SETUP_TEXT.confirmPinLabel || "Confirmar PIN"}
+                label={ONBOARDING_SETUP_TEXT.confirmPinLabel || 'Confirmar PIN'}
                 value={formik.values.confirmPin}
                 fieldName="confirmPin"
-                placeholder={ONBOARDING_SETUP_TEXT.confirmPinPlaceholder || "Confirma tu PIN"}
+                placeholder={ONBOARDING_SETUP_TEXT.confirmPinPlaceholder || 'Confirma tu PIN'}
                 formik={formik}
                 gradientLight={isDark ? gradientDark : gradientLight}
             />
         </>
     );
-}
+};
 
 export const OnboardingSetupAppForm: React.FC<OnboardingAppFormProps> = ({
     formik,
-    gradientOnboarding
+    gradientOnboarding,
 }) => {
     const { isDark, colors } = useThemeStore();
     const { gradientDark, gradientLight } = useGradient();
@@ -221,7 +181,7 @@ export const OnboardingSetupAppForm: React.FC<OnboardingAppFormProps> = ({
             fontFamily: 'Quicksand-Regular',
         },
         button: {
-            marginTop: 10
+            marginTop: 10,
         },
         disabledButton: {
             opacity: 0.4,
@@ -245,7 +205,7 @@ export const OnboardingSetupAppForm: React.FC<OnboardingAppFormProps> = ({
             fontSize: 16,
             color: isDark ? colors.coolGray[50] : colors.coolGray[900],
             fontFamily: 'Quicksand-Regular',
-        }
+        },
     });
 
     return (
@@ -255,17 +215,17 @@ export const OnboardingSetupAppForm: React.FC<OnboardingAppFormProps> = ({
                 gradientLight={isDark ? gradientDark : gradientLight}
             />
             <FormSetupGroup
-                label={ONBOARDING_SETUP_TEXT.createPinLabel || "Crear PIN de seguridad"}
+                label={ONBOARDING_SETUP_TEXT.createPinLabel || 'Crear PIN de seguridad'}
                 error={formik.errors.createPin}
                 touched={formik.touched.createPin}
             >
                 <View style={styles.switchContainer}>
-                    <CustomIcon name={'keypad'} size={30} color={isDark
+                    <IonIcon name={'keypad'} size={30} color={isDark
                         ? colors.coolGray[50]
                         : colors.coolGray[900]
                     } />
                     <View style={styles.switchAndText}>
-                        <CustomSwitch
+                        <GradientSwitch
                             value={formik.values.createPin}
                             onValueChange={(value: boolean) => formik.setFieldValue('createPin', value)}
                             gradientLight={isDark ? gradientDark : gradientLight}
@@ -280,7 +240,7 @@ export const OnboardingSetupAppForm: React.FC<OnboardingAppFormProps> = ({
             {formik.values.createPin && <PinSetup formik={formik} gradientLight={gradientLight} />}
 
             <ThemeSwitch formik={formik} gradientLight={gradientLight} />
-            <CustomGradientButton
+            <GradientButton
                 onPress={formik.handleSubmit}
                 gradientColors={isDark ? gradientDark : gradientLight}
                 style={styles.button}
@@ -288,7 +248,7 @@ export const OnboardingSetupAppForm: React.FC<OnboardingAppFormProps> = ({
                 disabledStyle={styles.disabledButton}
             >
                 <Text style={styles.buttonText}>{ONBOARDING_SETUP_TEXT.app.submitButton}</Text>
-            </CustomGradientButton>
+            </GradientButton>
         </View>
     );
 };

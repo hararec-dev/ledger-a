@@ -1,8 +1,8 @@
-import { Platform, StyleSheet, Text, View } from "react-native";
-import { CustomText } from "../../../components";
-import { colorPalette } from "../../../config";
-import type { OnboardingSetupHeaderProps } from "../../../types";
-import { useThemeStore } from "../../../hooks";
+import { Platform, StyleSheet, Text, View } from 'react-native';
+import { GradientText } from '../../../components';
+import { colorPalette } from '../../../config';
+import type { OnboardingSetupHeaderProps } from '../../../types';
+import { useThemeStore } from '../../../hooks';
 
 
 export const OnboardingSetupHeader: React.FC<OnboardingSetupHeaderProps> = ({
@@ -11,7 +11,7 @@ export const OnboardingSetupHeader: React.FC<OnboardingSetupHeaderProps> = ({
   subtitle,
   isAccount,
 }) => {
-  const { isDark, colors } = useThemeStore();
+  const { isDark } = useThemeStore();
   const styles = StyleSheet.create({
     header: {
       justifyContent: 'center',
@@ -28,23 +28,23 @@ export const OnboardingSetupHeader: React.FC<OnboardingSetupHeaderProps> = ({
     },
     text: {
       textAlign: 'center',
-      lineHeight: 40
-    }
+      lineHeight: 40,
+    },
   });
 
   return (
     <View style={styles.header}>
-      <CustomText
+      <GradientText
         text={title}
         fontSize={30}
-        fontWeight='bold'
+        fontWeight="bold"
         gradientColors={gradientDark}
         style={[
           styles.text,
-          Platform.OS === 'android' && !isAccount && { lineHeight: 60 }
+          Platform.OS === 'android' && !isAccount && { lineHeight: 60 },
         ]}
       />
       <Text style={styles.subtitle}>{subtitle}</Text>
     </View>
   );
-}
+};

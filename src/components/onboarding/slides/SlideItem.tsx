@@ -1,8 +1,9 @@
-import { Text, useWindowDimensions, View } from "react-native";
-import { CustomText } from "../../../components";
-import { useGradient, useThemeStore } from "../../../hooks";
-import type { SlideItemProps } from "../../../types";
-import { StyleSheet } from "react-native";
+import { Text, useWindowDimensions, View } from 'react-native';
+import { GradientText } from '../../../components';
+import { useGradient, useThemeStore } from '../../../hooks';
+import type { SlideItemProps } from '../../../types';
+import { StyleSheet } from 'react-native';
+
 
 export const SlideItem: React.FC<SlideItemProps> = ({ desc, img, title, style }) => {
     const { colors } = useThemeStore();
@@ -31,7 +32,7 @@ export const SlideItem: React.FC<SlideItemProps> = ({ desc, img, title, style })
             paddingTop: 5,
             fontFamily: 'Nunito-Regular',
             color: colors.coolGray[900],
-        }
+        },
     });
 
     return (
@@ -39,11 +40,11 @@ export const SlideItem: React.FC<SlideItemProps> = ({ desc, img, title, style })
             <View style={styles.imageContainer}>
                 {img}
             </View>
-            <CustomText
+            <GradientText
                 text={title}
                 fontSize={fontScale * 30}
                 gradientColors={gradientLight}
-                fontWeight='black'
+                fontWeight="black"
             />
             <Text style={styles.description}>{desc}</Text>
         </View>

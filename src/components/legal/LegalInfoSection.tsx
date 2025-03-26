@@ -1,6 +1,6 @@
-import { StyleSheet, Text, View, TextStyle, ViewStyle } from "react-native";
-import { Divider } from "@rneui/themed";
-import type { LegalInfoSectionProps, LegalItem, LegalItemProps, LegalSubItemProps } from "../../types";
+import { StyleSheet, Text, View, TextStyle, ViewStyle } from 'react-native';
+import { Divider } from '@rneui/themed';
+import type { LegalInfoSectionProps, LegalItem, LegalItemProps, LegalSubItemProps } from '../../types';
 
 
 const LegalSubItem: React.FC<LegalSubItemProps> = ({ subitem }) => (

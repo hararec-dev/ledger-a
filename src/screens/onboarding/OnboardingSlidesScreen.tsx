@@ -13,7 +13,7 @@ export const OnboardingSlidesScreen = () => {
         flatListRef,
         currentSlideIndex,
         handleScroll,
-        renderSlideItem
+        renderSlideItem,
     } = useOnboardingSlideLogic(slides);
 
     const styles = StyleSheet.create({
@@ -32,7 +32,7 @@ export const OnboardingSlidesScreen = () => {
         },
         paginationButtonsStyle: {
             paddingBottom: height * 0.05,
-        }
+        },
     });
 
     return (

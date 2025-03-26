@@ -35,8 +35,8 @@ export const Timeline: React.FC<TimelineProps> = ({
                             width: dotSize,
                             height: dotSize,
                             borderRadius: dotSize / 2,
-                            backgroundColor: item.dotColor || dotColor
-                        }
+                            backgroundColor: item.dotColor || dotColor,
+                        },
                     ]}
                 >
                     {item.icon}
@@ -46,7 +46,7 @@ export const Timeline: React.FC<TimelineProps> = ({
                     <View
                         style={[
                             styles.line,
-                            { backgroundColor: lineColor }
+                            { backgroundColor: lineColor },
                         ]}
                     />
                 )}

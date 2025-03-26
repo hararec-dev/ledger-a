@@ -13,7 +13,7 @@ export const OnboardingAuthSetupScreen = ({ navigation }: OnboardingAuthSetupPro
 
     const handleSetPin = async () => {
         if (pin.length < 4) {
-            setError('El PIN debe tener al menos 4 dígitos.')
+            setError('El PIN debe tener al menos 4 dígitos.');
             Alert.alert('El PIN debe tener al menos 4 dígitos.');
             return;
         }

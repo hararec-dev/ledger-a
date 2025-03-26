@@ -1,8 +1,8 @@
-import { Platform, StyleSheet, Text, useWindowDimensions, View } from "react-native";
-import { CustomGradientButton, CustomIcon } from "../../custom";
-import { useCurrentStatusAppStore, useGradient } from "../../../hooks";
-import { colorPalette, PAGINATION_BUTTONS_CONFIG } from "../../../config";
-import type { OnboardingButtonProps } from "../../../types";
+import { Platform, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { GradientButton, IonIcon } from '../../../components';
+import { useCurrentStatusAppStore, useGradient } from '../../../hooks';
+import { colorPalette, PAGINATION_BUTTONS_CONFIG } from '../../../config';
+import type { OnboardingButtonProps } from '../../../types';
 
 
 export const OnboardingButton: React.FC<OnboardingButtonProps> = ({ onNavigate }) => {
@@ -11,7 +11,7 @@ export const OnboardingButton: React.FC<OnboardingButtonProps> = ({ onNavigate }
     const { width } = useWindowDimensions();
 
     return (
-        <CustomGradientButton
+        <GradientButton
             onPress={() => onNavigate()}
             gradientColors={gradientLight}
             disabled={!legalConditionsAreAccepted}
@@ -19,10 +19,10 @@ export const OnboardingButton: React.FC<OnboardingButtonProps> = ({ onNavigate }
             style={{ width: width * 0.7 }}
         >
             <View style={styles.horizontalContainer}>
-                <CustomIcon name="golf-outline" size={24} color={colorPalette.coolGray[50]} />
+                <IonIcon name="golf-outline" size={24} color={colorPalette.coolGray[50]} />
                 <Text style={styles.buttonText}>{PAGINATION_BUTTONS_CONFIG.BUTTON_TITLES.START}</Text>
             </View>
-        </CustomGradientButton >
+        </GradientButton >
     );
 };
 
@@ -45,5 +45,5 @@ const styles = StyleSheet.create({
         width: '100%',
         columnGap: 10,
         ...(Platform.OS === 'ios' && { paddingHorizontal: 20 }),
-    }
+    },
 });

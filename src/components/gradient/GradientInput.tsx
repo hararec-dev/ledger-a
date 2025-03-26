@@ -1,19 +1,19 @@
-import { StyleSheet, TextInput } from "react-native";
-import { CustomGradientBorder } from "./CustomGradientBorder";
-import { colorPalette } from "../../config";
-import type { CustomInputProps } from "../../types";
+import { StyleSheet, TextInput } from 'react-native';
+import { GradientBorder } from './GradientBorder';
+import { colorPalette } from '../../config';
+import type { GradientInputProps } from '../../types';
 
 
-export const CustomInput: React.FC<CustomInputProps> = ({ 
-    value, 
-    onChangeText, 
-    onBlur, 
-    placeholder, 
-    gradientLight, 
+export const GradientInput: React.FC<GradientInputProps> = ({
+    value,
+    onChangeText,
+    onBlur,
+    placeholder,
+    gradientLight,
     keyboardType = 'default',
-    maxLength 
+    maxLength,
 }) => (
-    <CustomGradientBorder gradientColors={gradientLight}>
+    <GradientBorder gradientColors={gradientLight}>
         <TextInput
             style={styles.input}
             value={value}
@@ -24,7 +24,7 @@ export const CustomInput: React.FC<CustomInputProps> = ({
             keyboardType={keyboardType}
             maxLength={maxLength}
         />
-    </CustomGradientBorder>
+    </GradientBorder>
 );
 
 const styles = StyleSheet.create({

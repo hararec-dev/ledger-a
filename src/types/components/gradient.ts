@@ -1,14 +1,14 @@
-import type { PropsWithChildren } from "react";
-import type { ViewStyle } from "react-native";
+import type { PropsWithChildren } from 'react';
+import type { ViewStyle } from 'react-native';
 
-export type CustomGradientBorderProps = PropsWithChildren<{ gradientColors: string[] }>;
+export type GradientBorderProps = PropsWithChildren<{ gradientColors: string[] }>;
 
-export type CustomGradientBackgroundProps = PropsWithChildren<{
+export type GradientBackgroundProps = PropsWithChildren<{
     gradient: string[];
     style?: ViewStyle;
 }>;
 
-export interface CustomInputProps {
+export interface GradientInputProps {
     value: string;
     onChangeText: (text: string) => void;
     onBlur: () => void;
@@ -18,7 +18,7 @@ export interface CustomInputProps {
     maxLength?: number;
 }
 
-export interface CustomSwitchProps {
+export interface GradientSwitchProps {
     value: boolean;
     onValueChange: (value: boolean) => void;
     gradientLight: string[];

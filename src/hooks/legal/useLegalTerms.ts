@@ -10,6 +10,6 @@ export const useLegalTerms = ({ typeInfo }: { typeInfo: TypeLegalInfo; }) => {
     return {
         termsContent: typeInfo === 'terms'
             ? memoizedTerms
-            : memoizedPolicy
+            : memoizedPolicy,
     };
 };

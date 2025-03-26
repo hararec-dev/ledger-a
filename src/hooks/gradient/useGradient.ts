@@ -1,8 +1,8 @@
-import { useMemo } from "react";
-import { useThemeStore } from "../store";
+import { useMemo } from 'react';
+import { useThemeStore } from '../store';
 
 export const useGradient = () => {
-    const { colors } = useThemeStore();
+    const { colors, isDark } = useThemeStore();
     const gradientDark = useMemo<string[]>(() => [
         colors.yellow[300],
         colors.orange[400],
@@ -11,17 +11,16 @@ export const useGradient = () => {
     const gradientLight = useMemo<string[]>(() => [
         colors.blue[500],
         colors.purple[500],
-        colors.rose[500]
+        colors.rose[500],
     ], [colors]);
-    const gradientOnboarding = useMemo<string[]>(() => [
-        colors.yellow[400],
-        colors.orange[500],
-        colors.pink[500],
-    ], [colors]);
+    const themeGradient = useMemo<string[]>(() => isDark
+        ? gradientDark
+        : gradientLight,
+        [isDark, gradientDark, gradientLight]);
 
     return {
         gradientDark,
         gradientLight,
-        gradientOnboarding,
-    }
-}
+        themeGradient,
+    };
+};

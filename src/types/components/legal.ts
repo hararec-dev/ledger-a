@@ -1,6 +1,6 @@
-import type { StackNavigationProp } from "@react-navigation/stack";
-import type { RootStackParamList } from "../navigation";
-import type { FullColorPallete } from "../config";
+import type { StackNavigationProp } from '@react-navigation/stack';
+import type { RootStackParamList } from '../navigation';
+import type { FullColorPallete } from '../config';
 
 export interface LegalItem {
     text: string;

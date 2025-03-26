@@ -1,4 +1,4 @@
-import type { FullColorPallete, RneuiPlatformColors } from "../config";
+import type { FullColorPallete, RneuiPlatformColors } from '../config';
 
 export type ThemeColor = 'light' | 'dark';
 

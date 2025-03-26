@@ -1,6 +1,6 @@
-import type { StackNavigationProp } from "@react-navigation/stack";
-import type { RootStackParamList } from "./root";
-import type { RouteProp } from "@react-navigation/native";
+import type { StackNavigationProp } from '@react-navigation/stack';
+import type { RootStackParamList } from './root';
+import type { RouteProp } from '@react-navigation/native';
 
 export type OnboardingAuthSetupNavigationProp = StackNavigationProp<
     RootStackParamList,
@@ -34,5 +34,5 @@ export interface OnboardingSetupAppProps {
 }
 
 export interface OnboardingSetupProps extends OnboardingSetupAccountProps  {
-  route: RouteProp<RootStackParamList, "OnboardingSetup">;
-};
+  route: RouteProp<RootStackParamList, 'OnboardingSetup'>;
+}

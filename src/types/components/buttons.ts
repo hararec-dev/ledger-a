@@ -1,21 +1,11 @@
-import type { StyleProp, TextStyle, ViewStyle } from "react-native";
+import type { StyleProp, TextStyle } from 'react-native';
 
-export type CustomIconProps = {
-    name: string;
-    size?: number;
-    color?: string;
-    onPress?: () => void;
-    style?: StyleProp<ViewStyle>;
-    disabled?: boolean;
-    gradientColors?: string[];
-};
-
-export interface CustomFontProps {
+export interface GradientFontProps {
     fontSize?: number;
     fontFamily?: string;
     fontWeight?: 'normal' | 'bold' | 'black' | '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900';
 }
-export interface CustomTextProps extends CustomFontProps {
+export interface GradientTextProps extends GradientFontProps {
     text: string;
     color?: string;
     gradientColors?: string[];

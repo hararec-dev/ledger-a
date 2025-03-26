@@ -1,11 +1,11 @@
-import { RootStackNavigation } from "./navigation";
+import { RootStackNavigation } from './navigation';
 import {
   AppThemeProvider,
   BiometricAuthProvider,
   HttpProvider,
   NavigationProvider,
   SafeProvider,
-} from "./components";
+} from './components';
 
 export const App = (): React.JSX.Element => {
   return (
@@ -21,4 +21,4 @@ export const App = (): React.JSX.Element => {
       </SafeProvider>
     </HttpProvider>
   );
-}
+};

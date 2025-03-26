@@ -1,7 +1,7 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { useGradient } from "../../hooks";
-import { CustomIcon, CustomText } from "../custom";
-import type { LegalInfoHeaderProps } from "../../types";
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { GradientText, IonIcon } from '../../components';
+import { useGradient } from '../../hooks';
+import type { LegalInfoHeaderProps } from '../../types';
 
 
 export const LegalInfoHeader: React.FC<LegalInfoHeaderProps> = ({ navigation, title, lastUpdate }) => {
@@ -13,19 +13,19 @@ export const LegalInfoHeader: React.FC<LegalInfoHeaderProps> = ({ navigation, ti
                 onPress={() => navigation.goBack()}
                 style={styles.backButton}
             >
-                <CustomIcon name="arrow-back" size={24} color="#333" />
+                <IonIcon name="arrow-back" size={24} color="#333" />
             </TouchableOpacity>
-            <CustomText
+            <GradientText
                 text={title}
                 fontSize={22}
                 gradientColors={gradientLight}
-                fontWeight='black'
+                fontWeight="black"
                 style={{ textAlign: 'center' }}
             />
             <Text style={styles.subtitle}>{lastUpdate}</Text>
         </View>
     );
-}
+};
 
 const styles = StyleSheet.create({
     header: {
@@ -49,5 +49,5 @@ const styles = StyleSheet.create({
         marginBottom: 8,
         color: '#444',
         fontFamily: 'Nunito-Regular',
-    }
+    },
 });

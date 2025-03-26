@@ -54,10 +54,10 @@ export const useAuthentication = (handleFailedAttempt?: () => void) => {
                 await storeSessionToken();
                 return true;
             }
-            if (handleFailedAttempt) handleFailedAttempt();
+            if (handleFailedAttempt) {handleFailedAttempt();}
             return false;
         } catch (error) {
-            if (handleFailedAttempt) handleFailedAttempt();
+            if (handleFailedAttempt) {handleFailedAttempt();}
             return false;
         } finally {
             setLoadingAuth(false);
@@ -67,7 +67,7 @@ export const useAuthentication = (handleFailedAttempt?: () => void) => {
         storeSessionToken,
         createSignature,
         handleFailedAttempt,
-        setLoadingAuth
+        setLoadingAuth,
     ]);
 
     return {

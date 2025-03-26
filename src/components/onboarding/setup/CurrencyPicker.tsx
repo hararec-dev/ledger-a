@@ -1,10 +1,10 @@
-import { useState } from "react";
-import { Modal, Platform, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { Picker } from "@react-native-picker/picker";
-import { CustomGradientBorder } from "../../../components";
-import { colorPalette, currencies, ONBOARDING_SETUP_TEXT } from "../../../config";
-import { useGradient, useThemeStore } from "../../../hooks";
-import type { CurrencyInfo, CurrencyPickerProps } from "../../../types";
+import { useState } from 'react';
+import { Modal, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Picker } from '@react-native-picker/picker';
+import { CustomGradientBorder } from '../../../components';
+import { colorPalette, currencies, ONBOARDING_SETUP_TEXT } from '../../../config';
+import { useGradient, useThemeStore } from '../../../hooks';
+import type { CurrencyInfo, CurrencyPickerProps } from '../../../types';
 
 export const CurrencyPicker: React.FC<CurrencyPickerProps> = ({ formik, selectedCurrency }) => {
     const [showPicker, setShowPicker] = useState(false);
@@ -45,7 +45,7 @@ export const CurrencyPicker: React.FC<CurrencyPickerProps> = ({ formik, selected
                                 <View style={styles.pickerHeader}>
                                     <TouchableOpacity onPress={() => setShowPicker(false)}>
                                         <Text style={{
-                                            color: isDark ? colorPalette.orange[500]: colors.purple[700],
+                                            color: isDark ? colorPalette.orange[500] : colors.purple[700],
                                             fontSize: 16,
                                             fontWeight: '600',
                                         }}>{ONBOARDING_SETUP_TEXT.doneButton}</Text>
@@ -64,7 +64,7 @@ export const CurrencyPicker: React.FC<CurrencyPickerProps> = ({ formik, selected
                                             key={currency.code}
                                             label={`${currency.code} - ${currency.description}`}
                                             value={currency.code}
-                                            color={isDark ? colorPalette.orange[500]: colors.purple[600]}
+                                            color={isDark ? colorPalette.orange[500] : colors.purple[600]}
                                         />
                                     ))}
                                 </Picker>
@@ -156,5 +156,5 @@ const styles = StyleSheet.create({
         color: colorPalette.coolGray[900],
         fontFamily: 'Nunito-Regular',
         backgroundColor: colorPalette.coolGray[50],
-    }
+    },
 });

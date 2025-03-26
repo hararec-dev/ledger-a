@@ -1,5 +1,5 @@
-import type { StackNavigationProp } from "@react-navigation/stack";
-import type { RootStackParamList } from "./root";
+import type { StackNavigationProp } from '@react-navigation/stack';
+import type { RootStackParamList } from './root';
 
 export type AuthenticationScreenNavigationProp = StackNavigationProp<
     RootStackParamList,

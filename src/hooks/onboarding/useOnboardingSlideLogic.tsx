@@ -40,6 +40,6 @@ export const useOnboardingSlideLogic = (slides: Slide[]) => {
         currentSlideIndex,
         handleScroll,
         handleSlideNavigation,
-        renderSlideItem
+        renderSlideItem,
     };
 };
