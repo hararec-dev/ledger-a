@@ -5,3 +5,4 @@ export * from './legal';
 export * from './navigation';
 export * from './onboarding';
 export * from './store';
+export * from './styles';
