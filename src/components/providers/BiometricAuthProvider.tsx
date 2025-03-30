@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { useBiometricStore } from '../../hooks';
 import type { BiometricAuthProviderProps } from '../../types';
 
@@ -25,13 +25,19 @@ export const BiometricAuthProvider = ({ children }: BiometricAuthProviderProps) 
         };
 
         initializeBiometrics();
-    }, [checkBiometricAvailability, biometricKeysExist, createKeys]);
+    }, [checkBiometricAvailability, biometricKeysExist, loadBiometricAuth, createKeys]);
 
     return !sensorStatus && !isLoadingBiometricAuth
         ? null
         : (
-            <View style={{ flex: 1 }}>
+            <View style={styles.container}>
                 {children}
             </View>
         );
 };
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
+});

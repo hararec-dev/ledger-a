@@ -1,6 +1,7 @@
 import { ScrollView, StyleSheet, Text } from 'react-native';
 import { useThemeStore } from '../../hooks';
 
+
 export const AccountsScreen = () => {
     const { isDark } = useThemeStore();
     return (

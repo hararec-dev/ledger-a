@@ -1,37 +1,79 @@
-import { StyleSheet, TextInput } from 'react-native';
-import { GradientBorder } from './GradientBorder';
-import { colorPalette } from '../../config';
+import { useState } from 'react';
+import { TextInput, TouchableOpacity } from 'react-native';
+import { GradientBorder, IonIcon } from '../../components';
+import { useStyles } from '../../hooks';
 import type { GradientInputProps } from '../../types';
 
 
 export const GradientInput: React.FC<GradientInputProps> = ({
-    value,
-    onChangeText,
-    onBlur,
-    placeholder,
-    gradientLight,
+    gradientColors,
+    isSecureTextEntry = false,
     keyboardType = 'default',
     maxLength,
-}) => (
-    <GradientBorder gradientColors={gradientLight}>
-        <TextInput
-            style={styles.input}
-            value={value}
-            onChangeText={onChangeText}
-            onBlur={onBlur}
-            placeholder={placeholder}
-            placeholderTextColor={colorPalette.gray[400]}
-            keyboardType={keyboardType}
-            maxLength={maxLength}
-        />
-    </GradientBorder>
-);
+    onBlur,
+    onChangeText,
+    placeholder,
+    value,
+}) => {
+    const styles = useStyles(({ colors, isDark }) => ({
+        input: {
+            padding: 12,
+            fontSize: 16,
+            backgroundColor: colors.gray[50],
+            color: colors.gray[900],
+            ...(isSecureTextEntry && { flex: 4 }),
+        },
+        placeholder: {
+            color: colors.gray[400],
+        },
+        inputContainer: {
+            ...(isSecureTextEntry && {
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'flex-start',
+                backgroundColor: 'transparent',
+            }),
+        },
+        icon: {
+            color: isDark ? colors.coolGray[900] : colors.coolGray[50],
+            size: 24,
+        },
+        eyeContainer: {
+            justifyContent: 'center',
+            alignItems: 'center',
+            flex: 1,
+        },
+    }));
+    const [showPassword, setShowPassword] = useState(false);
 
-const styles = StyleSheet.create({
-    input: {
-        borderRadius: 8,
-        padding: 12,
-        fontSize: 16,
-        backgroundColor: colorPalette.gray[50],
-    },
-});
+    return (
+        <GradientBorder
+            gradientColors={gradientColors}
+            style={styles.inputContainer}
+        >
+            <TextInput
+                style={styles.input}
+                value={value}
+                onChangeText={onChangeText}
+                onBlur={onBlur}
+                placeholder={placeholder}
+                placeholderTextColor={styles.placeholder.color}
+                keyboardType={keyboardType}
+                maxLength={maxLength}
+                secureTextEntry={isSecureTextEntry && !showPassword}
+            />
+            {isSecureTextEntry && (
+                <TouchableOpacity
+                    onPress={() => setShowPassword(!showPassword)}
+                    style={styles.eyeContainer}
+                >
+                    <IonIcon
+                        name={showPassword ? 'eye' : 'eye-off'}
+                        size={styles.icon.size}
+                        color={styles.icon.color}
+                    />
+                </TouchableOpacity>
+            )}
+        </GradientBorder>
+    );
+};

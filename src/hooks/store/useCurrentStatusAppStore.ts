@@ -4,13 +4,12 @@ import { CURRENT_STATUS_APP_KEYS } from '../../config';
 import type { Currency, CurrentStatusAppState, LastActivity } from '../../types';
 
 
-export const useCurrentStatusAppStore = create<CurrentStatusAppState>((set, get) => ({
+export const useCurrentStatusAppStore = create<CurrentStatusAppState>((set) => ({
     biometricEnabled: null,
     hasOnboarded: null,
     lastActivity: null,
-    pinCode: null,
-    userCurrency: null,
     legalConditionsAreAccepted: false,
+    userCurrency: null,
     loadStoredData: async () => {
         try {
             const storedData = await AsyncStorage.multiGet([

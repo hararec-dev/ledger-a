@@ -1,22 +1,17 @@
-import { useWindowDimensions, View, StyleSheet, FlatList } from 'react-native';
+import { View, FlatList } from 'react-native';
 import { LegalAcceptanceFooter, OnboardingButton, PaginationDots } from '../../components';
-import { useCustomNavigation, useOnboardingSlideLogic, useOnboardingSlides, useThemeStore } from '../../hooks';
+import { useCustomNavigation, useOnboardingSlideLogic, useOnboardingSlides, useStyles } from '../../hooks';
 
 export const OnboardingSlidesScreen = () => {
-    const { colors } = useThemeStore();
-    const { width, height } = useWindowDimensions();
-    const slidesDimensions = { width: width * 0.7, height: height * 0.5 };
-    const { slides } = useOnboardingSlides(slidesDimensions);
+    const { slides } = useOnboardingSlides();
     const { goToSetup } = useCustomNavigation();
-
     const {
         flatListRef,
         currentSlideIndex,
         handleScroll,
         renderSlideItem,
     } = useOnboardingSlideLogic(slides);
-
-    const styles = StyleSheet.create({
+    const styles = useStyles(({ colors, screenHeight }) => ({
         container: {
             flex: 1,
             justifyContent: 'center',
@@ -28,12 +23,12 @@ export const OnboardingSlidesScreen = () => {
             alignItems: 'center',
             flexWrap: 'wrap',
             rowGap: 40,
-            height: height * 0.3,
+            height: screenHeight * 0.3,
         },
         paginationButtonsStyle: {
-            paddingBottom: height * 0.05,
+            paddingBottom: screenHeight * 0.05,
         },
-    });
+    }));
 
     return (
         <View style={styles.container}>

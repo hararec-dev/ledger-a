@@ -1,6 +1,5 @@
 import { useMemo } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { SettingsStackParamList, SettingsStackRoute } from '../types';
 import {
     AIAutomationScreen,
     BankSyncScreen,
@@ -14,6 +13,7 @@ import {
     SettingsScreen,
     SubscriptionScreen,
 } from '../screens';
+import type { SettingsStackParamList, SettingsStackRoute } from '../types';
 
 const SettingsStack = createStackNavigator<SettingsStackParamList>();
 

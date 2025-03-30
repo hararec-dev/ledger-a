@@ -1,27 +1,25 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
+import { useStyles } from '../../../hooks';
 import type { FormSetupGroupProps } from '../../../types';
-import { colorPalette } from '../../../config';
-import { useThemeStore } from '../../../hooks';
 
 
 export const FormSetupGroup: React.FC<FormSetupGroupProps> = ({ label, error, touched, children, style }) => {
-  const { isDark } = useThemeStore();
-  const styles = StyleSheet.create({
+  const styles = useStyles(({ isDark, colors }) => ({
     label: {
       fontSize: 16,
       fontWeight: '600',
       marginBottom: 8,
-      color: isDark ? colorPalette.coolGray[50] : colorPalette.coolGray[900],
+      color: isDark ? colors.coolGray[50] : colors.coolGray[900],
       fontFamily: 'Quicksand-Regular',
     },
     errorText: {
-      color: colorPalette.red[500],
+      color: isDark ? colors.red[300] : colors.red[500],
       fontSize: 14,
       marginTop: 5,
       fontWeight: '500',
       fontFamily: 'Nunito-Regular',
     },
-  });
+  }));
 
   return (
     <View style={style}>

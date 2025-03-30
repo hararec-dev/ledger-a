@@ -1,44 +1,63 @@
-import { Platform, StyleSheet, Switch, View } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
-import { useThemeStore } from '../../hooks';
+import { StyleSheet, Switch, View } from 'react-native';
+import { GradientBackground } from '../../components';
+import { useGradient, useStyles } from '../../hooks';
 import type { GradientSwitchProps } from '../../types';
 
 
-export const GradientSwitch: React.FC<GradientSwitchProps> = ({ value, onValueChange, gradientLight }) => {
-    const { colors, isDark } = useThemeStore();
+const SWITCH_DIMENSIONS = {
+    ios: {
+        height: 30,
+        width: 51,
+    },
+    android: {
+        height: 25,
+        width: 51,
+    },
+};
+const BORDER_RADIUS = 15;
 
-    const styles = StyleSheet.create({
+export const GradientSwitch: React.FC<GradientSwitchProps> = ({ value, onValueChange, gradientColors }) => {
+    const appStyles = useStyles(({ isDark, colors, Platform }) => ({
+        thumbColor: { color: isDark ? colors.coolGray[50] : colors.purple[200] },
         gradientTrack: {
             overflow: 'hidden',
             justifyContent: 'center',
             alignItems: 'center',
-            height: Platform.OS === 'ios' ? 30 : 25,
-            width: 51,
+            height: Platform.OS === 'ios'
+                ? SWITCH_DIMENSIONS.ios.height
+                : SWITCH_DIMENSIONS.android.height,
+            width: SWITCH_DIMENSIONS.ios.width,
         },
-        gradientBackground: {
-            width: '100%',
-            height: '100%',
-            justifyContent: 'center',
-            alignItems: 'center',
-        },
-    });
+    }));
+    const { themeGradient } = useGradient();
+    const switchTrackStyles = [
+        appStyles.gradientTrack,
+        { borderRadius: BORDER_RADIUS },
+    ];
 
     return (
-        <View style={[styles.gradientTrack, { borderRadius: 15 }]}>
-            <LinearGradient
-                colors={gradientLight}
+        <View style={switchTrackStyles}>
+            <GradientBackground
+                gradient={gradientColors ? gradientColors : themeGradient}
                 style={styles.gradientBackground}
-                start={{ x: 0, y: 0 }}
-                end={{ x: 1, y: 0 }}
             >
                 <Switch
                     value={value}
                     onValueChange={onValueChange}
                     trackColor={{ false: 'transparent', true: 'transparent' }}
-                    thumbColor={isDark ? colors.coolGray[50] : colors.purple[200]}
+                    thumbColor={appStyles.thumbColor.color}
                     ios_backgroundColor="transparent"
                 />
-            </LinearGradient>
+            </GradientBackground>
         </View>
     );
 };
+
+const styles = StyleSheet.create({
+    gradientBackground: {
+        width: '100%',
+        height: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+});

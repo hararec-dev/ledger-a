@@ -40,7 +40,7 @@ export const ONBOARDING_SETUP_TEXT: OnboardingSetupTextContent = {
     pinPlaceholder: 'Ingresa un PIN de 4 dígitos',
     confirmPinLabel: 'Confirma tu PIN',
     confirmPinPlaceholder: 'Ingresa nuevamente tu PIN',
-    createPinLabel: '¿Deseas crear tu PIN?',
+    createPinLabel: '¿Deseas crear un PIN?',
     createPinPlaceholder: 'Ingresa un PIN de 4 dígitos',
     confirmCreatePinLabel: 'Confirma tu PIN',
     confirmCreatePinPlaceholder: 'Ingresa nuevamente tu PIN',

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useColorScheme } from 'react-native';
-import { useCurrentStatusAppStore, useThemeStore } from '../store';
+import { useCurrentStatusAppStore, useThemeStore } from '../../hooks';
 
 export const useAsyncStorageLoad = () => {
     const colorScheme = useColorScheme();
@@ -46,7 +46,7 @@ export const useAsyncStorageLoad = () => {
         };
 
         initTheme();
-    }, [colorScheme]);
+    }, [colorScheme, loadTheme]);
 
     return {
         isLoaded: isThemeLoaded && isStoredDataLoaded,

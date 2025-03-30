@@ -1,11 +1,14 @@
 import type { PropsWithChildren } from 'react';
 import type { ViewStyle } from 'react-native';
 
-export type GradientBorderProps = PropsWithChildren<{ gradientColors: string[] }>;
+export type GradientBorderProps = PropsWithChildren<{
+    gradientColors?: string[];
+    style?: ViewStyle | ViewStyle[];
+}>;
 
 export type GradientBackgroundProps = PropsWithChildren<{
     gradient: string[];
-    style?: ViewStyle;
+    style?: ViewStyle | ViewStyle[];
 }>;
 
 export interface GradientInputProps {
@@ -13,13 +16,14 @@ export interface GradientInputProps {
     onChangeText: (text: string) => void;
     onBlur: () => void;
     placeholder: string;
-    gradientLight: string[];
     keyboardType?: 'numeric' | 'default';
     maxLength?: number;
+    gradientColors?: string[];
+    isSecureTextEntry?: boolean;
 }
 
 export interface GradientSwitchProps {
     value: boolean;
     onValueChange: (value: boolean) => void;
-    gradientLight: string[];
+    gradientColors?: string[];
 }

@@ -2,7 +2,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 import {
     AuthenticationScreen,
     LegalInfoScreen,
-    OnboardingAuthSetupScreen,
     OnboardingSetupScreen,
     OnboardingSlidesScreen,
 } from '../screens';
@@ -26,10 +25,6 @@ export const RootStackNavigation: React.FC = () => {
                     <Stack.Screen
                         name="OnboardingSetup"
                         component={OnboardingSetupScreen}
-                    />
-                    <Stack.Screen
-                        name="OnboardingAuthSetup"
-                        component={OnboardingAuthSetupScreen}
                     />
                     <Stack.Screen
                         name="LegalInfo"

@@ -1,18 +1,16 @@
-import { Platform, StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { GradientText } from '../../../components';
-import { colorPalette } from '../../../config';
+import { useStyles } from '../../../hooks';
 import type { OnboardingSetupHeaderProps } from '../../../types';
-import { useThemeStore } from '../../../hooks';
 
 
 export const OnboardingSetupHeader: React.FC<OnboardingSetupHeaderProps> = ({
-  gradientDark,
+  gradientColors,
   title,
   subtitle,
   isAccount,
 }) => {
-  const { isDark } = useThemeStore();
-  const styles = StyleSheet.create({
+  const styles = useStyles(({ isDark, colors, Platform }) => ({
     header: {
       justifyContent: 'center',
       alignItems: 'center',
@@ -24,13 +22,14 @@ export const OnboardingSetupHeader: React.FC<OnboardingSetupHeaderProps> = ({
       textAlign: 'center',
       fontWeight: '500',
       fontFamily: 'Nunito-Regular',
-      color: isDark ? colorPalette.coolGray[50] : colorPalette.coolGray[900],
+      color: isDark ? colors.coolGray[50] : colors.coolGray[900],
     },
     text: {
       textAlign: 'center',
       lineHeight: 40,
+      ...(Platform.OS === 'android' && !isAccount && { lineHeight: 60 }),
     },
-  });
+  }));
 
   return (
     <View style={styles.header}>
@@ -38,11 +37,8 @@ export const OnboardingSetupHeader: React.FC<OnboardingSetupHeaderProps> = ({
         text={title}
         fontSize={30}
         fontWeight="bold"
-        gradientColors={gradientDark}
-        style={[
-          styles.text,
-          Platform.OS === 'android' && !isAccount && { lineHeight: 60 },
-        ]}
+        gradientColors={gradientColors}
+        style={styles.text}
       />
       <Text style={styles.subtitle}>{subtitle}</Text>
     </View>

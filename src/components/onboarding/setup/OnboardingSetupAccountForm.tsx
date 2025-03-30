@@ -1,17 +1,37 @@
-import { StyleSheet, Text, View } from 'react-native';
-import { CurrencyPicker, CustomInput, FormSetupGroup, CustomGradientButton } from '../../../components';
-import { colorPalette, ONBOARDING_SETUP_TEXT } from '../../../config';
+import { Text, View } from 'react-native';
+import { CurrencyPicker, FormSetupGroup, GradientButton, GradientInput } from '../../../components';
+import { ONBOARDING_SETUP_TEXT } from '../../../config';
+import { useStyles } from '../../../hooks';
 import type { OnboardingSetupFormProps } from '../../../types';
-import { useGradient, useThemeStore } from '../../../hooks';
 
 
 export const OnboardingSetupAccountForm: React.FC<OnboardingSetupFormProps> = ({
     formik,
     selectedCurrency,
-    gradientOnboarding,
+    gradientColors,
 }) => {
-    const { gradientDark, gradientLight } = useGradient();
-    const { isDark } = useThemeStore();
+    const styles = useStyles(({ colors }) => ({
+        formContainer: {
+            rowGap: 15,
+            width: '90%',
+        },
+        buttonText: {
+            color: colors.coolGray[50],
+            fontSize: 18,
+            fontWeight: '700',
+            fontFamily: 'Quicksand-Regular',
+        },
+        button: {
+            marginTop: 10,
+        },
+        disabledButton: {
+            opacity: 0.4,
+            backgroundColor: colors.coolGray[300],
+            borderColor: colors.coolGray[400],
+            borderRadius: 10,
+        },
+    }));
+
     return (
         <View style={styles.formContainer}>
             <FormSetupGroup
@@ -27,12 +47,14 @@ export const OnboardingSetupAccountForm: React.FC<OnboardingSetupFormProps> = ({
                 error={formik.errors.accountName}
                 touched={formik.touched.accountName}
             >
-                <CustomInput
+                <GradientInput
                     value={formik.values.accountName}
-                    onChangeText={formik.handleChange('accountName')}
+                    onChangeText={(e: string) => {
+                        formik.handleChange('accountName')(e);
+                        formik.setFieldTouched('accountName', true, false);
+                    }}
                     onBlur={() => formik.handleBlur('accountName')}
                     placeholder={ONBOARDING_SETUP_TEXT.accountNamePlaceholder}
-                    gradientLight={gradientLight}
                 />
             </FormSetupGroup>
 
@@ -41,47 +63,28 @@ export const OnboardingSetupAccountForm: React.FC<OnboardingSetupFormProps> = ({
                 error={formik.errors.initialAmount}
                 touched={formik.touched.initialAmount}
             >
-                <CustomInput
+                <GradientInput
                     value={formik.values.initialAmount}
-                    onChangeText={formik.handleChange('initialAmount')}
+                    onChangeText={(e: string) => {
+                        formik.handleChange('initialAmount')(e);
+                        formik.setFieldTouched('initialAmount', true, false);
+                    }}
                     onBlur={() => formik.handleBlur('initialAmount')}
                     placeholder={ONBOARDING_SETUP_TEXT.initialAmountPlaceholder}
-                    gradientLight={gradientLight}
                     keyboardType="numeric"
                 />
             </FormSetupGroup>
 
-            <CustomGradientButton
+            <GradientButton
                 onPress={() => formik.handleSubmit()}
-                gradientColors={isDark ? gradientDark : gradientLight}
+                gradientColors={gradientColors}
                 style={styles.button}
                 disabled={!formik.isValid || !formik.dirty}
                 disabledStyle={styles.disabledButton}
             >
                 <Text style={styles.buttonText}>{ONBOARDING_SETUP_TEXT.setup.submitButton}</Text>
-            </CustomGradientButton>
+            </GradientButton>
         </View>
     );
 };
 
-const styles = StyleSheet.create({
-    formContainer: {
-        rowGap: 15,
-        width: '90%',
-    },
-    buttonText: {
-        color: colorPalette.coolGray[50],
-        fontSize: 18,
-        fontWeight: '700',
-        fontFamily: 'Quicksand-Regular',
-    },
-    button: {
-        marginTop: 10,
-    },
-    disabledButton: {
-        opacity: 0.4,
-        backgroundColor: colorPalette.coolGray[300],
-        borderColor: colorPalette.coolGray[400],
-        borderRadius: 10,
-    },
-});

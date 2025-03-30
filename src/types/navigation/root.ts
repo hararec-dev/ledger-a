@@ -7,7 +7,6 @@ export type RootStackParamList = {
         typeInfo: TypeLegalInfo;
     };
     MainNavigation: undefined;
-    OnboardingAuthSetup: undefined;
     OnboardingSetup: {
         typeSetup: TypeSetup;
     };

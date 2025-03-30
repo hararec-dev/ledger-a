@@ -42,12 +42,12 @@ export type FormSetupGroupProps = PropsWithChildren<{
 }>;
 
 export interface OnboardingSetupHeaderProps {
-    gradientDark: string[];
+    gradientColors: string[];
 }
 
 export type GradientButtonProps = PropsWithChildren<{
     onPress?: () => void;
-    gradientColors: string[];
+    gradientColors?: string[];
     disabled?: boolean;
     disabledStyle?: ViewStyle | ViewStyle[];
     style?: ViewStyle | ViewStyle[];
@@ -56,22 +56,27 @@ export type GradientButtonProps = PropsWithChildren<{
 export interface OnboardingSetupFormProps {
     formik: FormikProps<FormOnboardingSetupValues>;
     selectedCurrency: CurrencyInfo | undefined;
-    gradientLight: string[];
-    gradientOnboarding: string[];
+    gradientColors: string[];
 }
 
 export interface OnboardingFormProps {
     formik: FormikProps<FormOnboardingAppValues>;
-    gradientLight?: string[];
+    gradientColors?: string[];
 }
 
-export interface OnboardingAppFormProps extends OnboardingFormProps {
-    gradientOnboarding: string[];
+export interface PinInputProps extends OnboardingFormProps {
+    label: string;
+    value: string;
+    fieldName: string;
+    placeholder: string;
 }
 
 export interface OnboardingSetupHeaderProps {
-    gradientDark: string[];
+    gradientColors: string[];
     title: string;
     subtitle: string;
     isAccount: boolean;
 }
+
+export type ValidFormOnboardingAppFieldName = keyof FormOnboardingAppValues;
+

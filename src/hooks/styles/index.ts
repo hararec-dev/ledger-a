@@ -1,1 +1,1 @@
-export * from './useThemeStyles';
+export * from './useStyles';

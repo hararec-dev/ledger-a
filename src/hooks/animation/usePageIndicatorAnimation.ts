@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, useCallback } from 'react';
 import { Animated } from 'react-native';
 import { useThemeStore } from '../../hooks';
 
@@ -9,7 +9,7 @@ export const usePageIndicatorAnimation = ({ typeSetup }: { typeSetup: string }) 
         scale: new Animated.Value(1),
     }).current;
 
-    const startAnimation = () => {
+    const startAnimation = useCallback(() => {
         const { glow, scale } = animations;
         glow.setValue(0);
         scale.setValue(1);
@@ -34,11 +34,11 @@ export const usePageIndicatorAnimation = ({ typeSetup }: { typeSetup: string }) 
             Animated.delay(200),
             createParallelAnimation(0, 1),
         ]).start();
-    };
+    }, [animations]);
 
     useEffect(() => {
         startAnimation();
-    }, [typeSetup]);
+    }, [typeSetup, startAnimation]);
 
     const glowStyle = useMemo(() => ({
         textShadowColor: colors.coolGray[50],
@@ -52,7 +52,7 @@ export const usePageIndicatorAnimation = ({ typeSetup }: { typeSetup: string }) 
             outputRange: [0.7, 1, 0.7],
         }),
         transform: [{ scale: animations.scale }],
-    }), [animations]);
+    }), [animations, colors.coolGray]);
 
     return { glowStyle };
 };

@@ -1,13 +1,4 @@
-export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
-
-export interface RequestConfig<T> {
-    headers?: HeadersInit_;
-    baseURL: string;
-    body?: T;
-    endpoint: string;
-    method: HttpMethod;
-    timeout?: number;
-}
+import type { RequestConfig } from '../types';
 
 export const genericHttpRequest = async <RequestType, ResponseType>({
     headers,

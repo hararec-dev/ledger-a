@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { TransactionsStackParamList, TransactionsStackRoute } from '../types';
 import { AddTransactionScreen, TransactionDetailsScreen, TransactionListScreen } from '../screens';
+import type { TransactionsStackParamList, TransactionsStackRoute } from '../types';
 
 const TransactionsStack = createStackNavigator<TransactionsStackParamList>();
 

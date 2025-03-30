@@ -1,15 +1,14 @@
 import { ScrollView, StyleSheet } from 'react-native';
 import { useFormik } from 'formik';
-import { OnboardingSetupAppForm } from './OnboardingSetupAppForm';
-import { OnboardingSetupHeader } from './OnboardingSetupHeader';
+import { OnboardingSetupAppForm, OnboardingSetupHeader } from '../../../components';
 import { useCurrentStatusAppStore, useGradient, useThemeStore } from '../../../hooks';
 import { ONBOARDING_SETUP_TEXT, validationOnboardingApp as validationSchema } from '../../../config';
-import type { OnboardingSetupAppProps } from '../../../types';
+import type { OnboardingSetupNavProps } from '../../../types';
 
 
-export const OnboardingSetupApp: React.FC<OnboardingSetupAppProps> = ({ navigation }) => {
-    const { setTheme, currentTheme, isDark } = useThemeStore();
-    const { gradientDark, gradientLight, gradientOnboarding } = useGradient();
+export const OnboardingSetupApp: React.FC<OnboardingSetupNavProps> = ({ navigation }) => {
+    const { setTheme, currentTheme } = useThemeStore();
+    const { themeGradient } = useGradient();
     const { setBiometricEnabled } = useCurrentStatusAppStore();
     const formik = useFormik({
         initialValues: {
@@ -28,17 +27,19 @@ export const OnboardingSetupApp: React.FC<OnboardingSetupAppProps> = ({ navigati
     });
 
     return (
-        <ScrollView contentContainerStyle={styles.scrollContainer}>
+        <ScrollView
+            contentContainerStyle={styles.scrollContainer}
+            showsVerticalScrollIndicator={false}
+        >
             <OnboardingSetupHeader
-                gradientDark={isDark ? gradientDark : gradientLight}
+                gradientColors={themeGradient}
                 title={ONBOARDING_SETUP_TEXT.app.title}
                 subtitle={ONBOARDING_SETUP_TEXT.app.subtitle}
                 isAccount={false}
             />
             <OnboardingSetupAppForm
                 formik={formik}
-                gradientLight={gradientLight}
-                gradientOnboarding={gradientOnboarding}
+                gradientColors={themeGradient}
             />
         </ScrollView>
     );

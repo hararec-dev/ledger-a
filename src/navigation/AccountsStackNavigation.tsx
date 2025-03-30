@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { AccountDetailsScreen, AccountsScreen, TransferScreen } from '../screens';
-import { AccountsStackParamList, AccountsStackRoute } from '../types';
+import type { AccountsStackParamList, AccountsStackRoute } from '../types';
 
 const AccountsStack = createStackNavigator<AccountsStackParamList>();
 

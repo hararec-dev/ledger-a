@@ -1,160 +1,164 @@
 import { useState } from 'react';
-import { Modal, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Modal, Platform, Text, TouchableOpacity, View } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
-import { CustomGradientBorder } from '../../../components';
+import { GradientBorder } from '../../../components';
+import { useStyles } from '../../../hooks';
 import { colorPalette, currencies, ONBOARDING_SETUP_TEXT } from '../../../config';
-import { useGradient, useThemeStore } from '../../../hooks';
 import type { CurrencyInfo, CurrencyPickerProps } from '../../../types';
+
 
 export const CurrencyPicker: React.FC<CurrencyPickerProps> = ({ formik, selectedCurrency }) => {
     const [showPicker, setShowPicker] = useState(false);
-    const { gradientLight } = useGradient();
-    const { isDark, colors } = useThemeStore();
+    const styles = useStyles(({ colors, Platform: platform, isDark }) => ({
+        pickerContainer: {
+            backgroundColor: colors.gray[50],
+        },
+        picker: {
+            backgroundColor: platform.OS === 'ios' ? colors.gray[50] : 'transparent',
+            ...(platform.OS === 'android' && {
+                height: 50,
+                color: colors.warmGray[900],
+            }),
+        },
+        pickerButton: {
+            padding: 12,
+            backgroundColor: colors.gray[50],
+        },
+        pickerButtonText: {
+            fontSize: 16,
+            color: colors.warmGray[900],
+        },
+        container: {
+            flex: 1,
+            justifyContent: 'flex-end',
+            backgroundColor: 'rgba(0,0,0,0.5)',
+        },
+        content: {
+            backgroundColor: colors.gray[50],
+            width: '100%',
+            height: '35%',
+            borderTopLeftRadius: 16,
+            borderTopRightRadius: 16,
+        },
+        header: {
+            flexDirection: 'row',
+            justifyContent: 'flex-end',
+            padding: 16,
+            borderBottomWidth: 1,
+            borderBottomColor: colors.gray[200],
+        },
+        pickerItem: {
+            color: colors.coolGray[900],
+            ...(platform.OS === 'ios' && {
+                fontSize: 18,
+                height: 150,
+                fontWeight: '500',
+                justifyContent: 'center',
+            }),
+            ...(platform.OS === 'android' && {
+                fontSize: 16,
+                width: '100%',
+                fontFamily: 'Nunito-Regular',
+                backgroundColor: colors.coolGray[50],
+            }),
+        },
+        pickerItemColor: {
+            color: platform.OS === 'ios' ?
+                (isDark
+                    ? colorPalette.orange[500]
+                    : colors.coolGray[900]
+                )
+                : undefined,
+        },
+        dropdownIconColor: {
+            color: colors.warmGray[900],
+        },
+        doneButton: {
+            color: isDark ? colors.orange[500] : colors.purple[700],
+            fontSize: 16,
+            fontWeight: '600',
+        },
+    }));
 
-    return (
-        <>
-            {Platform.OS === 'ios' ? (
-                <>
-                    <CustomGradientBorder gradientColors={gradientLight}>
-                        <TouchableOpacity
-                            style={styles.pickerButton}
-                            onPress={() => setShowPicker(true)}
-                        >
-                            <Text style={styles.pickerButtonText}>
-                                {selectedCurrency ? `${selectedCurrency.code} - ${selectedCurrency.description}` : ONBOARDING_SETUP_TEXT.currencyPlaceholder}
-                            </Text>
-                        </TouchableOpacity>
-                    </CustomGradientBorder>
-
-                    <Modal
-                        visible={showPicker}
-                        transparent={true}
-                        animationType="slide"
-                        onRequestClose={() => setShowPicker(false)}
-                    >
-                        <TouchableOpacity
-                            style={styles.modalContainer}
-                            activeOpacity={1}
-                            onPress={() => setShowPicker(false)}
-                        >
-                            <View
-                                style={styles.pickerModalContent}
-                                onStartShouldSetResponder={() => true}
-                                onTouchEnd={(e) => e.stopPropagation()}
-                            >
-                                <View style={styles.pickerHeader}>
-                                    <TouchableOpacity onPress={() => setShowPicker(false)}>
-                                        <Text style={{
-                                            color: isDark ? colorPalette.orange[500] : colors.purple[700],
-                                            fontSize: 16,
-                                            fontWeight: '600',
-                                        }}>{ONBOARDING_SETUP_TEXT.doneButton}</Text>
-                                    </TouchableOpacity>
-                                </View>
-                                <Picker
-                                    selectedValue={formik.values.currency}
-                                    onValueChange={(itemValue) => {
-                                        formik.setFieldValue('currency', itemValue);
-                                    }}
-                                    itemStyle={styles.pickerItem}
-                                    style={styles.pickerIOS}
-                                >
-                                    {currencies.map((currency: CurrencyInfo) => (
-                                        <Picker.Item
-                                            key={currency.code}
-                                            label={`${currency.code} - ${currency.description}`}
-                                            value={currency.code}
-                                            color={isDark ? colorPalette.orange[500] : colors.purple[600]}
-                                        />
-                                    ))}
-                                </Picker>
-                            </View>
-                        </TouchableOpacity>
-                    </Modal>
-                </>
-            ) : (
-                <CustomGradientBorder gradientColors={gradientLight}>
-                    <View style={styles.pickerContainer}>
-                        <Picker
-                            selectedValue={formik.values.currency}
-                            onValueChange={(itemValue) => formik.setFieldValue('currency', itemValue)}
-                            style={styles.pickerAndroid}
-                            dropdownIconColor={colorPalette.warmGray[900]}
-                        >
-                            {currencies.map((currency: CurrencyInfo) => (
-                                <Picker.Item
-                                    key={currency.code}
-                                    label={`${currency.code} - ${currency.description}`}
-                                    value={currency.code}
-                                    style={styles.pickerItemAndroid}
-                                />
-                            ))}
-                        </Picker>
-                    </View>
-                </CustomGradientBorder>
-            )}
-        </>
+    const renderPickerItems = () => (
+        currencies.map((currency: CurrencyInfo) => (
+            <Picker.Item
+                key={currency.code}
+                label={`${currency.code} - ${currency.description}`}
+                value={currency.code}
+                color={styles.pickerItemColor.color}
+                style={Platform.OS === 'android' ? styles.pickerItem : undefined}
+            />
+        ))
     );
-};
 
-const styles = StyleSheet.create({
-    pickerContainer: {
-        backgroundColor: colorPalette.gray[50],
-        borderRadius: 8,
-    },
-    pickerAndroid: {
-        height: 50,
-        color: colorPalette.warmGray[900],
-        backgroundColor: 'transparent',
-    },
-    pickerIOS: {
-        backgroundColor: colorPalette.gray[50],
-    },
-    pickerButton: {
-        padding: 12,
-        backgroundColor: colorPalette.gray[50],
-        borderRadius: 8,
-    },
-    pickerButtonText: {
-        fontSize: 16,
-        color: colorPalette.warmGray[900],
-    },
-    modalContainer: {
-        flex: 1,
-        justifyContent: 'flex-end',
-        backgroundColor: 'rgba(0,0,0,0.5)',
-    },
-    pickerModalContent: {
-        backgroundColor: colorPalette.gray[50],
-        width: '100%',
-        height: '35%',
-        borderTopLeftRadius: 16,
-        borderTopRightRadius: 16,
-    },
-    pickerHeader: {
-        flexDirection: 'row',
-        justifyContent: 'flex-end',
-        padding: 16,
-        borderBottomWidth: 1,
-        borderBottomColor: colorPalette.gray[200],
-    },
-    /* doneButtonText: {
-        color: colorPalette.orange[500],
-        fontSize: 16,
-        fontWeight: '600',
-    }, */
-    pickerItem: {
-        fontSize: 18,
-        height: 150,
-        color: colorPalette.warmGray[900],
-        fontWeight: '500',
-        justifyContent: 'center',
-    },
-    pickerItemAndroid: {
-        fontSize: 16,
-        width: '100%',
-        color: colorPalette.coolGray[900],
-        fontFamily: 'Nunito-Regular',
-        backgroundColor: colorPalette.coolGray[50],
-    },
-});
+    const handleValueChange = (value: string) => {
+        formik.setFieldValue('currency', value);
+    };
+
+    return Platform.OS === 'android'
+        ? (
+            <GradientBorder>
+                <View style={styles.pickerContainer}>
+                    <Picker
+                        selectedValue={formik.values.currency}
+                        onValueChange={handleValueChange}
+                        style={styles.picker}
+                        dropdownIconColor={styles.dropdownIconColor.color}
+                    >
+                        {renderPickerItems()}
+                    </Picker>
+                </View>
+            </GradientBorder>
+        ) : (
+            <>
+                <GradientBorder>
+                    <TouchableOpacity
+                        style={styles.pickerButton}
+                        onPress={() => setShowPicker(true)}
+                    >
+                        <Text style={styles.pickerButtonText}>
+                            {selectedCurrency
+                                ? `${selectedCurrency.code} - ${selectedCurrency.description}`
+                                : ONBOARDING_SETUP_TEXT.currencyPlaceholder}
+                        </Text>
+                    </TouchableOpacity>
+                </GradientBorder>
+
+                <Modal
+                    visible={showPicker}
+                    transparent
+                    animationType="slide"
+                    onRequestClose={() => setShowPicker(false)}
+                >
+                    <TouchableOpacity
+                        style={styles.container}
+                        activeOpacity={1}
+                        onPress={() => setShowPicker(false)}
+                    >
+                        <View
+                            style={styles.content}
+                            onStartShouldSetResponder={() => true}
+                            onTouchEnd={(e) => e.stopPropagation()}
+                        >
+                            <View style={styles.header}>
+                                <TouchableOpacity onPress={() => setShowPicker(false)}>
+                                    <Text style={styles.doneButton}>
+                                        {ONBOARDING_SETUP_TEXT.doneButton}
+                                    </Text>
+                                </TouchableOpacity>
+                            </View>
+                            <Picker
+                                selectedValue={formik.values.currency}
+                                onValueChange={handleValueChange}
+                                itemStyle={styles.pickerItem}
+                                style={styles.picker}
+                            >
+                                {renderPickerItems()}
+                            </Picker>
+                        </View>
+                    </TouchableOpacity>
+                </Modal>
+            </>
+        );
+};

@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { Platform, StatusBar } from 'react-native';
-import { createTheme, darkColors, lightColors, ThemeProvider } from '@rneui/themed';
+import { createTheme, ThemeProvider } from '@rneui/themed';
 import { useAsyncStorageLoad } from '../../hooks';
 import type { AppThemeProviderProps } from '../../types';
 
@@ -42,7 +42,7 @@ export const AppThemeProvider = ({ children }: AppThemeProviderProps) => {
       lg: 24,
       xl: 40,
     },
-  }), [currentTheme]);
+  }), [currentTheme, rneuiDarkColors, rneuiLightColors]);
 
   return !isLoaded
     ? null

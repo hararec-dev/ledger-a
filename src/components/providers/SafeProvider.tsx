@@ -4,9 +4,15 @@ import type { SafeProviderProps } from '../../types';
 export const SafeProvider = ({ children }: SafeProviderProps) => {
     return (
         <SafeAreaProvider>
-            <SafeAreaView style={{ flex: 1 }}>
+            <SafeAreaView style={styles.container}>
                 {children}
             </SafeAreaView>
         </SafeAreaProvider>
     );
+};
+
+const styles = {
+    container: {
+        flex: 1,
+    },
 };

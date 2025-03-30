@@ -1,17 +1,15 @@
 import { useMemo } from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { useFormik } from 'formik';
-import { OnboardingSetupHeader } from './OnboardingSetupHeader';
-import { OnboardingSetupAccountForm } from './OnboardingSetupAccountForm';
-import { useCurrentStatusAppStore, useGradient, useThemeStore } from '../../../hooks';
+import { OnboardingSetupAccountForm, OnboardingSetupHeader } from '../../../components';
+import { useCurrentStatusAppStore, useGradient } from '../../../hooks';
 import { currencies, ONBOARDING_SETUP_TEXT, validationOnboardingSetup as validationSchema } from '../../../config';
-import type { OnboardingSetupAccountProps } from '../../../types';
+import type { OnboardingSetupNavProps } from '../../../types';
 
 
-export const OnboardingSetupAccount: React.FC<OnboardingSetupAccountProps> = ({ navigation }) => {
-    const { setTheme, currentTheme, isDark } = useThemeStore();
+export const OnboardingSetupAccount: React.FC<OnboardingSetupNavProps> = ({ navigation }) => {
     const { setUserCurrency, userCurrency, setHasOnboarded } = useCurrentStatusAppStore();
-    const { gradientDark, gradientLight, gradientOnboarding } = useGradient();
+    const { themeGradient } = useGradient();
     const formik = useFormik({
         initialValues: {
             currency: userCurrency || 'MXN',
@@ -33,7 +31,7 @@ export const OnboardingSetupAccount: React.FC<OnboardingSetupAccountProps> = ({ 
     return (
         <ScrollView contentContainerStyle={styles.scrollContainer}>
             <OnboardingSetupHeader
-                gradientDark={isDark ? gradientDark : gradientLight}
+                gradientColors={themeGradient}
                 title={ONBOARDING_SETUP_TEXT.setup.title}
                 subtitle={ONBOARDING_SETUP_TEXT.setup.subtitle}
                 isAccount
@@ -41,8 +39,7 @@ export const OnboardingSetupAccount: React.FC<OnboardingSetupAccountProps> = ({ 
             <OnboardingSetupAccountForm
                 formik={formik}
                 selectedCurrency={selectedCurrency}
-                gradientLight={gradientLight}
-                gradientOnboarding={gradientOnboarding}
+                gradientColors={themeGradient}
             />
         </ScrollView>
     );

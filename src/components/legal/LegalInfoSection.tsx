@@ -1,64 +1,33 @@
-import { StyleSheet, Text, View, TextStyle, ViewStyle } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { Divider } from '@rneui/themed';
-import type { LegalInfoSectionProps, LegalItem, LegalItemProps, LegalSubItemProps } from '../../types';
+import { LegaInfoItem } from '../../components';
+import { useStyles } from '../../hooks';
+import type { LegalInfoSectionProps, LegalItem } from '../../types';
 
 
-const LegalSubItem: React.FC<LegalSubItemProps> = ({ subitem }) => (
-    <Text style={styles.subitemText}>- {subitem}</Text>
-);
+export const LegalInfoSection: React.FC<LegalInfoSectionProps> = ({ section, index }) => {
+    const themeStyles = useStyles(({ colors, isDark }) => ({
+        sectionTitle: {
+            fontSize: 18,
+            fontWeight: 'bold',
+            marginBottom: 12,
+            fontFamily: 'Quicksand-Regular',
+            color: isDark ? colors.coolGray[100] : colors.coolGray[800],
+        },
+    }));
+    return (
+        <View style={styles.section}>
+            <Text style={themeStyles.sectionTitle}>{index + 1}. {section.subtitle}</Text>
+            {section.items.map((item: LegalItem, idx: number) => (
+                <LegaInfoItem key={`item-${idx}`} item={item} />
+            ))}
+            <Divider />
+        </View>
+    );
+};
 
-const LegalItem: React.FC<LegalItemProps> = ({ item }) => (
-    <View style={styles.subtitleContainer}>
-        {item.text && <Text style={styles.subtitle}>⁕ {item.text}</Text>}
-        {item.subitems?.map((subitem, index) => (
-            <LegalSubItem key={`subitem-${index}`} subitem={subitem} />
-        ))}
-    </View>
-);
-
-export const LegalInfoSection: React.FC<LegalInfoSectionProps> = ({ section, index }) => (
-    <View style={styles.section}>
-        <Text style={styles.sectionTitle}>{index + 1}. {section.subtitle}</Text>
-        {section.items.map((item: LegalItem, idx: number) => (
-            <LegalItem key={`item-${idx}`} item={item} />
-        ))}
-        <Divider />
-    </View>
-);
-
-interface Styles {
-    section: ViewStyle;
-    sectionTitle: TextStyle;
-    subtitleContainer: ViewStyle;
-    subtitle: TextStyle;
-    subitemText: TextStyle;
-}
-
-const styles = StyleSheet.create<Styles>({
+const styles = StyleSheet.create({
     section: {
         marginVertical: 20,
-    },
-    sectionTitle: {
-        fontSize: 18,
-        fontWeight: 'bold',
-        marginBottom: 12,
-        fontFamily: 'Quicksand-Regular',
-    },
-    subtitleContainer: {
-        marginBottom: 15,
-    },
-    subtitle: {
-        fontSize: 16,
-        fontWeight: '500',
-        marginBottom: 8,
-        color: '#444',
-        fontFamily: 'Nunito-Regular',
-    },
-    subitemText: {
-        fontSize: 13,
-        marginLeft: 15,
-        color: 'black',
-        lineHeight: 20,
-        fontFamily: 'Nunito-Regular',
     },
 });
