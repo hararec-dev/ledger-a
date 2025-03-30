@@ -26,14 +26,14 @@ export interface LastActivity {
 }
 
 export interface CurrentStatusAppState {
-    biometricEnabled: boolean | null;
+    touchIdEnabled: boolean | null;
     hasOnboarded: boolean | null;
     lastActivity: LastActivity | null;
     legalConditionsAreAccepted: boolean;
     pinEnabled: boolean | null;
     userCurrency: Currency | null;
     loadStoredData: () => Promise<void>;
-    setBiometricEnabled: (enabled: boolean) => Promise<void>;
+    setTouchIdEnabled: (enabled: boolean) => Promise<void>;
     setHasOnboarded: (value: boolean) => Promise<void>;
     setLastActivity: (activity: LastActivity) => Promise<void>;
     setLegalConditionsAreAccepted: (activity: boolean) => Promise<void>;

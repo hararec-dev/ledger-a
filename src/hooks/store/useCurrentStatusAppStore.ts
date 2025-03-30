@@ -5,7 +5,7 @@ import type { Currency, CurrentStatusAppState, LastActivity } from '../../types'
 
 
 export const useCurrentStatusAppStore = create<CurrentStatusAppState>((set) => ({
-    biometricEnabled: null,
+    touchIdEnabled: null,
     hasOnboarded: null,
     lastActivity: null,
     legalConditionsAreAccepted: false,
@@ -14,16 +14,16 @@ export const useCurrentStatusAppStore = create<CurrentStatusAppState>((set) => (
     loadStoredData: async () => {
         try {
             const storedData = await AsyncStorage.multiGet([
-                CURRENT_STATUS_APP_KEYS.BIOMETRIC_ENABLED,
+                CURRENT_STATUS_APP_KEYS.TOUCH_ID_ENABLED,
                 CURRENT_STATUS_APP_KEYS.HAS_ONBOARDED,
                 CURRENT_STATUS_APP_KEYS.LAST_ACTIVITY,
                 CURRENT_STATUS_APP_KEYS.LEGAL_CONDITIONS,
                 CURRENT_STATUS_APP_KEYS.PIN_ENABLED,
                 CURRENT_STATUS_APP_KEYS.USER_CURRENCY,
             ]);
-            const [biometric, onboarded, lastActivity, legalConditions, pin, userCurrency] = storedData;
+            const [touchId, onboarded, lastActivity, legalConditions, pin, userCurrency] = storedData;
             set({
-                biometricEnabled: biometric[1] === 'true',
+                touchIdEnabled: touchId[1] === 'true',
                 hasOnboarded: onboarded[1] === 'true',
                 lastActivity: lastActivity[1] ? JSON.parse(lastActivity[1]) as LastActivity : null,
                 legalConditionsAreAccepted: legalConditions[1] === 'true',
@@ -44,10 +44,10 @@ export const useCurrentStatusAppStore = create<CurrentStatusAppState>((set) => (
             set({ userCurrency: currency });
         } catch (error) { }
     },
-    setBiometricEnabled: async (enabled: boolean) => {
+    setTouchIdEnabled: async (enabled: boolean) => {
         try {
-            await AsyncStorage.setItem(CURRENT_STATUS_APP_KEYS.BIOMETRIC_ENABLED, String(enabled));
-            set({ biometricEnabled: enabled });
+            await AsyncStorage.setItem(CURRENT_STATUS_APP_KEYS.TOUCH_ID_ENABLED, String(enabled));
+            set({ touchIdEnabled: enabled });
         } catch (error) { }
     },
     setLegalConditionsAreAccepted: async (isAccepted: boolean) => {

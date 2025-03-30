@@ -16,10 +16,10 @@ export const useAsyncStorageLoad = () => {
     } = useThemeStore();
     const {
         loadStoredData,
-        biometricEnabled,
+        touchIdEnabled,
         hasOnboarded,
         lastActivity,
-        pinCode,
+        pinEnabled,
         userCurrency,
     } = useCurrentStatusAppStore();
 
@@ -31,10 +31,10 @@ export const useAsyncStorageLoad = () => {
 
         initStoredData();
     }, [
-        biometricEnabled,
+        touchIdEnabled,
         hasOnboarded,
         lastActivity,
-        pinCode,
+        pinEnabled,
         userCurrency,
         loadStoredData,
     ]);

@@ -1,5 +1,5 @@
 export const CURRENT_STATUS_APP_KEYS = {
-    BIOMETRIC_ENABLED: 'biometricEnabled',
+    TOUCH_ID_ENABLED: 'touchIdEnabled',
     HAS_ONBOARDED: 'hasOnboarded',
     LAST_ACTIVITY: 'lastActivity',
     LEGAL_CONDITIONS: 'legalConditions',

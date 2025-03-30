@@ -73,7 +73,10 @@ export const OnboardingSetupAppForm: React.FC<OnboardingFormProps> = ({ formik, 
                     <View style={styles.switchAndText}>
                         <GradientSwitch
                             value={formik.values.isPinEnabled}
-                            onValueChange={(value: boolean) => formik.setFieldValue('isPinEnabled', value)}
+                            onValueChange={(value: boolean) => {
+                                formik.setFieldValue('isPinEnabled', value);
+                                formik.setFieldTouched('isPinEnabled', true, false);
+                            }}
                         />
                         <Text style={styles.switchText}>
                             {formik.values.isPinEnabled ? 'Si' : 'No'}
@@ -89,7 +92,10 @@ export const OnboardingSetupAppForm: React.FC<OnboardingFormProps> = ({ formik, 
                 onPress={formik.handleSubmit}
                 gradientColors={gradientColors}
                 style={styles.button}
-                disabled={formik.values.isPinEnabled && !formik.isValid}
+                disabled={
+                    (formik.values.isPinEnabled && !formik.isValid) ||
+                    Object.keys(formik.errors).length > 0
+                }
                 disabledStyle={styles.disabledButton}
             >
                 <Text style={styles.buttonText}>{ONBOARDING_SETUP_TEXT.app.submitButton}</Text>

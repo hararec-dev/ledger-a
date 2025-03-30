@@ -46,7 +46,11 @@ export const OnboardingBiometricSwitch: React.FC<OnboardingFormProps> = ({ formi
                 <View style={styles.switchAndText}>
                     <GradientSwitch
                         value={formik.values.isTouchIdEnabled}
-                        onValueChange={(value) => formik.setFieldValue('isTouchIdEnabled', value)}
+                        onValueChange={(value: boolean) => {
+                            formik.setFieldValue('isTouchIdEnabled', value);
+                            formik.setFieldTouched('isTouchIdEnabled', true, false);
+                            formik.setFieldError('isTouchIdEnabled', 'true');
+                        }}
                         gradientColors={gradientColors}
                     />
                     <Text style={styles.switchText}>

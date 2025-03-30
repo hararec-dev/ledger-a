@@ -9,7 +9,7 @@ import type { OnboardingSetupNavProps } from '../../../types';
 export const OnboardingSetupApp: React.FC<OnboardingSetupNavProps> = ({ navigation }) => {
     const { setTheme, currentTheme } = useThemeStore();
     const { themeGradient } = useGradient();
-    const { setBiometricEnabled, setPinEnabled } = useCurrentStatusAppStore();
+    const { setTouchIdEnabled, setPinEnabled } = useCurrentStatusAppStore();
     const { createPin } = usePinAuth();
 
     const formik = useFormik({
@@ -25,7 +25,7 @@ export const OnboardingSetupApp: React.FC<OnboardingSetupNavProps> = ({ navigati
             try {
                 await Promise.all([
                     setTheme(theme),
-                    setBiometricEnabled(isTouchIdEnabled),
+                    setTouchIdEnabled(isTouchIdEnabled),
                     setPinEnabled(isPinEnabled),
                 ]);
                 if (isPinEnabled) { await createPin(pin); }

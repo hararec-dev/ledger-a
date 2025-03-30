@@ -24,7 +24,7 @@ export const ONBOARDING_SETUP_TEXT: OnboardingSetupTextContent = {
     },
     app: {
         title: '¡Configura tu App!',
-        subtitle: 'La seguridad de tus datos es importante',
+        subtitle: 'Puedes cambiar esto en cualquier momento',
         submitButton: '¡Siguiente paso!',
     },
     currencyLabel: '¿Qué moneda quieres manejar?',
