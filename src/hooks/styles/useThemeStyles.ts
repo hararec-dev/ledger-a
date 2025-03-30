@@ -7,6 +7,6 @@ export const useThemeStyles = <T extends Record<string, ViewStyle | TextStyle | 
   styleCallback: (theme: { isDark: boolean; colors: FullColorPallete }) => T
 ) => {
   const { isDark, colors } = useThemeStore();
-  
+
   return useMemo(() => styleCallback({ isDark, colors }), [isDark, colors, styleCallback]);
 };

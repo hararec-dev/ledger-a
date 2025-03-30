@@ -1,3 +1,4 @@
+export * from './animation';
 export * from './async-storage';
 export * from './auth';
 export * from './gradient';
