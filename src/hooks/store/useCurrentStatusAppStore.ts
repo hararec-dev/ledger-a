@@ -10,6 +10,7 @@ export const useCurrentStatusAppStore = create<CurrentStatusAppState>((set) => (
     lastActivity: null,
     legalConditionsAreAccepted: false,
     userCurrency: null,
+    pinEnabled: null,
     loadStoredData: async () => {
         try {
             const storedData = await AsyncStorage.multiGet([
@@ -17,14 +18,16 @@ export const useCurrentStatusAppStore = create<CurrentStatusAppState>((set) => (
                 CURRENT_STATUS_APP_KEYS.HAS_ONBOARDED,
                 CURRENT_STATUS_APP_KEYS.LAST_ACTIVITY,
                 CURRENT_STATUS_APP_KEYS.LEGAL_CONDITIONS,
+                CURRENT_STATUS_APP_KEYS.PIN_ENABLED,
                 CURRENT_STATUS_APP_KEYS.USER_CURRENCY,
             ]);
-            const [biometric, onboarded, lastActivity, legalConditions, userCurrency] = storedData;
+            const [biometric, onboarded, lastActivity, legalConditions, pin, userCurrency] = storedData;
             set({
                 biometricEnabled: biometric[1] === 'true',
                 hasOnboarded: onboarded[1] === 'true',
                 lastActivity: lastActivity[1] ? JSON.parse(lastActivity[1]) as LastActivity : null,
                 legalConditionsAreAccepted: legalConditions[1] === 'true',
+                pinEnabled: pin[1] === 'true',
                 userCurrency: userCurrency[1] ? userCurrency[1] as Currency : null,
             });
         } catch (error) { }
@@ -57,6 +60,12 @@ export const useCurrentStatusAppStore = create<CurrentStatusAppState>((set) => (
         try {
             await AsyncStorage.setItem(CURRENT_STATUS_APP_KEYS.LAST_ACTIVITY, JSON.stringify(activity));
             set({ lastActivity: activity });
+        } catch (error) { }
+    },
+    setPinEnabled: async (enabled: boolean) => {
+        try {
+            await AsyncStorage.setItem(CURRENT_STATUS_APP_KEYS.PIN_ENABLED, String(enabled));
+            set({ pinEnabled: enabled });
         } catch (error) { }
     },
 }));

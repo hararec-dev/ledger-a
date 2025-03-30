@@ -3,7 +3,7 @@ import * as Keychain from 'react-native-keychain';
 import { useBiometricStore } from '../store';
 import { AUTH_CONFIG, AUTH_TEXTS } from '../../config';
 
-export const useAuthentication = (handleFailedAttempt?: () => void) => {
+export const useTouchIdAuth = (handleFailedAttempt?: () => void) => {
     const { createSignature, allowBiometricAuth } = useBiometricStore();
     const [loadingAuth, setLoadingAuth] = useState(false);
 
