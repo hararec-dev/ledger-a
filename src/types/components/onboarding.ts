@@ -12,8 +12,8 @@ export interface FormOnboardingSetupValues {
 
 export interface FormOnboardingAppValues {
     theme: ThemeColor;
-    biometricAuth: boolean;
-    createPin: boolean;
+    isTouchIdEnabled: boolean;
+    isPinEnabled: boolean;
     pin: string;
     confirmPin: string;
 }

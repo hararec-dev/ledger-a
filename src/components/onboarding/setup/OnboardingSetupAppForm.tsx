@@ -65,31 +65,31 @@ export const OnboardingSetupAppForm: React.FC<OnboardingFormProps> = ({ formik, 
             />
             <FormSetupGroup
                 label={ONBOARDING_SETUP_TEXT.createPinLabel || 'Crear PIN de seguridad'}
-                error={formik.errors.createPin}
-                touched={formik.touched.createPin}
+                error={formik.errors.isPinEnabled}
+                touched={formik.touched.isPinEnabled}
             >
                 <View style={styles.switchContainer}>
                     <IonIcon name={'keypad'} size={30} color={styles.ionIcon.color} />
                     <View style={styles.switchAndText}>
                         <GradientSwitch
-                            value={formik.values.createPin}
-                            onValueChange={(value: boolean) => formik.setFieldValue('createPin', value)}
+                            value={formik.values.isPinEnabled}
+                            onValueChange={(value: boolean) => formik.setFieldValue('isPinEnabled', value)}
                         />
                         <Text style={styles.switchText}>
-                            {formik.values.createPin ? 'Si' : 'No'}
+                            {formik.values.isPinEnabled ? 'Si' : 'No'}
                         </Text>
                     </View>
                 </View>
             </FormSetupGroup>
 
-            {formik.values.createPin && <OnboardingPinSetup formik={formik} gradientColors={gradientColors} />}
+            {formik.values.isPinEnabled && <OnboardingPinSetup formik={formik} gradientColors={gradientColors} />}
 
             <OnboardingThemeSwitch formik={formik} gradientColors={gradientColors} />
             <GradientButton
                 onPress={formik.handleSubmit}
                 gradientColors={gradientColors}
                 style={styles.button}
-                disabled={formik.values.createPin && !formik.isValid}
+                disabled={formik.values.isPinEnabled && !formik.isValid}
                 disabledStyle={styles.disabledButton}
             >
                 <Text style={styles.buttonText}>{ONBOARDING_SETUP_TEXT.app.submitButton}</Text>

@@ -1,7 +1,7 @@
 import { ScrollView, StyleSheet } from 'react-native';
 import { useFormik } from 'formik';
 import { OnboardingSetupAppForm, OnboardingSetupHeader } from '../../../components';
-import { useCurrentStatusAppStore, useGradient, useThemeStore } from '../../../hooks';
+import { useCurrentStatusAppStore, useGradient, useThemeStore, usePinAuth } from '../../../hooks';
 import { ONBOARDING_SETUP_TEXT, validationOnboardingApp as validationSchema } from '../../../config';
 import type { OnboardingSetupNavProps } from '../../../types';
 
@@ -9,20 +9,30 @@ import type { OnboardingSetupNavProps } from '../../../types';
 export const OnboardingSetupApp: React.FC<OnboardingSetupNavProps> = ({ navigation }) => {
     const { setTheme, currentTheme } = useThemeStore();
     const { themeGradient } = useGradient();
-    const { setBiometricEnabled } = useCurrentStatusAppStore();
+    const { setBiometricEnabled, setPinEnabled } = useCurrentStatusAppStore();
+    const { createPin } = usePinAuth();
+
     const formik = useFormik({
         initialValues: {
             theme: currentTheme || 'dark',
-            biometricAuth: true,
-            createPin: false,
+            isTouchIdEnabled: true,
+            isPinEnabled: false,
             pin: '',
             confirmPin: '',
         },
         validationSchema,
-        onSubmit: async ({ theme, biometricAuth, createPin, pin, confirmPin }) => {
-            await setTheme(theme);
-            await setBiometricEnabled(biometricAuth);
-            navigation.navigate('OnboardingSetup', { typeSetup: 'account' });
+        onSubmit: async ({ theme, isTouchIdEnabled, isPinEnabled, pin }) => {
+            try {
+                await Promise.all([
+                    setTheme(theme),
+                    setBiometricEnabled(isTouchIdEnabled),
+                    setPinEnabled(isPinEnabled),
+                ]);
+                if (isPinEnabled) { await createPin(pin); }
+            } catch (error) {
+            } finally {
+                navigation.navigate('OnboardingSetup', { typeSetup: 'account' });
+            }
         },
     });
 

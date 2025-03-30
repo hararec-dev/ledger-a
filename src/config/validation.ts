@@ -31,10 +31,10 @@ export const validationOnboardingSetup = Yup.object().shape({
 
 export const validationOnboardingApp = Yup.object().shape({
     theme: Yup.string().oneOf(['light', 'dark']).default('dark'),
-    biometricAuth: Yup.boolean().default(true),
-    createPin: Yup.boolean().default(false),
+    isTouchIdEnabled: Yup.boolean().default(true),
+    isPinEnabled: Yup.boolean().default(false),
     pin: Yup.string()
-        .when('createPin', {
+        .when('isPinEnabled', {
             is: true,
             then: (schema) => schema
                 .required(VALIDATION_CONSTANTS.ONBOARDING_SETUP.REQUIRED.pin)
@@ -43,7 +43,7 @@ export const validationOnboardingApp = Yup.object().shape({
             otherwise: (schema) => schema.notRequired(),
         }),
     confirmPin: Yup.string()
-        .when('createPin', {
+        .when('isPinEnabled', {
             is: true,
             then: (schema) => schema
                 .required(VALIDATION_CONSTANTS.ONBOARDING_SETUP.REQUIRED.confirmPin)

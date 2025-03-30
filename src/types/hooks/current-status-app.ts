@@ -30,11 +30,13 @@ export interface CurrentStatusAppState {
     hasOnboarded: boolean | null;
     lastActivity: LastActivity | null;
     legalConditionsAreAccepted: boolean;
+    pinEnabled: boolean | null;
     userCurrency: Currency | null;
     loadStoredData: () => Promise<void>;
     setBiometricEnabled: (enabled: boolean) => Promise<void>;
     setHasOnboarded: (value: boolean) => Promise<void>;
     setLastActivity: (activity: LastActivity) => Promise<void>;
     setLegalConditionsAreAccepted: (activity: boolean) => Promise<void>;
+    setPinEnabled: (enabled: boolean) => Promise<void>;
     setUserCurrency: (currency: Currency) => Promise<void>;
 }

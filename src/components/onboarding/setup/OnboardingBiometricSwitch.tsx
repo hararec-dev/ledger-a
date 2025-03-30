@@ -34,8 +34,8 @@ export const OnboardingBiometricSwitch: React.FC<OnboardingFormProps> = ({ formi
     return (
         <FormSetupGroup
             label={ONBOARDING_SETUP_TEXT.biometricAuthLabel || 'Autenticación biométrica'}
-            error={formik.errors.biometricAuth}
-            touched={formik.touched.biometricAuth}
+            error={formik.errors.isTouchIdEnabled}
+            touched={formik.touched.isTouchIdEnabled}
         >
             <View style={styles.switchContainer}>
                 <IonIcon
@@ -45,12 +45,12 @@ export const OnboardingBiometricSwitch: React.FC<OnboardingFormProps> = ({ formi
                 />
                 <View style={styles.switchAndText}>
                     <GradientSwitch
-                        value={formik.values.biometricAuth}
-                        onValueChange={(value) => formik.setFieldValue('biometricAuth', value)}
+                        value={formik.values.isTouchIdEnabled}
+                        onValueChange={(value) => formik.setFieldValue('isTouchIdEnabled', value)}
                         gradientColors={gradientColors}
                     />
                     <Text style={styles.switchText}>
-                        {formik.values.biometricAuth ? 'Si' : 'No'}
+                        {formik.values.isTouchIdEnabled ? 'Si' : 'No'}
                     </Text>
                 </View>
             </View>

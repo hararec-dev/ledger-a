@@ -3,7 +3,7 @@ import { Modal, Platform, Text, TouchableOpacity, View } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import { GradientBorder } from '../../../components';
 import { useStyles } from '../../../hooks';
-import { colorPalette, currencies, ONBOARDING_SETUP_TEXT } from '../../../config';
+import { currencies, ONBOARDING_SETUP_TEXT } from '../../../config';
 import type { CurrencyInfo, CurrencyPickerProps } from '../../../types';
 
 
@@ -63,11 +63,8 @@ export const CurrencyPicker: React.FC<CurrencyPickerProps> = ({ formik, selected
             }),
         },
         pickerItemColor: {
-            color: platform.OS === 'ios' ?
-                (isDark
-                    ? colorPalette.orange[500]
-                    : colors.coolGray[900]
-                )
+            color: platform.OS === 'ios'
+                ? colors.coolGray[900]
                 : undefined,
         },
         dropdownIconColor: {

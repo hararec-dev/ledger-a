@@ -1,5 +1,5 @@
 import { View, Text, Button, ActivityIndicator } from 'react-native';
-import { useAuthAttempts, useAuthentication, useCurrentStatusAppStore } from '../../hooks';
+import { useAuthAttempts, useTouchIdAuth, useCurrentStatusAppStore } from '../../hooks';
 import { useCallback, useEffect } from 'react';
 import type { AuthenticationProps } from '../../types';
 
@@ -7,7 +7,7 @@ import type { AuthenticationProps } from '../../types';
 export const AuthenticationScreen = ({ navigation }: AuthenticationProps) => {
     const { lockout, handleFailedAttempt } = useAuthAttempts();
     const { biometricEnabled } = useCurrentStatusAppStore();
-    const { authenticate, loadingAuth } = useAuthentication(handleFailedAttempt);
+    const { authenticate, loadingAuth } = useTouchIdAuth(handleFailedAttempt);
 
     useEffect(() => {
         if (biometricEnabled) {handleAuthentication();}
