@@ -14,7 +14,7 @@
 
 ## 📖 Descripción 
 
-> Ledger-A es una aplicación móvil para la gestión de finanzas personales, enfocada en el control y seguimiento de gastos. Inspirada en la libreta personal de [John D. Rockefeller](https://es.wikipedia.org/wiki/John_D._Rockefeller#Infancia), quien meticulosamente registraba cada transacción en su famoso "Ledger A", esta app busca brindarte la misma disciplina financiera en la era digital.
+> Ledger-A es una aplicación móvil para la gestión de tus finanzas personales. Nos inspiramos en la extraordinaria disciplina financiera de [John D. Rockefeller](https://es.wikipedia.org/wiki/John_D._Rockefeller#Infancia), quien, a pesar de sus controvertidas prácticas empresariales, dejó un legado invaluable en términos de gestión financiera personal. Su icónico "Ledger A", un libro de contabilidad donde documentaba minuciosamente cada transacción, estableció un estándar de excelencia en el manejo financiero. Nuestra aplicación adapta esta metodología al mundo digital, brindándote las herramientas necesarias para mantener un control exhaustivo y eficiente de tus finanzas personales.
 
 > 🚀 Características
 - ✅ Registro rápido y sencillo de gastos e ingresos
