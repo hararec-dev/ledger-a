@@ -1,4 +1,4 @@
-# 📖 Ledger-A 💰📊
+# 📖 Ledger-A 💸✨
 
 ## 📋 Índice
 - [📖 Descripción](#-descripción)
@@ -14,7 +14,7 @@
 
 ## 📖 Descripción 
 
-> Ledger-A es una aplicación móvil para la gestión de tus finanzas personales. Nos inspiramos en la extraordinaria disciplina financiera de [John D. Rockefeller](https://es.wikipedia.org/wiki/John_D._Rockefeller#Infancia), quien, a pesar de sus controvertidas prácticas empresariales, dejó un legado invaluable en términos de gestión financiera personal. Su icónico "Ledger A", un libro de contabilidad donde documentaba minuciosamente cada transacción, estableció un estándar de excelencia en el manejo financiero. Nuestra aplicación adapta esta metodología al mundo digital, brindándote las herramientas necesarias para mantener un control exhaustivo y eficiente de tus finanzas personales.
+> Ledger-A es una aplicación móvil diseñada para transformar la gestión de tus finanzas personales. Nuestra inspiración proviene de la legendaria disciplina financiera de [John D. Rockefeller](https://es.wikipedia.org/wiki/John_D._Rockefeller#Infancia), una figura histórica que, más allá de sus controversias empresariales, estableció un paradigma en la administración financiera personal. El célebre "Ledger A", su meticuloso libro de contabilidad donde registraba cada movimiento financiero, se convirtió en un símbolo de disciplina. Hemos modernizado esta metodología para la era digital, ofreciéndote una herramienta que te permite mantener un control preciso y sistemático de tus finanzas personales.
 
 > 🚀 Características
 - ✅ Registro rápido y sencillo de gastos e ingresos
@@ -34,16 +34,22 @@
 
 > El proyecto fue desarrollado utilizando las siguientes tecnologías y herramientas:
 
-- **react-native: 0.77.0** - Framework para construir aplicaciones móviles hibridas.
-- **@react-navigation/native: ^7.0.14** - Para la gestión de rutas.
-- **@nozbe/watermelondb: ^0.27.1** - Base de datos local optimizada para React Native.
-- **@react-native-async-storage/async-storage: ^2.1.1** - Almacenamiento local asíncrono.
-- **@react-native-vector-icons/material-design-icons: ^7.4.47** - Íconos de Material Design.
-- **@tanstack/react-query: ^5.66.0** - Manejo eficiente de estados y peticiones HTTP.
-- **formik: ^2.4.6** - Manejo de formularios.
-- **react-native-biometrics: ^3.0.1** - Autenticación biométrica en dispositivos móviles.
-- **react-native-chart-kit: ^6.12.0** - Librería para gráficos y visualización de datos.
-- **xlsx: ^0.18.5** - Manipulación de archivos Excel en la aplicación.
+- **React Native: 0.77.0** - Framework para construir aplicaciones móviles híbridas con JavaScript y React.
+- **@nozbe/watermelondb: ^0.27.1** - Base de datos reactiva y offline-first optimizada para React Native.
+- **@react-native-async-storage/async-storage: ^2.1.1** - Solución de almacenamiento asíncrono persistente para React Native.
+- **@react-navigation/native: ^7.0.14** - Solución de navegación para aplicaciones React Native.
+- **@rneui/base & @rneui/themed: ^4.0.0-rc.8** - Biblioteca de componentes UI para React Native.
+- **@tanstack/react-query: ^5.66.0** - Biblioteca para gestión de estado y datos asíncronos.
+- **formik: ^2.4.6** - Biblioteca para construir formularios en React y React Native.
+- **yup: ^1.6.1** - Constructor de esquemas para validación de valores en JavaScript.
+- **zustand: ^5.0.3** - Solución de gestión de estado minimalista para React.
+- **react-native-biometrics: ^3.0.1** - Integración de autenticación biométrica (huella, Face ID).
+- **react-native-chart-kit: ^6.12.0** - Componentes de gráficos para visualización de datos.
+- **react-native-fs: ^2.20.0** - Sistema de archivos nativo para React Native.
+- **react-native-keychain: ^9.2.3** - Acceso seguro al llavero/keychain del dispositivo.
+- **react-native-linear-gradient: ^2.8.3** - Componente para crear gradientes lineales.
+- **react-native-vector-icons: ^10.2.0** - Iconos vectoriales personalizables.
+- **xlsx: ^0.18.5** - Biblioteca para leer y escribir archivos Excel.
 
 </div>
 
@@ -120,9 +126,24 @@ Las contribuciones son siempre bienvenidas. Por favor, sigue estos pasos:
 
 1. Haz Fork del proyecto
 2. Crea una rama para tu feature (`git checkout -b feature/amazing-feature`)
-3. Usa las pautas de [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) (`git commit -m '<type>[optional scope]: <description> [optional body] [optional footer(s)]'`)
-4. Push a la rama (`git push origin feature/amazing-feature`)
-5. Abre un Pull Request
+3. Asegúrate de que tu código cumpla con los estándares de estilo:
+   ```bash
+   # Verificar errores de linting
+   yarn lint
+   
+   # Corregir automáticamente errores de linting
+   yarn lint-fix
+   
+   # Corregir errores de linting y formatear código
+   yarn lint-fix-all
+   
+   # Verificar tipos de TypeScript
+   yarn typecheck
+   ```
+
+4. Usa las pautas de [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) (`git commit -m '<type>[optional scope]: <description> [optional body] [optional footer(s)]'`)
+5. Push a la rama (`git push origin feature/amazing-feature`)
+6. Abre un Pull Request
 
 </div>
 
@@ -140,6 +161,6 @@ Este proyecto está bajo la Licencia MIT - mira el archivo [LICENSE](LICENSE) pa
 
 - _Inspirado en la disciplina financiera inquebrantable de John D. Rockefeller._
 - _Esta app utiliza ilustraciones de [unDraw](https://undraw.co/) bajo licencia MIT, un proyecto de [Katerina Limpitsouni](https://x.com/ninalimpi). Agradecemos su increíble trabajo y contribución a la comunidad de diseño._
-- Diseño UI [Nombre del Diseñador]
+<!-- - Diseño UI [Nombre del Diseñador] -->
 
 </div>
