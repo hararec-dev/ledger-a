@@ -1,14 +1,6 @@
-import type { StackNavigationProp } from "@react-navigation/stack";
-import type { RootStackParamList } from "./root";
-
-export type OnboardingAuthSetupNavigationProp = StackNavigationProp<
-    RootStackParamList,
-    'OnboardingAuthSetup'
->;
-
-export type OnboardingAuthSetupProps = {
-    navigation: OnboardingAuthSetupNavigationProp;
-};
+import type { StackNavigationProp } from '@react-navigation/stack';
+import type { RootStackParamList } from './root';
+import type { RouteProp } from '@react-navigation/native';
 
 export type OnboardingSlidesNavigationProp = StackNavigationProp<
     RootStackParamList,
@@ -24,6 +16,10 @@ export type OnboardingSetupNavigationProp = StackNavigationProp<
   'OnboardingSetup'
 >;
 
-export type OnboardingSetupProps = {
+export interface OnboardingSetupNavProps {
   navigation: OnboardingSetupNavigationProp;
-};
+}
+
+export interface OnboardingSetupProps extends OnboardingSetupNavProps  {
+  route: RouteProp<RootStackParamList, 'OnboardingSetup'>;
+}

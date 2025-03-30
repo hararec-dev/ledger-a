@@ -1,38 +1,47 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { useGradient } from "../../hooks";
-import { CustomIcon, CustomText } from "../custom";
-import type { LegalInfoHeaderProps } from "../../types";
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { GradientText, IonIcon } from '../../components';
+import { useGradient, useStyles } from '../../hooks';
+import type { LegalInfoHeaderProps } from '../../types';
 
 
 export const LegalInfoHeader: React.FC<LegalInfoHeaderProps> = ({ navigation, title, lastUpdate }) => {
-    const { gradientLight } = useGradient();
+    const themeStyles = useStyles(({ colors, isDark }) => ({
+        header: {
+            padding: 20,
+            borderBottomWidth: 1,
+            borderBottomColor: isDark ? colors.coolGray[50] : colors.coolGray[900],
+        },
+        subtitle: {
+            fontSize: 16,
+            fontWeight: '500',
+            marginBottom: 8,
+            color: isDark ? colors.coolGray[100] : colors.coolGray[600],
+            fontFamily: 'Nunito-Regular',
+        },
+    }));
+    const { themeGradient } = useGradient();
 
     return (
-        <View style={styles.header}>
+        <View style={themeStyles.header}>
             <TouchableOpacity
                 onPress={() => navigation.goBack()}
                 style={styles.backButton}
             >
-                <CustomIcon name="arrow-back" size={24} color="#333" />
+                <IonIcon name="arrow-back" size={24} color={themeStyles.header.borderBottomColor} />
             </TouchableOpacity>
-            <CustomText
+            <GradientText
                 text={title}
                 fontSize={22}
-                gradientColors={gradientLight}
-                fontWeight='black'
-                style={{ textAlign: 'center' }}
+                gradientColors={themeGradient}
+                fontWeight="black"
+                style={styles.gradientText}
             />
-            <Text style={styles.subtitle}>{lastUpdate}</Text>
+            <Text style={themeStyles.subtitle}>{lastUpdate}</Text>
         </View>
     );
-}
+};
 
 const styles = StyleSheet.create({
-    header: {
-        padding: 20,
-        borderBottomWidth: 1,
-        borderBottomColor: '#eee',
-    },
     backButton: {
         marginBottom: 15,
     },
@@ -43,11 +52,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Quicksand-Regular',
         textAlign: 'center',
     },
-    subtitle: {
-        fontSize: 16,
-        fontWeight: '500',
-        marginBottom: 8,
-        color: '#444',
-        fontFamily: 'Nunito-Regular',
-    }
+    gradientText: {
+        textAlign: 'center',
+    },
 });

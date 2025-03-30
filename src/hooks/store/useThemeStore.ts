@@ -5,7 +5,7 @@ import type { ThemeColor, ThemeState } from '../../types';
 
 const THEME_STORAGE_KEY = 'app-theme';
 
-export const useThemeStore = create<ThemeState>((set, get) => ({
+export const useThemeStore = create<ThemeState>((set) => ({
     currentTheme: 'light',
     isDark: false,
     colors: colorPalette,

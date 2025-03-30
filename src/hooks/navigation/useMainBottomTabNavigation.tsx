@@ -1,34 +1,25 @@
 import { useCallback, useMemo } from 'react';
-import { Platform } from 'react-native';
+import { Platform, type ViewStyle } from 'react-native';
 import type { BottomTabNavigationOptions } from '@react-navigation/bottom-tabs';
 import {
     AccountsStackNavigation,
     DashboardStackNavigation,
     ReportsStackNavigation,
     SettingsStackNavigation,
-    TransactionsStackNavigation
+    TransactionsStackNavigation,
 } from '../../navigation';
-import { CustomIcon, CustomText } from '../../components';
-import { useThemeStore } from '../store';
+import { IonIcon, GradientText } from '../../components';
+import { useGradient } from '../../hooks';
 import type { MainBottomTabRoute } from '../../types';
-
 
 export const useMainBottomTabNavigation = (): {
     screenOptions: (props: { theme: ReactNavigation.Theme }) => BottomTabNavigationOptions;
     tabRoutes: MainBottomTabRoute[];
 } => {
-    const { colors, isDark } = useThemeStore();
-    const gradientColors = useMemo<string[]>(() => isDark
-        ? [
-            colors.yellow[300],
-            colors.orange[400],
-            colors.pink[400],
-        ]
-        : [
-            colors.blue[600],
-            colors.purple[600],
-            colors.rose[600]
-        ], [colors, isDark]);
+    const { themeGradient } = useGradient();
+    const getIconStyle = useCallback<(focused: boolean) => ViewStyle>(
+        (focused: boolean) => ({ marginBottom: focused ? 0 : -4 }),
+        []);
     const screenOptions = useCallback((props: {
         theme: ReactNavigation.Theme;
     }): BottomTabNavigationOptions => ({
@@ -41,128 +32,129 @@ export const useMainBottomTabNavigation = (): {
         },
         tabBarLabelStyle: {
             color: props.theme.colors.primary,
-        }
+        },
     }), []);
+
     const tabRoutes = useMemo<MainBottomTabRoute[]>(() => [
         {
-            name: "DashboardTab",
+            name: 'DashboardTab',
             component: DashboardStackNavigation,
             options: {
                 title: 'Inicio',
                 tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
-                    <CustomIcon
+                    <IonIcon
                         name={focused ? 'home' : 'home-outline'}
                         color={color}
                         size={26}
-                        style={{ marginBottom: focused ? 0 : -4 }}
-                        gradientColors={focused ? gradientColors : undefined}
+                        style={getIconStyle(focused)}
+                        gradientColors={focused ? themeGradient : undefined}
                     />
                 ),
                 tabBarLabel: ({ color, focused }: { color: string; focused: boolean }) => (
-                    <CustomText
+                    <GradientText
                         text={'Inicio'}
                         color={!focused ? color : undefined}
-                        gradientColors={focused ? gradientColors : undefined}
+                        gradientColors={focused ? themeGradient : undefined}
                     />
                 ),
             },
         },
         {
-            name: "AccountsTab",
+            name: 'AccountsTab',
             component: AccountsStackNavigation,
             options: {
                 title: 'Cuentas',
                 tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
-                    <CustomIcon
+                    <IonIcon
                         name={focused ? 'wallet' : 'wallet-outline'}
                         color={color}
                         size={26}
-                        style={{ marginBottom: focused ? 0 : -4 }}
-                        gradientColors={focused ? gradientColors : undefined}
+                        style={getIconStyle(focused)}
+                        gradientColors={focused ? themeGradient : undefined}
                     />
                 ),
                 tabBarLabel: ({ color, focused }: { color: string; focused: boolean }) => (
-                    <CustomText
+                    <GradientText
                         text={'Cuentas'}
                         color={!focused ? color : undefined}
-                        gradientColors={focused ? gradientColors : undefined}
+                        gradientColors={focused ? themeGradient : undefined}
                     />
                 ),
             },
         },
         {
-            name: "TransactionsTab",
+            name: 'TransactionsTab',
             component: TransactionsStackNavigation,
             options: {
                 title: 'Transacciones',
                 tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
-                    <CustomIcon
+                    <IonIcon
                         name={focused ? 'arrow-redo' : 'arrow-redo-outline'}
                         color={color}
                         size={26}
-                        style={{ marginBottom: focused ? 0 : -4 }}
-                        gradientColors={focused ? gradientColors : undefined}
+                        style={getIconStyle(focused)}
+                        gradientColors={focused ? themeGradient : undefined}
                     />
                 ),
                 tabBarLabel: ({ color, focused }: { color: string; focused: boolean }) => (
-                    <CustomText
+                    <GradientText
                         text={'Transacciones'}
                         color={!focused ? color : undefined}
-                        gradientColors={focused ? gradientColors : undefined}
+                        gradientColors={focused ? themeGradient : undefined}
                     />
                 ),
             },
         },
         {
-            name: "ReportsTab",
+            name: 'ReportsTab',
             component: ReportsStackNavigation,
             options: {
                 title: 'Reportes',
                 tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
-                    <CustomIcon
+                    <IonIcon
                         name={focused ? 'document-text' : 'document-text-outline'}
                         color={color}
                         size={26}
-                        style={{ marginBottom: focused ? 0 : -4 }}
-                        gradientColors={focused ? gradientColors : undefined}
+                        style={getIconStyle(focused)}
+                        gradientColors={focused ? themeGradient : undefined}
                     />
                 ),
                 tabBarLabel: ({ color, focused }: { color: string; focused: boolean }) => (
-                    <CustomText
+                    <GradientText
                         text={'Reportes'}
                         color={!focused ? color : undefined}
-                        gradientColors={focused ? gradientColors : undefined}
+                        gradientColors={focused ? themeGradient : undefined}
                     />
                 ),
             },
         },
         {
-            name: "SettingsTab",
+            name: 'SettingsTab',
             component: SettingsStackNavigation,
             options: {
                 title: 'Más',
                 tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
-                    <CustomIcon
+                    <IonIcon
                         name={focused ? 'ellipsis-vertical-circle-sharp' : 'ellipsis-vertical-circle-outline'}
                         color={color}
                         size={26}
-                        style={{ marginBottom: focused ? 0 : -4 }}
-                        gradientColors={focused ? gradientColors : undefined}
+                        style={getIconStyle(focused)}
+                        gradientColors={focused ? themeGradient : undefined}
                     />
                 ),
                 tabBarLabel: ({ color, focused }: { color: string; focused: boolean }) => (
-                    <CustomText
+                    <GradientText
                         text={'Más'}
                         color={!focused ? color : undefined}
-                        gradientColors={focused ? gradientColors : undefined}
+                        gradientColors={focused ? themeGradient : undefined}
                     />
                 ),
             },
         },
-    ], [gradientColors, isDark]);
+    ], [themeGradient, getIconStyle]);
 
     return {
         screenOptions,
-        tabRoutes
+        tabRoutes,
     };
 };

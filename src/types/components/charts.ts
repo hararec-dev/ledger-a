@@ -1,4 +1,4 @@
-import type { ChartConfig } from "react-native-chart-kit/dist/HelperTypes";
+import type { ChartConfig } from 'react-native-chart-kit/dist/HelperTypes';
 
 export interface DataPoint {
     value: number;

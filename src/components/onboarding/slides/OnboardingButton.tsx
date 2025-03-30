@@ -1,52 +1,50 @@
-import { Platform, StyleSheet, Text, View } from "react-native";
-import { CustomGradientButton, CustomIcon } from "../../custom";
-import { useCurrentStatusAppStore, useGradient } from "../../../hooks";
-import { colorPalette, PAGINATION_BUTTONS_CONFIG } from "../../../config";
-import type { OnboardingButtonProps } from "../../../types";
+import { Text, View } from 'react-native';
+import { GradientButton, IonIcon } from '../../../components';
+import { useCurrentStatusAppStore, useGradient, useStyles } from '../../../hooks';
+import { PAGINATION_BUTTONS_CONFIG } from '../../../config';
+import type { OnboardingButtonProps } from '../../../types';
 
 
-export const OnboardingButton: React.FC<OnboardingButtonProps> = ({
-    onNavigate
-}) => {
+export const OnboardingButton: React.FC<OnboardingButtonProps> = ({ onNavigate }) => {
     const { legalConditionsAreAccepted } = useCurrentStatusAppStore();
     const { gradientLight } = useGradient();
+    const styles = useStyles(({ colors, Platform, screenWidth }) => ({
+        buttonText: {
+            color: colors.coolGray[50],
+            fontSize: 18,
+            fontWeight: '700',
+            fontFamily: 'Quicksand-Regular',
+        },
+        disabledButton: {
+            opacity: 0.4,
+            backgroundColor: colors.coolGray[300],
+            borderColor: colors.coolGray[400],
+        },
+        horizontalContainer: {
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '100%',
+            columnGap: 10,
+            ...(Platform.OS === 'ios' && { paddingHorizontal: 20 }),
+        },
+        gradientButton: {
+            width: screenWidth * 0.7,
+        },
+    }));
 
     return (
-        <CustomGradientButton
-            onPress={() => onNavigate(PAGINATION_BUTTONS_CONFIG.NAVIGATION.SETUP)}
+        <GradientButton
+            onPress={() => onNavigate()}
             gradientColors={gradientLight}
             disabled={!legalConditionsAreAccepted}
             disabledStyle={styles.disabledButton}
+            style={styles.gradientButton}
         >
             <View style={styles.horizontalContainer}>
-                <CustomIcon name="golf-outline" size={24} color={colorPalette.coolGray[50]} />
+                <IonIcon name="golf-outline" size={24} color={styles.buttonText.color} />
                 <Text style={styles.buttonText}>{PAGINATION_BUTTONS_CONFIG.BUTTON_TITLES.START}</Text>
             </View>
-        </CustomGradientButton >
+        </GradientButton >
     );
 };
-
-const styles = StyleSheet.create({
-    formContainer: {
-        rowGap: 15,
-        width: '90%',
-    },
-    buttonText: {
-        color: colorPalette.coolGray[50],
-        fontSize: 18,
-        fontWeight: '700',
-        fontFamily: 'Quicksand-Regular',
-    },
-    disabledButton: {
-        opacity: 0.4,
-        backgroundColor: colorPalette.coolGray[300],
-        borderColor: colorPalette.coolGray[400],
-        borderRadius: 10,
-    },
-    horizontalContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        columnGap: 10,
-        ...(Platform.OS === 'ios' && { paddingHorizontal: 20 }),
-    }
-});

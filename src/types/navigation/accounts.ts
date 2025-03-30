@@ -1,5 +1,5 @@
-import type { RouteProp } from "@react-navigation/native";
-import type { StackNavigationOptions } from "@react-navigation/stack";
+import type { RouteProp } from '@react-navigation/native';
+import type { StackNavigationOptions } from '@react-navigation/stack';
 
 export type AccountsStackParamList = {
     Accounts: undefined;
@@ -12,11 +12,11 @@ export type AccountsStackParamList = {
 };
 
 export type TransferProps = {
-    route: RouteProp<AccountsStackParamList, "Transfer">;
+    route: RouteProp<AccountsStackParamList, 'Transfer'>;
 };
 
 export type AccountDetailsProps = {
-    route: RouteProp<AccountsStackParamList, "AccountDetails">;
+    route: RouteProp<AccountsStackParamList, 'AccountDetails'>;
 };
 
 export type AccountsStackRoute = {

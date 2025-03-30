@@ -35,16 +35,16 @@ export const useBiometricStore = create<BiometricsState>((set, get) => ({
                 sensorStatus: {
                     available: isBiometricTypeValid,
                     biometryType,
-                    error
-                }
+                    error,
+                },
             });
         } catch (error) {
             set({
                 sensorStatus: {
                     available: false,
                     biometryType: undefined,
-                    error: error instanceof Error ? error.message : BIOMETRIC_MESSAGES.ERRORS.UNKNOWN
-                }
+                    error: error instanceof Error ? error.message : BIOMETRIC_MESSAGES.ERRORS.UNKNOWN,
+                },
             });
             if (handleErrorCallback) {
                 handleError(handleErrorCallback.errorCallback, error, ...handleErrorCallback.args);
@@ -56,10 +56,10 @@ export const useBiometricStore = create<BiometricsState>((set, get) => ({
         return get().handleBiometricOperation({
             operation: async () => {
                 const { publicKey } = await get().rnBiometrics.createKeys();
-                if (!publicKey) throw new Error(BIOMETRIC_MESSAGES.ERRORS.CREATE_PUBLIC_KEY);
+                if (!publicKey) {throw new Error(BIOMETRIC_MESSAGES.ERRORS.CREATE_PUBLIC_KEY);}
                 return publicKey;
             },
-            handleErrorCallback
+            handleErrorCallback,
         });
     },
 
@@ -69,7 +69,7 @@ export const useBiometricStore = create<BiometricsState>((set, get) => ({
                 const { keysExist } = await get().rnBiometrics.biometricKeysExist();
                 return keysExist;
             },
-            handleErrorCallback
+            handleErrorCallback,
         });
     },
 
@@ -79,7 +79,7 @@ export const useBiometricStore = create<BiometricsState>((set, get) => ({
                 const { keysDeleted } = await get().rnBiometrics.deleteKeys();
                 return keysDeleted;
             },
-            handleErrorCallback
+            handleErrorCallback,
         });
     },
 
@@ -89,16 +89,16 @@ export const useBiometricStore = create<BiometricsState>((set, get) => ({
                 return await get().rnBiometrics.createSignature({
                     promptMessage,
                     cancelButtonText,
-                    payload
+                    payload,
                 });
             },
-            handleErrorCallback
+            handleErrorCallback,
         });
     },
     setAllowBiometricAuth: async (allowBiometricAuth: boolean) => {
         try {
             await AsyncStorage.setItem(ALLOW_BIOMETRIC_AUTH, String(allowBiometricAuth));
-            set({ allowBiometricAuth })
+            set({ allowBiometricAuth });
         } catch (error) { }
     },
     loadBiometricAuth: async () => {
@@ -112,5 +112,5 @@ export const useBiometricStore = create<BiometricsState>((set, get) => ({
         finally {
             set({ isLoadingBiometricAuth: false });
         }
-    }
+    },
 }));

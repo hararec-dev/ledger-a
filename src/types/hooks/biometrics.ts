@@ -1,5 +1,5 @@
-import type ReactNativeBiometrics from "react-native-biometrics";
-import type { BiometryType } from "react-native-biometrics";
+import type ReactNativeBiometrics from 'react-native-biometrics';
+import type { BiometryType } from 'react-native-biometrics';
 
 export interface SensorStatus {
     available: boolean;

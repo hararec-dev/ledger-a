@@ -1,4 +1,4 @@
-import type { StackNavigationOptions } from "@react-navigation/stack";
+import type { StackNavigationOptions } from '@react-navigation/stack';
 
 export type DashboardStackParamList = {
   Dashboard: undefined;

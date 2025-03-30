@@ -1,10 +1,11 @@
-import { TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import { StyleSheet, TouchableOpacity } from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
 import MaskedView from '@react-native-masked-view/masked-view';
-import type { CustomIconProps } from '../../types';
+import type { IonIconProps } from '../../types';
 
-export const CustomIcon = ({
+
+export const IonIcon = ({
     name,
     size = 24,
     color = 'black',
@@ -12,9 +13,10 @@ export const CustomIcon = ({
     onPress,
     style,
     disabled = false,
-}: CustomIconProps) => {
+}: IonIconProps) => {
+
     const IconContent = (
-        <Icon
+        <Ionicons
             name={name}
             size={size}
             color={disabled ? '#ccc' : color}
@@ -28,11 +30,11 @@ export const CustomIcon = ({
         >
             <LinearGradient
                 colors={gradientColors}
-                style={{ flex: 1 }}
+                style={styles.gradientContainer}
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 0 }}
             >
-                <Icon
+                <Ionicons
                     name={name}
                     size={size}
                     color="transparent"
@@ -47,11 +49,7 @@ export const CustomIcon = ({
         : (
             <TouchableOpacity
                 onPress={onPress}
-                style={[style, {
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    padding: 4,
-                }]}
+                style={[style, styles.touchableContainer]}
                 disabled={disabled}
                 activeOpacity={0.7}
             >
@@ -59,3 +57,14 @@ export const CustomIcon = ({
             </TouchableOpacity>
         );
 };
+
+const styles = StyleSheet.create({
+    touchableContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 4,
+    },
+    gradientContainer: {
+        flex: 1,
+    },
+});

@@ -11,4 +11,4 @@ export const NavigationProvider = ({ children }: NavigationProviderProps) => {
       {children}
     </NavigationContainer>
   );
-}
+};

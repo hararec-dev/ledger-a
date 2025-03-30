@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import type { StackNavigationProp } from '@react-navigation/stack';
-import type { RootStackParamList, TypeLegalInfo } from '../../types';
+import type { RootStackParamList, TypeLegalInfo, TypeSetup } from '../../types';
 
 export const useCustomNavigation = () => {
     const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
@@ -12,6 +12,15 @@ export const useCustomNavigation = () => {
         },
         [navigation]
     );
+    const goToSetup = useCallback(
+        (typeSetup: TypeSetup) => {
+            navigation.navigate('OnboardingSetup', { typeSetup });
+        },
+        [navigation]
+    );
 
-    return { goToLegalInfo };
+    return {
+        goToLegalInfo,
+        goToSetup,
+    };
 };

@@ -1,4 +1,4 @@
-import type { FullColorPallete, RneuiPlatformColors } from "../config";
+import type { FullColorPallete, RneuiPlatformColors } from '../config';
 
 export type ThemeColor = 'light' | 'dark';
 
@@ -11,10 +11,3 @@ export type ThemeState = {
     loadTheme: () => Promise<void>;
     setTheme: (theme: ThemeColor) => Promise<void>;
 };
-
-export interface UseThemeReturn {
-    currentTheme: ThemeColor;
-    isDark: boolean;
-    colors: FullColorPallete;
-    setTheme: (theme: ThemeColor) => Promise<void>;
-}

@@ -1,25 +1,22 @@
-import { Text, useWindowDimensions, View } from "react-native";
-import { CustomText } from "../../../components";
-import { useGradient, useThemeStore } from "../../../hooks";
-import type { SlideItemProps } from "../../../types";
-import { StyleSheet } from "react-native";
+import { Text, View } from 'react-native';
+import { GradientText } from '../../../components';
+import { useGradient, useStyles } from '../../../hooks';
+import type { SlideItemProps } from '../../../types';
+
 
 export const SlideItem: React.FC<SlideItemProps> = ({ desc, img, title, style }) => {
-    const { colors } = useThemeStore();
-    const { width, height, fontScale } = useWindowDimensions();
     const { gradientLight } = useGradient();
-
-    const styles = StyleSheet.create({
+    const styles = useStyles(({ colors, screenHeight, screenWidth, fontScale }) => ({
         container: {
-            width,
+            width: screenWidth,
             flex: 1,
-            height: height * 0.4,
+            height: screenHeight * 0.4,
             alignItems: 'center',
             justifyContent: 'flex-start',
-            marginVertical: height * 0.1,
+            marginVertical: screenHeight * 0.1,
         },
         imageContainer: {
-            height: height * 0.3,
+            height: screenHeight * 0.3,
             justifyContent: 'center',
             alignItems: 'center',
         },
@@ -27,23 +24,26 @@ export const SlideItem: React.FC<SlideItemProps> = ({ desc, img, title, style })
             fontSize: fontScale * 15,
             fontWeight: '500',
             textAlign: 'left',
-            paddingHorizontal: 60,
+            width: screenWidth * 0.7,
             paddingTop: 5,
             fontFamily: 'Nunito-Regular',
             color: colors.coolGray[900],
-        }
-    });
+        },
+        gradiantText: {
+            fontSize: fontScale * 30,
+        },
+    }));
 
     return (
         <View style={[styles.container, style]}>
             <View style={styles.imageContainer}>
                 {img}
             </View>
-            <CustomText
+            <GradientText
                 text={title}
-                fontSize={fontScale * 30}
+                fontSize={styles.gradiantText.fontSize}
                 gradientColors={gradientLight}
-                fontWeight='black'
+                fontWeight="black"
             />
             <Text style={styles.description}>{desc}</Text>
         </View>

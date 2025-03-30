@@ -1,13 +1,13 @@
-import { View, Text, StyleSheet, FlatList } from 'react-native';
-import { colorPalette } from '../../config';
+import { View, Text, FlatList } from 'react-native';
+import { useStyles } from '../../hooks';
 import type { TimelineItem, TimelineProps } from '../../types';
 
 
 export const Timeline: React.FC<TimelineProps> = ({
     data,
-    lineColor = colorPalette.coolGray[400],
+    lineColor,
     dotSize = 16,
-    dotColor = colorPalette.fuchsia[600],
+    dotColor,
     titleStyle,
     descriptionStyle,
     timeStyle,
@@ -16,6 +16,66 @@ export const Timeline: React.FC<TimelineProps> = ({
     itemContainerStyle,
     showScrollIndicator = false,
 }) => {
+    const styles = useStyles(({ colors }) => ({
+        container: {
+            flex: 1,
+        },
+        itemContainer: {
+            flexDirection: 'row',
+            marginBottom: 20,
+        },
+        timeContainer: {
+            width: 80,
+            alignItems: 'flex-end',
+            paddingRight: 15,
+            marginTop: 2,
+        },
+        time: {
+            fontSize: 12,
+            color: colors.coolGray[500],
+        },
+        date: {
+            fontSize: 10,
+            color: colors.coolGray[400],
+        },
+        lineContainer: {
+            alignItems: 'center',
+            width: 20,
+        },
+        dot: {
+            width: 16,
+            height: 16,
+            borderRadius: 8,
+            backgroundColor: colors.fuchsia[600],
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 1,
+        },
+        line: {
+            width: 2,
+            flex: 1,
+            backgroundColor: colors.coolGray[400],
+            position: 'absolute',
+            top: 16,
+            bottom: -20,
+        },
+        contentContainer: {
+            flex: 1,
+            paddingLeft: 15,
+            paddingRight: 10,
+        },
+        title: {
+            fontSize: 16,
+            fontWeight: 'bold',
+            color: colors.warmGray[900],
+            marginBottom: 5,
+        },
+        description: {
+            fontSize: 14,
+            color: colors.coolGray[600],
+        },
+    }));
+
     const renderItem = ({ item, index }: { item: TimelineItem; index: number }) => (
         <View style={[styles.itemContainer, itemContainerStyle]}>
             <View style={styles.timeContainer}>
@@ -35,8 +95,8 @@ export const Timeline: React.FC<TimelineProps> = ({
                             width: dotSize,
                             height: dotSize,
                             borderRadius: dotSize / 2,
-                            backgroundColor: item.dotColor || dotColor
-                        }
+                            backgroundColor: item.dotColor || dotColor || styles.dot.backgroundColor,
+                        },
                     ]}
                 >
                     {item.icon}
@@ -46,7 +106,7 @@ export const Timeline: React.FC<TimelineProps> = ({
                     <View
                         style={[
                             styles.line,
-                            { backgroundColor: lineColor }
+                            { backgroundColor: lineColor || styles.line.backgroundColor },
                         ]}
                     />
                 )}
@@ -73,63 +133,3 @@ export const Timeline: React.FC<TimelineProps> = ({
         />
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-    itemContainer: {
-        flexDirection: 'row',
-        marginBottom: 20,
-    },
-    timeContainer: {
-        width: 80,
-        alignItems: 'flex-end',
-        paddingRight: 15,
-        marginTop: 2,
-    },
-    time: {
-        fontSize: 12,
-        color: colorPalette.coolGray[500],
-    },
-    date: {
-        fontSize: 10,
-        color: colorPalette.coolGray[400],
-    },
-    lineContainer: {
-        alignItems: 'center',
-        width: 20,
-    },
-    dot: {
-        width: 16,
-        height: 16,
-        borderRadius: 8,
-        backgroundColor: colorPalette.fuchsia[600],
-        alignItems: 'center',
-        justifyContent: 'center',
-        zIndex: 1,
-    },
-    line: {
-        width: 2,
-        flex: 1,
-        backgroundColor: colorPalette.coolGray[400],
-        position: 'absolute',
-        top: 16,
-        bottom: -20,
-    },
-    contentContainer: {
-        flex: 1,
-        paddingLeft: 15,
-        paddingRight: 10,
-    },
-    title: {
-        fontSize: 16,
-        fontWeight: 'bold',
-        color: colorPalette.warmGray[900],
-        marginBottom: 5,
-    },
-    description: {
-        fontSize: 14,
-        color: colorPalette.coolGray[600],
-    },
-});

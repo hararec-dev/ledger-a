@@ -34,6 +34,6 @@ export const useAuthAttempts = () => {
         attempts,
         lockout,
         handleFailedAttempt,
-        resetAttempts
+        resetAttempts,
     };
 };

@@ -1,7 +1,7 @@
 import LinearGradient from 'react-native-linear-gradient';
-import type { CustomGradientBackgroundProps } from "../../types";
+import type { GradientBackgroundProps } from '../../types';
 
-export const CustomGradientBackground: React.FC<CustomGradientBackgroundProps> = ({ gradient, children, style }) => {
+export const GradientBackground: React.FC<GradientBackgroundProps> = ({ gradient, children, style }) => {
     return (
         <LinearGradient
             colors={gradient}

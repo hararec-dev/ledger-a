@@ -1,13 +1,4 @@
-export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
-
-export interface RequestConfig<T> {
-    headers?: HeadersInit_;
-    baseURL: string;
-    body?: T;
-    endpoint: string;
-    method: HttpMethod;
-    timeout?: number;
-}
+import type { RequestConfig } from '../types';
 
 export const genericHttpRequest = async <RequestType, ResponseType>({
     headers,
@@ -15,7 +6,7 @@ export const genericHttpRequest = async <RequestType, ResponseType>({
     body,
     endpoint,
     method,
-    timeout = 10000
+    timeout = 10000,
 }: RequestConfig<RequestType>): Promise<ResponseType> => {
     const url = new URL(endpoint, baseURL).toString();
     const controller = new AbortController();
@@ -26,7 +17,7 @@ export const genericHttpRequest = async <RequestType, ResponseType>({
             method,
             headers: {
                 'Content-Type': 'application/json',
-                ...headers
+                ...headers,
             },
             signal: controller.signal,
         };
