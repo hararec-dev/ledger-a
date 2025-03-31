@@ -18,19 +18,24 @@ export type AppRouteName =
     | keyof SettingsStackParamList
     | keyof TransactionsStackParamList;
 
-export interface LastActivity {
+export interface LastActivityProps {
     path: AppRouteName;
-    timestamp: number;
     params?: { [key: string]: string | number | boolean };
     details?: any;
 }
 
+export interface LastActivity extends LastActivityProps {
+    timestamp: number;
+}
+
 export interface CurrentStatusAppState {
-    touchIdEnabled: boolean | null;
     hasOnboarded: boolean | null;
+    isLoadingData: boolean | null;
+    isLoadingLastActivity: boolean | null;
     lastActivity: LastActivity | null;
     legalConditionsAreAccepted: boolean;
     pinEnabled: boolean | null;
+    touchIdEnabled: boolean | null;
     userCurrency: Currency | null;
     loadStoredData: () => Promise<void>;
     setTouchIdEnabled: (enabled: boolean) => Promise<void>;
