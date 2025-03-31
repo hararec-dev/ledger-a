@@ -1,28 +1,22 @@
-import { useEffect } from 'react';
+import { type DependencyList, useEffect } from 'react';
 import { useCurrentStatusAppStore } from '../store';
 import type { LastActivityProps } from '../../types';
 
 export const useLastActivity = (
-  callback: () => LastActivityProps | Promise<LastActivityProps>,
-  dependencies: any[] = []
+  callback: () => LastActivityProps,
+  deps: DependencyList
 ) => {
   const { setLastActivity, lastActivity, isLoadingLastActivity } = useCurrentStatusAppStore();
 
   useEffect(() => {
-    let isMounted = true;
-
     const executeCallback = async () => {
-      try {
-        const result = await Promise.resolve(callback());
-        if (isMounted) {
-          await setLastActivity({ ...result, timestamp: Math.floor(Date.now() / 1000) });
-        }
-      } catch (error) { }
+        const result = callback();
+        await setLastActivity({ ...result, timestamp: Math.floor(Date.now() / 1000) });
     };
 
     executeCallback();
-    return () => { isMounted = false; };
-  }, dependencies);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, deps);
 
   return { lastActivity, isLoadingLastActivity };
 };

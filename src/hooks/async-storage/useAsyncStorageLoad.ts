@@ -53,6 +53,7 @@ export const useAsyncStorageLoad = () => {
         isDark,
         colors,
         currentTheme,
+        lastActivity,
         rneuiDarkColors,
         rneuiLightColors,
     };

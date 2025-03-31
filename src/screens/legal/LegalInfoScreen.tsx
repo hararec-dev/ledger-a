@@ -1,6 +1,6 @@
 import { ScrollView, View, Text } from 'react-native';
 import { LegalInfoHeader, LegalInfoSection } from '../../components';
-import { useLegalTerms, useStyles } from '../../hooks';
+import { useLastActivity, useLegalTerms, useStyles } from '../../hooks';
 import type { LegalInfoProps } from '../../types';
 
 
@@ -22,6 +22,13 @@ export const LegalInfoScreen: React.FC<LegalInfoProps> = ({ navigation, route })
       fontFamily: 'Quicksand-Regular',
     },
   }));
+
+  useLastActivity(() => ({
+    path: 'LegalInfo',
+    params: {
+      typeInfo: route.params.typeInfo,
+    },
+  }), []);
 
   return (
     <View style={styles.container}>

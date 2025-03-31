@@ -24,7 +24,7 @@ export const LegalInfoHeader: React.FC<LegalInfoHeaderProps> = ({ navigation, ti
     return (
         <View style={themeStyles.header}>
             <TouchableOpacity
-                onPress={() => navigation.goBack()}
+                onPress={() => navigation.navigate('OnboardingSlides')}
                 style={styles.backButton}
             >
                 <IonIcon name="arrow-back" size={24} color={themeStyles.header.borderBottomColor} />
