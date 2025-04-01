@@ -1,7 +1,8 @@
-import { ScrollView, View, Text } from 'react-native';
+import { useCallback } from 'react';
+import { View, Text, FlatList, type ListRenderItem } from 'react-native';
 import { LegalInfoHeader, LegalInfoSection } from '../../components';
 import { useLastActivity, useLegalTerms, useStyles } from '../../hooks';
-import type { LegalInfoProps } from '../../types';
+import type { LegalInfoProps, LegalSection } from '../../types';
 
 
 export const LegalInfoScreen: React.FC<LegalInfoProps> = ({ navigation, route }) => {
@@ -30,6 +31,14 @@ export const LegalInfoScreen: React.FC<LegalInfoProps> = ({ navigation, route })
     },
   }), []);
 
+  const renderSection: ListRenderItem<LegalSection> = useCallback(({ item, index }) => (
+    <LegalInfoSection
+      key={`section-${index}`}
+      section={item}
+      index={index}
+    />
+  ), []);
+
   return (
     <View style={styles.container}>
       <LegalInfoHeader
@@ -37,16 +46,16 @@ export const LegalInfoScreen: React.FC<LegalInfoProps> = ({ navigation, route })
         title={termsContent.title}
         lastUpdate={termsContent.lastUpdate}
       />
-      <ScrollView style={styles.content}>
-        {termsContent.sections.map((section, index) => (
-          <LegalInfoSection
-            key={`section-${index}`}
-            section={section}
-            index={index}
-          />
-        ))}
-        <Text style={styles.footer}>{termsContent.footer}</Text>
-      </ScrollView>
+      <FlatList
+        style={styles.content}
+        data={termsContent.sections}
+        renderItem={renderSection}
+        keyExtractor={(_, index) => `section-${index}`}
+        getItemLayout={(_, index) => (
+          { length: 100, offset: 100 * index, index }
+        )}
+        ListFooterComponent={<Text style={styles.footer}>{termsContent.footer}</Text>}
+      />
     </View>
   );
 };
