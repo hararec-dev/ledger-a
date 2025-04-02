@@ -1,15 +1,14 @@
 import { ScrollView, StyleSheet } from 'react-native';
 import { useFormik } from 'formik';
 import { OnboardingSetupAppForm, OnboardingSetupHeader } from '../../../components';
-import { useCurrentStatusAppStore, useGradient, useThemeStore, usePinAuth } from '../../../hooks';
+import { useGradient, useThemeStore, usePinAuth } from '../../../hooks';
 import { ONBOARDING_SETUP_TEXT, validationOnboardingApp as validationSchema } from '../../../config';
 import type { OnboardingSetupNavProps } from '../../../types';
 
 
 export const OnboardingSetupApp: React.FC<OnboardingSetupNavProps> = ({ navigation }) => {
-    const { setTheme, currentTheme } = useThemeStore();
+    const { currentTheme } = useThemeStore();
     const { themeGradient } = useGradient();
-    const { setTouchIdEnabled, setPinEnabled } = useCurrentStatusAppStore();
     const { createPin } = usePinAuth();
 
     const formik = useFormik({
@@ -21,18 +20,9 @@ export const OnboardingSetupApp: React.FC<OnboardingSetupNavProps> = ({ navigati
             confirmPin: '',
         },
         validationSchema,
-        onSubmit: async ({ theme, isTouchIdEnabled, isPinEnabled, pin }) => {
-            try {
-                await Promise.all([
-                    setTheme(theme),
-                    setTouchIdEnabled(isTouchIdEnabled),
-                    setPinEnabled(isPinEnabled),
-                ]);
-                if (isPinEnabled) { await createPin(pin); }
-            } catch (error) {
-            } finally {
-                navigation.navigate('OnboardingSetup', { typeSetup: 'account' });
-            }
+        onSubmit: async ({ isPinEnabled, pin }) => {
+            if (isPinEnabled) { await createPin(pin); }
+            navigation.navigate('OnboardingSetup', { typeSetup: 'account' });
         },
     });
 

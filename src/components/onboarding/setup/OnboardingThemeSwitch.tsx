@@ -46,9 +46,9 @@ export const OnboardingThemeSwitch: React.FC<OnboardingFormProps> = ({ formik, g
                 <View style={styles.switchAndText}>
                     <GradientSwitch
                         value={formik.values.theme === 'dark'}
-                        onValueChange={(value) => {
-                            formik.setFieldValue('theme', value ? 'dark' : 'light');
+                        onValueChange={(value: boolean) => {
                             setTheme(value ? 'dark' : 'light');
+                            formik.setFieldValue('theme', value ? 'dark' : 'light');
                         }}
                         gradientColors={gradientColors}
                     />

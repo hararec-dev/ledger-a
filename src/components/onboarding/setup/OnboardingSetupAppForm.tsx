@@ -8,12 +8,14 @@ import {
     OnboardingPinSetup,
     OnboardingThemeSwitch,
 } from '../../../components';
-import { useStyles } from '../../../hooks';
+import { useBiometricStore, useCurrentStatusAppStore, useStyles } from '../../../hooks';
 import { ONBOARDING_SETUP_TEXT } from '../../../config';
 import type { OnboardingFormProps } from '../../../types';
 
 
 export const OnboardingSetupAppForm: React.FC<OnboardingFormProps> = ({ formik, gradientColors }) => {
+    const { allowBiometricAuth } = useBiometricStore();
+    const { setPinEnabled } = useCurrentStatusAppStore();
     const styles = useStyles(({ colors, isDark }) => ({
         formContainer: {
             rowGap: 30,
@@ -72,20 +74,25 @@ export const OnboardingSetupAppForm: React.FC<OnboardingFormProps> = ({ formik, 
                     <IonIcon name={'keypad'} size={30} color={styles.ionIcon.color} />
                     <View style={styles.switchAndText}>
                         <GradientSwitch
-                            value={formik.values.isPinEnabled}
+                            value={!allowBiometricAuth ? true : formik.values.isPinEnabled}
                             onValueChange={(value: boolean) => {
+                                setPinEnabled(value);
                                 formik.setFieldValue('isPinEnabled', value);
                                 formik.setFieldTouched('isPinEnabled', true, false);
                             }}
+                            disabled={!allowBiometricAuth}
                         />
                         <Text style={styles.switchText}>
-                            {formik.values.isPinEnabled ? 'Si' : 'No'}
+                            {(!allowBiometricAuth ? true : formik.values.isPinEnabled) ? 'Si' : 'No'}
                         </Text>
                     </View>
                 </View>
             </FormSetupGroup>
 
-            {formik.values.isPinEnabled && <OnboardingPinSetup formik={formik} gradientColors={gradientColors} />}
+            {
+                (!allowBiometricAuth ? true : formik.values.isPinEnabled)
+                && <OnboardingPinSetup formik={formik} gradientColors={gradientColors} />
+            }
 
             <OnboardingThemeSwitch formik={formik} gradientColors={gradientColors} />
             <GradientButton

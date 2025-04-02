@@ -11,7 +11,6 @@ export const useCurrentStatusAppStore = create<CurrentStatusAppState>((set) => (
     lastActivity: null,
     legalConditionsAreAccepted: false,
     pinEnabled: null,
-    touchIdEnabled: null,
     userCurrency: null,
     loadStoredData: async () => {
         set({ isLoadingData: true });
@@ -21,16 +20,14 @@ export const useCurrentStatusAppStore = create<CurrentStatusAppState>((set) => (
                 CURRENT_STATUS_APP_KEYS.LAST_ACTIVITY,
                 CURRENT_STATUS_APP_KEYS.LEGAL_CONDITIONS,
                 CURRENT_STATUS_APP_KEYS.PIN_ENABLED,
-                CURRENT_STATUS_APP_KEYS.TOUCH_ID_ENABLED,
                 CURRENT_STATUS_APP_KEYS.USER_CURRENCY,
             ]);
-            const [onboarded, lastActivity, legal, pin, touchId, userCurrency] = storedData;
+            const [onboarded, lastActivity, legal, pin, userCurrency] = storedData;
             set({
                 hasOnboarded: onboarded[1] === 'true',
                 lastActivity: lastActivity[1] ? JSON.parse(lastActivity[1]) as LastActivity : null,
                 legalConditionsAreAccepted: legal[1] === 'true',
                 pinEnabled: pin[1] === 'true',
-                touchIdEnabled: touchId[1] === 'true',
                 userCurrency: userCurrency[1] ? userCurrency[1] as Currency : null,
             });
         } catch (error) { }
@@ -53,16 +50,6 @@ export const useCurrentStatusAppStore = create<CurrentStatusAppState>((set) => (
         try {
             await AsyncStorage.setItem(CURRENT_STATUS_APP_KEYS.USER_CURRENCY, currency);
             set({ userCurrency: currency });
-        } catch (error) { }
-        finally {
-            set({ isLoadingData: false });
-        }
-    },
-    setTouchIdEnabled: async (enabled: boolean) => {
-        set({ isLoadingData: true });
-        try {
-            await AsyncStorage.setItem(CURRENT_STATUS_APP_KEYS.TOUCH_ID_ENABLED, String(enabled));
-            set({ touchIdEnabled: enabled });
         } catch (error) { }
         finally {
             set({ isLoadingData: false });

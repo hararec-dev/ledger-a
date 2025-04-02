@@ -20,10 +20,12 @@ export interface GradientInputProps {
     maxLength?: number;
     gradientColors?: string[];
     isSecureTextEntry?: boolean;
+    autoFocus?: boolean;
 }
 
 export interface GradientSwitchProps {
     value: boolean;
     onValueChange: (value: boolean) => void;
     gradientColors?: string[];
+    disabled?: boolean;
 }

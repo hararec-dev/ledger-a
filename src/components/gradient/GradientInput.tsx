@@ -6,6 +6,7 @@ import type { GradientInputProps } from '../../types';
 
 
 export const GradientInput: React.FC<GradientInputProps> = ({
+    autoFocus,
     gradientColors,
     isSecureTextEntry = false,
     keyboardType = 'default',
@@ -61,6 +62,7 @@ export const GradientInput: React.FC<GradientInputProps> = ({
                 keyboardType={keyboardType}
                 maxLength={maxLength}
                 secureTextEntry={isSecureTextEntry && !showPassword}
+                autoFocus={autoFocus}
             />
             {isSecureTextEntry && (
                 <TouchableOpacity

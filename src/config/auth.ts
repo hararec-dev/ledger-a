@@ -1,3 +1,5 @@
+import type { TextContent } from "../types";
+
 export const AUTH_CONFIG = {
     MAX_ATTEMPTS: 3,
     LOCKOUT_DURATION: 30000,
@@ -21,3 +23,23 @@ export const BIOMETRIC_MESSAGES = {
         UNKNOWN: 'Error desconocido',
     },
 } as const;
+
+export const AUTHENTICATION_SCREEN: TextContent = {
+    title: {
+        biometric: 'Autenticación Biométrica',
+        pin: 'Autenticación con PIN',
+    },
+    buttons: {
+        fingerprint: 'Usar Huella Digital',
+        validatePin: 'Validar PIN',
+    },
+    errors: {
+        pinNotSet: 'PIN no configurado',
+        enterPin: 'Por favor ingrese el PIN',
+        incorrectPin: 'PIN incorrecto',
+        tooManyAttempts: 'Demasiados intentos fallidos. Espere 30 segundos.',
+    },
+    input: {
+        pinPlaceholder: 'Ingrese su PIN',
+    },
+};

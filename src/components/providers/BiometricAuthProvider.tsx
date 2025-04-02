@@ -3,7 +3,6 @@ import { StyleSheet, View } from 'react-native';
 import { useBiometricStore } from '../../hooks';
 import type { BiometricAuthProviderProps } from '../../types';
 
-
 export const BiometricAuthProvider = ({ children }: BiometricAuthProviderProps) => {
     const {
         checkBiometricAvailability,
@@ -16,18 +15,17 @@ export const BiometricAuthProvider = ({ children }: BiometricAuthProviderProps) 
 
     useEffect(() => {
         const initializeBiometrics = async () => {
-            await checkBiometricAvailability();
-            const keysExist = await biometricKeysExist();
-            if (!keysExist) {
-                await createKeys();
-            }
             await loadBiometricAuth();
+            const isValid = await checkBiometricAvailability();
+            if (!isValid) { return; }
+            const keysExist = await biometricKeysExist();
+            if (!keysExist) { await createKeys(); }
         };
 
         initializeBiometrics();
-    }, [checkBiometricAvailability, biometricKeysExist, loadBiometricAuth, createKeys]);
+    }, [loadBiometricAuth, checkBiometricAvailability, biometricKeysExist, createKeys]);
 
-    return !sensorStatus && !isLoadingBiometricAuth
+    return isLoadingBiometricAuth || !sensorStatus
         ? null
         : (
             <View style={styles.container}>

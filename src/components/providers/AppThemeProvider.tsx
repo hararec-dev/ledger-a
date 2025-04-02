@@ -15,6 +15,7 @@ export const AppThemeProvider = ({ children }: AppThemeProviderProps) => {
     rneuiDarkColors,
     rneuiLightColors,
   } = useAsyncStorageLoad();
+
   const theme = useMemo(() => createTheme({
     lightColors: {
       ...Platform.select({
@@ -45,17 +46,20 @@ export const AppThemeProvider = ({ children }: AppThemeProviderProps) => {
     },
   }), [currentTheme, rneuiDarkColors, rneuiLightColors]);
 
+  const statusBarBackgroundColor = useMemo(() =>
+    lastActivity?.path === 'OnboardingSlides'
+      ? colors.violet[200]
+      : isDark ? colors.warmGray[900] : colors.coolGray[50],
+    [lastActivity?.path, isDark, colors]
+  );
+
   return !isLoaded
     ? null
     : (
       <ThemeProvider theme={theme}>
         <StatusBar
           barStyle={isDark ? 'light-content' : 'dark-content'}
-          backgroundColor={
-            lastActivity?.path === 'OnboardingSlides'
-              ? colors.violet[200]
-              : isDark ? colors.warmGray[900] : colors.coolGray[50]
-          }
+          backgroundColor={statusBarBackgroundColor}
         />
         {children}
       </ThemeProvider>

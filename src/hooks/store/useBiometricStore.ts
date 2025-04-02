@@ -9,7 +9,7 @@ const ALLOW_BIOMETRIC_AUTH = 'allowBiometricAuth';
 
 export const useBiometricStore = create<BiometricsState>((set, get) => ({
     sensorStatus: null,
-    allowBiometricAuth: false,
+    allowBiometricAuth: true,
     isLoadingBiometricAuth: false,
     rnBiometrics: new ReactNativeBiometrics(),
 
@@ -38,6 +38,7 @@ export const useBiometricStore = create<BiometricsState>((set, get) => ({
                     error,
                 },
             });
+            return isBiometricTypeValid;
         } catch (error) {
             set({
                 sensorStatus: {

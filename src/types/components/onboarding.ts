@@ -69,6 +69,7 @@ export interface PinInputProps extends OnboardingFormProps {
     value: string;
     fieldName: string;
     placeholder: string;
+    autoFocus?: boolean;
 }
 
 export interface OnboardingSetupHeaderProps {

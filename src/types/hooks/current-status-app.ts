@@ -35,10 +35,8 @@ export interface CurrentStatusAppState {
     lastActivity: LastActivity | null;
     legalConditionsAreAccepted: boolean;
     pinEnabled: boolean | null;
-    touchIdEnabled: boolean | null;
     userCurrency: Currency | null;
     loadStoredData: () => Promise<void>;
-    setTouchIdEnabled: (enabled: boolean) => Promise<void>;
     setHasOnboarded: (value: boolean) => Promise<void>;
     setLastActivity: (activity: LastActivity) => Promise<void>;
     setLegalConditionsAreAccepted: (activity: boolean) => Promise<void>;

@@ -1,11 +1,12 @@
 import { Text, View } from 'react-native';
 import { FormSetupGroup, GradientSwitch, IonIcon } from '../../../components';
-import { useStyles } from '../../../hooks';
+import { useBiometricStore, useStyles } from '../../../hooks';
 import { ONBOARDING_SETUP_TEXT } from '../../../config';
 import type { OnboardingFormProps } from '../../../types';
 
 
 export const OnboardingBiometricSwitch: React.FC<OnboardingFormProps> = ({ formik, gradientColors }) => {
+    const { setAllowBiometricAuth } = useBiometricStore();
     const styles = useStyles(({ colors, isDark }) => ({
         switchContainer: {
             flexDirection: 'row',
@@ -47,6 +48,7 @@ export const OnboardingBiometricSwitch: React.FC<OnboardingFormProps> = ({ formi
                     <GradientSwitch
                         value={formik.values.isTouchIdEnabled}
                         onValueChange={(value: boolean) => {
+                            setAllowBiometricAuth(value);
                             formik.setFieldValue('isTouchIdEnabled', value);
                             formik.setFieldTouched('isTouchIdEnabled', true, false);
                             formik.setFieldError('isTouchIdEnabled', 'true');

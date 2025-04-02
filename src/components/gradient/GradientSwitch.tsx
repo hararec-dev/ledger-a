@@ -16,9 +16,20 @@ const SWITCH_DIMENSIONS = {
 };
 const BORDER_RADIUS = 15;
 
-export const GradientSwitch: React.FC<GradientSwitchProps> = ({ value, onValueChange, gradientColors }) => {
+export const GradientSwitch: React.FC<GradientSwitchProps> = ({
+    value,
+    onValueChange,
+    gradientColors,
+    disabled,
+}) => {
     const appStyles = useStyles(({ isDark, colors, Platform }) => ({
-        thumbColor: { color: isDark ? colors.coolGray[50] : colors.purple[200] },
+        thumbColor: {
+            color: disabled
+                ? colors.coolGray[300]
+                : isDark
+                    ? colors.coolGray[50]
+                    : colors.purple[200],
+        },
         gradientTrack: {
             overflow: 'hidden',
             justifyContent: 'center',
@@ -27,6 +38,7 @@ export const GradientSwitch: React.FC<GradientSwitchProps> = ({ value, onValueCh
                 ? SWITCH_DIMENSIONS.ios.height
                 : SWITCH_DIMENSIONS.android.height,
             width: SWITCH_DIMENSIONS.ios.width,
+            opacity: disabled ? 0.5 : 1,
         },
     }));
     const { themeGradient } = useGradient();
@@ -47,6 +59,8 @@ export const GradientSwitch: React.FC<GradientSwitchProps> = ({ value, onValueCh
                     trackColor={{ false: 'transparent', true: 'transparent' }}
                     thumbColor={appStyles.thumbColor.color}
                     ios_backgroundColor="transparent"
+                    disabled={disabled}
+                    style={disabled && styles.disabledSwitch}
                 />
             </GradientBackground>
         </View>
@@ -59,5 +73,8 @@ const styles = StyleSheet.create({
         height: '100%',
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    disabledSwitch: {
+        opacity: 0.5,
     },
 });
