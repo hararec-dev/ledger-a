@@ -1,7 +1,7 @@
 import { ScrollView, StyleSheet } from 'react-native';
 import { useFormik } from 'formik';
 import { OnboardingSetupAppForm, OnboardingSetupHeader } from '../../../components';
-import { useGradient, useThemeStore, usePinAuth } from '../../../hooks';
+import { useGradient, useThemeStore, usePinAuth, useBiometricStore } from '../../../hooks';
 import { ONBOARDING_SETUP_TEXT, validationOnboardingApp as validationSchema } from '../../../config';
 import type { OnboardingSetupNavProps } from '../../../types';
 
@@ -9,7 +9,8 @@ import type { OnboardingSetupNavProps } from '../../../types';
 export const OnboardingSetupApp: React.FC<OnboardingSetupNavProps> = ({ navigation }) => {
     const { currentTheme } = useThemeStore();
     const { themeGradient } = useGradient();
-    const { createPin } = usePinAuth();
+    const { createPin, setPinEnabled } = usePinAuth();
+    const { sensorStatus } = useBiometricStore();
 
     const formik = useFormik({
         initialValues: {
@@ -21,7 +22,10 @@ export const OnboardingSetupApp: React.FC<OnboardingSetupNavProps> = ({ navigati
         },
         validationSchema,
         onSubmit: async ({ isPinEnabled, pin }) => {
-            if (isPinEnabled) { await createPin(pin); }
+            if (sensorStatus?.available === false || isPinEnabled) {
+                await setPinEnabled(true);
+                await createPin(pin);
+            }
             navigation.navigate('OnboardingSetup', { typeSetup: 'account' });
         },
     });

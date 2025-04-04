@@ -57,7 +57,7 @@ export const useBiometricStore = create<BiometricsState>((set, get) => ({
         return get().handleBiometricOperation({
             operation: async () => {
                 const { publicKey } = await get().rnBiometrics.createKeys();
-                if (!publicKey) {throw new Error(BIOMETRIC_MESSAGES.ERRORS.CREATE_PUBLIC_KEY);}
+                if (!publicKey) { throw new Error(BIOMETRIC_MESSAGES.ERRORS.CREATE_PUBLIC_KEY); }
                 return publicKey;
             },
             handleErrorCallback,
@@ -106,9 +106,7 @@ export const useBiometricStore = create<BiometricsState>((set, get) => ({
         set({ isLoadingBiometricAuth: true });
         try {
             const allowBiometricAuth = await AsyncStorage.getItem(ALLOW_BIOMETRIC_AUTH);
-            if (allowBiometricAuth) {
-                set({ allowBiometricAuth: allowBiometricAuth === 'true' });
-            }
+            return (allowBiometricAuth === 'true');
         } catch (error) { }
         finally {
             set({ isLoadingBiometricAuth: false });

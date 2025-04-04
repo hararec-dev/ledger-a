@@ -56,7 +56,7 @@ export const useTouchIdAuth = (handleFailedAttempt?: () => void) => {
             const randomPayload = generateRandomPayload();
             const { success } = await createSignature({
                 payload: randomPayload,
-                promptMessage: AUTH_TEXTS.FINGERPRINT_PROMPT,
+                promptMessage: AUTH_TEXTS.FINGERPRINT_PROMPT_LOGIN,
                 cancelButtonText: AUTH_TEXTS.CANCEL_BUTTON,
             });
             if (success) {

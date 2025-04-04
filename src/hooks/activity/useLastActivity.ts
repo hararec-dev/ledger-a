@@ -15,7 +15,7 @@ export const useLastActivity = (
     };
 
     executeCallback();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
   }, deps);
 
   return { lastActivity, isLoadingLastActivity };

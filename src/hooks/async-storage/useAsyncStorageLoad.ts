@@ -16,17 +16,17 @@ export const useAsyncStorageLoad = () => {
         rneuiLightColors,
     } = useThemeStore();
     const {
-        loadStoredData,
         hasOnboarded,
         lastActivity,
-        pinEnabled,
-        userCurrency,
         legalConditionsAreAccepted,
+        loadStoredData,
+        pinEnabled,
         setHasOnboarded,
-        setUserCurrency,
-        setLegalConditionsAreAccepted,
         setLastActivity,
+        setLegalConditionsAreAccepted,
         setPinEnabled,
+        setUserCurrency,
+        userCurrency,
     } = useCurrentStatusAppStore();
     const {
         allowBiometricAuth,
@@ -90,10 +90,10 @@ export const useAsyncStorageLoad = () => {
     }, [isThemeLoaded, isStoredDataLoaded]);
 
     return {
-        isLoaded,
-        isDark,
         colors,
         currentTheme,
+        isDark,
+        isLoaded,
         lastActivity,
         rneuiDarkColors,
         rneuiLightColors,

@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Text, View } from 'react-native';
 import {
     FormSetupGroup,
@@ -8,14 +9,13 @@ import {
     OnboardingPinSetup,
     OnboardingThemeSwitch,
 } from '../../../components';
-import { useBiometricStore, useCurrentStatusAppStore, useStyles } from '../../../hooks';
+import { useBiometricStore, useStyles } from '../../../hooks';
 import { ONBOARDING_SETUP_TEXT } from '../../../config';
 import type { OnboardingFormProps } from '../../../types';
 
 
 export const OnboardingSetupAppForm: React.FC<OnboardingFormProps> = ({ formik, gradientColors }) => {
-    const { allowBiometricAuth } = useBiometricStore();
-    const { setPinEnabled } = useCurrentStatusAppStore();
+    const { sensorStatus } = useBiometricStore();
     const styles = useStyles(({ colors, isDark }) => ({
         formContainer: {
             rowGap: 30,
@@ -55,9 +55,16 @@ export const OnboardingSetupAppForm: React.FC<OnboardingFormProps> = ({ formik, 
         },
         ionIcon: {
             color: isDark ? colors.coolGray[50] : colors.coolGray[900],
-
+            fontSize: 30,
         },
     }));
+
+    useEffect(() => {
+        if (sensorStatus?.available === false) {
+            formik.setFieldValue('isPinEnabled', true);
+            formik.setFieldTouched('isPinEnabled', true, false);
+        }
+    }, [sensorStatus?.available]);
 
     return (
         <View style={styles.formContainer}>
@@ -71,26 +78,29 @@ export const OnboardingSetupAppForm: React.FC<OnboardingFormProps> = ({ formik, 
                 touched={formik.touched.isPinEnabled}
             >
                 <View style={styles.switchContainer}>
-                    <IonIcon name={'keypad'} size={30} color={styles.ionIcon.color} />
+                    <IonIcon
+                        name={'keypad'}
+                        size={styles.ionIcon.fontSize}
+                        color={styles.ionIcon.color}
+                    />
                     <View style={styles.switchAndText}>
                         <GradientSwitch
-                            value={!allowBiometricAuth ? true : formik.values.isPinEnabled}
+                            value={!(sensorStatus?.available) ? true : formik.values.isPinEnabled}
                             onValueChange={(value: boolean) => {
-                                setPinEnabled(value);
                                 formik.setFieldValue('isPinEnabled', value);
                                 formik.setFieldTouched('isPinEnabled', true, false);
                             }}
-                            disabled={!allowBiometricAuth}
+                            disabled={!(sensorStatus?.available)}
                         />
                         <Text style={styles.switchText}>
-                            {(!allowBiometricAuth ? true : formik.values.isPinEnabled) ? 'Si' : 'No'}
+                            {(!(sensorStatus?.available) ? true : formik.values.isPinEnabled) ? 'Si' : 'No'}
                         </Text>
                     </View>
                 </View>
             </FormSetupGroup>
 
             {
-                (!allowBiometricAuth ? true : formik.values.isPinEnabled)
+                (!(sensorStatus?.available) ? true : formik.values.isPinEnabled)
                 && <OnboardingPinSetup formik={formik} gradientColors={gradientColors} />
             }
 
