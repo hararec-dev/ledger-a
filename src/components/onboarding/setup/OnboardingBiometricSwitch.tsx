@@ -1,11 +1,13 @@
+import { useEffect } from 'react';
 import { Text, View } from 'react-native';
 import { FormSetupGroup, GradientSwitch, IonIcon } from '../../../components';
-import { useStyles } from '../../../hooks';
+import { useBiometricStore, useStyles } from '../../../hooks';
 import { ONBOARDING_SETUP_TEXT } from '../../../config';
 import type { OnboardingFormProps } from '../../../types';
 
 
 export const OnboardingBiometricSwitch: React.FC<OnboardingFormProps> = ({ formik, gradientColors }) => {
+    const { setAllowBiometricAuth, sensorStatus } = useBiometricStore();
     const styles = useStyles(({ colors, isDark }) => ({
         switchContainer: {
             flexDirection: 'row',
@@ -31,6 +33,14 @@ export const OnboardingBiometricSwitch: React.FC<OnboardingFormProps> = ({ formi
         },
     }));
 
+    useEffect(() => {
+        if (sensorStatus?.available === false) {
+            setAllowBiometricAuth(false);
+            formik.setFieldValue('isTouchIdEnabled', false);
+            formik.setFieldTouched('isTouchIdEnabled', true, false);
+        }
+    }, [sensorStatus?.available]);
+
     return (
         <FormSetupGroup
             label={ONBOARDING_SETUP_TEXT.biometricAuthLabel || 'Autenticación biométrica'}
@@ -45,12 +55,18 @@ export const OnboardingBiometricSwitch: React.FC<OnboardingFormProps> = ({ formi
                 />
                 <View style={styles.switchAndText}>
                     <GradientSwitch
-                        value={formik.values.isTouchIdEnabled}
-                        onValueChange={(value) => formik.setFieldValue('isTouchIdEnabled', value)}
+                        value={formik.values.isTouchIdEnabled && !!(sensorStatus?.available)}
+                        onValueChange={(value: boolean) => {
+                            setAllowBiometricAuth(value);
+                            formik.setFieldValue('isTouchIdEnabled', value);
+                            formik.setFieldTouched('isTouchIdEnabled', true, false);
+                            formik.setFieldError('isTouchIdEnabled', 'true');
+                        }}
                         gradientColors={gradientColors}
+                        disabled={sensorStatus?.available === false}
                     />
                     <Text style={styles.switchText}>
-                        {formik.values.isTouchIdEnabled ? 'Si' : 'No'}
+                        {formik.values.isTouchIdEnabled && !!(sensorStatus?.available) ? 'Si' : 'No'}
                     </Text>
                 </View>
             </View>

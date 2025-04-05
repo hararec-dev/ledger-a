@@ -1,4 +1,4 @@
-# 📖 Ledger-A 💸✨
+# Ledger-A 💸✨
 
 ## 📋 Índice
 - [📖 Descripción](#-descripción)
@@ -16,6 +16,16 @@
 
 > Ledger-A es una aplicación móvil diseñada para transformar la gestión de tus finanzas personales. Nuestra inspiración proviene de la legendaria disciplina financiera de [John D. Rockefeller](https://es.wikipedia.org/wiki/John_D._Rockefeller#Infancia), una figura histórica que, más allá de sus controversias empresariales, estableció un paradigma en la administración financiera personal. El célebre "Ledger A", su meticuloso libro de contabilidad donde registraba cada movimiento financiero, se convirtió en un símbolo de disciplina. Hemos modernizado esta metodología para la era digital, ofreciéndote una herramienta que te permite mantener un control preciso y sistemático de tus finanzas personales.
 
+</div>
+
+<div align="center">
+  <div style="display: flex; flex-direction: row; overflow-x: auto; gap: 15px; padding: 20px 0; justify-content: center;">
+    <img src="./screenshots/screenshot_1.jpeg" alt="Dashboard" width="200" style="flex-shrink: 0;">
+    <img src="./screenshots/screenshot_2.jpeg" alt="Categorías" width="200" style="flex-shrink: 0;">
+    <img src="./screenshots/screenshot_3.jpeg" alt="Reportes 1" width="200" style="flex-shrink: 0;">
+  </div>
+</div>
+
 > 🚀 Características
 - ✅ Registro rápido y sencillo de gastos e ingresos
 - 📊 Gráficos y reportes detallados para visualizar tus finanzas
@@ -23,8 +33,6 @@
 - 🔐 Seguridad en tus datos financieros
 
 > 💡 ¡Lleva un mejor control de tu dinero con Ledger-A y toma decisiones financieras más inteligentes! 
-
-</div>
 
 ---
 
@@ -40,8 +48,7 @@
 - **@react-navigation/native: ^7.0.14** - Solución de navegación para aplicaciones React Native.
 - **@rneui/base & @rneui/themed: ^4.0.0-rc.8** - Biblioteca de componentes UI para React Native.
 - **@tanstack/react-query: ^5.66.0** - Biblioteca para gestión de estado y datos asíncronos.
-- **formik: ^2.4.6** - Biblioteca para construir formularios en React y React Native.
-- **yup: ^1.6.1** - Constructor de esquemas para validación de valores en JavaScript.
+- **formik: ^2.4.6 & yup: ^1.6.1** - Bibliotecas para construir y validar formularios en React y React Native.
 - **zustand: ^5.0.3** - Solución de gestión de estado minimalista para React.
 - **react-native-biometrics: ^3.0.1** - Integración de autenticación biométrica (huella, Face ID).
 - **react-native-chart-kit: ^6.12.0** - Componentes de gráficos para visualización de datos.

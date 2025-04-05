@@ -6,28 +6,37 @@ import type { BiometricAuthProviderProps } from '../../types';
 
 export const BiometricAuthProvider = ({ children }: BiometricAuthProviderProps) => {
     const {
-        checkBiometricAvailability,
         biometricKeysExist,
+        checkBiometricAvailability,
         createKeys,
-        sensorStatus,
         isLoadingBiometricAuth,
         loadBiometricAuth,
+        sensorStatus,
+        setAllowBiometricAuth,
     } = useBiometricStore();
 
     useEffect(() => {
         const initializeBiometrics = async () => {
-            await checkBiometricAvailability();
-            const keysExist = await biometricKeysExist();
-            if (!keysExist) {
-                await createKeys();
-            }
             await loadBiometricAuth();
+            const isValid = await checkBiometricAvailability();
+            if (!isValid) {
+                await setAllowBiometricAuth(false);
+                return;
+            }
+            const keysExist = await biometricKeysExist();
+            if (!keysExist) { await createKeys(); }
         };
 
         initializeBiometrics();
-    }, [checkBiometricAvailability, biometricKeysExist, loadBiometricAuth, createKeys]);
+    }, [
+        biometricKeysExist,
+        checkBiometricAvailability,
+        createKeys,
+        loadBiometricAuth,
+        setAllowBiometricAuth,
+    ]);
 
-    return !sensorStatus && !isLoadingBiometricAuth
+    return isLoadingBiometricAuth || !sensorStatus
         ? null
         : (
             <View style={styles.container}>

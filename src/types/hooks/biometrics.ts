@@ -30,7 +30,7 @@ export interface BiometricsState {
     allowBiometricAuth: boolean;
     isLoadingBiometricAuth: boolean;
     rnBiometrics: ReactNativeBiometrics;
-    checkBiometricAvailability: (handleErrorCallback?: HandleErrorCallback) => Promise<void>;
+    checkBiometricAvailability: (handleErrorCallback?: HandleErrorCallback) => Promise<boolean | void>;
     createKeys: (handleErrorCallback?: HandleErrorCallback) => Promise<string | void>;
     biometricKeysExist: (handleErrorCallback?: HandleErrorCallback) => Promise<boolean | void>;
     deleteKeys: (handleErrorCallback?: HandleErrorCallback) => Promise<boolean | void>;

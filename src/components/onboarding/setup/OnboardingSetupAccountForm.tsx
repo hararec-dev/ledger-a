@@ -55,6 +55,7 @@ export const OnboardingSetupAccountForm: React.FC<OnboardingSetupFormProps> = ({
                     }}
                     onBlur={() => formik.handleBlur('accountName')}
                     placeholder={ONBOARDING_SETUP_TEXT.accountNamePlaceholder}
+                    autoFocus
                 />
             </FormSetupGroup>
 

@@ -3,9 +3,10 @@ import * as Keychain from 'react-native-keychain';
 import { useBiometricStore } from '../store';
 import { AUTH_CONFIG, AUTH_TEXTS } from '../../config';
 
+
 export const useTouchIdAuth = (handleFailedAttempt?: () => void) => {
     const { createSignature, allowBiometricAuth } = useBiometricStore();
-    const [loadingAuth, setLoadingAuth] = useState(false);
+    const [loadingTouchIdAuth, setLoadingTouchIdAuth] = useState(false);
 
     const generateRandomPayload = useCallback((): string => {
         const array = new Uint8Array(AUTH_CONFIG.PAYLOAD_LENGTH);
@@ -50,37 +51,37 @@ export const useTouchIdAuth = (handleFailedAttempt?: () => void) => {
     }, [generateRandomPayload]);
 
     const authenticate = useCallback(async (): Promise<boolean> => {
-        setLoadingAuth(true);
+        setLoadingTouchIdAuth(true);
         try {
             const randomPayload = generateRandomPayload();
             const { success } = await createSignature({
                 payload: randomPayload,
-                promptMessage: AUTH_TEXTS.FINGERPRINT_PROMPT,
+                promptMessage: AUTH_TEXTS.FINGERPRINT_PROMPT_LOGIN,
                 cancelButtonText: AUTH_TEXTS.CANCEL_BUTTON,
             });
             if (success) {
                 await storeSessionToken();
                 return true;
             }
-            if (handleFailedAttempt) {handleFailedAttempt();}
+            if (handleFailedAttempt) { handleFailedAttempt(); }
             return false;
         } catch (error) {
-            if (handleFailedAttempt) {handleFailedAttempt();}
+            if (handleFailedAttempt) { handleFailedAttempt(); }
             return false;
         } finally {
-            setLoadingAuth(false);
+            setLoadingTouchIdAuth(false);
         }
     }, [
         generateRandomPayload,
         storeSessionToken,
         createSignature,
         handleFailedAttempt,
-        setLoadingAuth,
+        setLoadingTouchIdAuth,
     ]);
 
     return {
         authenticate,
-        loadingAuth,
+        loadingTouchIdAuth,
         allowBiometricAuth,
     };
 };

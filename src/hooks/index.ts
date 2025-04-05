@@ -1,3 +1,4 @@
+export * from './activity';
 export * from './animation';
 export * from './async-storage';
 export * from './auth';

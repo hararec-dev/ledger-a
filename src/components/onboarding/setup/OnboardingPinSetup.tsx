@@ -6,20 +6,21 @@ export const OnboardingPinSetup: React.FC<OnboardingFormProps> = ({ formik, grad
     return (
         <>
             <OnboardingPinInput
-                label={ONBOARDING_SETUP_TEXT.pinLabel || 'Crear PIN'}
-                value={formik.values.pin}
+                autoFocus
                 fieldName="pin"
-                placeholder={ONBOARDING_SETUP_TEXT.pinPlaceholder || 'Ingresa un PIN de 4 dígitos'}
                 formik={formik}
                 gradientColors={gradientColors}
+                label={ONBOARDING_SETUP_TEXT.pinLabel || 'Crear PIN'}
+                placeholder={ONBOARDING_SETUP_TEXT.pinPlaceholder || 'Ingresa un PIN de 4 dígitos'}
+                value={formik.values.pin}
             />
             <OnboardingPinInput
-                label={ONBOARDING_SETUP_TEXT.confirmPinLabel || 'Confirmar PIN'}
-                value={formik.values.confirmPin}
                 fieldName="confirmPin"
-                placeholder={ONBOARDING_SETUP_TEXT.confirmPinPlaceholder || 'Confirma tu PIN'}
                 formik={formik}
                 gradientColors={gradientColors}
+                label={ONBOARDING_SETUP_TEXT.confirmPinLabel || 'Confirmar PIN'}
+                placeholder={ONBOARDING_SETUP_TEXT.confirmPinPlaceholder || 'Confirma tu PIN'}
+                value={formik.values.confirmPin}
             />
         </>
     );

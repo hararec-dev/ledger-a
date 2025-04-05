@@ -1,6 +1,6 @@
 import { View, Animated } from 'react-native';
 import { OnboardingSetupAccount, OnboardingSetupApp } from '../../components';
-import { usePageIndicatorAnimation, useStyles } from '../../hooks';
+import { useLastActivity, usePageIndicatorAnimation, useStyles } from '../../hooks';
 import type { OnboardingSetupProps } from '../../types';
 
 
@@ -23,6 +23,13 @@ export const OnboardingSetupScreen: React.FC<OnboardingSetupProps> = ({ navigati
       fontFamily: 'Nunito-Regular',
     },
   }));
+
+  useLastActivity(() => ({
+    path: 'OnboardingSetup',
+    params: {
+      typeSetup: route.params.typeSetup,
+    },
+  }), [route.params.typeSetup]);
 
   return (
     <View style={styles.container}>

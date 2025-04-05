@@ -14,16 +14,18 @@ export type GradientBackgroundProps = PropsWithChildren<{
 export interface GradientInputProps {
     value: string;
     onChangeText: (text: string) => void;
-    onBlur: () => void;
+    onBlur?: () => void;
     placeholder: string;
     keyboardType?: 'numeric' | 'default';
     maxLength?: number;
     gradientColors?: string[];
     isSecureTextEntry?: boolean;
+    autoFocus?: boolean;
 }
 
 export interface GradientSwitchProps {
     value: boolean;
     onValueChange: (value: boolean) => void;
     gradientColors?: string[];
+    disabled?: boolean;
 }

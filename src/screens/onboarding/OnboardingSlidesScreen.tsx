@@ -1,6 +1,7 @@
 import { View, FlatList } from 'react-native';
 import { LegalAcceptanceFooter, OnboardingButton, PaginationDots } from '../../components';
-import { useCustomNavigation, useOnboardingSlideLogic, useOnboardingSlides, useStyles } from '../../hooks';
+import { useCustomNavigation, useLastActivity, useOnboardingSlideLogic, useOnboardingSlides, useStyles } from '../../hooks';
+
 
 export const OnboardingSlidesScreen = () => {
     const { slides } = useOnboardingSlides();
@@ -29,6 +30,11 @@ export const OnboardingSlidesScreen = () => {
             paddingBottom: screenHeight * 0.05,
         },
     }));
+
+    useLastActivity(() => ({
+        path: 'OnboardingSlides',
+    }), []);
+
 
     return (
         <View style={styles.container}>
