@@ -1,0 +1,45 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/Nunito/OFL.txt",
+      "sha1": "9d1de759bf74e12ea442bd03d4ca3005c5a3692f"
+    },
+    {
+      "path": "src/assets/fonts/Nunito/README.txt",
+      "sha1": "2ea040068bde79760868a1c93f17e296be693719"
+    },
+    {
+      "path": "src/assets/fonts/Nunito/static/Nunito-Bold.ttf",
+      "sha1": "d8091536d0fab37a3239067f708a0221070835da"
+    },
+    {
+      "path": "src/assets/fonts/Nunito/static/Nunito-Medium.ttf",
+      "sha1": "941255b6a8c1e2d286ed9613bd6b354e2423dad9"
+    },
+    {
+      "path": "src/assets/fonts/Nunito/static/Nunito-Regular.ttf",
+      "sha1": "465c464793593babb53e51e2a56562cdd79c237d"
+    },
+    {
+      "path": "src/assets/fonts/Pacifico/Pacifico-Regular.ttf",
+      "sha1": "baca1fca7fe74b61cb33aa0da48ec1a3a77bcf49"
+    },
+    {
+      "path": "src/assets/fonts/Quicksand/static/Quicksand-Bold.ttf",
+      "sha1": "07ca4486c80653a7f3abc18145c2f251d5c9989b"
+    },
+    {
+      "path": "src/assets/fonts/Quicksand/static/Quicksand-Light.ttf",
+      "sha1": "0d6fe8746125375ffd3ea4de6ecf062643a65c52"
+    },
+    {
+      "path": "src/assets/fonts/Quicksand/static/Quicksand-Medium.ttf",
+      "sha1": "9cbdd6785519aa2d85ee58cb5101ea9dbff8652f"
+    },
+    {
+      "path": "src/assets/fonts/Quicksand/static/Quicksand-Regular.ttf",
+      "sha1": "ba6e4d47926d643a8a4b509b193b3a87c3ea385d"
+    }
+  ]
+}
