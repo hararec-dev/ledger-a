@@ -1,5 +1,10 @@
 {
   "extends": "@react-native/typescript-config/tsconfig.json",
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strictPropertyInitialization": false
+  },
   "include": [
     "./src",
     "./declarations.d.ts",
