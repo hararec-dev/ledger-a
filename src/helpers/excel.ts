@@ -1,7 +1,7 @@
 import { Platform } from 'react-native';
 import { Buffer } from 'buffer';
 import XLSX from 'xlsx';
-import { getFilePath, saveExcelFileWithSAF, writeFile } from '../helpers';
+import { getFilePath, saveExcelFileWithSAF, syncIOSFile, writeFile } from '../helpers';
 import type { ExcelOptions, ExcelRow, ExcelSheetData } from '../types';
 
 
@@ -24,7 +24,8 @@ export const writeWorkbookToFile = async (wb: XLSX.WorkBook, fileName: string): 
     android: saveExcelFileWithSAF(fileName, base64data),
     ios: (async () => {
       const filePath: string = getFilePath(fileName);
-      await writeFile(filePath, Buffer.from(wbout).toString('binary'), 'ascii');
+      await writeFile(filePath, base64data, 'base64');
+      await syncIOSFile(filePath);
       return filePath;
     })(),
   }) as Promise<string>;

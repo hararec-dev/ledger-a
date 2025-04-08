@@ -43,7 +43,14 @@ export const saveExcelFileWithSAF = async (
         return nativeSaveExcelFileWithSAF(fileName, base64data);
     } else {
         const filePath: string = getFilePath(fileName);
+        const dirPath = filePath.split('/').slice(0, -1).join('/');
+        await RNFS.mkdir(dirPath);
         await writeFile(filePath, base64data, 'base64');
+        await syncIOSFile(filePath);
         return filePath;
     }
+};
+
+export const syncIOSFile = async (filePath: string): Promise<void> => {
+    if (Platform.OS === 'ios') { await RNFS.scanFile(filePath); }
 };
