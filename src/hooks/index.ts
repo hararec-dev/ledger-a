@@ -2,6 +2,7 @@ export * from './activity';
 export * from './animation';
 export * from './async-storage';
 export * from './auth';
+export * from './database';
 export * from './gradient';
 export * from './legal';
 export * from './navigation';
