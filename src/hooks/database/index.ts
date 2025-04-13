@@ -1,1 +1,1 @@
-export * from './useDataBase';
+export * from './useLocalDatabase';

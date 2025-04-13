@@ -2,13 +2,14 @@ import { useMemo } from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { useFormik } from 'formik';
 import { OnboardingSetupAccountForm, OnboardingSetupHeader } from '../../../components';
-import { useCurrentStatusAppStore, useGradient } from '../../../hooks';
+import { useCurrentStatusAppStore, useGradient, useLocalDatabase } from '../../../hooks';
 import { currencies, ONBOARDING_SETUP_TEXT, validationOnboardingSetup as validationSchema } from '../../../config';
 import type { OnboardingSetupNavProps } from '../../../types';
 
 
 export const OnboardingSetupAccount: React.FC<OnboardingSetupNavProps> = ({ navigation }) => {
     const { setUserCurrency, userCurrency, setHasOnboarded } = useCurrentStatusAppStore();
+    const { createRecord } = useLocalDatabase();
     const { themeGradient } = useGradient();
     const formik = useFormik({
         initialValues: {
@@ -17,9 +18,22 @@ export const OnboardingSetupAccount: React.FC<OnboardingSetupNavProps> = ({ navi
             initialAmount: '',
         },
         validationSchema,
-        onSubmit: async ({ currency }) => {
+        onSubmit: async ({ currency, accountName, initialAmount }) => {
             await setHasOnboarded(true);
             await setUserCurrency(currency);
+            await createRecord({
+                table: 'personal_accounts', 
+                data: {
+                    name: accountName,
+                    type: 'cash',
+                    currencyCode: currency,
+                    currentBalance: Number(initialAmount),
+                    initialBalance: Number(initialAmount),
+                    emoji: '💵',
+                    color: '#000',
+                    isActive: true,
+                },
+            });
             navigation.navigate('Authentication');
         },
     });
