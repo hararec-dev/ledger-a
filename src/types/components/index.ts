@@ -1,6 +1,7 @@
 export * from './auth';
 export * from './buttons';
 export * from './charts';
+export * from './database';
 export * from './gradient';
 export * from './icon';
 export * from './legal';
