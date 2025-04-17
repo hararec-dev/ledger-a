@@ -17,6 +17,9 @@ export const OptionPicker = <T extends OptionItem>({
     const styles = useStyles(({ colors, Platform: platform, isDark }) => ({
         pickerContainer: {
             backgroundColor: colors.gray[50],
+            height: 40,
+            flex: 1,
+            justifyContent: 'center',
         },
         picker: {
             backgroundColor: platform.OS === 'ios' ? colors.gray[50] : 'transparent',
@@ -26,7 +29,7 @@ export const OptionPicker = <T extends OptionItem>({
             }),
         },
         pickerButton: {
-            padding: 12,
+            padding: 7,
             backgroundColor: colors.gray[50],
         },
         pickerButtonText: {
@@ -41,7 +44,7 @@ export const OptionPicker = <T extends OptionItem>({
         content: {
             backgroundColor: colors.gray[50],
             width: '100%',
-            height: '35%',
+            height: '30%',
             borderTopLeftRadius: 16,
             borderTopRightRadius: 16,
         },
@@ -86,7 +89,7 @@ export const OptionPicker = <T extends OptionItem>({
         options.map((option: T) => (
             <Picker.Item
                 key={option.code}
-                label={`${option.code} - ${option.description}`}
+                label={`${option.description}`}
                 value={option.code}
                 color={styles.pickerItemColor.color}
                 style={Platform.OS === 'android' ? styles.pickerItem : undefined}
@@ -117,7 +120,7 @@ export const OptionPicker = <T extends OptionItem>({
                     >
                         <Text style={styles.pickerButtonText}>
                             {selectedOption
-                                ? `${selectedOption.code} - ${selectedOption.description}`
+                                ? `${selectedOption.description}`
                                 : placeholder}
                         </Text>
                     </TouchableOpacity>
