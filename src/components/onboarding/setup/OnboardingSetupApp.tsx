@@ -3,7 +3,7 @@ import { useFormik } from 'formik';
 import { OnboardingSetupAppForm, OnboardingSetupHeader } from '../../../components';
 import { useGradient, useThemeStore, usePinAuth, useBiometricStore } from '../../../hooks';
 import { ONBOARDING_SETUP_TEXT, validationOnboardingApp as validationSchema } from '../../../config';
-import type { OnboardingSetupNavProps } from '../../../types';
+import type { FormOnboardingAppValues, OnboardingSetupNavProps } from '../../../types';
 
 
 export const OnboardingSetupApp: React.FC<OnboardingSetupNavProps> = ({ navigation }) => {
@@ -12,7 +12,7 @@ export const OnboardingSetupApp: React.FC<OnboardingSetupNavProps> = ({ navigati
     const { createPin, setPinEnabled } = usePinAuth();
     const { sensorStatus } = useBiometricStore();
 
-    const formik = useFormik({
+    const formik = useFormik<FormOnboardingAppValues>({
         initialValues: {
             theme: currentTheme || 'dark',
             isTouchIdEnabled: true,

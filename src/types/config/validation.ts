@@ -7,6 +7,7 @@ export interface ValidationConstants {
             pin: string;
             confirmPin: string;
             authMethod: string;
+            accountType: string;
         };
         NUMERIC: {
             positiveNumber: string;

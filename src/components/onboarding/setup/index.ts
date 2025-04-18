@@ -1,3 +1,4 @@
+export * from './AccountTypesPicker';
 export * from './CurrencyPicker';
 export * from './FormSetupGroup';
 export * from './OnboardingBiometricSwitch';

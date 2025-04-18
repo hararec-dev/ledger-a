@@ -27,7 +27,8 @@ export const ONBOARDING_SETUP_TEXT: OnboardingSetupTextContent = {
         subtitle: 'Puedes cambiar esto en cualquier momento',
         submitButton: '¡Siguiente paso!',
     },
-    currencyLabel: '¿Qué moneda quieres manejar?',
+    currencyLabel: '¿Qué moneda usa esta cuenta?',
+    accountTypeLabel: '¿Qué tipo de cuenta será?',
     currencyPlaceholder: '¡Toca aquí para elegir! (ej: MXN)',
     doneButton: '¡Listo!',
     accountNameLabel: 'Dale nombre a tu cuenta',
@@ -44,6 +45,7 @@ export const ONBOARDING_SETUP_TEXT: OnboardingSetupTextContent = {
     createPinPlaceholder: 'Ingresa un PIN de 4 dígitos',
     confirmCreatePinLabel: 'Confirma tu PIN',
     confirmCreatePinPlaceholder: 'Ingresa nuevamente tu PIN',
+    accountTypePlaceholder: 'Selecciona un tipo de cuenta',
 };
 
 export const SLIDE_INTERVAL_MS = 4000;

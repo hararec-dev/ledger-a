@@ -18,7 +18,7 @@ export const GradientInput: React.FC<GradientInputProps> = ({
 }) => {
     const styles = useStyles(({ colors, isDark }) => ({
         input: {
-            padding: 12,
+            padding: 8,
             fontSize: 16,
             backgroundColor: colors.gray[50],
             color: colors.gray[900],

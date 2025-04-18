@@ -8,6 +8,7 @@ export type OnboardingSetupTextContent = {
     setup: OnboardingSetupTextHeader;
     app: OnboardingSetupTextHeader;
     currencyLabel: string;
+    accountTypeLabel: string;
     currencyPlaceholder: string;
     doneButton: string;
     accountNameLabel: string;
@@ -24,4 +25,5 @@ export type OnboardingSetupTextContent = {
     createPinPlaceholder: string;
     confirmCreatePinLabel: string;
     confirmCreatePinPlaceholder: string;
+    accountTypePlaceholder: string;
 };
