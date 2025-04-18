@@ -10,6 +10,7 @@ const VALIDATION_CONSTANTS: ValidationConstants = {
             pin: 'El PIN es requerido',
             confirmPin: 'La confirmación del PIN es requerida',
             authMethod: 'Se requiere un método de autenticación',
+            accountType: 'El tipo de cuenta es requerido',
         },
         NUMERIC: {
             positiveNumber: 'El monto debe ser un número positivo',
@@ -24,6 +25,7 @@ const VALIDATION_CONSTANTS: ValidationConstants = {
 
 export const validationOnboardingSetup = Yup.object().shape({
     currency: Yup.string().required(VALIDATION_CONSTANTS.ONBOARDING_SETUP.REQUIRED.currency),
+    accountType: Yup.string().required(VALIDATION_CONSTANTS.ONBOARDING_SETUP.REQUIRED.accountType),
     accountName: Yup.string().required(VALIDATION_CONSTANTS.ONBOARDING_SETUP.REQUIRED.accountName),
     initialAmount: Yup.number()
         .required(VALIDATION_CONSTANTS.ONBOARDING_SETUP.REQUIRED.initialAmount)
