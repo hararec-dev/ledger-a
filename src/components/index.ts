@@ -2,6 +2,7 @@ export * from './auth';
 export * from './charts';
 export * from './common';
 export * from './database';
+export * from './draggable';
 export * from './gradient';
 export * from './icon';
 export * from './legal';
