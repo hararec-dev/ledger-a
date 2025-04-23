@@ -17,6 +17,7 @@ export class PersonalAchievementModel extends Model {
     @text('name') name!: string;
     @text('condition') condition!: string;
     @field('is_unlocked') isUnlocked!: boolean;
+    @field('position_on_screen') positionOnScreen!: number;
     @date('unlocked_date_at') unlockedDate?: Date;
     @readonly @date('created_at') createdAt!: Date;
 }

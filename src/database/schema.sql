@@ -40,6 +40,7 @@ CREATE TABLE personal_accounts (
     current_balance REAL DEFAULT 0,
     emoji TEXT,
     color TEXT DEFAULT '#007AFF',
+    position_on_screen INTEGER DEFAULT 0,
     is_active BOOLEAN DEFAULT 1,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
@@ -54,6 +55,7 @@ CREATE TABLE personal_categories (
     type TEXT CHECK(type IN ('income', 'expense', 'transfer')),
     parent_category_id INTEGER REFERENCES personal_categories(id),
     is_system BOOLEAN DEFAULT 0,
+    position_on_screen INTEGER DEFAULT 0,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -110,6 +112,7 @@ CREATE TABLE personal_budgets (
     end_date_at DATETIME,
     alert_threshold REAL DEFAULT 0.8,
     spent_amount REAL DEFAULT 0,
+    position_on_screen INTEGER DEFAULT 0,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     CHECK (category_id IS NOT NULL OR account_id IS NOT NULL)
 );
@@ -125,6 +128,7 @@ CREATE TABLE personal_recurring_payments (
     recurrence TEXT CHECK(recurrence IN ('daily', 'weekly', 'monthly', 'yearly')),
     due_date_at DATETIME,
     is_active BOOLEAN DEFAULT 1,
+    position_on_screen INTEGER DEFAULT 0,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -146,6 +150,7 @@ CREATE TABLE personal_achievements (
     name TEXT NOT NULL,
     condition TEXT NOT NULL,
     is_unlocked BOOLEAN DEFAULT 0,
+    position_on_screen INTEGER DEFAULT 0,
     unlocked_date_at DATETIME,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );

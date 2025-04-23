@@ -23,5 +23,6 @@ export class PersonalCategoryModel extends Model {
     @text('type') type!: string;
     @relation('categories', 'parent_category_id') parentCategory?: PersonalCategoryModel[];
     @field('is_system') isSystem!: boolean;
+    @field('position_on_screen') positionOnScreen!: number;
     @readonly @date('created_at') createdAt!: Date;
 }

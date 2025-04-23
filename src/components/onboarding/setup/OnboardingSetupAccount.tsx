@@ -45,6 +45,7 @@ export const OnboardingSetupAccount: React.FC<OnboardingSetupNavProps> = ({ navi
                     emoji: '💵',
                     color: styles.accountColor.color,
                     isActive: true,
+                    positionOnScreen: 0,
                 },
             });
             navigation.navigate('Authentication');
