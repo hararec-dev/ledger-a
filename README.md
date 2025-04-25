@@ -44,19 +44,16 @@
 
 - **React Native: 0.77.0** - Framework para construir aplicaciones móviles híbridas con JavaScript y React.
 - **@nozbe/watermelondb: ^0.27.1** - Base de datos reactiva y offline-first optimizada para React Native.
-- **@react-native-async-storage/async-storage: ^2.1.1** - Solución de almacenamiento asíncrono persistente para React Native.
 - **@react-navigation/native: ^7.0.14** - Solución de navegación para aplicaciones React Native.
 - **@rneui/base & @rneui/themed: ^4.0.0-rc.8** - Biblioteca de componentes UI para React Native.
 - **@tanstack/react-query: ^5.66.0** - Biblioteca para gestión de estado y datos asíncronos.
 - **formik: ^2.4.6 & yup: ^1.6.1** - Bibliotecas para construir y validar formularios en React y React Native.
-- **zustand: ^5.0.3** - Solución de gestión de estado minimalista para React.
 - **react-native-biometrics: ^3.0.1** - Integración de autenticación biométrica (huella, Face ID).
+- **react-native-calendars: ^1.1311.0** - Componentes de calendario para React Native.
 - **react-native-chart-kit: ^6.12.0** - Componentes de gráficos para visualización de datos.
-- **react-native-fs: ^2.20.0** - Sistema de archivos nativo para React Native.
-- **react-native-keychain: ^9.2.3** - Acceso seguro al llavero/keychain del dispositivo.
 - **react-native-linear-gradient: ^2.8.3** - Componente para crear gradientes lineales.
-- **react-native-vector-icons: ^10.2.0** - Iconos vectoriales personalizables.
 - **xlsx: ^0.18.5** - Biblioteca para leer y escribir archivos Excel.
+- **zustand: ^5.0.3** - Solución de gestión de estado minimalista para React.
 
 </div>
 

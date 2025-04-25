@@ -25,5 +25,6 @@ export class PersonalRecurringPaymentModel extends Model {
     @text('recurrence') recurrence!: string;
     @date('due_date_at') dueDate!: Date;
     @field('is_active') isActive!: boolean;
+    @field('position_on_screen') positionOnScreen!: number;
     @readonly @date('created_at') createdAt!: Date;
 }

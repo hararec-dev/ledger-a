@@ -22,6 +22,7 @@ export class PersonalAccountModel extends Model {
     @field('current_balance') currentBalance!: number;
     @text('emoji') emoji?: string;
     @text('color') color!: string;
+    @field('position_on_screen') positionOnScreen!: number;
     @field('is_active') isActive!: boolean;
     @readonly @date('created_at') createdAt!: Date;
     @readonly @date('updated_at') updatedAt!: Date;

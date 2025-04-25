@@ -26,5 +26,6 @@ export class PersonalBudgetModel extends Model {
     @date('end_date_at') endDate!: Date;
     @field('alert_threshold') alertThreshold!: number;
     @field('spent_amount') spentAmount!: number;
+    @field('position_on_screen') positionOnScreen!: number;
     @readonly @date('created_at') createdAt!: Date;
 }
