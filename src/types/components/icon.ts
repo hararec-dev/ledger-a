@@ -1,6 +1,8 @@
 import type { StyleProp, ViewStyle } from 'react-native';
 
-export type IonIconProps = {
+export type IconType = 'ion_icon' | 'material_community_icon';
+
+export type IconProps = {
     name: string;
     size?: number;
     color?: string;
@@ -8,4 +10,5 @@ export type IonIconProps = {
     style?: StyleProp<ViewStyle>;
     disabled?: boolean;
     gradientColors?: string[];
+    iconType?: IconType;
 };

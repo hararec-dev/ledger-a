@@ -107,6 +107,14 @@ Para configurar este proyecto en tu máquina local, sigue estos pasos:
 
 > Solución de Problemas
 
+- **Advertencia sobre Hot-Reload y WatermelonDB**
+  
+  > ⚠️ **Importante:** Este proyecto utiliza la base de datos `@nozbe/watermelondb`, ten en cuenta que esta librería **no es compatible con el hot-reload ni fast refresh** de React Native. Esto puede provocar errores nativos inesperados o bloqueos de la app al realizar cambios en el código durante el desarrollo.  
+  > 
+  > **Solución:** Utiliza siempre el "reload" completo (presionando `R, R` en el menú de desarrollo) para recargar la app cuando trabajes con WatermelonDB, o recarga una segunda vez.  
+  > 
+  > Más información en la [documentación oficial de WatermelonDB](https://watermelondb.dev/docs/Troubleshooting.html) y [este issue de GitHub](https://github.com/Nozbe/WatermelonDB/issues/617).
+
 - Si encuentras errores de compilación, intenta limpiar el proyecto:
   ```bash
   # Para Android

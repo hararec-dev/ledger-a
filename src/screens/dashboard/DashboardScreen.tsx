@@ -1,7 +1,7 @@
 import { TouchableOpacity, View, ScrollView } from 'react-native';
 import { useLineChart, useThemeStore } from '../../hooks';
 import { generateExcelFile } from '../../helpers';
-import { IonIcon, LineFinancialChart } from '../../components';
+import { Icon, LineFinancialChart } from '../../components';
 
 
 export const DashboardScreen = () => {
@@ -73,7 +73,7 @@ export const DashboardScreen = () => {
                     borderRadius: 25,
                     marginBottom: 10,
                 }}>
-                <IonIcon
+                <Icon
                     name={isDark ? 'sunny-outline' : 'moon-outline'}
                     size={30}
                     color={colors.cyan[500]}
@@ -93,7 +93,7 @@ export const DashboardScreen = () => {
                     borderRadius: 25,
                     marginBottom: 10,
                 }}>
-                <IonIcon
+                <Icon
                     name="document-outline"
                     size={30}
                     color={colors.cyan[500]}

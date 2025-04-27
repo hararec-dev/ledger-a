@@ -4,11 +4,11 @@ import type { BottomTabNavigationOptions } from '@react-navigation/bottom-tabs';
 import {
     AccountsStackNavigation,
     DashboardStackNavigation,
-    ReportsStackNavigation,
+    ChartsStackNavigation,
     SettingsStackNavigation,
     TransactionsStackNavigation,
 } from '../../navigation';
-import { IonIcon, GradientText } from '../../components';
+import { Icon, GradientText } from '../../components';
 import { useGradient } from '../../hooks';
 import type { MainBottomTabRoute } from '../../types';
 
@@ -42,7 +42,7 @@ export const useMainBottomTabNavigation = (): {
             options: {
                 title: 'Inicio',
                 tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
-                    <IonIcon
+                    <Icon
                         name={focused ? 'home' : 'home-outline'}
                         color={color}
                         size={26}
@@ -65,12 +65,13 @@ export const useMainBottomTabNavigation = (): {
             options: {
                 title: 'Cuentas',
                 tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
-                    <IonIcon
-                        name={focused ? 'wallet' : 'wallet-outline'}
+                    <Icon
+                        name={focused ? 'notebook' : 'notebook-outline'}
                         color={color}
                         size={26}
                         style={getIconStyle(focused)}
                         gradientColors={focused ? themeGradient : undefined}
+                        iconType='material_community_icon'
                     />
                 ),
                 tabBarLabel: ({ color, focused }: { color: string; focused: boolean }) => (
@@ -88,10 +89,10 @@ export const useMainBottomTabNavigation = (): {
             options: {
                 title: 'Transacciones',
                 tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
-                    <IonIcon
-                        name={focused ? 'arrow-redo' : 'arrow-redo-outline'}
+                    <Icon
+                        name={focused ? 'add-circle' : 'add-circle-outline'}
                         color={color}
-                        size={26}
+                        size={30}
                         style={getIconStyle(focused)}
                         gradientColors={focused ? themeGradient : undefined}
                     />
@@ -106,13 +107,13 @@ export const useMainBottomTabNavigation = (): {
             },
         },
         {
-            name: 'ReportsTab',
-            component: ReportsStackNavigation,
+            name: 'ChartsTab',
+            component: ChartsStackNavigation,
             options: {
-                title: 'Reportes',
+                title: 'Charts',
                 tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
-                    <IonIcon
-                        name={focused ? 'document-text' : 'document-text-outline'}
+                    <Icon
+                        name={focused ? 'bar-chart' : 'bar-chart-outline'}
                         color={color}
                         size={26}
                         style={getIconStyle(focused)}
@@ -121,7 +122,7 @@ export const useMainBottomTabNavigation = (): {
                 ),
                 tabBarLabel: ({ color, focused }: { color: string; focused: boolean }) => (
                     <GradientText
-                        text={'Reportes'}
+                        text={'Gráficas'}
                         color={!focused ? color : undefined}
                         gradientColors={focused ? themeGradient : undefined}
                     />
@@ -134,12 +135,13 @@ export const useMainBottomTabNavigation = (): {
             options: {
                 title: 'Más',
                 tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
-                    <IonIcon
-                        name={focused ? 'ellipsis-vertical-circle-sharp' : 'ellipsis-vertical-circle-outline'}
+                    <Icon
+                        name={focused ? 'dots-horizontal-circle' : 'dots-horizontal-circle-outline'}
                         color={color}
                         size={26}
                         style={getIconStyle(focused)}
                         gradientColors={focused ? themeGradient : undefined}
+                        iconType='material_community_icon'
                     />
                 ),
                 tabBarLabel: ({ color, focused }: { color: string; focused: boolean }) => (

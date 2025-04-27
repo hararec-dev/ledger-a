@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { GradientText, IonIcon } from '../../components';
+import { GradientText, Icon } from '../../components';
 import { useGradient, useStyles } from '../../hooks';
 import type { LegalInfoHeaderProps } from '../../types';
 
@@ -28,7 +28,7 @@ export const LegalInfoHeader: React.FC<LegalInfoHeaderProps> = memo(({ navigatio
         onPress={() => navigation.navigate('OnboardingSlides')}
         style={styles.backButton}
       >
-        <IonIcon name="arrow-back" size={24} color={themeStyles.header.borderBottomColor} />
+        <Icon name="arrow-back" size={24} color={themeStyles.header.borderBottomColor} />
       </TouchableOpacity>
       <GradientText
         text={title}

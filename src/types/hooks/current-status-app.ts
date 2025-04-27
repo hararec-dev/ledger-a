@@ -3,7 +3,7 @@ import type {
     AccountsStackParamList,
     DashboardStackParamList,
     MainBottomTabParamList,
-    ReportsStackParamList,
+    ChartsStackParamList,
     RootStackParamList,
     SettingsStackParamList,
     TransactionsStackParamList,
@@ -13,7 +13,7 @@ export type AppRouteName =
     | keyof AccountsStackParamList
     | keyof DashboardStackParamList
     | keyof MainBottomTabParamList
-    | keyof ReportsStackParamList
+    | keyof ChartsStackParamList
     | keyof RootStackParamList
     | keyof SettingsStackParamList
     | keyof TransactionsStackParamList;

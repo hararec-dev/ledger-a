@@ -1,3 +1,3 @@
 export * from './BudgetScreen';
-export * from './ReportScreen';
+export * from './ChartScreen';
 export * from './SearchScreen';

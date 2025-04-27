@@ -4,7 +4,7 @@ import {
     FormSetupGroup,
     GradientButton,
     GradientSwitch,
-    IonIcon,
+    Icon,
     OnboardingBiometricSwitch,
     OnboardingPinSetup,
     OnboardingThemeSwitch,
@@ -18,7 +18,7 @@ export const OnboardingSetupAppForm: React.FC<OnboardingFormProps> = ({ formik, 
     const { sensorStatus } = useBiometricStore();
     const styles = useStyles(({ colors, isDark }) => ({
         formContainer: {
-            rowGap: 30,
+            rowGap: 10,
             width: '100%',
         },
         buttonText: {
@@ -28,7 +28,7 @@ export const OnboardingSetupAppForm: React.FC<OnboardingFormProps> = ({ formik, 
             fontFamily: 'Quicksand-Regular',
         },
         button: {
-            marginTop: 10,
+            marginTop: 30,
         },
         disabledButton: {
             opacity: 0.4,
@@ -53,7 +53,7 @@ export const OnboardingSetupAppForm: React.FC<OnboardingFormProps> = ({ formik, 
             color: isDark ? colors.coolGray[50] : colors.coolGray[900],
             fontFamily: 'Quicksand-Regular',
         },
-        ionIcon: {
+        Icon: {
             color: isDark ? colors.coolGray[50] : colors.coolGray[900],
             fontSize: 30,
         },
@@ -78,10 +78,10 @@ export const OnboardingSetupAppForm: React.FC<OnboardingFormProps> = ({ formik, 
                 touched={formik.touched.isPinEnabled}
             >
                 <View style={styles.switchContainer}>
-                    <IonIcon
+                    <Icon
                         name={'keypad'}
-                        size={styles.ionIcon.fontSize}
-                        color={styles.ionIcon.color}
+                        size={styles.Icon.fontSize}
+                        color={styles.Icon.color}
                     />
                     <View style={styles.switchAndText}>
                         <GradientSwitch

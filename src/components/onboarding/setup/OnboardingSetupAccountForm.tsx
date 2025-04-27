@@ -13,7 +13,7 @@ export const OnboardingSetupAccountForm: React.FC<OnboardingSetupFormProps> = ({
 }) => {
     const styles = useStyles(({ colors }) => ({
         formContainer: {
-            rowGap: 15,
+            rowGap: 10,
             width: '90%',
         },
         buttonText: {
@@ -23,7 +23,7 @@ export const OnboardingSetupAccountForm: React.FC<OnboardingSetupFormProps> = ({
             fontFamily: 'Quicksand-Regular',
         },
         button: {
-            marginTop: 10,
+            marginTop: 40,
         },
         disabledButton: {
             opacity: 0.4,
