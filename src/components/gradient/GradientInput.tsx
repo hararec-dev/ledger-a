@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { TextInput, TouchableOpacity } from 'react-native';
-import { GradientBorder, IonIcon } from '../../components';
+import { GradientBorder, Icon } from '../../components';
 import { useStyles } from '../../hooks';
 import type { GradientInputProps } from '../../types';
 
@@ -69,7 +69,7 @@ export const GradientInput: React.FC<GradientInputProps> = ({
                     onPress={() => setShowPassword(!showPassword)}
                     style={styles.eyeContainer}
                 >
-                    <IonIcon
+                    <Icon
                         name={showPassword ? 'eye' : 'eye-off'}
                         size={styles.icon.size}
                         color={styles.icon.color}

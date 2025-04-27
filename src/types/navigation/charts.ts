@@ -1,11 +1,11 @@
-export type ReportsStackParamList = {
-    Reports: undefined;
+export type ChartsStackParamList = {
+    Charts: undefined;
     Budget: undefined;
     Search: undefined;
 };
 
-export type ReportsStackRoute = {
-    name: keyof ReportsStackParamList;
+export type ChartsStackRoute = {
+    name: keyof ChartsStackParamList;
     component: React.ComponentType<any>;
     options: {
         title: string;

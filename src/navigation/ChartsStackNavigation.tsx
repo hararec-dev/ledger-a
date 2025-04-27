@@ -1,15 +1,15 @@
 import { useMemo } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { ReportScreen, BudgetScreen, SearchScreen } from '../screens';
-import type { ReportsStackParamList, ReportsStackRoute } from '../types';
+import { ChartsScreen, BudgetScreen, SearchScreen } from '../screens';
+import type { ChartsStackParamList, ChartsStackRoute } from '../types';
 
-const ReportsStack = createStackNavigator<ReportsStackParamList>();
+const ChartsStack = createStackNavigator<ChartsStackParamList>();
 
-export const ReportsStackNavigation: React.FC = () => {
-    const stackRoutes = useMemo<ReportsStackRoute[]>(() => ([
+export const ChartsStackNavigation: React.FC = () => {
+    const stackRoutes = useMemo<ChartsStackRoute[]>(() => ([
         {
-            name: 'Reports',
-            component: ReportScreen,
+            name: 'Charts',
+            component: ChartsScreen,
             options: {
                 title: 'Reportes',
                 headerShown: true,
@@ -34,9 +34,9 @@ export const ReportsStackNavigation: React.FC = () => {
     ]), []);
 
     return (
-        <ReportsStack.Navigator>
+        <ChartsStack.Navigator>
             {stackRoutes.map((route) => (
-                <ReportsStack.Screen
+                <ChartsStack.Screen
                     key={route.name}
                     name={route.name}
                     component={route.component}
@@ -46,6 +46,6 @@ export const ReportsStackNavigation: React.FC = () => {
                     }}
                 />
             ))}
-        </ReportsStack.Navigator>
+        </ChartsStack.Navigator>
     );
 };

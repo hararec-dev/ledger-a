@@ -4,7 +4,7 @@ export * from './dashboard';
 export * from './legal';
 export * from './main';
 export * from './onboarding';
-export * from './reports';
+export * from './charts';
 export * from './root';
 export * from './settings';
 export * from './transactions';

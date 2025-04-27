@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import { DraggableGrid } from '../../components';
 
-type ReportWidget = {
+type ChartWidget = {
     id: string;
     title: string;
 };
 
-const initialWidgets: ReportWidget[] = [
+const initialWidgets: ChartWidget[] = [
     { id: 'w1', title: 'Ventas' },
     { id: 'w2', title: 'Usuarios' },
     { id: 'w3', title: 'Ingresos' },
@@ -16,10 +16,10 @@ const initialWidgets: ReportWidget[] = [
     { id: 'w6', title: 'Churn' },
 ];
 
-export const ReportScreen: React.FC = () => {
+export const ChartsScreen: React.FC = () => {
     const [widgets] = useState(initialWidgets);
 
-    // Convert ReportWidget to DraggableItem
+    // Convert ChartWidget to DraggableItem
     const items = widgets.map((w) => ({
         key: w.id,
         component: (

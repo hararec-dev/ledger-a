@@ -1,11 +1,12 @@
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import LinearGradient from 'react-native-linear-gradient';
 import MaskedView from '@react-native-masked-view/masked-view';
-import type { IonIconProps } from '../../types';
+import type { IconProps } from '../../types';
 
 
-export const IonIcon = ({
+export const Icon = ({
     name,
     size = 24,
     color = 'black',
@@ -13,10 +14,13 @@ export const IonIcon = ({
     onPress,
     style,
     disabled = false,
-}: IonIconProps) => {
+    iconType = 'ion_icon',
+}: IconProps) => {
+
+    const IconComponent = iconType === 'ion_icon' ? Ionicons : MaterialIcons;
 
     const IconContent = (
-        <Ionicons
+        <IconComponent
             name={name}
             size={size}
             color={disabled ? '#ccc' : color}
@@ -24,7 +28,7 @@ export const IonIcon = ({
         />
     );
 
-    const IconComponent = gradientColors ? (
+    const GradientIconComponent = gradientColors ? (
         <MaskedView
             maskElement={IconContent}
         >
@@ -34,7 +38,7 @@ export const IonIcon = ({
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 0 }}
             >
-                <Ionicons
+                <IconComponent
                     name={name}
                     size={size}
                     color="transparent"
@@ -45,7 +49,7 @@ export const IonIcon = ({
     ) : IconContent;
 
     return !onPress
-        ? IconComponent
+        ? GradientIconComponent
         : (
             <TouchableOpacity
                 onPress={onPress}
@@ -53,7 +57,7 @@ export const IonIcon = ({
                 disabled={disabled}
                 activeOpacity={0.7}
             >
-                {IconComponent}
+                {GradientIconComponent}
             </TouchableOpacity>
         );
 };

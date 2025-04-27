@@ -1,5 +1,5 @@
 import { Text, View } from 'react-native';
-import { GradientButton, IonIcon } from '../../../components';
+import { GradientButton, Icon } from '../../../components';
 import { useCurrentStatusAppStore, useGradient, useStyles } from '../../../hooks';
 import { PAGINATION_BUTTONS_CONFIG } from '../../../config';
 import type { OnboardingButtonProps } from '../../../types';
@@ -42,7 +42,7 @@ export const OnboardingButton: React.FC<OnboardingButtonProps> = ({ onNavigate }
             style={styles.gradientButton}
         >
             <View style={styles.horizontalContainer}>
-                <IonIcon name="golf-outline" size={24} color={styles.buttonText.color} />
+                <Icon name="golf-outline" size={24} color={styles.buttonText.color} />
                 <Text style={styles.buttonText}>{PAGINATION_BUTTONS_CONFIG.BUTTON_TITLES.START}</Text>
             </View>
         </GradientButton >

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Text } from 'react-native';
 import { Overlay } from '@rneui/themed';
 import { GradientButton, AuthPinInput } from '../../components';

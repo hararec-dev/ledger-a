@@ -2,7 +2,7 @@ export type MainBottomTabParamList = {
   DashboardTab: undefined;
   TransactionsTab: undefined;
   AccountsTab: undefined;
-  ReportsTab: undefined;
+  ChartsTab: undefined;
   SettingsTab: undefined;
 };
 
