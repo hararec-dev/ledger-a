@@ -18,7 +18,7 @@ export const OnboardingSetupAppForm: React.FC<OnboardingFormProps> = ({ formik, 
     const { sensorStatus } = useBiometricStore();
     const styles = useStyles(({ colors, isDark }) => ({
         formContainer: {
-            rowGap: 30,
+            rowGap: 10,
             width: '100%',
         },
         buttonText: {
@@ -28,7 +28,7 @@ export const OnboardingSetupAppForm: React.FC<OnboardingFormProps> = ({ formik, 
             fontFamily: 'Quicksand-Regular',
         },
         button: {
-            marginTop: 10,
+            marginTop: 30,
         },
         disabledButton: {
             opacity: 0.4,
