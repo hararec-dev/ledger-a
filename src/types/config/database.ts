@@ -1,6 +1,6 @@
 export type PersonalAccountType =
     'Efectivo' |
-    'Corriente/Débito' |
+    'Tarjeta de Débito' |
     'Ahorro' |
     'Digital/Billetera Electrónica' |
     'Tarjeta de Crédito' |
@@ -17,7 +17,7 @@ export type PersonalAccountType =
 
 export type PersonalAccountCode =
     'EFE' | // Efectivo
-    'CCD' | // Cuenta Corriente/Débito
+    'CCD' | // Tarjeta de Débito
     'CAH' | // Cuenta de Ahorro
     'CDE' | // Cuentas Digitales/Electrónicas
     'TCR' | // Tarjetas de Crédito
