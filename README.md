@@ -115,18 +115,20 @@ Para configurar este proyecto en tu máquina local, sigue estos pasos:
   > 
   > Más información en la [documentación oficial de WatermelonDB](https://watermelondb.dev/docs/) y [este issue de GitHub](https://github.com/Nozbe/WatermelonDB/issues/617).
 
-- Si encuentras errores de compilación, intenta limpiar el proyecto:
-  ```bash
-  # Para Android
-  cd android
-  ./gradlew clean
-  cd ..
-
-  # Para iOS
-  cd ios
-  xcodebuild clean
-  cd ..
-  ```
+- **Scripts de limpieza para solucionar problemas de compilación (macOS)**
+  
+  > 📝 **Scripts disponibles:** El proyecto incluye scripts de limpieza para solucionar problemas comunes de compilación tanto en Android como en iOS:
+  >
+  > - **Para Android:** Ejecuta `./clean_android.sh` para limpiar cachés, carpetas de compilación y reinstalar dependencias.
+  > - **Para iOS:** Ejecuta `./clean_ios.sh` para limpiar DerivedData, Pods, y reinstalar dependencias.
+  >
+  > Estos scripts automatizan el proceso de limpieza completa del proyecto cuando encuentres errores de compilación persistentes o cuando las carpetas de configuración hayan crecido demasiado.
+  >
+  > **Importante:** Antes de usar los scripts, debes darles permisos de ejecución con los siguientes comandos:
+  > ```bash
+  > chmod +x clean_android.sh
+  > chmod +x clean_ios.sh
+  > ```
 
 </div>
 
