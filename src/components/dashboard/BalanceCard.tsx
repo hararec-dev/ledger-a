@@ -15,7 +15,7 @@ export const BalanceCard: React.FC<BalanceCardProps> = ({
         balanceCard: {
             borderRadius: 15,
             padding: 15,
-            marginVertical: 25,
+            marginVertical: 35,
         },
         balanceLabel: {
             color: isDark ? colors.coolGray[900] : colors.coolGray[50],
@@ -27,7 +27,13 @@ export const BalanceCard: React.FC<BalanceCardProps> = ({
             fontFamily: 'Nunito-Bold',
         },
         balanceChange: {
-            color: isPositive ? colors.green[500] : colors.red[400],
+            color: !showBalance
+                ? isDark
+                    ? colors.coolGray[50]
+                    : colors.gray[900]
+                : isPositive
+                    ? colors.green[500]
+                    : colors.red[400],
             fontSize: 16,
             fontFamily: 'Nunito-Bold',
         },
@@ -52,7 +58,8 @@ export const BalanceCard: React.FC<BalanceCardProps> = ({
             flexDirection: 'row',
             justifyContent: 'center',
             alignItems: 'center',
-            padding: 3,
+            paddingVertical: 3,
+            paddingHorizontal: 5,
             marginBottom: 10,
             borderRadius: 7,
             backgroundColor: isDark ? colors.gray[900] : colors.coolGray[50],
@@ -85,13 +92,13 @@ export const BalanceCard: React.FC<BalanceCardProps> = ({
                 </View>
                 <View style={styles.balanceInfoContainer}>
                     <View style={styles.balanceContainer}>
-                        <Icon
+                        {showBalance && (<Icon
                             name={isPositive ? 'arrow-up' : 'arrow-down'}
                             size={styles.balanceIcon.size}
                             color={styles.balanceIcon.color}
-                        />
+                        />)}
                         <Text style={styles.balanceChange}>
-                            {percentChange}
+                            {showBalance ? percentChange : '****'}
                         </Text>
                     </View>
                     <GradientButton

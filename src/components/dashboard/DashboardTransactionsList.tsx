@@ -11,7 +11,7 @@ export const DashboardTransactionsList: React.FC<DashboardTransactionsListProps>
             backgroundColor: isDark ? colors.coolGray[700] : colors.coolGray[200],
             borderRadius: 16,
             padding: 5,
-            marginBottom: 25,
+            marginBottom: 35,
         },
         list: {
             flex: 1,
