@@ -57,6 +57,7 @@ export type GradientButtonProps = PropsWithChildren<{
     disabled?: boolean;
     disabledStyle?: ViewStyle | ViewStyle[];
     style?: ViewStyle | ViewStyle[];
+    gradientStyle?: ViewStyle;
 }>;
 
 export interface OnboardingSetupFormProps {
