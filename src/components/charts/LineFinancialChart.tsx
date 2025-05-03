@@ -57,6 +57,9 @@ export const LineFinancialChart: React.FC<CustomLineChartProps> = ({
             marginRight: 4,
             borderRadius: 2,
         },
+        whiteText: {
+            color: colors.coolGray[100],
+        },
     }));
 
     return (
@@ -81,7 +84,7 @@ export const LineFinancialChart: React.FC<CustomLineChartProps> = ({
             {data.legend && data.datasets && (
                 <View style={[styles.legendContainer, legendStyle]}>
                     {data.legend.map((label, idx) => {
-                        const color = data.datasets[idx]?.color?.(1) ?? '#fff';
+                        const color = data.datasets[idx]?.color?.(1) ?? styles.whiteText.color;
                         if (renderLegendItem) {
                             return renderLegendItem(label, color, idx);
                         }
