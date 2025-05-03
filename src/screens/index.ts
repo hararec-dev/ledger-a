@@ -6,3 +6,5 @@ export * from './onboarding';
 export * from './charts';
 export * from './settings';
 export * from './transactions';
+export * from './colors';
+export * from './notes';

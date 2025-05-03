@@ -4,19 +4,20 @@ import type { StackNavigationProp } from '@react-navigation/stack';
 import type { RootStackParamList, TypeLegalInfo, TypeSetup } from '../../types';
 
 export const useCustomNavigation = () => {
-    const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+    const rootNavigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
     const goToLegalInfo = useCallback(
         (typeInfo: TypeLegalInfo) => {
-            navigation.navigate('LegalInfo', { typeInfo });
+            rootNavigation.navigate('LegalInfo', { typeInfo });
         },
-        [navigation]
+        [rootNavigation]
     );
+
     const goToSetup = useCallback(
         (typeSetup: TypeSetup) => {
-            navigation.navigate('OnboardingSetup', { typeSetup });
+            rootNavigation.navigate('OnboardingSetup', { typeSetup });
         },
-        [navigation]
+        [rootNavigation]
     );
 
     return {

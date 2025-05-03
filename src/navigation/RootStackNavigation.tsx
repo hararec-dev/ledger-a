@@ -5,7 +5,7 @@ import {
     OnboardingSetupScreen,
     OnboardingSlidesScreen,
 } from '../screens';
-import { MainBottomTabNavigation } from './MainBottomTabNavigation';
+import { UtilityStackNavigation } from './UtilityStackNavigation';
 import { useCurrentStatusAppStore } from '../hooks';
 import type { RootStackParamList } from '../types';
 
@@ -38,8 +38,8 @@ export const RootStackNavigation: React.FC = () => {
                         component={AuthenticationScreen}
                     />
                     <Stack.Screen
-                        name="MainNavigation"
-                        component={MainBottomTabNavigation}
+                        name="UtilityStackNavigation"
+                        component={UtilityStackNavigation}
                     />
                 </>
             )}

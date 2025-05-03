@@ -106,5 +106,5 @@ export const useCurrentStatusAppStore = create<CurrentStatusAppState>((set) => (
         finally {
             set({ isLoadingData: false });
         }
-    }
+    },
 }));
