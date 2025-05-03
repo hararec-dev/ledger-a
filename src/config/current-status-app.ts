@@ -4,4 +4,5 @@ export const CURRENT_STATUS_APP_KEYS = {
     LEGAL_CONDITIONS: 'legalConditions',
     PIN_ENABLED: 'pinEnabled',
     USER_CURRENCY: 'userCurrency',
+    IS_BALANCE_VISIBLE_ON_DASHBOARD: 'isBalanceVisibleOnDashboard',
 };

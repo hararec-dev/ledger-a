@@ -1,7 +1,6 @@
-import { useState } from 'react';
 import { View, Text } from 'react-native';
-import { GradientBackground, GradientButton, GradientText, Icon } from '../../components';
-import { useStyles } from '../../hooks';
+import { GradientBackground, GradientButton, Icon } from '../../components';
+import { useCurrentStatusAppStore, useStyles } from '../../hooks';
 import type { BalanceCardProps } from '../../types';
 
 
@@ -10,7 +9,7 @@ export const BalanceCard: React.FC<BalanceCardProps> = ({
     percentChange,
     isPositive,
 }) => {
-    const [showBalance, setShowBalance] = useState<boolean>(true);
+    const { isBalanceVisibleOnDashboard, setIsBalanceVisibleOnDashboard } = useCurrentStatusAppStore();
     const styles = useStyles(({ isDark, colors }) => ({
         balanceCard: {
             borderRadius: 15,
@@ -20,6 +19,8 @@ export const BalanceCard: React.FC<BalanceCardProps> = ({
         balanceLabel: {
             color: isDark ? colors.coolGray[900] : colors.coolGray[50],
             fontSize: 18,
+            fontFamily: 'Quicksand-Bold',
+            opacity: 0.8,
         },
         balanceValue: {
             color: isDark ? colors.coolGray[900] : colors.coolGray[50],
@@ -27,7 +28,7 @@ export const BalanceCard: React.FC<BalanceCardProps> = ({
             fontFamily: 'Nunito-Bold',
         },
         balanceChange: {
-            color: !showBalance
+            color: !isBalanceVisibleOnDashboard
                 ? isDark
                     ? colors.coolGray[50]
                     : colors.gray[900]
@@ -69,7 +70,7 @@ export const BalanceCard: React.FC<BalanceCardProps> = ({
             justifyContent: 'space-between',
         },
         balanceInfoContainer: {
-            alignItems: 'center',
+            alignItems: 'flex-end',
             justifyContent: 'center',
         },
     }));
@@ -81,32 +82,28 @@ export const BalanceCard: React.FC<BalanceCardProps> = ({
         >
             <View style={styles.mainContainer}>
                 <View>
-                    <GradientText
-                        text="Balance General"
-                        style={styles.balanceLabel}
-                        color={styles.balanceLabel.color}
-                    />
+                    <Text style={styles.balanceLabel}>Balance General</Text>
                     <Text style={styles.balanceValue}>
-                        {showBalance ? balance : '****'}
+                        {isBalanceVisibleOnDashboard ? balance : '****'}
                     </Text>
                 </View>
                 <View style={styles.balanceInfoContainer}>
                     <View style={styles.balanceContainer}>
-                        {showBalance && (<Icon
+                        {isBalanceVisibleOnDashboard && (<Icon
                             name={isPositive ? 'arrow-up' : 'arrow-down'}
                             size={styles.balanceIcon.size}
                             color={styles.balanceIcon.color}
                         />)}
                         <Text style={styles.balanceChange}>
-                            {showBalance ? percentChange : '****'}
+                            {isBalanceVisibleOnDashboard ? percentChange : '****'}
                         </Text>
                     </View>
                     <GradientButton
                         gradientStyle={styles.settingsButton}
-                        onPress={() => setShowBalance((prev) => !prev)}
+                        onPress={() => setIsBalanceVisibleOnDashboard(!isBalanceVisibleOnDashboard)}
                     >
                         <Icon
-                            name={showBalance ? 'eye-off' : 'eye'}
+                            name={isBalanceVisibleOnDashboard ? 'eye-off' : 'eye'}
                             size={styles.settingsIcon.size}
                             color={styles.settingsIcon.color}
                         />

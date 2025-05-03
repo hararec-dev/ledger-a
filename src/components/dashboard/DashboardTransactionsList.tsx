@@ -36,7 +36,7 @@ export const DashboardTransactionsList: React.FC<DashboardTransactionsListProps>
         seeAllText: {
             color: isDark ? colors.coolGray[50] : colors.coolGray[900],
             fontSize: 15,
-            opacity: 0.8,
+            opacity: 0.7,
             fontFamily: 'Nunito-Regular',
             textDecorationLine: 'underline',
         },

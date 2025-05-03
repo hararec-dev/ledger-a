@@ -12,6 +12,7 @@ export const useCurrentStatusAppStore = create<CurrentStatusAppState>((set) => (
     legalConditionsAreAccepted: false,
     pinEnabled: null,
     userCurrency: null,
+    isBalanceVisibleOnDashboard: null,
     loadStoredData: async () => {
         set({ isLoadingData: true });
         try {
@@ -21,14 +22,23 @@ export const useCurrentStatusAppStore = create<CurrentStatusAppState>((set) => (
                 CURRENT_STATUS_APP_KEYS.LEGAL_CONDITIONS,
                 CURRENT_STATUS_APP_KEYS.PIN_ENABLED,
                 CURRENT_STATUS_APP_KEYS.USER_CURRENCY,
+                CURRENT_STATUS_APP_KEYS.IS_BALANCE_VISIBLE_ON_DASHBOARD,
             ]);
-            const [onboarded, lastActivity, legal, pin, userCurrency] = storedData;
+            const [
+                onboarded,
+                lastActivity,
+                legal,
+                pin,
+                userCurrency,
+                balanceVisible,
+            ] = storedData;
             set({
                 hasOnboarded: onboarded[1] === 'true',
                 lastActivity: lastActivity[1] ? JSON.parse(lastActivity[1]) as LastActivity : null,
                 legalConditionsAreAccepted: legal[1] === 'true',
                 pinEnabled: pin[1] === 'true',
                 userCurrency: userCurrency[1] ? userCurrency[1] as Currency : null,
+                isBalanceVisibleOnDashboard: balanceVisible[1] === 'true',
             });
         } catch (error) { }
         finally {
@@ -85,4 +95,16 @@ export const useCurrentStatusAppStore = create<CurrentStatusAppState>((set) => (
             set({ isLoadingData: false });
         }
     },
+    setIsBalanceVisibleOnDashboard: async (isVisible: boolean) => {
+        set({ isLoadingData: true });
+        try {
+            await AsyncStorage.setItem(
+                CURRENT_STATUS_APP_KEYS.IS_BALANCE_VISIBLE_ON_DASHBOARD, String(isVisible)
+            );
+            set({ isBalanceVisibleOnDashboard: isVisible });
+        } catch (error) { }
+        finally {
+            set({ isLoadingData: false });
+        }
+    }
 }));

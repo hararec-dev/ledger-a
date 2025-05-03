@@ -37,5 +37,5 @@ export interface BiometricsState {
     createSignature: (params: CreateSignatureParams) => Promise<any>;
     handleBiometricOperation: <T>(params: BiometricOperation<T>) => Promise<T | void>;
     setAllowBiometricAuth: (allow: boolean) => Promise<void>;
-    loadBiometricAuth: () => Promise<void>;
+    loadBiometricAuth: () => Promise<boolean | void>;
 }
