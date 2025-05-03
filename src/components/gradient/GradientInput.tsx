@@ -36,7 +36,7 @@ export const GradientInput: React.FC<GradientInputProps> = ({
             }),
         },
         icon: {
-            color: isDark ? colors.coolGray[900] : colors.coolGray[50],
+            color: isDark ? colors.coolGray[50] : colors.coolGray[900],
             size: 24,
         },
         eyeContainer: {

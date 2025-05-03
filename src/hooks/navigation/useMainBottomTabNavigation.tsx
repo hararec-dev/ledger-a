@@ -71,7 +71,7 @@ export const useMainBottomTabNavigation = (): {
                         size={26}
                         style={getIconStyle(focused)}
                         gradientColors={focused ? themeGradient : undefined}
-                        iconType='material_community_icon'
+                        iconType="material_community_icon"
                     />
                 ),
                 tabBarLabel: ({ color, focused }: { color: string; focused: boolean }) => (
@@ -141,7 +141,7 @@ export const useMainBottomTabNavigation = (): {
                         size={26}
                         style={getIconStyle(focused)}
                         gradientColors={focused ? themeGradient : undefined}
-                        iconType='material_community_icon'
+                        iconType="material_community_icon"
                     />
                 ),
                 tabBarLabel: ({ color, focused }: { color: string; focused: boolean }) => (

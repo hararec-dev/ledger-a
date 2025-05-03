@@ -7,8 +7,9 @@ export type GradientBorderProps = PropsWithChildren<{
 }>;
 
 export type GradientBackgroundProps = PropsWithChildren<{
-    gradient: string[];
+    gradient?: string[];
     style?: ViewStyle | ViewStyle[];
+    isBlackOrWhite?: boolean;
 }>;
 
 export interface GradientInputProps {
