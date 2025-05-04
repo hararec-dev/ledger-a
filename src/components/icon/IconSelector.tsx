@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import { View, FlatList, TextInput, Text, TouchableOpacity, Switch } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import { Icon } from './Icon';
 import Clipboard from '@react-native-clipboard/clipboard';
-import { useThemeStore } from '../../hooks';
+import { Icon } from './Icon';
+import { useAppNavigation, useThemeStore } from '../../hooks';
 
 interface IconSelectorProps {
   onSelectIcon: (iconName: string) => void;
@@ -32,6 +32,8 @@ export const IconSelector: React.FC<IconSelectorProps> = ({ onSelectIcon }) => {
   const filteredIcons: string[] = icons.filter((icon: string) =>
     icon.toLowerCase().includes(searchText.toLowerCase())
   );
+
+  const { goToColorSelection } = useAppNavigation();
 
   const styles = {
     container: {
@@ -113,6 +115,12 @@ export const IconSelector: React.FC<IconSelectorProps> = ({ onSelectIcon }) => {
             size={30}
             color={colors.cyan[500]}
           />
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.themeToggle}
+          onPress={() => goToColorSelection()}
+        >
+          <Text>Color</Text>
         </TouchableOpacity>
         <Text>Material Icons</Text>
         <Switch
