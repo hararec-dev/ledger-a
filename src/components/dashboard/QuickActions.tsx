@@ -10,7 +10,7 @@ export const QuickActions: React.FC = () => {
         { iconName: 'arrow-redo', label: 'Transferir', iconType: 'ion_icon' },
         { iconName: 'add-circle', label: 'Agregar', iconType: 'ion_icon' },
     ];
-    const styles = useStyles(({ colors, isDark }) => ({
+    const styles = useStyles(({ colors, isDark, fonts }) => ({
         quickActions: {
             flexDirection: 'row',
             justifyContent: 'space-between',
@@ -31,7 +31,7 @@ export const QuickActions: React.FC = () => {
         actionLabel: {
             color: isDark ? colors.coolGray[50] : colors.gray[900],
             fontSize: 12,
-            fontFamily: 'Quicksand-Bold',
+            fontFamily: fonts.quicksand.bold,
         },
         iconStyle: {
             fontSize: 25,

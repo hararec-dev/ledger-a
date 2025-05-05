@@ -11,12 +11,12 @@ export const AuthInstructions: React.FC<AuthInstructionsProps> = ({
     loadingPinAuth,
     loadingTouchIdAuth,
 }) => {
-    const styles = useStyles(({ colors, isDark }) => ({
+    const styles = useStyles(({ colors, isDark, fonts }) => ({
         instructionText: {
             fontSize: 16,
             textAlign: 'center',
             marginBottom: 40,
-            fontFamily: 'Quicksand-Regular',
+            fontFamily: fonts.quicksand.regular,
             fontWeight: 600,
             color: isDark ? colors.coolGray[50] : colors.coolGray[900],
         },

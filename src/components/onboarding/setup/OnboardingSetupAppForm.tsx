@@ -16,7 +16,7 @@ import type { OnboardingFormProps } from '../../../types';
 
 export const OnboardingSetupAppForm: React.FC<OnboardingFormProps> = ({ formik, gradientColors }) => {
     const { sensorStatus } = useBiometricStore();
-    const styles = useStyles(({ colors, isDark }) => ({
+    const styles = useStyles(({ colors, isDark, fonts }) => ({
         formContainer: {
             rowGap: 10,
             width: '100%',
@@ -24,7 +24,7 @@ export const OnboardingSetupAppForm: React.FC<OnboardingFormProps> = ({ formik, 
         buttonText: {
             color: colors.coolGray[50],
             fontSize: 18,
-            fontFamily: 'Quicksand-Bold',
+            fontFamily: fonts.quicksand.bold,
         },
         button: {
             marginTop: 30,
@@ -50,7 +50,7 @@ export const OnboardingSetupAppForm: React.FC<OnboardingFormProps> = ({ formik, 
             marginLeft: 10,
             fontSize: 16,
             color: isDark ? colors.coolGray[50] : colors.coolGray[900],
-            fontFamily: 'Quicksand-Regular',
+            fontFamily: fonts.quicksand.regular,
         },
         Icon: {
             color: isDark ? colors.coolGray[50] : colors.coolGray[900],

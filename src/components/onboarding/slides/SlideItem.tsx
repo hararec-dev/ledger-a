@@ -6,7 +6,7 @@ import type { SlideItemProps } from '../../../types';
 
 export const SlideItem: React.FC<SlideItemProps> = ({ desc, img, title, style }) => {
     const { gradientLight } = useGradient();
-    const styles = useStyles(({ colors, screenHeight, screenWidth, fontScale }) => ({
+    const styles = useStyles(({ colors, screenHeight, screenWidth, fontScale, fonts }) => ({
         container: {
             width: screenWidth,
             flex: 1,
@@ -26,7 +26,7 @@ export const SlideItem: React.FC<SlideItemProps> = ({ desc, img, title, style })
             textAlign: 'left',
             width: screenWidth * 0.7,
             paddingTop: 5,
-            fontFamily: 'Nunito-Regular',
+            fontFamily: fonts.nunito.regular,
             color: colors.coolGray[900],
         },
         gradiantText: {

@@ -5,7 +5,7 @@ import type { DashboardTransactionsListProps } from '../../types';
 
 
 export const DashboardTransactionsList: React.FC<DashboardTransactionsListProps> = ({ transactions }) => {
-    const styles = useStyles(({ isDark, colors }) => ({
+    const styles = useStyles(({ isDark, colors, fonts }) => ({
         container: {
             flex: 1,
             backgroundColor: isDark ? colors.coolGray[700] : colors.coolGray[200],
@@ -29,7 +29,7 @@ export const DashboardTransactionsList: React.FC<DashboardTransactionsListProps>
         },
         transactionsTitle: {
             fontSize: 18,
-            fontFamily: 'Quicksand-Bold',
+            fontFamily: fonts.quicksand.bold,
             color: isDark ? colors.coolGray[50] : colors.coolGray[900],
             marginBottom: 5,
         },
@@ -37,7 +37,7 @@ export const DashboardTransactionsList: React.FC<DashboardTransactionsListProps>
             color: isDark ? colors.coolGray[50] : colors.coolGray[900],
             fontSize: 15,
             opacity: 0.7,
-            fontFamily: 'Nunito-Regular',
+            fontFamily: fonts.nunito.regular,
             textDecorationLine: 'underline',
         },
     }));

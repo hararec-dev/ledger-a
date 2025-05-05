@@ -10,7 +10,7 @@ export const BalanceCard: React.FC<BalanceCardProps> = ({
     isPositive,
 }) => {
     const { isBalanceVisibleOnDashboard, setIsBalanceVisibleOnDashboard } = useCurrentStatusAppStore();
-    const styles = useStyles(({ isDark, colors }) => ({
+    const styles = useStyles(({ isDark, colors, fonts }) => ({
         balanceCard: {
             borderRadius: 15,
             padding: 15,
@@ -19,13 +19,13 @@ export const BalanceCard: React.FC<BalanceCardProps> = ({
         balanceLabel: {
             color: isDark ? colors.coolGray[900] : colors.coolGray[50],
             fontSize: 18,
-            fontFamily: 'Quicksand-Bold',
+            fontFamily: fonts.quicksand.bold,
             opacity: 0.8,
         },
         balanceValue: {
             color: isDark ? colors.coolGray[900] : colors.coolGray[50],
             fontSize: 30,
-            fontFamily: 'Nunito-Bold',
+            fontFamily: fonts.nunito.bold,
         },
         balanceChange: {
             color: !isBalanceVisibleOnDashboard
@@ -36,7 +36,7 @@ export const BalanceCard: React.FC<BalanceCardProps> = ({
                     ? colors.green[500]
                     : colors.red[400],
             fontSize: 16,
-            fontFamily: 'Nunito-Bold',
+            fontFamily: fonts.nunito.bold,
         },
         settingsButton: {
             backgroundColor: isDark ? colors.coolGray[900] : colors.coolGray[100],

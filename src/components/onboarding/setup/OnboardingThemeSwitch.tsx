@@ -7,7 +7,7 @@ import type { OnboardingFormProps } from '../../../types';
 
 export const OnboardingThemeSwitch: React.FC<OnboardingFormProps> = ({ formik, gradientColors }) => {
     const { setTheme, isDark: isDarkTheme } = useThemeStore();
-    const styles = useStyles(({ colors, isDark }) => ({
+    const styles = useStyles(({ colors, isDark, fonts }) => ({
         switchContainer: {
             flexDirection: 'row',
             alignItems: 'center',
@@ -23,7 +23,7 @@ export const OnboardingThemeSwitch: React.FC<OnboardingFormProps> = ({ formik, g
             marginLeft: 10,
             fontSize: 16,
             color: isDark ? colors.coolGray[50] : colors.coolGray[900],
-            fontFamily: 'Quicksand-Regular',
+            fontFamily: fonts.quicksand.regular,
         },
         Icon: {
             color: isDark ? colors.coolGray[50] : colors.coolGray[900],

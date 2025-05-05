@@ -1,12 +1,12 @@
 import React, { memo } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 import { GradientText, Icon } from '../../components';
 import { useGradient, useStyles } from '../../hooks';
 import type { LegalInfoHeaderProps } from '../../types';
 
 
 export const LegalInfoHeader: React.FC<LegalInfoHeaderProps> = memo(({ navigation, title, lastUpdate }) => {
-  const themeStyles = useStyles(({ colors, isDark }) => ({
+  const styles = useStyles(({ colors, isDark, fonts }) => ({
     header: {
       padding: 20,
       borderBottomWidth: 1,
@@ -17,18 +17,31 @@ export const LegalInfoHeader: React.FC<LegalInfoHeaderProps> = memo(({ navigatio
       fontWeight: '500',
       marginBottom: 8,
       color: isDark ? colors.coolGray[100] : colors.coolGray[600],
-      fontFamily: 'Nunito-Regular',
+      fontFamily: fonts.nunito.regular,
+    },
+    backButton: {
+      marginBottom: 15,
+    },
+    title: {
+      fontSize: 24,
+      fontWeight: 'bold',
+      marginBottom: 8,
+      fontFamily: fonts.quicksand.regular,
+      textAlign: 'center',
+    },
+    gradientText: {
+      textAlign: 'center',
     },
   }));
   const { themeGradient } = useGradient();
 
   return (
-    <View style={themeStyles.header}>
+    <View style={styles.header}>
       <TouchableOpacity
         onPress={() => navigation.navigate('OnboardingSlides')}
         style={styles.backButton}
       >
-        <Icon name="arrow-back" size={24} color={themeStyles.header.borderBottomColor} />
+        <Icon name="arrow-back" size={24} color={styles.header.borderBottomColor} />
       </TouchableOpacity>
       <GradientText
         text={title}
@@ -37,23 +50,8 @@ export const LegalInfoHeader: React.FC<LegalInfoHeaderProps> = memo(({ navigatio
         fontWeight="black"
         style={styles.gradientText}
       />
-      <Text style={themeStyles.subtitle}>{lastUpdate}</Text>
+      <Text style={styles.subtitle}>{lastUpdate}</Text>
     </View>
   );
 });
 
-const styles = StyleSheet.create({
-  backButton: {
-    marginBottom: 15,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 8,
-    fontFamily: 'Quicksand-Regular',
-    textAlign: 'center',
-  },
-  gradientText: {
-    textAlign: 'center',
-  },
-});

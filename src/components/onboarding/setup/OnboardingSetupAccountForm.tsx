@@ -11,7 +11,7 @@ export const OnboardingSetupAccountForm: React.FC<OnboardingSetupFormProps> = ({
     selectedAccountType,
     gradientColors,
 }) => {
-    const styles = useStyles(({ colors }) => ({
+    const styles = useStyles(({ colors, fonts }) => ({
         formContainer: {
             rowGap: 10,
             width: '90%',
@@ -19,7 +19,7 @@ export const OnboardingSetupAccountForm: React.FC<OnboardingSetupFormProps> = ({
         buttonText: {
             color: colors.coolGray[50],
             fontSize: 18,
-            fontFamily: 'Quicksand-Bold',
+            fontFamily: fonts.quicksand.bold,
         },
         button: {
             marginTop: 40,

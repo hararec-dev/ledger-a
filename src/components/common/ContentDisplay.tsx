@@ -12,7 +12,7 @@ export const ContentDisplay = ({
     titleStyle,
     descriptionStyle,
 }: ContentDisplayProps) => {
-    const styles = useStyles(({ isDark, colors }) => ({
+    const styles = useStyles(({ isDark, colors, fonts }) => ({
         container: {
             flex: 1,
             justifyContent: 'center',
@@ -26,14 +26,14 @@ export const ContentDisplay = ({
         title: {
             fontSize: 28,
             marginBottom: 16,
-            fontFamily: 'Quicksand-Bold',
+            fontFamily: fonts.quicksand.bold,
             textAlign: 'center',
             color: isDark ? colors.coolGray[50] : colors.gray[900],
         },
         description: {
             fontSize: 16,
             textAlign: 'center',
-            fontFamily: 'Nunito-Regular',
+            fontFamily: fonts.nunito.regular,
             color: isDark ? colors.coolGray[400] : colors.gray[600],
             paddingHorizontal: 20,
             lineHeight: 24,

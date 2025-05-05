@@ -8,11 +8,11 @@ import type { OnboardingButtonProps } from '../../../types';
 export const OnboardingButton: React.FC<OnboardingButtonProps> = ({ onNavigate }) => {
     const { legalConditionsAreAccepted } = useCurrentStatusAppStore();
     const { gradientLight } = useGradient();
-    const styles = useStyles(({ colors, Platform, screenWidth }) => ({
+    const styles = useStyles(({ colors, Platform, screenWidth, fonts }) => ({
         buttonText: {
             color: colors.coolGray[50],
             fontSize: 18,
-            fontFamily: 'Quicksand-Bold',
+            fontFamily: fonts.quicksand.bold,
         },
         disabledButton: {
             opacity: 0.4,
