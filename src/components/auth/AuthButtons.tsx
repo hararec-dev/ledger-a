@@ -22,8 +22,8 @@ export const AuthButtons: React.FC<AuthButtonsProps> = ({
         },
         buttonText: {
             color: colors.coolGray[50],
-            fontWeight: 'bold',
-            fontSize: 15,
+            fontFamily: 'Quicksand-Bold',
+            fontSize: 16,
         },
         buttonContent: {
             flexDirection: 'row',

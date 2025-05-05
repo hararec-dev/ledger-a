@@ -26,8 +26,7 @@ export const PinInputOverlay: React.FC<PinInputOverlayProps> = ({
         buttonText: {
             color: colors.coolGray[50],
             fontSize: 16,
-            fontWeight: 'bold',
-            fontFamily: 'Quicksand-Regular',
+            fontFamily: 'Quicksand-Bold',
         },
     }));
 

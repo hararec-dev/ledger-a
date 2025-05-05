@@ -12,8 +12,7 @@ export const OnboardingButton: React.FC<OnboardingButtonProps> = ({ onNavigate }
         buttonText: {
             color: colors.coolGray[50],
             fontSize: 18,
-            fontWeight: '700',
-            fontFamily: 'Quicksand-Regular',
+            fontFamily: 'Quicksand-Bold',
         },
         disabledButton: {
             opacity: 0.4,
