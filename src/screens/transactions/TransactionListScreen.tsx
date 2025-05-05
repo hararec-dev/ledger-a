@@ -1,10 +1,17 @@
-import { StyleSheet, View } from 'react-native';
-import { TimelineExample } from '../../components';
+import { StyleSheet, useWindowDimensions, View } from 'react-native';
+import { ContentDisplay } from '../../components';
+import AddNotes from '../../assets/images/add-notes.svg';
 
 export const TransactionListScreen = () => {
+    const { width, height } = useWindowDimensions();
     return (
         <View style={styles.container}>
-            <TimelineExample />
+            <ContentDisplay>
+                <AddNotes
+                    width={width * 0.5}
+                    height={height * 0.3}
+                />
+            </ContentDisplay>
 
         </View>
     );
