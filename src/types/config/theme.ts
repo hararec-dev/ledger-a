@@ -51,3 +51,20 @@ export interface RneuiPlatformColors {
     error: string;
     warning: string;
 }
+
+export interface AppFonts {
+    quicksand: {
+        regular: string;
+        light: string;
+        medium: string;
+        bold: string;
+    };
+    nunito: {
+        regular: string;
+        medium: string;
+        bold: string;
+    };
+    pacifico: {
+        regular: string;
+    };
+}
