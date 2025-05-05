@@ -20,11 +20,13 @@ export const useAsyncStorageLoad = () => {
         legalConditionsAreAccepted,
         loadStoredData,
         pinEnabled,
+        selectedColor,
         setHasOnboarded,
         setIsBalanceVisibleOnDashboard,
         setLastActivity,
         setLegalConditionsAreAccepted,
         setPinEnabled,
+        setSelectedColor,
         setUserCurrency,
         userCurrency,
     } = useCurrentStatusAppStore();
@@ -87,6 +89,12 @@ export const useAsyncStorageLoad = () => {
 
     useEffect(() => {
         setAllowBiometricAuth(allowBiometricAuth);
+    }, []);
+
+    useEffect(() => {
+        if (selectedColor !== null) {
+            setSelectedColor(selectedColor);
+        }
     }, []);
 
     useEffect(() => {

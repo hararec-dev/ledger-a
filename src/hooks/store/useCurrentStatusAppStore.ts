@@ -6,13 +6,14 @@ import type { Currency, CurrentStatusAppState, LastActivity } from '../../types'
 
 export const useCurrentStatusAppStore = create<CurrentStatusAppState>((set) => ({
     hasOnboarded: null,
+    isBalanceVisibleOnDashboard: null,
     isLoadingData: null,
     isLoadingLastActivity: null,
     lastActivity: null,
     legalConditionsAreAccepted: false,
     pinEnabled: null,
+    selectedColor: null,
     userCurrency: null,
-    isBalanceVisibleOnDashboard: null,
     loadStoredData: async () => {
         set({ isLoadingData: true });
         try {
@@ -23,6 +24,7 @@ export const useCurrentStatusAppStore = create<CurrentStatusAppState>((set) => (
                 CURRENT_STATUS_APP_KEYS.PIN_ENABLED,
                 CURRENT_STATUS_APP_KEYS.USER_CURRENCY,
                 CURRENT_STATUS_APP_KEYS.IS_BALANCE_VISIBLE_ON_DASHBOARD,
+                CURRENT_STATUS_APP_KEYS.SELECTED_COLOR,
             ]);
             const [
                 onboarded,
@@ -31,6 +33,7 @@ export const useCurrentStatusAppStore = create<CurrentStatusAppState>((set) => (
                 pin,
                 userCurrency,
                 balanceVisible,
+                selectedColor,
             ] = storedData;
             set({
                 hasOnboarded: onboarded[1] === 'true',
@@ -39,6 +42,7 @@ export const useCurrentStatusAppStore = create<CurrentStatusAppState>((set) => (
                 pinEnabled: pin[1] === 'true',
                 userCurrency: userCurrency[1] ? userCurrency[1] as Currency : null,
                 isBalanceVisibleOnDashboard: balanceVisible[1] === 'true',
+                selectedColor: selectedColor[1] || null,
             });
         } catch (error) { }
         finally {
@@ -102,6 +106,16 @@ export const useCurrentStatusAppStore = create<CurrentStatusAppState>((set) => (
                 CURRENT_STATUS_APP_KEYS.IS_BALANCE_VISIBLE_ON_DASHBOARD, String(isVisible)
             );
             set({ isBalanceVisibleOnDashboard: isVisible });
+        } catch (error) { }
+        finally {
+            set({ isLoadingData: false });
+        }
+    },
+    setSelectedColor: async (color: string) => {
+        set({ isLoadingData: true });
+        try {
+            await AsyncStorage.setItem(CURRENT_STATUS_APP_KEYS.SELECTED_COLOR, color);
+            set({ selectedColor: color });
         } catch (error) { }
         finally {
             set({ isLoadingData: false });
