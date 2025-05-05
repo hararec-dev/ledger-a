@@ -13,7 +13,7 @@ export const AuthButtons: React.FC<AuthButtonsProps> = ({
     touchIdEnabled,
 }) => {
     const { themeGradient } = useGradient();
-    const styles = useStyles(({ colors }) => ({
+    const styles = useStyles(({ colors, fonts }) => ({
         container: {
             marginBottom: 40,
         },
@@ -22,7 +22,7 @@ export const AuthButtons: React.FC<AuthButtonsProps> = ({
         },
         buttonText: {
             color: colors.coolGray[50],
-            fontFamily: 'Quicksand-Bold',
+            fontFamily: fonts.quicksand.bold,
             fontSize: 16,
         },
         buttonContent: {

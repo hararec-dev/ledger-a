@@ -7,7 +7,7 @@ import type { NamedStyles, StyleCallbackProps } from '../../types';
 export const useStyles = <T extends NamedStyles<T>>(
   styleCallback: (theme: StyleCallbackProps) => T & NamedStyles<T>
 ) => {
-  const { isDark, colors } = useThemeStore();
+  const { isDark, colors, fonts } = useThemeStore();
   const { width, height, fontScale, scale } = useWindowDimensions();
   const styles = useMemo(
     () => styleCallback({
@@ -18,6 +18,7 @@ export const useStyles = <T extends NamedStyles<T>>(
       screenHeight: height,
       fontScale,
       scale,
+      fonts
     }),
     [styleCallback, isDark, colors, width, height, fontScale, scale]
   );

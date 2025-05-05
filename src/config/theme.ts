@@ -1,7 +1,7 @@
 /* Colors obtained from https://v2.tailwindcss.com/docs/customizing-colors */
 
 import type { Theme } from '@react-navigation/native';
-import type { FullColorPallete, RneuiPlatformColors } from '../types';
+import type { AppFonts, FullColorPallete, RneuiPlatformColors } from '../types';
 
 export const colorPalette: FullColorPallete = {
     blueGray: {
@@ -220,6 +220,23 @@ export const rneuiDarkColors: RneuiPlatformColors = {
     warning: colorPalette.amber[400],
 };
 
+export const appFonts: AppFonts = {
+    quicksand: {
+        regular: 'Quicksand-Regular',
+        light: 'Quicksand-Light',
+        medium: 'Quicksand-Medium',
+        bold: 'Quicksand-Bold',
+    },
+    nunito: {
+        regular: 'Nunito-Regular',
+        medium: 'Nunito-Medium',
+        bold: 'Nunito-Bold',
+    },
+    pacifico: {
+        regular: 'Pacifico-Regular',
+    },
+};
+
 export const LightNavigationTheme: Theme = {
     dark: false,
     colors: {
@@ -232,19 +249,19 @@ export const LightNavigationTheme: Theme = {
     },
     fonts: {
         regular: {
-            fontFamily: 'Pacifico-Regular',
+            fontFamily: appFonts.quicksand.regular,
             fontWeight: '400',
         },
         medium: {
-            fontFamily: 'Pacifico-Regular',
+            fontFamily: appFonts.quicksand.medium,
             fontWeight: '500',
         },
         bold: {
-            fontFamily: 'Pacifico-Regular',
+            fontFamily: appFonts.quicksand.bold,
             fontWeight: '700',
         },
         heavy: {
-            fontFamily: 'Pacifico-Regular',
+            fontFamily: appFonts.nunito.bold,
             fontWeight: '900',
         },
     },
@@ -262,19 +279,19 @@ export const DarkNavigationTheme: Theme = {
     },
     fonts: {
         regular: {
-            fontFamily: 'Pacifico-Regular',
+            fontFamily: appFonts.quicksand.regular,
             fontWeight: '400',
         },
         medium: {
-            fontFamily: 'Pacifico-Regular',
+            fontFamily: appFonts.quicksand.medium,
             fontWeight: '500',
         },
         bold: {
-            fontFamily: 'Pacifico-Regular',
+            fontFamily: appFonts.quicksand.bold,
             fontWeight: '700',
         },
         heavy: {
-            fontFamily: 'Pacifico-Regular',
+            fontFamily: appFonts.nunito.bold,
             fontWeight: '900',
         },
     },

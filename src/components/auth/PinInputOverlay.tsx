@@ -14,7 +14,7 @@ export const PinInputOverlay: React.FC<PinInputOverlayProps> = ({
     handlePinSubmit,
     themeGradient,
 }) => {
-    const styles = useStyles(({ colors }) => ({
+    const styles = useStyles(({ colors, fonts }) => ({
         overlay: {
             width: '80%',
             padding: 20,
@@ -26,7 +26,7 @@ export const PinInputOverlay: React.FC<PinInputOverlayProps> = ({
         buttonText: {
             color: colors.coolGray[50],
             fontSize: 16,
-            fontFamily: 'Quicksand-Bold',
+            fontFamily: fonts.quicksand.bold,
         },
     }));
 

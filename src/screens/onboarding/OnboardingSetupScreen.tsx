@@ -6,7 +6,7 @@ import type { OnboardingSetupProps } from '../../types';
 
 export const OnboardingSetupScreen: React.FC<OnboardingSetupProps> = ({ navigation, route }) => {
   const { glowStyle } = usePageIndicatorAnimation({ typeSetup: route.params.typeSetup });
-  const styles = useStyles(({ colors, isDark }) => ({
+  const styles = useStyles(({ colors, isDark, fonts }) => ({
     container: {
       flex: 1,
       justifyContent: 'center',
@@ -20,7 +20,7 @@ export const OnboardingSetupScreen: React.FC<OnboardingSetupProps> = ({ navigati
     pageNumber: {
       color: isDark ? colors.coolGray[50] : colors.coolGray[900],
       fontSize: 16,
-      fontFamily: 'Nunito-Regular',
+      fontFamily: fonts.nunito.regular,
     },
   }));
 

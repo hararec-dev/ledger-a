@@ -14,7 +14,7 @@ export const OptionPicker = <T extends OptionItem>({
     selectedOption,
 }: OptionPickerProps<T>) => {
     const [showPicker, setShowPicker] = useState(false);
-    const styles = useStyles(({ colors, Platform: platform, isDark }) => ({
+    const styles = useStyles(({ colors, Platform: platform, isDark, fonts }) => ({
         pickerContainer: {
             backgroundColor: colors.gray[50],
             height: 40,
@@ -66,7 +66,7 @@ export const OptionPicker = <T extends OptionItem>({
             ...(platform.OS === 'android' && {
                 fontSize: 16,
                 width: '100%',
-                fontFamily: 'Nunito-Regular',
+                fontFamily: fonts.nunito.regular,
                 backgroundColor: colors.coolGray[50],
             }),
         },

@@ -8,7 +8,7 @@ export const ColorSelectionButton: React.FC<ColorSelectionButtonProps> = ({
     onPress,
     buttonText = 'Seleccionar',
 }) => {
-    const styles = useStyles(({ colors, isDark }) => ({
+    const styles = useStyles(({ colors, fonts }) => ({
         selectButton: {
             alignItems: 'center',
             justifyContent: 'center',
@@ -21,9 +21,9 @@ export const ColorSelectionButton: React.FC<ColorSelectionButtonProps> = ({
             borderRadius: 15,
         },
         selectButtonText: {
-            color: isDark ? colors.coolGray[50] : colors.gray[900],
+            color: colors.coolGray[50],
             fontSize: 18,
-            fontFamily: 'Quicksand-Bold',
+            fontFamily: fonts.quicksand.bold,
         },
         disabledButton: {
             opacity: 0.4,

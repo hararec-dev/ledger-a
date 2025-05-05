@@ -6,7 +6,7 @@ import type { DashboardTransactionItemProps } from '../../types';
 
 
 export const DashboardTransactionItem: React.FC<DashboardTransactionItemProps> = ({ transaction }) => {
-    const styles = useStyles(({ isDark, colors }) => ({
+    const styles = useStyles(({ isDark, colors, fonts }) => ({
         transactionRow: {
             flexDirection: 'row',
             alignItems: 'center',
@@ -30,12 +30,12 @@ export const DashboardTransactionItem: React.FC<DashboardTransactionItemProps> =
         },
         transactionName: {
             color: isDark ? colors.coolGray[50] : colors.gray[900],
-            fontFamily: 'Quicksand-Medium',
+            fontFamily: fonts.quicksand.medium,
             fontSize: 16,
         },
         transactionSymbol: {
             color: isDark ? colors.coolGray[50] : colors.gray[900],
-            fontFamily: 'Nunito-Regular',
+            fontFamily: fonts.nunito.regular,
             fontSize: 13,
             opacity: 0.7,
             marginTop: 2,
@@ -56,12 +56,12 @@ export const DashboardTransactionItem: React.FC<DashboardTransactionItemProps> =
         },
         transactionValue: {
             color: isDark ? colors.coolGray[50] : colors.gray[900],
-            fontFamily: 'Quicksand-Bold',
+            fontFamily: fonts.quicksand.bold,
             fontSize: 16,
         },
         transactionAmount: {
             color: isDark ? colors.coolGray[50] : colors.gray[900],
-            fontFamily: 'Nunito-Regular',
+            fontFamily: fonts.nunito.regular,
             opacity: 0.8,
             fontSize: 12,
             marginTop: 2,

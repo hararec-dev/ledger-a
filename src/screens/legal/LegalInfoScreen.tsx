@@ -7,7 +7,7 @@ import type { LegalInfoProps, LegalSection } from '../../types';
 
 export const LegalInfoScreen: React.FC<LegalInfoProps> = ({ navigation, route }) => {
   const { termsContent } = useLegalTerms({ typeInfo: route.params.typeInfo });
-  const styles = useStyles(({ colors, isDark }) => ({
+  const styles = useStyles(({ colors, isDark, fonts }) => ({
     content: {
       paddingHorizontal: 20,
     },
@@ -20,7 +20,7 @@ export const LegalInfoScreen: React.FC<LegalInfoProps> = ({ navigation, route })
       fontWeight: '500',
       marginVertical: 20,
       color: isDark ? colors.coolGray[200] : colors.coolGray[900],
-      fontFamily: 'Quicksand-Regular',
+      fontFamily: fonts.quicksand.regular,
     },
   }));
 

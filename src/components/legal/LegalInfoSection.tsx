@@ -7,12 +7,12 @@ import type { LegalInfoSectionProps, LegalItem } from '../../types';
 
 
 export const LegalInfoSection: React.FC<LegalInfoSectionProps> = memo(({ section, index }) => {
-  const themeStyles = useStyles(({ colors, isDark }) => ({
+  const themeStyles = useStyles(({ colors, isDark, fonts }) => ({
     sectionTitle: {
       fontSize: 18,
       fontWeight: 'bold',
       marginBottom: 12,
-      fontFamily: 'Quicksand-Regular',
+      fontFamily: fonts.quicksand.regular,
       color: isDark ? colors.coolGray[100] : colors.coolGray[800],
     },
   }));
