@@ -155,7 +155,7 @@ export const colorPalette: FullColorPallete = {
     },
     cyan: {
         50: '#ECFEFF', 100: '#CFFAFE', 200: '#A5F3FC', 300: '#67E8F9',
-        400: '#22D3EE', 500: '#06B6D4', 600: '#0891B2', 700: '#0E7490',
+        400: '#22D3EE', 500: '#05B5E0', 600: '#0891B2', 700: '#0E7490',
         800: '#155E75', 900: '#164E63',
     },
     sky: {
@@ -198,18 +198,6 @@ export const colorPalette: FullColorPallete = {
         400: '#FB7185', 500: '#F43F5E', 600: '#E11D48', 700: '#BE123C',
         800: '#9F1239', 900: '#881337',
     },
-    splashscreen: {
-        50: '#ECFEFF',
-        100: '#CFFAFE',
-        200: '#A5F3FC',
-        300: '#67E8F9',
-        400: '#22D3EE',
-        500: '#05B5E0',
-        600: '#0891B2',
-        700: '#0E7490',
-        800: '#155E75',
-        900: '#164E63',
-      },
 };
 
 export const rneuiLightColors: RneuiPlatformColors = {

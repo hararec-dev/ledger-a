@@ -6,7 +6,7 @@ export type RootStackParamList = {
     LegalInfo: {
         typeInfo: TypeLegalInfo;
     };
-    MainNavigation: undefined;
+    UtilityStackNavigation: undefined;
     OnboardingSetup: {
         typeSetup: TypeSetup;
     };

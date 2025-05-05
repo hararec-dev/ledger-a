@@ -1,6 +1,5 @@
 import type { TermLegalSection } from '../types';
 
-
 export const LEGAL_ACCEPTANCE_LABELS = {
     accept: 'Aceptar',
     and: 'y',

@@ -36,10 +36,14 @@ export interface CurrentStatusAppState {
     legalConditionsAreAccepted: boolean;
     pinEnabled: boolean | null;
     userCurrency: Currency | null;
+    isBalanceVisibleOnDashboard: boolean | null;
+    selectedColor: string | null;
     loadStoredData: () => Promise<void>;
     setHasOnboarded: (value: boolean) => Promise<void>;
     setLastActivity: (activity: LastActivity) => Promise<void>;
     setLegalConditionsAreAccepted: (activity: boolean) => Promise<void>;
     setPinEnabled: (enabled: boolean) => Promise<void>;
     setUserCurrency: (currency: Currency) => Promise<void>;
+    setIsBalanceVisibleOnDashboard: (isVisible: boolean) => Promise<void>;
+    setSelectedColor: (color: string) => Promise<void>;
 }

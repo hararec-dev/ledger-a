@@ -1,2 +1,2 @@
-export * from './useCustomNavigation';
+export * from './useAppNavigation';
 export * from './useMainBottomTabNavigation';

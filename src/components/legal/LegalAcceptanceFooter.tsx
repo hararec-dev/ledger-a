@@ -1,12 +1,12 @@
 import { Text, View } from 'react-native';
 import { CheckBox } from '@rneui/themed';
 import { LegalLink } from '../../components';
-import { useCurrentStatusAppStore, useCustomNavigation, useStyles } from '../../hooks';
+import { useCurrentStatusAppStore, useAppNavigation, useStyles } from '../../hooks';
 import { LEGAL_ACCEPTANCE_LABELS } from '../../config';
 
 
 export const LegalAcceptanceFooter: React.FC = () => {
-    const { goToLegalInfo } = useCustomNavigation();
+    const { goToLegalInfo } = useAppNavigation();
     const { legalConditionsAreAccepted, setLegalConditionsAreAccepted } = useCurrentStatusAppStore();
     const handleCheckboxPress = () => setLegalConditionsAreAccepted(!legalConditionsAreAccepted);
     const styles = useStyles(({ colors, screenWidth }) => ({

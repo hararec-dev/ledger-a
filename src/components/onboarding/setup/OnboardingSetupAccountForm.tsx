@@ -19,8 +19,7 @@ export const OnboardingSetupAccountForm: React.FC<OnboardingSetupFormProps> = ({
         buttonText: {
             color: colors.coolGray[50],
             fontSize: 18,
-            fontWeight: '700',
-            fontFamily: 'Quicksand-Regular',
+            fontFamily: 'Quicksand-Bold',
         },
         button: {
             marginTop: 40,

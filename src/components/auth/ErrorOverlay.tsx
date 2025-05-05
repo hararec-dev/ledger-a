@@ -27,15 +27,13 @@ export const ErrorOverlay: React.FC<ErrorOverlayProps> = ({
         buttonText: {
             color: colors.coolGray[50],
             fontSize: 16,
-            fontWeight: 'bold',
-            fontFamily: 'Quicksand-Regular',
+            fontFamily: 'Quicksand-Bold',
         },
         errorTitle: {
             fontSize: 18,
-            fontWeight: 'bold',
             marginBottom: 10,
             color: isDark ? colors.red[400] : colors.red[500],
-            fontFamily: 'Quicksand-Regular',
+            fontFamily: 'Quicksand-Bold',
         },
         errorMessage: {
             fontSize: 14,

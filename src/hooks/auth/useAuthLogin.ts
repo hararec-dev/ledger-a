@@ -43,7 +43,7 @@ export const useAuthLogin = ({ navigation }: AuthenticationProps) => {
     const handleTouchIdAuth = useCallback(async () => {
         const success = await touchIdAuth.authenticate();
         if (success) {
-            navigation.replace('MainNavigation');
+            navigation.replace('UtilityStackNavigation');
         }
     }, [touchIdAuth.authenticate, navigation]);
 
@@ -54,7 +54,7 @@ export const useAuthLogin = ({ navigation }: AuthenticationProps) => {
         }
         const isValid = await pinAuth.validatePin(pinAuth.pin);
         if (isValid) {
-            navigation.replace('MainNavigation');
+            navigation.replace('UtilityStackNavigation');
         } else {
             pinAuth.setPinError(AUTHENTICATION_SCREEN.errors.incorrectPin);
         }

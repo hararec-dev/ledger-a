@@ -10,4 +10,5 @@ export type ThemeState = {
     rneuiDarkColors: RneuiPlatformColors;
     loadTheme: () => Promise<void>;
     setTheme: (theme: ThemeColor) => Promise<void>;
+    getAllColors: () => string[];
 };

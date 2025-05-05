@@ -17,7 +17,7 @@ export const QuickActions: React.FC = () => {
             padding: 8,
             backgroundColor: isDark ? colors.coolGray[700] : colors.coolGray[200],
             borderRadius: 16,
-            marginBottom: 10,
+            marginBottom: 20,
         },
         actionItem: {
             alignItems: 'center',
@@ -25,7 +25,7 @@ export const QuickActions: React.FC = () => {
         },
         actionCircle: {
             borderRadius: 30,
-            padding: 8,
+            padding: 6,
             marginBottom: 5,
         },
         actionLabel: {
@@ -34,7 +34,7 @@ export const QuickActions: React.FC = () => {
             fontFamily: 'Quicksand-Bold',
         },
         iconStyle: {
-            fontSize: 20,
+            fontSize: 25,
             color: colors.coolGray[50],
         },
     }));
