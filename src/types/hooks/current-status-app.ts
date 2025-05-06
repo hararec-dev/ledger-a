@@ -6,7 +6,7 @@ import type {
     ChartsStackParamList,
     RootStackParamList,
     SettingsStackParamList,
-    TransactionsStackParamList,
+    RootTransactionsStackParamList,
 } from '../navigation';
 
 export type AppRouteName =
@@ -16,7 +16,7 @@ export type AppRouteName =
     | keyof ChartsStackParamList
     | keyof RootStackParamList
     | keyof SettingsStackParamList
-    | keyof TransactionsStackParamList;
+    | keyof RootTransactionsStackParamList;
 
 export interface LastActivityProps {
     path: AppRouteName;

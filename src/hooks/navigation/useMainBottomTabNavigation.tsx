@@ -6,7 +6,7 @@ import {
     DashboardStackNavigation,
     ChartsStackNavigation,
     SettingsStackNavigation,
-    TransactionsStackNavigation,
+    RootTransactionsStackNavigation,
 } from '../../navigation';
 import { Icon, GradientText } from '../../components';
 import { useGradient } from '../../hooks';
@@ -85,7 +85,7 @@ export const useMainBottomTabNavigation = (): {
         },
         {
             name: 'TransactionsTab',
-            component: TransactionsStackNavigation,
+            component: RootTransactionsStackNavigation,
             options: {
                 title: 'Transacciones',
                 tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (

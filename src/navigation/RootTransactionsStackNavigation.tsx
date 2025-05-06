@@ -1,15 +1,16 @@
 import { useMemo } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { AddTransactionScreen, TransactionDetailsScreen, TransactionListScreen } from '../screens';
-import type { TransactionsStackParamList, TransactionsStackRoute } from '../types';
+import { TransactionsTopTapNavigation } from './TransactionsTopTapNavigation';
+import { AddTransactionScreen, TransactionDetailsScreen } from '../screens';
+import type { RootTransactionsStackParamList, RootTransactionsStackRoute } from '../types';
 
-const TransactionsStack = createStackNavigator<TransactionsStackParamList>();
+const RootTransactionsStack = createStackNavigator<RootTransactionsStackParamList>();
 
-export const TransactionsStackNavigation: React.FC = () => {
-    const stackRoutes = useMemo<TransactionsStackRoute[]>(() => ([
+export const RootTransactionsStackNavigation: React.FC = () => {
+    const stackRoutes = useMemo<RootTransactionsStackRoute[]>(() => ([
         {
             name: 'TransactionList',
-            component: TransactionListScreen,
+            component: TransactionsTopTapNavigation,
             options: {
                 title: 'Transacciones',
                 headerShown: true,
@@ -34,9 +35,9 @@ export const TransactionsStackNavigation: React.FC = () => {
     ]), []);
 
     return (
-        <TransactionsStack.Navigator>
+        <RootTransactionsStack.Navigator>
             {stackRoutes.map((route) => (
-                <TransactionsStack.Screen
+                <RootTransactionsStack.Screen
                     key={route.name}
                     name={route.name}
                     component={route.component}
@@ -46,6 +47,6 @@ export const TransactionsStackNavigation: React.FC = () => {
                     }}
                 />
             ))}
-        </TransactionsStack.Navigator>
+        </RootTransactionsStack.Navigator>
     );
 };

@@ -1,0 +1,15 @@
+yarn run v1.22.22
+$ eslint . --fix
+
+/Users/hararecmedinagonzalez/Documents/SOFTWARE/FRONTEND/MOBILE/REACT_NATIVE/PROJECTS/ledger-a/src/components/transactions/DailyTransactions.tsx
+  5:18  warning  Inline style: { flex: 1, justifyContent: 'center', alignItems: 'center' }  react-native/no-inline-styles
+
+/Users/hararecmedinagonzalez/Documents/SOFTWARE/FRONTEND/MOBILE/REACT_NATIVE/PROJECTS/ledger-a/src/components/transactions/MonthlyTransactions.tsx
+  4:18  warning  Inline style: { flex: 1, justifyContent: 'center', alignItems: 'center' }  react-native/no-inline-styles
+
+/Users/hararecmedinagonzalez/Documents/SOFTWARE/FRONTEND/MOBILE/REACT_NATIVE/PROJECTS/ledger-a/src/components/transactions/TotalTransactions.tsx
+  4:18  warning  Inline style: { flex: 1, justifyContent: 'center', alignItems: 'center' }  react-native/no-inline-styles
+
+✖ 3 problems (0 errors, 3 warnings)
+
+Done in 3.17s.

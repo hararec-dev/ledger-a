@@ -4,6 +4,7 @@ export * from './DashboardStackNavigation';
 export * from './MainBottomTabNavigation';
 export * from './NotesStackNavigation';
 export * from './RootStackNavigation';
+export * from './RootTransactionsStackNavigation';
 export * from './SettingsStackNavigation';
-export * from './TransactionsStackNavigation';
+export * from './TransactionsTopTapNavigation';
 export * from './UtilityStackNavigation';
