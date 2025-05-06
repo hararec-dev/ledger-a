@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { SpeedDialButton } from '../components';
@@ -8,7 +7,6 @@ import type { TransactionsTabParamList } from '../types';
 const Tab = createMaterialTopTabNavigator<TransactionsTabParamList>();
 
 export const TransactionsTopTapNavigation: React.FC = () => {
-    const [open, setOpen] = useState(false);
     const { screenOptions, tabRoutes } = useTransactionsTopTabNavigation();
 
     return (
@@ -23,10 +21,7 @@ export const TransactionsTopTapNavigation: React.FC = () => {
                     />
                 ))}
             </Tab.Navigator>
-            <SpeedDialButton
-                isOpen={open}
-                toggleOpen={() => setOpen(!open)}
-            />
+            <SpeedDialButton/>
         </View>
     );
 };

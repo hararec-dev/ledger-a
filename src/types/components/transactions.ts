@@ -1,6 +1,9 @@
+import type { StyleProp, TextStyle, ViewStyle } from 'react-native';
+
 export interface SpeedDialButtonProps {
-    isOpen: boolean;
-    toggleOpen: () => void;
+    style?: StyleProp<ViewStyle>;
+    titleStyle?: StyleProp<TextStyle>;
+    containerStyle?: StyleProp<ViewStyle>;
 }
 export type SpeedDialButtonActions = Array<{
     icon: string;
