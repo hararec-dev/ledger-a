@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useSharedValue, useAnimatedStyle, withTiming, withSequence } from 'react-native-reanimated';
+import { useSharedValue, useAnimatedStyle, withTiming, withSequence, withDelay } from 'react-native-reanimated';
 
 export const useChartAnimation = () => {
     const chartOpacity = useSharedValue(0);
@@ -21,13 +21,13 @@ export const useChartAnimation = () => {
     });
 
     useEffect(() => {
-        chartOpacity.value = withTiming(1, { duration: 400 });
-        chartScale.value = withTiming(1, { duration: 400 });
+        chartOpacity.value = withDelay(300, withTiming(1, { duration: 400 }));
+        chartScale.value = withDelay(300, withTiming(1, { duration: 400 }));
 
-        chartProgress.value = withSequence(
+        chartProgress.value = withDelay(300, withSequence(
             withTiming(0.05, { duration: 100 }),
             withTiming(1, { duration: 1200 })
-        );
+        ));
     }, []);
 
     return {

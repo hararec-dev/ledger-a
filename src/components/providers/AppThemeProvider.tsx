@@ -49,7 +49,7 @@ export const AppThemeProvider = ({ children }: ProviderProps) => {
   const statusBarBackgroundColor = useMemo(() =>
     lastActivity?.path === 'OnboardingSlides'
       ? colors.violet[200]
-      : isDark ? colors.warmGray[900] : colors.coolGray[50],
+      : isDark ? colors.gray[900] : colors.coolGray[50],
     [lastActivity?.path, isDark, colors]
   );
 

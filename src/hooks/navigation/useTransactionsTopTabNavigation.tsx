@@ -1,6 +1,12 @@
 import { useCallback, useMemo } from 'react';
 import { Text, TextStyle } from 'react-native';
-import { Icon, TransactionCalendar, DailyTransactions, MonthlyTransactions, TransactionsSearch } from '../../components';
+import {
+    Icon,
+    TransactionCalendar,
+    DailyTransactions,
+    MonthlyTransactions,
+    TransactionsSearch
+} from '../../components';
 import { useGradient, useStyles } from '../../hooks';
 import type { MaterialTopTabNavigationOptions } from '@react-navigation/material-top-tabs';
 import type { TransactionsTabRoute } from '../../types';
@@ -15,13 +21,13 @@ export const useTransactionsTopTabNavigation = (): {
         theme: ReactNavigation.Theme;
     }): MaterialTopTabNavigationOptions => ({
         tabBarStyle: {
-            backgroundColor: props.theme.colors.background,
+            backgroundColor: props.theme.colors.card,
         },
         tabBarLabelStyle: {
             color: props.theme.colors.border,
             fontFamily: props.theme.fonts.bold.fontFamily,
         },
-        tabBarIndicatorStyle: { backgroundColor: props.theme.colors.border },
+        tabBarIndicatorStyle: { backgroundColor: props.theme.colors.text },
     }), []);
     const styles = useStyles(({ fonts }) => ({
         tabBarLabel: {

@@ -26,7 +26,7 @@ export const QuickActions: React.FC = () => {
         },
         actionCircle: {
             borderRadius: 30,
-            padding: 6,
+            padding: 5,
             marginBottom: 5,
         },
         actionLabel: {
