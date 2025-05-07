@@ -20,12 +20,11 @@ export interface RootTransactionsStackRoute {
     options: StackNavigationOptions;
 }
 
-// Nuevos tipos para la navegación de pestañas
 export type TransactionsTabParamList = {
     Daily: undefined;
     Calendar: undefined;
     Monthly: undefined;
-    Total: undefined;
+    Search: undefined;
 };
 
 export interface TransactionsTabRoute {

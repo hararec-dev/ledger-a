@@ -33,7 +33,7 @@ export const IconSelector: React.FC<IconSelectorProps> = ({ onSelectIcon }) => {
     icon.toLowerCase().includes(searchText.toLowerCase())
   );
 
-  const { goToNotes } = useAppNavigation();
+  const { goToColorSelection } = useAppNavigation();
 
   const styles = {
     container: {
@@ -118,7 +118,7 @@ export const IconSelector: React.FC<IconSelectorProps> = ({ onSelectIcon }) => {
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.themeToggle}
-          onPress={() => goToNotes()}
+          onPress={() => goToColorSelection()}
         >
           <Text>Color</Text>
         </TouchableOpacity>

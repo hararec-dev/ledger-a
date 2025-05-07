@@ -1,54 +1,19 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import {
-    DailyTransactions,
-    MonthlyTransactions,
-    SpeedDialButton,
-    TotalTransactions,
-    TransactionCalendar,
-} from '../components';
-import type { TransactionsTabParamList, TransactionsTabRoute } from '../types';
+import { SpeedDialButton } from '../components';
+import { useTransactionsTopTabNavigation } from '../hooks';
+import type { TransactionsTabParamList } from '../types';
 
 const Tab = createMaterialTopTabNavigator<TransactionsTabParamList>();
 
 export const TransactionsTopTapNavigation: React.FC = () => {
     const [open, setOpen] = useState(false);
-
-    const tabRoutes = useMemo<TransactionsTabRoute[]>(() => ([
-        {
-            name: 'Daily',
-            component: DailyTransactions,
-            options: {
-                title: 'Diario',
-            },
-        },
-        {
-            name: 'Calendar',
-            component: TransactionCalendar,
-            options: {
-                title: 'Calendario',
-            },
-        },
-        {
-            name: 'Monthly',
-            component: MonthlyTransactions,
-            options: {
-                title: 'Mensual',
-            },
-        },
-        {
-            name: 'Total',
-            component: TotalTransactions,
-            options: {
-                title: 'Total',
-            },
-        },
-    ]), []);
+    const { screenOptions, tabRoutes } = useTransactionsTopTabNavigation();
 
     return (
         <View style={styles.container}>
-            <Tab.Navigator>
+            <Tab.Navigator screenOptions={screenOptions}>
                 {tabRoutes.map((route) => (
                     <Tab.Screen
                         key={route.name}

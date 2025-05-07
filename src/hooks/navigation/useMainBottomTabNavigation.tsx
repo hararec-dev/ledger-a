@@ -10,7 +10,8 @@ import {
 } from '../../navigation';
 import { Icon, GradientText } from '../../components';
 import { useGradient } from '../../hooks';
-import type { MainBottomTabRoute } from '../../types';
+import type { MainBottomTabRoute, TabBarItemProps } from '../../types';
+
 
 export const useMainBottomTabNavigation = (): {
     screenOptions: (props: { theme: ReactNavigation.Theme }) => BottomTabNavigationOptions;
@@ -40,8 +41,7 @@ export const useMainBottomTabNavigation = (): {
             name: 'DashboardTab',
             component: DashboardStackNavigation,
             options: {
-                title: 'Inicio',
-                tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
+                tabBarIcon: ({ color, focused }: TabBarItemProps) => (
                     <Icon
                         name={focused ? 'home' : 'home-outline'}
                         color={color}
@@ -50,7 +50,7 @@ export const useMainBottomTabNavigation = (): {
                         gradientColors={focused ? themeGradient : undefined}
                     />
                 ),
-                tabBarLabel: ({ color, focused }: { color: string; focused: boolean }) => (
+                tabBarLabel: ({ color, focused }: TabBarItemProps) => (
                     <GradientText
                         text={'Inicio'}
                         color={!focused ? color : undefined}
@@ -63,8 +63,7 @@ export const useMainBottomTabNavigation = (): {
             name: 'AccountsTab',
             component: AccountsStackNavigation,
             options: {
-                title: 'Cuentas',
-                tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
+                tabBarIcon: ({ color, focused }: TabBarItemProps) => (
                     <Icon
                         name={focused ? 'notebook' : 'notebook-outline'}
                         color={color}
@@ -74,7 +73,7 @@ export const useMainBottomTabNavigation = (): {
                         iconType="material_community_icon"
                     />
                 ),
-                tabBarLabel: ({ color, focused }: { color: string; focused: boolean }) => (
+                tabBarLabel: ({ color, focused }: TabBarItemProps) => (
                     <GradientText
                         text={'Cuentas'}
                         color={!focused ? color : undefined}
@@ -87,8 +86,7 @@ export const useMainBottomTabNavigation = (): {
             name: 'TransactionsTab',
             component: RootTransactionsStackNavigation,
             options: {
-                title: 'Transacciones',
-                tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
+                tabBarIcon: ({ color, focused }: TabBarItemProps) => (
                     <Icon
                         name={focused ? 'add-circle' : 'add-circle-outline'}
                         color={color}
@@ -97,7 +95,7 @@ export const useMainBottomTabNavigation = (): {
                         gradientColors={focused ? themeGradient : undefined}
                     />
                 ),
-                tabBarLabel: ({ color, focused }: { color: string; focused: boolean }) => (
+                tabBarLabel: ({ color, focused }: TabBarItemProps) => (
                     <GradientText
                         text={'Transacciones'}
                         color={!focused ? color : undefined}
@@ -110,8 +108,7 @@ export const useMainBottomTabNavigation = (): {
             name: 'ChartsTab',
             component: ChartsStackNavigation,
             options: {
-                title: 'Charts',
-                tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
+                tabBarIcon: ({ color, focused }: TabBarItemProps) => (
                     <Icon
                         name={focused ? 'bar-chart' : 'bar-chart-outline'}
                         color={color}
@@ -120,7 +117,7 @@ export const useMainBottomTabNavigation = (): {
                         gradientColors={focused ? themeGradient : undefined}
                     />
                 ),
-                tabBarLabel: ({ color, focused }: { color: string; focused: boolean }) => (
+                tabBarLabel: ({ color, focused }: TabBarItemProps) => (
                     <GradientText
                         text={'Gráficas'}
                         color={!focused ? color : undefined}
@@ -133,8 +130,7 @@ export const useMainBottomTabNavigation = (): {
             name: 'SettingsTab',
             component: SettingsStackNavigation,
             options: {
-                title: 'Más',
-                tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
+                tabBarIcon: ({ color, focused }: TabBarItemProps) => (
                     <Icon
                         name={focused ? 'dots-horizontal-circle' : 'dots-horizontal-circle-outline'}
                         color={color}
@@ -144,7 +140,7 @@ export const useMainBottomTabNavigation = (): {
                         iconType="material_community_icon"
                     />
                 ),
-                tabBarLabel: ({ color, focused }: { color: string; focused: boolean }) => (
+                tabBarLabel: ({ color, focused }: TabBarItemProps) => (
                     <GradientText
                         text={'Más'}
                         color={!focused ? color : undefined}
