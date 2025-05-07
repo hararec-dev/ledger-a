@@ -1882,6 +1882,27 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
+  - RNShare (12.0.11):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.11.18.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
   - RNSVG (15.11.1):
     - DoubleConversion
     - glog
@@ -2034,6 +2055,7 @@ DEPENDENCIES:
   - RNKeychain (from `../node_modules/react-native-keychain`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
+  - RNShare (from `../node_modules/react-native-share`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - "simdjson (from `../node_modules/@nozbe/simdjson`)"
@@ -2202,6 +2224,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
     :path: "../node_modules/react-native-screens"
+  RNShare:
+    :path: "../node_modules/react-native-share"
   RNSVG:
     :path: "../node_modules/react-native-svg"
   RNVectorIcons:
@@ -2292,6 +2316,7 @@ SPEC CHECKSUMS:
   RNKeychain: 9524b2d1e91e3a9f5074c1c94f5746989a8d3d11
   RNReanimated: 7da448ae6c4abc9c6cb256b27a6c3927b20da2b8
   RNScreens: c8c0b69f667891d474ad1229054d514f06778772
+  RNShare: e490141ac4a3b9be56caaa4225a9c0e9b5c4f1ea
   RNSVG: 7e38044415125a1d108294377de261d2fe2c54c9
   RNVectorIcons: 14a0c42f16a26bcc3e79a19bc1c5718284b1d469
   simdjson: e6bfae9ce4bcdc80452d388d593816f1ca2106f3
