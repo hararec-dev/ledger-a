@@ -10,3 +10,10 @@ export type SpeedDialButtonActions = Array<{
     title: string;
     onPress: () => void;
 }>;
+
+export interface SpeedDialAction {
+    icon: string;
+    title: string;
+    iconType: 'material-community' | 'ionicon';
+    onPress: () => void;
+}

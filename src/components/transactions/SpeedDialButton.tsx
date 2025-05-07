@@ -2,25 +2,28 @@ import { useState } from 'react';
 import { SpeedDial } from '@rneui/themed';
 import LinearGradient from 'react-native-linear-gradient';
 import { useGradient, useStyles } from '../../hooks';
-import type { SpeedDialButtonProps } from '../../types';
+import type { SpeedDialAction, SpeedDialButtonProps } from '../../types';
 
 
 export const SpeedDialButton: React.FC<SpeedDialButtonProps> = ({ style, containerStyle, titleStyle }) => {
     const { themeGradient } = useGradient();
     const [isOpen, setIsOpen] = useState(false);
-    const speedDialActions = [
+    const speedDialActions: SpeedDialAction[] = [
         {
             icon: 'arrow-up-bold',
             title: 'Egreso',
+            iconType: 'material-community',
             onPress: () => console.log('Add Something'),
         },
         {
-            icon: 'arrow-u-right-top-bold',
+            icon: 'arrow-redo',
             title: 'Transferencia',
+            iconType: 'ionicon',
             onPress: () => console.log('Delete Something'),
         },
         {
             icon: 'arrow-down-bold',
+            iconType: 'material-community',
             title: 'Ingreso',
             onPress: () => console.log('Add Something'),
         },
@@ -78,7 +81,7 @@ export const SpeedDialButton: React.FC<SpeedDialButtonProps> = ({ style, contain
             {speedDialActions.map((action, index) => (
                 <SpeedDial.Action
                     key={index}
-                    icon={{ name: action.icon, type: 'material-community', color: styles.icon.color }}
+                    icon={{ name: action.icon, type: action.iconType, color: styles.icon.color }}
                     title={action.title}
                     titleStyle={[styles.actionTitle, titleStyle]}
                     onPress={action.onPress}
