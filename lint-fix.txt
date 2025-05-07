@@ -1,0 +1,33 @@
+yarn run v1.22.22
+$ eslint . --fix
+
+/Users/hararecmedinagonzalez/Documents/SOFTWARE/FRONTEND/MOBILE/REACT_NATIVE/PROJECTS/ledger-a/src/components/transactions/TransactionDetailsList.tsx
+  14:21  warning  Inline style: { color: "item.type === 'income' ? '#2196f3' : '#f44336'" }  react-native/no-inline-styles
+
+/Users/hararecmedinagonzalez/Documents/SOFTWARE/FRONTEND/MOBILE/REACT_NATIVE/PROJECTS/ledger-a/src/components/transactions/TransactionSummaryHeader.tsx
+  14:51  warning  Inline style: { color: '#2196f3' }  react-native/no-inline-styles
+  20:51  warning  Inline style: { color: '#f44336' }  react-native/no-inline-styles
+
+/Users/hararecmedinagonzalez/Documents/SOFTWARE/FRONTEND/MOBILE/REACT_NATIVE/PROJECTS/ledger-a/src/screens/transactions/DailyTransactionsScreen.tsx
+  5:18  warning  Inline style: { flex: 1, justifyContent: 'center', alignItems: 'center' }  react-native/no-inline-styles
+
+/Users/hararecmedinagonzalez/Documents/SOFTWARE/FRONTEND/MOBILE/REACT_NATIVE/PROJECTS/ledger-a/src/screens/transactions/MonthlyTransactionsScreen.tsx
+  4:18  warning  Inline style: { flex: 1, justifyContent: 'center', alignItems: 'center' }  react-native/no-inline-styles
+
+/Users/hararecmedinagonzalez/Documents/SOFTWARE/FRONTEND/MOBILE/REACT_NATIVE/PROJECTS/ledger-a/src/screens/transactions/TransactionCalendarScreen.tsx
+  228:31  warning  Inline style: {
+  backgroundColor: '#222',
+  borderRadius: 16,
+  width: '90%',
+  maxHeight: 300,
+  padding: 0,
+  justifyContent: 'flex-start',
+  alignItems: 'stretch'
+}  react-native/no-inline-styles
+
+/Users/hararecmedinagonzalez/Documents/SOFTWARE/FRONTEND/MOBILE/REACT_NATIVE/PROJECTS/ledger-a/src/screens/transactions/TransactionsSearchScreen.tsx
+  4:18  warning  Inline style: { flex: 1, justifyContent: 'center', alignItems: 'center' }  react-native/no-inline-styles
+
+✖ 7 problems (0 errors, 7 warnings)
+
+Done in 3.03s.

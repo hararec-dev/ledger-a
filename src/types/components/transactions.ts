@@ -17,3 +17,30 @@ export interface SpeedDialAction {
     iconType: 'material-community' | 'ionicon';
     onPress: () => void;
 }
+
+export type TransactionType = 'income' | 'expense' | 'transfer';
+
+export interface Transaction {
+    id: string;
+    date: string;
+    type: TransactionType;
+    amount: number;
+    description: string;
+    category: string;
+    method: string;
+}
+
+export interface TransactionCalendarProps {
+    transactions?: Transaction[];
+}
+
+export interface TransactionDetailsListProps {
+    transactions: Transaction[];
+    selectedDate: string;
+}
+
+export interface TransactionSummaryHeaderProps {
+    income: number;
+    expenses: number;
+    balance: number;
+}

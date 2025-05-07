@@ -1,12 +1,12 @@
 import { useCallback, useMemo } from 'react';
 import { Text, TextStyle } from 'react-native';
+import { Icon } from '../../components';
 import {
-    Icon,
-    TransactionCalendar,
-    DailyTransactions,
-    MonthlyTransactions,
-    TransactionsSearch
-} from '../../components';
+    DailyTransactionsScreen,
+    MonthlyTransactionsScreen,
+    TransactionCalendarScreen,
+    TransactionsSearchScreen,
+} from '../../screens';
 import { useGradient, useStyles } from '../../hooks';
 import type { MaterialTopTabNavigationOptions } from '@react-navigation/material-top-tabs';
 import type { TransactionsTabRoute } from '../../types';
@@ -41,7 +41,7 @@ export const useTransactionsTopTabNavigation = (): {
     const tabRoutes = useMemo<TransactionsTabRoute[]>(() => ([
         {
             name: 'Daily',
-            component: DailyTransactions,
+            component: DailyTransactionsScreen,
             options: {
                 tabBarIcon: ({ color, focused }) => (
                     <Icon
@@ -61,7 +61,7 @@ export const useTransactionsTopTabNavigation = (): {
         },
         {
             name: 'Monthly',
-            component: MonthlyTransactions,
+            component: MonthlyTransactionsScreen,
             options: {
                 tabBarIcon: ({ color, focused }) => (
                     <Icon
@@ -81,7 +81,7 @@ export const useTransactionsTopTabNavigation = (): {
         },
         {
             name: 'Calendar',
-            component: TransactionCalendar,
+            component: TransactionCalendarScreen,
             options: {
                 tabBarIcon: ({ color, focused }) => (
                     <Icon
@@ -101,7 +101,7 @@ export const useTransactionsTopTabNavigation = (): {
         },
         {
             name: 'Search',
-            component: TransactionsSearch,
+            component: TransactionsSearchScreen,
             options: {
                 tabBarIcon: ({ color, focused }) => (
                     <Icon
