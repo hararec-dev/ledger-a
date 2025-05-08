@@ -1,3 +1,4 @@
+export * from './accordion';
 export * from './auth';
 export * from './buttons';
 export * from './charts';
