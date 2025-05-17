@@ -1,13 +1,13 @@
 import { View, Text, TouchableOpacity, StyleSheet, FlatList } from 'react-native';
 import { Icon } from '../icon/Icon';
-import type { AccordionProps } from '../../types';
+import type { AccordionItem, AccordionProps } from '../../types';
 
 export const Accordion: React.FC<AccordionProps> = ({
     sections,
     activeSection,
     onSectionPress,
 }) => {
-    const renderItem = ({ item, index }: { item: typeof sections[0]; index: number }) => (
+    const renderItem = ({ item, index }: AccordionItem) => (
         <View key={item.key} style={styles.sectionContainer}>
             <TouchableOpacity
                 style={styles.header}

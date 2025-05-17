@@ -5,6 +5,11 @@ export interface AccordionSection {
     content: React.ReactNode;
 }
 
+export interface AccordionItem {
+    item: AccordionSection;
+    index: number;
+}
+
 export interface AccordionProps {
     sections: AccordionSection[];
     activeSection: number | null;
