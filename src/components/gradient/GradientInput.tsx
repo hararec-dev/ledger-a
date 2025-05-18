@@ -16,12 +16,13 @@ export const GradientInput: React.FC<GradientInputProps> = ({
     placeholder,
     value,
 }) => {
-    const styles = useStyles(({ colors, isDark }) => ({
+    const styles = useStyles(({ colors, isDark, fonts }) => ({
         input: {
             padding: 8,
             fontSize: 16,
             backgroundColor: colors.gray[50],
             color: colors.gray[900],
+            fontFamily: fonts.nunito.regular,
             ...(isSecureTextEntry && { flex: 4 }),
         },
         placeholder: {

@@ -1,3 +1,5 @@
+import type { BottomTabNavigationOptions } from '@react-navigation/bottom-tabs';
+
 export type MainBottomTabParamList = {
   DashboardTab: undefined;
   TransactionsTab: undefined;
@@ -9,17 +11,10 @@ export type MainBottomTabParamList = {
 export type MainBottomTabRoute = {
   name: keyof MainBottomTabParamList;
   component: React.ComponentType<any>;
-  options: {
-    title: string;
-    tabBarIcon: (props: {
-      color: string;
-      size: number;
-      focused: boolean;
-    }) => React.ReactNode;
-    tabBarLabel: (props: {
-      focused: boolean;
-      color: string;
-    }) => React.ReactNode;
-    tabBarButton?: (props: any) => React.ReactNode;
-  };
+  options: BottomTabNavigationOptions;
 };
+
+export type TabBarItemProps = {
+  focused: boolean;
+  color: string;
+}

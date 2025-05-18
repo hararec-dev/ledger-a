@@ -1,5 +1,5 @@
-import { View, Text } from 'react-native';
-import { GradientBackground, GradientButton, Icon } from '../../components';
+import { View, Text, TouchableOpacity } from 'react-native';
+import { GradientBackground, Icon } from '../../components';
 import { useCurrentStatusAppStore, useStyles } from '../../hooks';
 import type { BalanceCardProps } from '../../types';
 
@@ -44,11 +44,11 @@ export const BalanceCard: React.FC<BalanceCardProps> = ({
             alignItems: 'center',
             borderRadius: 8,
             paddingVertical: 5,
-            paddingHorizontal: 15,
+            paddingHorizontal: 18,
             zIndex: 10,
         },
         settingsIcon: {
-            color: colors.coolGray[50],
+            color: isDark ? colors.coolGray[50] : colors.gray[900],
             size: 20,
         },
         balanceIcon: {
@@ -98,8 +98,8 @@ export const BalanceCard: React.FC<BalanceCardProps> = ({
                             {isBalanceVisibleOnDashboard ? percentChange : '****'}
                         </Text>
                     </View>
-                    <GradientButton
-                        gradientStyle={styles.settingsButton}
+                    <TouchableOpacity
+                        style={styles.settingsButton}
                         onPress={() => setIsBalanceVisibleOnDashboard(!isBalanceVisibleOnDashboard)}
                     >
                         <Icon
@@ -107,7 +107,7 @@ export const BalanceCard: React.FC<BalanceCardProps> = ({
                             size={styles.settingsIcon.size}
                             color={styles.settingsIcon.color}
                         />
-                    </GradientButton>
+                    </TouchableOpacity>
                 </View>
             </View>
         </GradientBackground>

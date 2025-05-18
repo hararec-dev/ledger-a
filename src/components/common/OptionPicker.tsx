@@ -23,6 +23,7 @@ export const OptionPicker = <T extends OptionItem>({
         },
         picker: {
             backgroundColor: platform.OS === 'ios' ? colors.gray[50] : 'transparent',
+            fontFamily: fonts.nunito.regular,
             ...(platform.OS === 'android' && {
                 height: 50,
                 color: colors.warmGray[900],
@@ -66,7 +67,6 @@ export const OptionPicker = <T extends OptionItem>({
             ...(platform.OS === 'android' && {
                 fontSize: 16,
                 width: '100%',
-                fontFamily: fonts.nunito.regular,
                 backgroundColor: colors.coolGray[50],
             }),
         },

@@ -1,4 +1,5 @@
 export * from './auth';
+export * from './calendar';
 export * from './currency';
 export * from './current-status-app';
 export * from './database';

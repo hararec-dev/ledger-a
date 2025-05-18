@@ -8,7 +8,8 @@ export const QuickActions: React.FC = () => {
     const actions: QuickAction[] = [
         { iconName: 'note-edit', label: 'Notas', iconType: 'material_community_icon' },
         { iconName: 'arrow-redo', label: 'Transferir', iconType: 'ion_icon' },
-        { iconName: 'add-circle', label: 'Agregar', iconType: 'ion_icon' },
+        { iconName: 'arrow-up-bold', label: 'Egreso', iconType: 'material_community_icon' },
+        { iconName: 'arrow-down-bold', label: 'Ingreso', iconType: 'material_community_icon' },
     ];
     const styles = useStyles(({ colors, isDark, fonts }) => ({
         quickActions: {
@@ -25,7 +26,7 @@ export const QuickActions: React.FC = () => {
         },
         actionCircle: {
             borderRadius: 30,
-            padding: 6,
+            padding: 5,
             marginBottom: 5,
         },
         actionLabel: {

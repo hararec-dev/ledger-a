@@ -33,3 +33,8 @@ export interface DashboardTransactionItemProps {
 export interface DashboardTransactionsListProps {
     transactions: DashboardTransaction[];
 }
+
+export interface TransactionChartProps {
+    chartData: number[];
+    chartColor: string;
+}

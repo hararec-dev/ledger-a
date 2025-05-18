@@ -18,7 +18,7 @@ export const useStyles = <T extends NamedStyles<T>>(
       screenHeight: height,
       fontScale,
       scale,
-      fonts
+      fonts,
     }),
     [styleCallback, isDark, colors, width, height, fontScale, scale]
   );

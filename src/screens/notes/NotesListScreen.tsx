@@ -1,7 +1,7 @@
-import { View, Text, StyleSheet, Dimensions, TouchableOpacity, Image, ScrollView, Platform } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, TouchableOpacity, Image, ScrollView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { DraggableGrid } from '../../components';
 import type { DraggableItem } from '../../types';
-import { useNavigation } from '@react-navigation/native';
 
 const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;

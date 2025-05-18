@@ -8,7 +8,7 @@ import type {
     MainBottomTabParamList,
     NotesStackParamList,
     SettingsStackParamList,
-    TransactionsStackParamList,
+    RootTransactionsStackParamList,
     UtilityStackParamList,
 } from '../../types';
 
@@ -20,7 +20,7 @@ export type AllRoutes =
     | keyof NotesStackParamList
     | keyof RootStackParamList
     | keyof SettingsStackParamList
-    | keyof TransactionsStackParamList
+    | keyof RootTransactionsStackParamList
     | keyof UtilityStackParamList;
 
 export type NavigationHierarchy =
@@ -40,7 +40,7 @@ export type NavigationHierarchy =
                                 StackNavigationProp<NotesStackParamList>,
                                 CompositeNavigationProp<
                                     StackNavigationProp<SettingsStackParamList>,
-                                    StackNavigationProp<TransactionsStackParamList>
+                                    StackNavigationProp<RootTransactionsStackParamList>
                                 >
                             >
                         >
@@ -57,7 +57,7 @@ export type RouteParams<RouteName extends AllRoutes> =
     RouteName extends keyof DashboardStackParamList ? DashboardStackParamList[RouteName] :
     RouteName extends keyof NotesStackParamList ? NotesStackParamList[RouteName] :
     RouteName extends keyof SettingsStackParamList ? SettingsStackParamList[RouteName] :
-    RouteName extends keyof TransactionsStackParamList ? TransactionsStackParamList[RouteName] :
+    RouteName extends keyof RootTransactionsStackParamList ? RootTransactionsStackParamList[RouteName] :
     RouteName extends keyof UtilityStackParamList ? UtilityStackParamList[RouteName] :
     RouteName extends keyof MainBottomTabParamList ? MainBottomTabParamList[RouteName] :
     undefined;

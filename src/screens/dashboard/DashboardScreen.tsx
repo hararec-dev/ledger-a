@@ -123,7 +123,7 @@ export const DashboardScreen = () => {
     return (
         <View style={styles.container}>
             <BalanceCard
-                balance="$87,430.12"
+                balance="$1400000000000"
                 percentChange="10.2%"
                 isPositive={true}
             />
