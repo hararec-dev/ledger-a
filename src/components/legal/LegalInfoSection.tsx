@@ -1,9 +1,9 @@
 import React, { memo } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Divider } from '@rneui/themed';
-import { LegaInfoItem } from '../../components';
-import { useStyles } from '../../hooks';
-import type { LegalInfoSectionProps, LegalItem } from '../../types';
+import { LegaInfoItem } from '@components';
+import { useStyles } from '@hooks';
+import type { LegalInfoSectionProps, LegalItem } from '@types';
 
 
 export const LegalInfoSection: React.FC<LegalInfoSectionProps> = memo(({ section, index }) => {

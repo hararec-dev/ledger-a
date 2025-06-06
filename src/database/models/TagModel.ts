@@ -1,7 +1,7 @@
 import { Model } from '@nozbe/watermelondb';
 import { readonly, date, text, children } from '@nozbe/watermelondb/decorators';
-import type { EventStoreModel } from './EventStoreModel';
-import type { SnapshotModel } from './SnapshotModel';
+import type { EventStoreModel } from '@database/models/EventStoreModel';
+import type { SnapshotModel } from '@database/models/SnapshotModel';
 import type { Associations } from '@nozbe/watermelondb/Model';
 
 

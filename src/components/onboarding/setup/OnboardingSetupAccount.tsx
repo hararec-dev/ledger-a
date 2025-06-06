@@ -1,10 +1,10 @@
 import { useMemo } from 'react';
 import { ScrollView } from 'react-native';
 import { useFormik } from 'formik';
-import { OnboardingSetupAccountForm, OnboardingSetupHeader } from '../../../components';
-import { useCurrentStatusAppStore, useGradient, useLocalDatabase, useStyles } from '../../../hooks';
-import { accountsInfo, currencies, ONBOARDING_SETUP_TEXT, validationOnboardingSetup as validationSchema } from '../../../config';
-import type { FormOnboardingSetupValues, OnboardingSetupNavProps } from '../../../types';
+import { OnboardingSetupAccountForm, OnboardingSetupHeader } from '@components';
+import { useCurrentStatusAppStore, useGradient, useLocalDatabase, useStyles } from '@hooks';
+import { accountsInfo, currencies, ONBOARDING_SETUP_TEXT, validationOnboardingSetup as validationSchema } from '@config';
+import type { FormOnboardingSetupValues, OnboardingSetupNavProps } from '@types';
 
 
 export const OnboardingSetupAccount: React.FC<OnboardingSetupNavProps> = ({ navigation }) => {

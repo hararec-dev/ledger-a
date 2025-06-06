@@ -1,7 +1,7 @@
 import { Text, View } from 'react-native';
-import { GradientText } from '../../../components';
-import { useStyles } from '../../../hooks';
-import type { OnboardingSetupHeaderProps } from '../../../types';
+import { GradientText } from '@components';
+import { useStyles } from '@hooks';
+import type { OnboardingSetupHeaderProps } from '@types';
 
 
 export const OnboardingSetupHeader: React.FC<OnboardingSetupHeaderProps> = ({

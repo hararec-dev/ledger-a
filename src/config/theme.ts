@@ -1,7 +1,7 @@
 /* Colors obtained from https://v2.tailwindcss.com/docs/customizing-colors */
 
 import type { Theme } from '@react-navigation/native';
-import type { AppFonts, FullColorPallete, RneuiPlatformColors } from '../types';
+import type { AppFonts, FullColorPallete, RneuiPlatformColors } from '@types';
 
 export const colorPalette: FullColorPallete = {
     blueGray: {

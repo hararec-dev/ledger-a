@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, FlatList } from 'react-native';
-import type { TransactionDetailsListProps, Transaction } from '../../types';
+import type { TransactionDetailsListProps, Transaction } from '@types';
 
 export const TransactionDetailsList: React.FC<TransactionDetailsListProps> = ({
     transactions,

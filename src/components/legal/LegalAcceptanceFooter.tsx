@@ -1,8 +1,8 @@
 import { Text, View } from 'react-native';
 import { CheckBox } from '@rneui/themed';
-import { LegalLink } from '../../components';
-import { useCurrentStatusAppStore, useAppNavigation, useStyles } from '../../hooks';
-import { LEGAL_ACCEPTANCE_LABELS } from '../../config';
+import { LegalLink } from '@components';
+import { useCurrentStatusAppStore, useAppNavigation, useStyles } from '@hooks';
+import { LEGAL_ACCEPTANCE_LABELS } from '@config';
 
 
 export const LegalAcceptanceFooter: React.FC = () => {

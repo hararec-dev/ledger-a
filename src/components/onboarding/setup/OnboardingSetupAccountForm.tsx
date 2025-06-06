@@ -1,8 +1,8 @@
 import { Text, View } from 'react-native';
-import { AccountTypesPicker, CurrencyPicker, FormSetupGroup, GradientButton, GradientInput } from '../../../components';
-import { ONBOARDING_SETUP_TEXT } from '../../../config';
-import { useStyles } from '../../../hooks';
-import type { OnboardingSetupFormProps } from '../../../types';
+import { AccountTypesPicker, CurrencyPicker, FormSetupGroup, GradientButton, GradientInput } from '@components';
+import { ONBOARDING_SETUP_TEXT } from '@config';
+import { useStyles } from '@hooks';
+import type { OnboardingSetupFormProps } from '@types';
 
 
 export const OnboardingSetupAccountForm: React.FC<OnboardingSetupFormProps> = ({

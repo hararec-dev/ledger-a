@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
-import { FormSetupGroup, GradientInput } from '../../../components';
-import type { PinInputProps, ValidFormOnboardingAppFieldName } from '../../../types';
+import { FormSetupGroup, GradientInput } from '@components';
+import type { PinInputProps, ValidFormOnboardingAppFieldName } from '@types';
 
 export const OnboardingPinInput: React.FC<PinInputProps> = ({
     autoFocus,

@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import type { ValidationConstants } from '../types';
+import type { ValidationConstants } from '@types';
 
 const VALIDATION_CONSTANTS: ValidationConstants = {
     ONBOARDING_SETUP: {

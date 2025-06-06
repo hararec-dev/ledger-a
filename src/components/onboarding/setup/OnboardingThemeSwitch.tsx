@@ -1,8 +1,8 @@
 import { Text, View } from 'react-native';
-import { FormSetupGroup, GradientSwitch, Icon } from '../../../components';
-import { useStyles, useThemeStore } from '../../../hooks';
-import { ONBOARDING_SETUP_TEXT } from '../../../config';
-import type { OnboardingFormProps } from '../../../types';
+import { FormSetupGroup, GradientSwitch, Icon } from '@components';
+import { useStyles, useThemeStore } from '@hooks';
+import { ONBOARDING_SETUP_TEXT } from '@config';
+import type { OnboardingFormProps } from '@types';
 
 
 export const OnboardingThemeSwitch: React.FC<OnboardingFormProps> = ({ formik, gradientColors }) => {

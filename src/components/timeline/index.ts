@@ -1,2 +1,2 @@
-export * from './TimeLine';
-export * from './TimelineExample';
+export * from '@components/timeline/TimeLine';
+export * from '@components/timeline/TimelineExample';

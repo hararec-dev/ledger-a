@@ -1,4 +1,4 @@
-import type { AuthScreenTexts, TextContent } from '../types';
+import type { AuthScreenTexts, TextContent } from '@types';
 
 export const AUTH_CONFIG = {
     MAX_ATTEMPTS: 3,

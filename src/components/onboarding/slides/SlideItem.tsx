@@ -1,7 +1,7 @@
 import { Text, View } from 'react-native';
-import { GradientText } from '../../../components';
-import { useGradient, useStyles } from '../../../hooks';
-import type { SlideItemProps } from '../../../types';
+import { GradientText } from '@components';
+import { useGradient, useStyles } from '@hooks';
+import type { SlideItemProps } from '@types';
 
 
 export const SlideItem: React.FC<SlideItemProps> = ({ desc, img, title, style }) => {

@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { SpeedDial } from '@rneui/themed';
 import LinearGradient from 'react-native-linear-gradient';
-import { useGradient, useStyles } from '../../hooks';
-import type { SpeedDialAction, SpeedDialButtonProps } from '../../types';
+import { useGradient, useStyles } from '@hooks';
+import type { SpeedDialAction, SpeedDialButtonProps } from '@types';
 
 
 export const SpeedDialButton: React.FC<SpeedDialButtonProps> = ({ style, containerStyle, titleStyle }) => {

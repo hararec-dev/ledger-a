@@ -1,8 +1,8 @@
 import { useMemo } from 'react';
 import { View } from 'react-native';
-import { Timeline } from '../../components';
-import { useStyles, useThemeStore } from '../../hooks';
-import type { TimelineItem } from '../../types';
+import { Timeline } from '@components';
+import { useStyles, useThemeStore } from '@hooks';
+import type { TimelineItem } from '@types';
 
 
 export const TimelineExample = () => {

@@ -1,4 +1,4 @@
-import type { OnboardingSetupTextContent, PaginationButtonsConfig } from '../types';
+import type { OnboardingSetupTextContent, PaginationButtonsConfig } from '@types';
 
 export const PAGINATION_BUTTONS_CONFIG: PaginationButtonsConfig = {
     ICON_COLOR: 'white',

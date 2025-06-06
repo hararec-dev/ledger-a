@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ProviderProps } from '../../types';
+import { ProviderProps } from '@types';
 
 const queryClient = new QueryClient();
 

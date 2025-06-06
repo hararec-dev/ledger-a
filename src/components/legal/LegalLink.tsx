@@ -1,6 +1,6 @@
 import { Text, TouchableOpacity } from 'react-native';
-import type { LegalLinkProps } from '../../types';
-import { useStyles } from '../../hooks';
+import type { LegalLinkProps } from '@types';
+import { useStyles } from '@hooks';
 
 export const LegalLink: React.FC<LegalLinkProps> = ({ onPress, text }) => {
     const styles = useStyles(({ colors }) => ({
