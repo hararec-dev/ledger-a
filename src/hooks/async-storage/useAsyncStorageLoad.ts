@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react';
-import { useColorScheme } from 'react-native';
 import { useBiometricStore, useCurrentStatusAppStore, useThemeStore } from '../../hooks';
 
 export const useAsyncStorageLoad = () => {
-    const colorScheme = useColorScheme();
     const [isThemeLoaded, setIsThemeLoaded] = useState(false);
     const [isStoredDataLoaded, setIsStoredDataLoaded] = useState(false);
     const [isLoaded, setIsLoaded] = useState(false);
@@ -17,14 +15,18 @@ export const useAsyncStorageLoad = () => {
     } = useThemeStore();
     const {
         hasOnboarded,
+        isBalanceVisibleOnDashboard,
         lastActivity,
         legalConditionsAreAccepted,
         loadStoredData,
         pinEnabled,
+        selectedColor,
         setHasOnboarded,
+        setIsBalanceVisibleOnDashboard,
         setLastActivity,
         setLegalConditionsAreAccepted,
         setPinEnabled,
+        setSelectedColor,
         setUserCurrency,
         userCurrency,
     } = useCurrentStatusAppStore();
@@ -40,7 +42,7 @@ export const useAsyncStorageLoad = () => {
         };
 
         initStoredData();
-    }, [loadStoredData]);
+    }, []);
 
     useEffect(() => {
         const initTheme = async () => {
@@ -49,39 +51,51 @@ export const useAsyncStorageLoad = () => {
         };
 
         initTheme();
-    }, [colorScheme, loadTheme]);
+    }, []);
 
     useEffect(() => {
         if (hasOnboarded !== null) {
             setHasOnboarded(hasOnboarded);
         }
-    }, [hasOnboarded, setHasOnboarded]);
+    }, []);
 
     useEffect(() => {
         if (userCurrency !== null) {
             setUserCurrency(userCurrency);
         }
-    }, [userCurrency, setUserCurrency]);
+    }, []);
 
     useEffect(() => {
         setLegalConditionsAreAccepted(legalConditionsAreAccepted);
-    }, [legalConditionsAreAccepted, setLegalConditionsAreAccepted]);
+    }, []);
 
     useEffect(() => {
         if (lastActivity !== null) {
             setLastActivity(lastActivity);
         }
-    }, [lastActivity, setLastActivity]);
+    }, []);
+
+    useEffect(() => {
+        if (isBalanceVisibleOnDashboard !== null) {
+            setIsBalanceVisibleOnDashboard(isBalanceVisibleOnDashboard);
+        }
+    }, []);
 
     useEffect(() => {
         if (pinEnabled !== null) {
             setPinEnabled(pinEnabled);
         }
-    }, [pinEnabled, setPinEnabled]);
+    }, []);
 
     useEffect(() => {
         setAllowBiometricAuth(allowBiometricAuth);
-    }, [allowBiometricAuth, setAllowBiometricAuth]);
+    }, []);
+
+    useEffect(() => {
+        if (selectedColor !== null) {
+            setSelectedColor(selectedColor);
+        }
+    }, []);
 
     useEffect(() => {
         if (isThemeLoaded && isStoredDataLoaded) {

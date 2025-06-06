@@ -10,7 +10,7 @@ export const OnboardingSetupHeader: React.FC<OnboardingSetupHeaderProps> = ({
   subtitle,
   isAccount,
 }) => {
-  const styles = useStyles(({ isDark, colors, Platform }) => ({
+  const styles = useStyles(({ isDark, colors, Platform, fonts }) => ({
     header: {
       justifyContent: 'center',
       alignItems: 'center',
@@ -21,7 +21,7 @@ export const OnboardingSetupHeader: React.FC<OnboardingSetupHeaderProps> = ({
       fontSize: 16,
       textAlign: 'center',
       fontWeight: '500',
-      fontFamily: 'Nunito-Regular',
+      fontFamily: fonts.nunito.regular,
       color: isDark ? colors.coolGray[50] : colors.coolGray[900],
     },
     text: {

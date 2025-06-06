@@ -1,7 +1,7 @@
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
-import type { SafeProviderProps } from '../../types';
+import type { ProviderProps } from '../../types';
 
-export const SafeProvider = ({ children }: SafeProviderProps) => {
+export const SafeProvider = ({ children }: ProviderProps) => {
     return (
         <SafeAreaProvider>
             <SafeAreaView style={styles.container}>

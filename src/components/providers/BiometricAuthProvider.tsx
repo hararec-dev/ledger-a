@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { useBiometricStore } from '../../hooks';
-import type { BiometricAuthProviderProps } from '../../types';
+import type { ProviderProps } from '../../types';
 
 
-export const BiometricAuthProvider = ({ children }: BiometricAuthProviderProps) => {
+export const BiometricAuthProvider = ({ children }: ProviderProps) => {
     const {
         biometricKeysExist,
         checkBiometricAvailability,

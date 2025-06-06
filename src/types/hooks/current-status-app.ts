@@ -3,20 +3,20 @@ import type {
     AccountsStackParamList,
     DashboardStackParamList,
     MainBottomTabParamList,
-    ReportsStackParamList,
+    ChartsStackParamList,
     RootStackParamList,
     SettingsStackParamList,
-    TransactionsStackParamList,
+    RootTransactionsStackParamList,
 } from '../navigation';
 
 export type AppRouteName =
     | keyof AccountsStackParamList
     | keyof DashboardStackParamList
     | keyof MainBottomTabParamList
-    | keyof ReportsStackParamList
+    | keyof ChartsStackParamList
     | keyof RootStackParamList
     | keyof SettingsStackParamList
-    | keyof TransactionsStackParamList;
+    | keyof RootTransactionsStackParamList;
 
 export interface LastActivityProps {
     path: AppRouteName;
@@ -36,10 +36,14 @@ export interface CurrentStatusAppState {
     legalConditionsAreAccepted: boolean;
     pinEnabled: boolean | null;
     userCurrency: Currency | null;
+    isBalanceVisibleOnDashboard: boolean | null;
+    selectedColor: string | null;
     loadStoredData: () => Promise<void>;
     setHasOnboarded: (value: boolean) => Promise<void>;
     setLastActivity: (activity: LastActivity) => Promise<void>;
     setLegalConditionsAreAccepted: (activity: boolean) => Promise<void>;
     setPinEnabled: (enabled: boolean) => Promise<void>;
     setUserCurrency: (currency: Currency) => Promise<void>;
+    setIsBalanceVisibleOnDashboard: (isVisible: boolean) => Promise<void>;
+    setSelectedColor: (color: string) => Promise<void>;
 }

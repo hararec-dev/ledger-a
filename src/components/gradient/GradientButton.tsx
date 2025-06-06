@@ -11,15 +11,17 @@ export const GradientButton = ({
     gradientColors,
     disabled = false,
     disabledStyle,
+    gradientStyle,
 }: GradientButtonProps) => {
     const { themeGradient } = useGradient();
     const styles = useStyles(({ Platform }) => ({
-        button: {
+        gradient: {
             ...(Platform.OS === 'ios' && { height: 50 }),
             borderRadius: 10,
             padding: Platform.OS === 'ios' ? 0 : 15,
             alignItems: 'center',
             justifyContent: 'center',
+            ...(gradientStyle ? gradientStyle : {}),
         },
     }));
 
@@ -31,7 +33,7 @@ export const GradientButton = ({
         >
             <GradientBackground
                 gradient={gradientColors ? gradientColors : themeGradient}
-                style={styles.button}
+                style={styles.gradient}
             >
                 {children}
             </GradientBackground>

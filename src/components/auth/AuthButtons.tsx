@@ -1,5 +1,5 @@
 import { View, Text } from 'react-native';
-import { GradientButton, IonIcon } from '../../components';
+import { GradientButton, Icon } from '../../components';
 import { useGradient, useStyles } from '../../hooks';
 import { AUTH_SCREEN_TEXTS } from '../../config';
 import type { AuthButtonsProps } from '../../types';
@@ -13,7 +13,7 @@ export const AuthButtons: React.FC<AuthButtonsProps> = ({
     touchIdEnabled,
 }) => {
     const { themeGradient } = useGradient();
-    const styles = useStyles(({ colors }) => ({
+    const styles = useStyles(({ colors, fonts }) => ({
         container: {
             marginBottom: 40,
         },
@@ -22,8 +22,8 @@ export const AuthButtons: React.FC<AuthButtonsProps> = ({
         },
         buttonText: {
             color: colors.coolGray[50],
-            fontWeight: 'bold',
-            fontSize: 15,
+            fontFamily: fonts.quicksand.bold,
+            fontSize: 16,
         },
         buttonContent: {
             flexDirection: 'row',
@@ -53,7 +53,7 @@ export const AuthButtons: React.FC<AuthButtonsProps> = ({
                     disabledStyle={styles.disabledButton}
                 >
                     <View style={styles.buttonContent}>
-                        <IonIcon
+                        <Icon
                             name="finger-print"
                             size={styles.icon.fontSize}
                             color={styles.icon.color}
@@ -70,7 +70,7 @@ export const AuthButtons: React.FC<AuthButtonsProps> = ({
                     disabledStyle={styles.disabledButton}
                 >
                     <View style={styles.buttonContent}>
-                        <IonIcon
+                        <Icon
                             name="keypad"
                             size={styles.icon.fontSize}
                             color={styles.icon.color}

@@ -13,7 +13,7 @@ export const ErrorOverlay: React.FC<ErrorOverlayProps> = ({
     onClose,
     themeGradient,
 }) => {
-    const styles = useStyles(({ colors, isDark }) => ({
+    const styles = useStyles(({ colors, isDark, fonts }) => ({
         errorOverlay: {
             width: '80%',
             padding: 20,
@@ -27,21 +27,19 @@ export const ErrorOverlay: React.FC<ErrorOverlayProps> = ({
         buttonText: {
             color: colors.coolGray[50],
             fontSize: 16,
-            fontWeight: 'bold',
-            fontFamily: 'Quicksand-Regular',
+            fontFamily: fonts.quicksand.bold,
         },
         errorTitle: {
             fontSize: 18,
-            fontWeight: 'bold',
             marginBottom: 10,
             color: isDark ? colors.red[400] : colors.red[500],
-            fontFamily: 'Quicksand-Regular',
+            fontFamily: fonts.quicksand.bold,
         },
         errorMessage: {
             fontSize: 14,
             marginBottom: 20,
             textAlign: 'center',
-            fontFamily: 'Nunito-Regular',
+            fontFamily: fonts.nunito.regular,
             color: isDark ? colors.coolGray[50] : colors.coolGray[900],
         },
     }));

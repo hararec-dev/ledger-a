@@ -1,4 +1,4 @@
-interface ColorShades {
+export interface ColorShades {
     50: string;
     100: string;
     200: string;
@@ -10,6 +10,8 @@ interface ColorShades {
     800: string;
     900: string;
 }
+
+export type ColorShadesWithout50And100 = Omit<ColorShades, '50' | '100'>;
 
 export interface FullColorPallete {
     blueGray: ColorShades;
@@ -34,8 +36,11 @@ export interface FullColorPallete {
     fuchsia: ColorShades;
     pink: ColorShades;
     rose: ColorShades;
-    splashscreen: ColorShades;
 }
+
+export type FullColorPalleteWithout50And100 = {
+    [K in keyof FullColorPallete]: ColorShadesWithout50And100;
+};
 
 export interface RneuiPlatformColors {
     primary: string;
@@ -45,4 +50,21 @@ export interface RneuiPlatformColors {
     success: string;
     error: string;
     warning: string;
+}
+
+export interface AppFonts {
+    quicksand: {
+        regular: string;
+        light: string;
+        medium: string;
+        bold: string;
+    };
+    nunito: {
+        regular: string;
+        medium: string;
+        bold: string;
+    };
+    pacifico: {
+        regular: string;
+    };
 }

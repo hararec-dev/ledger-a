@@ -1,5 +1,5 @@
 import { Text, View } from 'react-native';
-import { FormSetupGroup, GradientSwitch, IonIcon } from '../../../components';
+import { FormSetupGroup, GradientSwitch, Icon } from '../../../components';
 import { useStyles, useThemeStore } from '../../../hooks';
 import { ONBOARDING_SETUP_TEXT } from '../../../config';
 import type { OnboardingFormProps } from '../../../types';
@@ -7,7 +7,7 @@ import type { OnboardingFormProps } from '../../../types';
 
 export const OnboardingThemeSwitch: React.FC<OnboardingFormProps> = ({ formik, gradientColors }) => {
     const { setTheme, isDark: isDarkTheme } = useThemeStore();
-    const styles = useStyles(({ colors, isDark }) => ({
+    const styles = useStyles(({ colors, isDark, fonts }) => ({
         switchContainer: {
             flexDirection: 'row',
             alignItems: 'center',
@@ -23,9 +23,9 @@ export const OnboardingThemeSwitch: React.FC<OnboardingFormProps> = ({ formik, g
             marginLeft: 10,
             fontSize: 16,
             color: isDark ? colors.coolGray[50] : colors.coolGray[900],
-            fontFamily: 'Quicksand-Regular',
+            fontFamily: fonts.quicksand.regular,
         },
-        ionIcon: {
+        Icon: {
             color: isDark ? colors.coolGray[50] : colors.coolGray[900],
 
         },
@@ -38,10 +38,10 @@ export const OnboardingThemeSwitch: React.FC<OnboardingFormProps> = ({ formik, g
             touched={formik.touched.theme}
         >
             <View style={styles.switchContainer}>
-                <IonIcon
+                <Icon
                     name={isDarkTheme ? 'moon' : 'sunny'}
                     size={30}
-                    color={styles.ionIcon.color}
+                    color={styles.Icon.color}
                 />
                 <View style={styles.switchAndText}>
                     <GradientSwitch

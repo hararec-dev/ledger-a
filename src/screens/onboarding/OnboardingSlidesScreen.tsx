@@ -1,11 +1,11 @@
 import { View, FlatList } from 'react-native';
 import { LegalAcceptanceFooter, OnboardingButton, PaginationDots } from '../../components';
-import { useCustomNavigation, useLastActivity, useOnboardingSlideLogic, useOnboardingSlides, useStyles } from '../../hooks';
+import { useAppNavigation, useLastActivity, useOnboardingSlideLogic, useOnboardingSlides, useStyles } from '../../hooks';
 
 
 export const OnboardingSlidesScreen = () => {
     const { slides } = useOnboardingSlides();
-    const { goToSetup } = useCustomNavigation();
+    const { goToOnboardingSetup } = useAppNavigation();
     const {
         flatListRef,
         currentSlideIndex,
@@ -54,7 +54,7 @@ export const OnboardingSlidesScreen = () => {
                     numberOfIndexes={slides.length}
                 />
                 <OnboardingButton
-                    onNavigate={() => goToSetup('setup')}
+                    onNavigate={() => goToOnboardingSetup('setup')}
                     style={styles.paginationButtonsStyle}
                 />
                 <LegalAcceptanceFooter />

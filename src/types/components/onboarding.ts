@@ -1,13 +1,14 @@
 import type { PropsWithChildren } from 'react';
 import type { StyleProp, ViewStyle } from 'react-native';
 import type { FormikProps } from 'formik';
-import type { Currency, CurrencyInfo } from '../config';
+import type { Currency, CurrencyInfo, PersonalAccountCode, PersonalAccountInfo } from '../config';
 import type { ThemeColor } from '../hooks';
 
 export interface FormOnboardingSetupValues {
     currency: Currency;
     accountName: string;
     initialAmount: string;
+    accountType: PersonalAccountCode;
 }
 
 export interface FormOnboardingAppValues {
@@ -34,6 +35,11 @@ export interface CurrencyPickerProps {
     selectedCurrency: CurrencyInfo | undefined;
 }
 
+export interface AccountTypePickerProps {
+    formik: FormikProps<FormOnboardingSetupValues>;
+    selectedAccountType: PersonalAccountInfo | undefined;
+}
+
 export type FormSetupGroupProps = PropsWithChildren<{
     label: string;
     error: string | undefined;
@@ -51,11 +57,13 @@ export type GradientButtonProps = PropsWithChildren<{
     disabled?: boolean;
     disabledStyle?: ViewStyle | ViewStyle[];
     style?: ViewStyle | ViewStyle[];
+    gradientStyle?: ViewStyle;
 }>;
 
 export interface OnboardingSetupFormProps {
     formik: FormikProps<FormOnboardingSetupValues>;
     selectedCurrency: CurrencyInfo | undefined;
+    selectedAccountType: PersonalAccountInfo | undefined;
     gradientColors: string[];
 }
 

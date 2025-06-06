@@ -1,4 +1,3 @@
-import React from 'react';
 import { Text } from 'react-native';
 import { Overlay } from '@rneui/themed';
 import { GradientButton, AuthPinInput } from '../../components';
@@ -15,7 +14,7 @@ export const PinInputOverlay: React.FC<PinInputOverlayProps> = ({
     handlePinSubmit,
     themeGradient,
 }) => {
-    const styles = useStyles(({ colors }) => ({
+    const styles = useStyles(({ colors, fonts }) => ({
         overlay: {
             width: '80%',
             padding: 20,
@@ -27,8 +26,7 @@ export const PinInputOverlay: React.FC<PinInputOverlayProps> = ({
         buttonText: {
             color: colors.coolGray[50],
             fontSize: 16,
-            fontWeight: 'bold',
-            fontFamily: 'Quicksand-Regular',
+            fontFamily: fonts.quicksand.bold,
         },
     }));
 

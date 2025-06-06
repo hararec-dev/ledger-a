@@ -1,5 +1,5 @@
 import { Text, View } from 'react-native';
-import { CurrencyPicker, FormSetupGroup, GradientButton, GradientInput } from '../../../components';
+import { AccountTypesPicker, CurrencyPicker, FormSetupGroup, GradientButton, GradientInput } from '../../../components';
 import { ONBOARDING_SETUP_TEXT } from '../../../config';
 import { useStyles } from '../../../hooks';
 import type { OnboardingSetupFormProps } from '../../../types';
@@ -8,21 +8,21 @@ import type { OnboardingSetupFormProps } from '../../../types';
 export const OnboardingSetupAccountForm: React.FC<OnboardingSetupFormProps> = ({
     formik,
     selectedCurrency,
+    selectedAccountType,
     gradientColors,
 }) => {
-    const styles = useStyles(({ colors }) => ({
+    const styles = useStyles(({ colors, fonts }) => ({
         formContainer: {
-            rowGap: 15,
+            rowGap: 10,
             width: '90%',
         },
         buttonText: {
             color: colors.coolGray[50],
             fontSize: 18,
-            fontWeight: '700',
-            fontFamily: 'Quicksand-Regular',
+            fontFamily: fonts.quicksand.bold,
         },
         button: {
-            marginTop: 10,
+            marginTop: 40,
         },
         disabledButton: {
             opacity: 0.4,
@@ -34,14 +34,6 @@ export const OnboardingSetupAccountForm: React.FC<OnboardingSetupFormProps> = ({
 
     return (
         <View style={styles.formContainer}>
-            <FormSetupGroup
-                label={ONBOARDING_SETUP_TEXT.currencyLabel}
-                error={formik.errors.currency}
-                touched={formik.touched.currency}
-            >
-                <CurrencyPicker formik={formik} selectedCurrency={selectedCurrency} />
-            </FormSetupGroup>
-
             <FormSetupGroup
                 label={ONBOARDING_SETUP_TEXT.accountNameLabel}
                 error={formik.errors.accountName}
@@ -74,6 +66,22 @@ export const OnboardingSetupAccountForm: React.FC<OnboardingSetupFormProps> = ({
                     placeholder={ONBOARDING_SETUP_TEXT.initialAmountPlaceholder}
                     keyboardType="numeric"
                 />
+            </FormSetupGroup>
+
+            <FormSetupGroup
+                label={ONBOARDING_SETUP_TEXT.currencyLabel}
+                error={formik.errors.currency}
+                touched={formik.touched.currency}
+            >
+                <CurrencyPicker formik={formik} selectedCurrency={selectedCurrency} />
+            </FormSetupGroup>
+
+            <FormSetupGroup
+                label={ONBOARDING_SETUP_TEXT.accountTypeLabel}
+                error={formik.errors.currency}
+                touched={formik.touched.currency}
+            >
+                <AccountTypesPicker formik={formik} selectedAccountType={selectedAccountType} />
             </FormSetupGroup>
 
             <GradientButton

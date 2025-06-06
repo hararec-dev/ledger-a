@@ -1,1 +1,2 @@
-export * from './IonIcon';
+export * from './IconSelector';
+export * from './Icon';

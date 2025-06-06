@@ -2,10 +2,10 @@ import { useMemo } from 'react';
 import { Platform, StatusBar } from 'react-native';
 import { createTheme, ThemeProvider } from '@rneui/themed';
 import { useAsyncStorageLoad } from '../../hooks';
-import type { AppThemeProviderProps } from '../../types';
+import type { ProviderProps } from '../../types';
 
 
-export const AppThemeProvider = ({ children }: AppThemeProviderProps) => {
+export const AppThemeProvider = ({ children }: ProviderProps) => {
   const {
     isLoaded,
     isDark,
@@ -49,7 +49,7 @@ export const AppThemeProvider = ({ children }: AppThemeProviderProps) => {
   const statusBarBackgroundColor = useMemo(() =>
     lastActivity?.path === 'OnboardingSlides'
       ? colors.violet[200]
-      : isDark ? colors.warmGray[900] : colors.coolGray[50],
+      : isDark ? colors.gray[900] : colors.coolGray[50],
     [lastActivity?.path, isDark, colors]
   );
 

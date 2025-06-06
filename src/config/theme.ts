@@ -1,7 +1,7 @@
 /* Colors obtained from https://v2.tailwindcss.com/docs/customizing-colors */
 
 import type { Theme } from '@react-navigation/native';
-import type { FullColorPallete, RneuiPlatformColors } from '../types';
+import type { AppFonts, FullColorPallete, RneuiPlatformColors } from '../types';
 
 export const colorPalette: FullColorPallete = {
     blueGray: {
@@ -155,7 +155,7 @@ export const colorPalette: FullColorPallete = {
     },
     cyan: {
         50: '#ECFEFF', 100: '#CFFAFE', 200: '#A5F3FC', 300: '#67E8F9',
-        400: '#22D3EE', 500: '#06B6D4', 600: '#0891B2', 700: '#0E7490',
+        400: '#22D3EE', 500: '#05B5E0', 600: '#0891B2', 700: '#0E7490',
         800: '#155E75', 900: '#164E63',
     },
     sky: {
@@ -198,18 +198,6 @@ export const colorPalette: FullColorPallete = {
         400: '#FB7185', 500: '#F43F5E', 600: '#E11D48', 700: '#BE123C',
         800: '#9F1239', 900: '#881337',
     },
-    splashscreen: {
-        50: '#ECFEFF',
-        100: '#CFFAFE',
-        200: '#A5F3FC',
-        300: '#67E8F9',
-        400: '#22D3EE',
-        500: '#05B5E0',
-        600: '#0891B2',
-        700: '#0E7490',
-        800: '#155E75',
-        900: '#164E63',
-      },
 };
 
 export const rneuiLightColors: RneuiPlatformColors = {
@@ -232,31 +220,48 @@ export const rneuiDarkColors: RneuiPlatformColors = {
     warning: colorPalette.amber[400],
 };
 
+export const appFonts: AppFonts = {
+    quicksand: {
+        regular: 'Quicksand-Regular',
+        light: 'Quicksand-Light',
+        medium: 'Quicksand-Medium',
+        bold: 'Quicksand-Bold',
+    },
+    nunito: {
+        regular: 'Nunito-Regular',
+        medium: 'Nunito-Medium',
+        bold: 'Nunito-Bold',
+    },
+    pacifico: {
+        regular: 'Pacifico-Regular',
+    },
+};
+
 export const LightNavigationTheme: Theme = {
     dark: false,
     colors: {
         primary: colorPalette.warmGray[900],
-        background: colorPalette.coolGray[50],
+        background: colorPalette.coolGray[200],
         text: colorPalette.warmGray[900],
-        card: colorPalette.gray[100],
+        card: colorPalette.coolGray[50],
         border: colorPalette.gray[200],
         notification: colorPalette.red[500],
     },
     fonts: {
         regular: {
-            fontFamily: 'Pacifico-Regular',
+            fontFamily: appFonts.quicksand.regular,
             fontWeight: '400',
         },
         medium: {
-            fontFamily: 'Pacifico-Regular',
+            fontFamily: appFonts.quicksand.medium,
             fontWeight: '500',
         },
         bold: {
-            fontFamily: 'Pacifico-Regular',
+            fontFamily: appFonts.quicksand.bold,
             fontWeight: '700',
         },
         heavy: {
-            fontFamily: 'Pacifico-Regular',
+            fontFamily: appFonts.nunito.bold,
             fontWeight: '900',
         },
     },
@@ -266,27 +271,27 @@ export const DarkNavigationTheme: Theme = {
     dark: true,
     colors: {
         primary: colorPalette.coolGray[50],
-        background: colorPalette.warmGray[900],
+        background: colorPalette.coolGray[700],
         text: colorPalette.coolGray[50],
-        card: colorPalette.gray[800],
+        card: colorPalette.gray[900],
         border: colorPalette.gray[700],
         notification: colorPalette.red[800],
     },
     fonts: {
         regular: {
-            fontFamily: 'Pacifico-Regular',
+            fontFamily: appFonts.quicksand.regular,
             fontWeight: '400',
         },
         medium: {
-            fontFamily: 'Pacifico-Regular',
+            fontFamily: appFonts.quicksand.medium,
             fontWeight: '500',
         },
         bold: {
-            fontFamily: 'Pacifico-Regular',
+            fontFamily: appFonts.quicksand.bold,
             fontWeight: '700',
         },
         heavy: {
-            fontFamily: 'Pacifico-Regular',
+            fontFamily: appFonts.nunito.bold,
             fontWeight: '900',
         },
     },

@@ -1,14 +1,16 @@
 import { create } from 'zustand';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { colorPalette, rneuiDarkColors, rneuiLightColors } from '../../config';
+import { colorPalette, rneuiDarkColors, rneuiLightColors, appFonts } from '../../config';
 import type { ThemeColor, ThemeState } from '../../types';
+import { getAllColorValues, removeShade50FromPalette } from '../../helpers';
 
 const THEME_STORAGE_KEY = 'app-theme';
 
-export const useThemeStore = create<ThemeState>((set) => ({
-    currentTheme: 'light',
-    isDark: false,
+export const useThemeStore = create<ThemeState>((set, get) => ({
     colors: colorPalette,
+    currentTheme: 'light',
+    fonts: appFonts,
+    isDark: false,
     rneuiDarkColors,
     rneuiLightColors,
     loadTheme: async () => {
@@ -45,5 +47,10 @@ export const useThemeStore = create<ThemeState>((set) => ({
                 isDark: true,
             });
         }
+    },
+    getAllColors: () => {
+        const { colors } = get();
+        const colorsWithout50And100 = removeShade50FromPalette(colors);
+        return getAllColorValues(colorsWithout50And100);
     },
 }));

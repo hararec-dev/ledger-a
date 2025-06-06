@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Text, View } from 'react-native';
-import { FormSetupGroup, GradientSwitch, IonIcon } from '../../../components';
+import { FormSetupGroup, GradientSwitch, Icon } from '../../../components';
 import { useBiometricStore, useStyles } from '../../../hooks';
 import { ONBOARDING_SETUP_TEXT } from '../../../config';
 import type { OnboardingFormProps } from '../../../types';
@@ -8,7 +8,7 @@ import type { OnboardingFormProps } from '../../../types';
 
 export const OnboardingBiometricSwitch: React.FC<OnboardingFormProps> = ({ formik, gradientColors }) => {
     const { setAllowBiometricAuth, sensorStatus } = useBiometricStore();
-    const styles = useStyles(({ colors, isDark }) => ({
+    const styles = useStyles(({ colors, isDark, fonts }) => ({
         switchContainer: {
             flexDirection: 'row',
             alignItems: 'center',
@@ -24,9 +24,9 @@ export const OnboardingBiometricSwitch: React.FC<OnboardingFormProps> = ({ formi
             marginLeft: 10,
             fontSize: 16,
             color: isDark ? colors.coolGray[50] : colors.coolGray[900],
-            fontFamily: 'Quicksand-Regular',
+            fontFamily: fonts.quicksand.regular,
         },
-        ionIcon: {
+        Icon: {
             color: isDark ? colors.coolGray[50] : colors.coolGray[900],
             size: 30,
 
@@ -48,10 +48,10 @@ export const OnboardingBiometricSwitch: React.FC<OnboardingFormProps> = ({ formi
             touched={formik.touched.isTouchIdEnabled}
         >
             <View style={styles.switchContainer}>
-                <IonIcon
+                <Icon
                     name={'finger-print'}
-                    size={styles.ionIcon.size}
-                    color={styles.ionIcon.color}
+                    size={styles.Icon.size}
+                    color={styles.Icon.color}
                 />
                 <View style={styles.switchAndText}>
                     <GradientSwitch

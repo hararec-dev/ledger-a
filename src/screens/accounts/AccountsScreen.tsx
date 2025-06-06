@@ -1,29 +1,20 @@
-import { ScrollView, StyleSheet, Text } from 'react-native';
-import { useThemeStore } from '../../hooks';
+import { ScrollView, StyleSheet } from 'react-native';
+import { PieFinancialChart } from '../../components/charts/pie/PieFinancialChart';
 
 
 export const AccountsScreen = () => {
-    const { isDark } = useThemeStore();
     return (
         <ScrollView style={styles.container}>
-            <Text style={{
-                fontFamily: 'Pacifico-Regular', // Usa el nombre real de la fuente sin la extensión .ttf
-                fontSize: 20,
-                color: isDark ? 'white' : 'black',
-                backgroundColor: 'purple',
-            }}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</Text>
-            <Text style={{
-                fontFamily: 'Nunito-Regular', // Usa el nombre real de la fuente sin la extensión .ttf
-                fontSize: 20,
-                color: isDark ? 'white' : 'black',
-                backgroundColor: 'blue',
-            }}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</Text>
-            <Text style={{
-                fontFamily: 'Quicksand-Regular', // Usa el nombre real de la fuente sin la extensión .ttf
-                fontSize: 20,
-                color: isDark ? 'white' : 'black',
-                backgroundColor: 'green',
-            }}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</Text>
+            <PieFinancialChart
+                data={[
+                    { name: 'Gasto', amount: 8000, color: '#19d4f7', legendFontColor: '#fff', legendFontSize: 13 },
+                    { name: 'Inversión', amount: 2000, color: '#b97bce', legendFontColor: '#fff', legendFontSize: 13 },
+                    { name: 'Diezmo', amount: 400, color: '#d600c7', legendFontColor: '#fff', legendFontSize: 13 },
+                    { name: 'Ayuda', amount: 250, color: '#c23b6f', legendFontColor: '#fff', legendFontSize: 13 },
+                    { name: 'Ajuste', amount: 69, color: '#bdbdbd', legendFontColor: '#fff', legendFontSize: 13 },
+                ]}
+                total={10719}
+            />
         </ScrollView>
     );
 };

@@ -1,5 +1,5 @@
 import { View, Text, ActivityIndicator } from 'react-native';
-import { IonIcon } from '../../components';
+import { Icon } from '../../components';
 import { useStyles } from '../../hooks';
 import { AUTH_SCREEN_TEXTS } from '../../config';
 import type { AuthInstructionsProps } from '../../types';
@@ -11,12 +11,12 @@ export const AuthInstructions: React.FC<AuthInstructionsProps> = ({
     loadingPinAuth,
     loadingTouchIdAuth,
 }) => {
-    const styles = useStyles(({ colors, isDark }) => ({
+    const styles = useStyles(({ colors, isDark, fonts }) => ({
         instructionText: {
             fontSize: 16,
             textAlign: 'center',
             marginBottom: 40,
-            fontFamily: 'Quicksand-Regular',
+            fontFamily: fonts.quicksand.regular,
             fontWeight: 600,
             color: isDark ? colors.coolGray[50] : colors.coolGray[900],
         },
@@ -60,7 +60,7 @@ export const AuthInstructions: React.FC<AuthInstructionsProps> = ({
                         : <>
                             {touchIdEnabled && (
                                 <View style={styles.iconCircle}>
-                                    <IonIcon
+                                    <Icon
                                         name="finger-print"
                                         size={styles.icon.fontSize}
                                         color={styles.icon.color}
@@ -70,7 +70,7 @@ export const AuthInstructions: React.FC<AuthInstructionsProps> = ({
                             )}
                             {pinEnabled && (
                                 <View style={styles.iconCircle}>
-                                    <IonIcon
+                                    <Icon
                                         name="keypad"
                                         size={styles.icon.fontSize}
                                         color={styles.icon.color}
