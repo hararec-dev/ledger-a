@@ -12,8 +12,8 @@ import {
     PremiumScreen,
     SettingsScreen,
     SubscriptionScreen,
-} from '../screens';
-import type { SettingsStackParamList, SettingsStackRoute } from '../types';
+} from '@screens';
+import type { SettingsStackParamList, SettingsStackRoute } from '@types';
 
 const SettingsStack = createStackNavigator<SettingsStackParamList>();
 

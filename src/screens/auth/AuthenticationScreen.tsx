@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { AuthButtons, LoginHeader, LoginOverlays } from '../../components';
-import type { AuthenticationProps } from '../../types';
-import { useAuthLogin } from '../../hooks';
+import { AuthButtons, LoginHeader, LoginOverlays } from '@components';
+import type { AuthenticationProps } from '@types';
+import { useAuthLogin } from '@hooks';
 
 export const AuthenticationScreen = ({ navigation }: AuthenticationProps) => {
     const [showPinModal, setShowPinModal] = useState<boolean>(false);

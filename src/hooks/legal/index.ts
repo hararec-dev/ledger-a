@@ -1,1 +1,1 @@
-export * from './useLegalTerms';
+export * from '@hooks/legal/useLegalTerms';

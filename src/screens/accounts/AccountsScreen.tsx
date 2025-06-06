@@ -1,5 +1,5 @@
 import { ScrollView, StyleSheet } from 'react-native';
-import { PieFinancialChart } from '../../components/charts/pie/PieFinancialChart';
+import { PieFinancialChart } from '@components/charts/pie/PieFinancialChart';
 
 
 export const AccountsScreen = () => {

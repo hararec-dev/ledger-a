@@ -1,8 +1,8 @@
 import { StyleSheet, View } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { SpeedDialButton } from '../components';
-import { useTransactionsTopTabNavigation } from '../hooks';
-import type { TransactionsTabParamList } from '../types';
+import { SpeedDialButton } from '@components';
+import { useTransactionsTopTabNavigation } from '@hooks';
+import type { TransactionsTabParamList } from '@types';
 
 const Tab = createMaterialTopTabNavigator<TransactionsTabParamList>();
 

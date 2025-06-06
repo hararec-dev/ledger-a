@@ -1,1 +1,1 @@
-export * from './usePageIndicatorAnimation';
+export * from '@hooks/animation/usePageIndicatorAnimation';

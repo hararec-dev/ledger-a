@@ -1,5 +1,5 @@
 import type { StackNavigationProp } from '@react-navigation/stack';
-import type { RootStackParamList } from '../navigation';
+import type { RootStackParamList } from '@types/navigation';
 
 
 export interface LegalItem {

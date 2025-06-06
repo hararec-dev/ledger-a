@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useCallback } from 'react';
 import { Animated } from 'react-native';
-import { useThemeStore } from '../../hooks';
+import { useThemeStore } from '@hooks';
 
 export const usePageIndicatorAnimation = ({ typeSetup }: { typeSetup: string }) => {
     const { colors } = useThemeStore();

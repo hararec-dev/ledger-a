@@ -4,7 +4,7 @@ import type {
     DraggablePosition,
     UseDraggableGridProps,
     UseDraggableGridReturn,
-} from '../../types';
+} from '@types';
 
 export const useDraggableGrid = ({
     items,

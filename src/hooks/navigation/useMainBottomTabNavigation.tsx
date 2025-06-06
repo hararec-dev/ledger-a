@@ -7,10 +7,10 @@ import {
     ChartsStackNavigation,
     SettingsStackNavigation,
     RootTransactionsStackNavigation,
-} from '../../navigation';
-import { Icon, GradientText } from '../../components';
-import { useGradient } from '../../hooks';
-import type { MainBottomTabRoute, TabBarItemProps } from '../../types';
+} from '@navigation';
+import { Icon, GradientText } from '@components';
+import { useGradient } from '@hooks';
+import type { MainBottomTabRoute, TabBarItemProps } from '@types';
 
 
 export const useMainBottomTabNavigation = (): {

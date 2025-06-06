@@ -1,8 +1,8 @@
 import { Platform } from 'react-native';
 import { Buffer } from 'buffer';
 import XLSX from 'xlsx';
-import { getFilePath, saveExcelFileWithSAF, syncIOSFile, writeFile } from '../helpers';
-import type { ExcelOptions, ExcelRow, ExcelSheetData } from '../types';
+import { getFilePath, saveExcelFileWithSAF, syncIOSFile, writeFile } from '@helpers';
+import type { ExcelOptions, ExcelRow, ExcelSheetData } from '@types';
 
 
 const createExcelWorkbook = (data: ExcelRow[]): XLSX.WorkBook => {

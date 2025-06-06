@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { useMainBottomTabNavigation } from '../hooks';
-import type { MainBottomTabParamList } from '../types';
+import { useMainBottomTabNavigation } from '@hooks';
+import type { MainBottomTabParamList } from '@types';
 
 
 const Tab = createBottomTabNavigator<MainBottomTabParamList>();

@@ -4,10 +4,10 @@ import {
     LegalInfoScreen,
     OnboardingSetupScreen,
     OnboardingSlidesScreen,
-} from '../screens';
-import { UtilityStackNavigation } from './UtilityStackNavigation';
-import { useCurrentStatusAppStore } from '../hooks';
-import type { RootStackParamList } from '../types';
+} from '@screens';
+import { UtilityStackNavigation } from '@navigation/UtilityStackNavigation';
+import { useCurrentStatusAppStore } from '@hooks';
+import type { RootStackParamList } from '@types';
 
 const Stack = createStackNavigator<RootStackParamList>();
 

@@ -1,1 +1,1 @@
-export * from './LegalInfoScreen';
+export * from '@screens/legal/LegalInfoScreen';

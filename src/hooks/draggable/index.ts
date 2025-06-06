@@ -1,2 +1,2 @@
-export * from './useDraggableGrid';
-export * from './useDraggableGridItem';
+export * from '@hooks/draggable/useDraggableGrid';
+export * from '@hooks/draggable/useDraggableGridItem';

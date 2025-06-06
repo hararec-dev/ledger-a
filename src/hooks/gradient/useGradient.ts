@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { useThemeStore } from '../store';
+import { useThemeStore } from '@hooks/store';
 
 export const useGradient = () => {
     const { colors, isDark } = useThemeStore();

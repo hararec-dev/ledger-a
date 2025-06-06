@@ -1,5 +1,5 @@
 import { NativeModules, Platform } from 'react-native';
-import { getFilePath, writeFile } from '../helpers';
+import { getFilePath, writeFile } from '@helpers';
 
 
 export const nativeSaveExcelFileWithSAF = async (

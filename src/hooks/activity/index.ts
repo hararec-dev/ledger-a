@@ -1,1 +1,1 @@
-export * from './useLastActivity';
+export * from '@hooks/activity/useLastActivity';

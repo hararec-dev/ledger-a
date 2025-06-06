@@ -1,8 +1,8 @@
 import { useCallback } from 'react';
 import { View, Text, FlatList, type ListRenderItem } from 'react-native';
-import { LegalInfoHeader, LegalInfoSection } from '../../components';
-import { useLastActivity, useLegalTerms, useStyles } from '../../hooks';
-import type { LegalInfoProps, LegalSection } from '../../types';
+import { LegalInfoHeader, LegalInfoSection } from '@components';
+import { useLastActivity, useLegalTerms, useStyles } from '@hooks';
+import type { LegalInfoProps, LegalSection } from '@types';
 
 
 export const LegalInfoScreen: React.FC<LegalInfoProps> = ({ navigation, route }) => {

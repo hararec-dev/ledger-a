@@ -1,6 +1,6 @@
 import { type DependencyList, useEffect } from 'react';
-import { useCurrentStatusAppStore } from '../store';
-import type { LastActivityProps } from '../../types';
+import { useCurrentStatusAppStore } from '@hooks/store';
+import type { LastActivityProps } from '@types';
 
 export const useLastActivity = (
   callback: () => LastActivityProps,

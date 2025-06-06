@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import type { AccountDetailsProps } from '../../types';
+import type { AccountDetailsProps } from '@types';
 
 
 export const AccountDetailsScreen: React.FC<AccountDetailsProps> = ({ route }) => {

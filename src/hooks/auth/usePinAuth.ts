@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 import * as Keychain from 'react-native-keychain';
-import { useCurrentStatusAppStore } from '../store';
+import { useCurrentStatusAppStore } from '@hooks/store';
 
 const PIN_STORAGE_KEY = 'USER_PIN_KEY';
 const PIN_USERNAME = 'PIN_AUTH_USER';

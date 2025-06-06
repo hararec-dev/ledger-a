@@ -1,8 +1,8 @@
 import { useState, useMemo, useRef, useCallback } from 'react';
 import { View, FlatList, NativeSyntheticEvent, NativeScrollEvent } from 'react-native';
-import { ColorGrid, ColorHeader, ColorPagination, ColorSelectionButton } from '../../components';
-import { useCurrentStatusAppStore, useStyles, useThemeStore } from '../../hooks';
-import type { PageItemProps } from '../../types';
+import { ColorGrid, ColorHeader, ColorPagination, ColorSelectionButton } from '@components';
+import { useCurrentStatusAppStore, useStyles, useThemeStore } from '@hooks';
+import type { PageItemProps } from '@types';
 
 const COLORS_PER_ROW = 8;
 const ROWS_PER_PAGE = 8;

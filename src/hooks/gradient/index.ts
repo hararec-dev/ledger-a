@@ -1,1 +1,1 @@
-export * from './useGradient';
+export * from '@hooks/gradient/useGradient';

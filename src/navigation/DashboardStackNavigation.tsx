@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { DashboardScreen, QuickAddTransactionScreen } from '../screens';
-import type { DashboardStackParamList, DashboardStackRoute } from '../types';
+import { DashboardScreen, QuickAddTransactionScreen } from '@screens';
+import type { DashboardStackParamList, DashboardStackRoute } from '@types';
 
 const DashboardStack = createStackNavigator<DashboardStackParamList>();
 

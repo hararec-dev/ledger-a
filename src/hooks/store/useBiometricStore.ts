@@ -1,9 +1,9 @@
 import { create } from 'zustand';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import ReactNativeBiometrics, { BiometryTypes } from 'react-native-biometrics';
-import { handleError } from '../../helpers';
-import { BIOMETRIC_MESSAGES } from '../../config';
-import type { BiometricOperation, BiometricsState, CreateSignatureParams } from '../../types';
+import { handleError } from '@helpers';
+import { BIOMETRIC_MESSAGES } from '@config';
+import type { BiometricOperation, BiometricsState, CreateSignatureParams } from '@types';
 
 const ALLOW_BIOMETRIC_AUTH = 'allowBiometricAuth';
 

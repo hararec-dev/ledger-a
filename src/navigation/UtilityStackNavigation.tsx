@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { MainBottomTabNavigation } from './MainBottomTabNavigation';
-import { NotesStackNavigation } from './NotesStackNavigation';
-import { ColorSelectionScreen } from '../screens';
-import type { UtilityStackParamList, UtilityStackRoute } from '../types';
+import { MainBottomTabNavigation } from '@navigation/MainBottomTabNavigation';
+import { NotesStackNavigation } from '@navigation/NotesStackNavigation';
+import { ColorSelectionScreen } from '@screens';
+import type { UtilityStackParamList, UtilityStackRoute } from '@types';
 
 const UtilityStack = createStackNavigator<UtilityStackParamList>();
 

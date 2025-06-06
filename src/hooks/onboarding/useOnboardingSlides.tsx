@@ -1,12 +1,12 @@
 import { useMemo } from 'react';
 import { useWindowDimensions } from 'react-native';
-import OnboardingWelcomePair from '../../assets/images/onboarding-welcome-pair.svg';
-import OnboardingShield from '../../assets/images/onboarding-shield.svg';
-import OnboardingDataAnalytics from '../../assets/images/onboarding-data-analytics.svg';
-import OnboardingParty from '../../assets/images/onboarding-party.svg';
-import OnboardingPayments from '../../assets/images/onboarding-payments.svg';
+import OnboardingWelcomePair from '@assets/images/onboarding-welcome-pair.svg';
+import OnboardingShield from '@assets/images/onboarding-shield.svg';
+import OnboardingDataAnalytics from '@assets/images/onboarding-data-analytics.svg';
+import OnboardingParty from '@assets/images/onboarding-party.svg';
+import OnboardingPayments from '@assets/images/onboarding-payments.svg';
 import type { SvgProps } from 'react-native-svg';
-import type { Slide } from '../../types';
+import type { Slide } from '@types';
 
 
 export const useOnboardingSlides = (props?: SvgProps) => {

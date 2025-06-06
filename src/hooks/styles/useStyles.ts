@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { Platform, useWindowDimensions } from 'react-native';
-import { useThemeStore } from '../../hooks';
-import type { NamedStyles, StyleCallbackProps } from '../../types';
+import { useThemeStore } from '@hooks';
+import type { NamedStyles, StyleCallbackProps } from '@types';
 
 
 export const useStyles = <T extends NamedStyles<T>>(

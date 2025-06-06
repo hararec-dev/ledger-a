@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
-import { useThemeStore } from '../store';
+import { useThemeStore } from '@hooks/store';
 import type { ViewStyle, TextStyle, ImageStyle } from 'react-native';
-import type { FullColorPallete } from '../../types';
+import type { FullColorPallete } from '@types';
 
 export const useThemeStyles = <T extends Record<string, ViewStyle | TextStyle | ImageStyle>>(
   styleCallback: (theme: { isDark: boolean; colors: FullColorPallete }) => T

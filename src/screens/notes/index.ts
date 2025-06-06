@@ -1,3 +1,3 @@
-export * from './AddNoteScreen';
-export * from './NoteDetailsScreen';
-export * from './NotesListScreen';
+export * from '@screens/notes/AddNoteScreen';
+export * from '@screens/notes/NoteDetailsScreen';
+export * from '@screens/notes/NotesListScreen';

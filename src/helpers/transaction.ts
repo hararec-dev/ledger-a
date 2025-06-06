@@ -1,4 +1,4 @@
-import type { Transaction } from '../types';
+import type { Transaction } from '@types';
 
 export const getMarkedDates = (transactions: Transaction[]): Record<string, any> => {
     const marked: Record<string, any> = {};

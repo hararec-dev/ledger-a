@@ -1,4 +1,4 @@
-import type { IconType } from './icon';
+import type { IconType } from '@types/components/icon';
 
 export interface QuickAction {
     iconName: string;

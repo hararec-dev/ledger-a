@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useBiometricStore, useCurrentStatusAppStore, useThemeStore } from '../../hooks';
+import { useBiometricStore, useCurrentStatusAppStore, useThemeStore } from '@hooks';
 
 export const useAsyncStorageLoad = () => {
     const [isThemeLoaded, setIsThemeLoaded] = useState(false);

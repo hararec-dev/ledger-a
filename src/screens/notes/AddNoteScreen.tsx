@@ -1,7 +1,7 @@
 import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import type { StackNavigationProp } from '@react-navigation/stack';
-import type { NotesStackParamList } from '../../types';
+import type { NotesStackParamList } from '@types';
 
 type AddNoteScreenNavigationProp = StackNavigationProp<NotesStackParamList, 'AddNote'>;
 

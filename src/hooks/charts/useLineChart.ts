@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import type { ChartConfig } from 'react-native-chart-kit/dist/HelperTypes';
-import type { ChartDataParams } from '../../types';
+import type { ChartDataParams } from '@types';
 import { LineChartData } from 'react-native-chart-kit/dist/line-chart/LineChart';
 
 

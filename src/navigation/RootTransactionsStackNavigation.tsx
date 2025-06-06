@@ -1,8 +1,8 @@
 import { useMemo } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { TransactionsTopTapNavigation } from './TransactionsTopTapNavigation';
-import { AddTransactionScreen, TransactionDetailsScreen } from '../screens';
-import type { RootTransactionsStackParamList, RootTransactionsStackRoute } from '../types';
+import { TransactionsTopTapNavigation } from '@navigation/TransactionsTopTapNavigation';
+import { AddTransactionScreen, TransactionDetailsScreen } from '@screens';
+import type { RootTransactionsStackParamList, RootTransactionsStackRoute } from '@types';
 
 const RootTransactionsStack = createStackNavigator<RootTransactionsStackParamList>();
 

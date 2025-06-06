@@ -1,3 +1,3 @@
-export * from './useStyles';
-export * from './useThemeStyles';
-export * from './useTransactionItemStyles';
+export * from '@hooks/styles/useStyles';
+export * from '@hooks/styles/useThemeStyles';
+export * from '@hooks/styles/useTransactionItemStyles';

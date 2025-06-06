@@ -1,4 +1,4 @@
-import { useStyles } from '../../hooks';
+import { useStyles } from '@hooks';
 
 export const useTransactionItemStyles = () => {
     return useStyles(({ isDark, colors, fonts }) => ({

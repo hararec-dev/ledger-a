@@ -1,4 +1,4 @@
-import type { RequestConfig } from '../types';
+import type { RequestConfig } from '@types';
 
 export const genericHttpRequest = async <RequestType, ResponseType>({
     headers,

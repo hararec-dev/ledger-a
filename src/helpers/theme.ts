@@ -1,4 +1,4 @@
-import type { FullColorPallete, FullColorPalleteWithout50And100 } from '../types';
+import type { FullColorPallete, FullColorPalleteWithout50And100 } from '@types';
 
 export const removeShade50FromPalette = (palette: FullColorPallete): FullColorPalleteWithout50And100 => {
     const newPalette = {} as FullColorPalleteWithout50And100;

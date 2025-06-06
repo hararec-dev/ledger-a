@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import type { TransferProps } from '../../types';
+import type { TransferProps } from '@types';
 
 export const TransferScreen: React.FC<TransferProps> = ({ route }) => {
     return (

@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { Accordion } from '../../components';
-import type { AccordionSection, DayTransaction } from '../../types';
+import { Accordion } from '@components';
+import type { AccordionSection, DayTransaction } from '@types';
 
 
 const MOCK_DAILY_DATA: DayTransaction[] = [
