@@ -2,8 +2,8 @@ import { PieChart } from 'react-native-chart-kit';
 import { useStyles } from '@hooks';
 import type { PieFinancialChartProps } from '@types';
 import { View } from 'react-native';
-import { LegendItem } from './LegendItem';
-import { CenterText } from './CenterText';
+import { LegendItem } from '@components/charts/pie/LegendItem';
+import { CenterText } from '@components/charts/pie/CenterText';
 
 
 export const PieFinancialChart: React.FC<PieFinancialChartProps> = ({

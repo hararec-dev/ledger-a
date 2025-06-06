@@ -12,7 +12,7 @@ export const AuthHeader: React.FC<AuthHeaderProps> = ({ themeGradient }) => (
         >
             <View style={styles.logoContainer}>
                 <Image
-                    source={require('../../assets/images/logo-ledger-a.png')}
+                    source={require('@assets/images/logo-ledger-a.png')}
                     style={styles.logo}
                 />
             </View>

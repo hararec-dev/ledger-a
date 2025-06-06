@@ -1,2 +1,2 @@
-export * from './ContentDisplay';
-export * from './OptionPicker';
+export * from '@components/common/ContentDisplay';
+export * from '@components/common/OptionPicker';

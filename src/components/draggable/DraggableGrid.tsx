@@ -1,6 +1,6 @@
 import { View, StyleSheet } from 'react-native';
 import { useDraggableGrid } from '@hooks';
-import { DraggableGridItem } from './DraggableGridItem';
+import { DraggableGridItem } from '@components/draggable/DraggableGridItem';
 import type { DraggableGridProps } from '@types';
 
 

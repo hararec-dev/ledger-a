@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { TextInput, TouchableOpacity } from 'react-native';
-import { GradientBorder, Icon } from '../../components';
-import { useStyles } from '../../hooks';
-import type { GradientInputProps } from '../../types';
+import { GradientBorder, Icon } from '@components';
+import { useStyles } from '@hooks';
+import type { GradientInputProps } from '@types';
 
 
 export const GradientInput: React.FC<GradientInputProps> = ({

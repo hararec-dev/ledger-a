@@ -1,1 +1,1 @@
-export * from './DraggableGrid';
+export * from '@components/draggable/DraggableGrid';

@@ -1,1 +1,1 @@
-export * from './DBWrapperView';
+export * from '@components/database/DBWrapperView';

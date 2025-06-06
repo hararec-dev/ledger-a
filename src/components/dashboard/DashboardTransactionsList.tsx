@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity, FlatList } from 'react-native';
 import { useStyles } from '@hooks';
-import { DashboardTransactionItem } from './DashboardTransactionItem';
+import { DashboardTransactionItem } from '@components/dashboard/DashboardTransactionItem';
 import type { DashboardTransactionsListProps } from '@types';
 
 
