@@ -1,5 +1,5 @@
 import { withObservables } from '@nozbe/watermelondb/react';
-import type { DBComponent, DBComponentProps, DBFunction, SelectDBProps } from '../../types';
+import type { DBComponent, DBComponentProps, DBFunction, SelectDBProps } from '@types';
 
 
 export const DBWrapperView = <T extends keyof DBComponentProps>(

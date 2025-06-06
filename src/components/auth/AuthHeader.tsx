@@ -1,7 +1,7 @@
 import { View, Image, StyleSheet } from 'react-native';
-import { GradientBackground, GradientText } from '../../components';
-import { AUTH_SCREEN_TEXTS } from '../../config';
-import type { AuthHeaderProps } from '../../types';
+import { GradientBackground, GradientText } from '@components';
+import { AUTH_SCREEN_TEXTS } from '@config';
+import type { AuthHeaderProps } from '@types';
 
 
 export const AuthHeader: React.FC<AuthHeaderProps> = ({ themeGradient }) => (

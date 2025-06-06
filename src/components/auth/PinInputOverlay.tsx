@@ -1,9 +1,9 @@
 import { Text } from 'react-native';
 import { Overlay } from '@rneui/themed';
-import { GradientButton, AuthPinInput } from '../../components';
-import { useStyles } from '../../hooks';
-import { AUTH_SCREEN_TEXTS } from '../../config';
-import type { PinInputOverlayProps } from '../../types';
+import { GradientButton, AuthPinInput } from '@components';
+import { useStyles } from '@hooks';
+import { AUTH_SCREEN_TEXTS } from '@config';
+import type { PinInputOverlayProps } from '@types';
 
 
 export const PinInputOverlay: React.FC<PinInputOverlayProps> = ({

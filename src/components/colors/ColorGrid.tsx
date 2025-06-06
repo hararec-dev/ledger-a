@@ -1,9 +1,9 @@
 import { useCallback } from 'react';
 import { View, FlatList } from 'react-native';
 import { ColorCircle } from './ColorCircle';
-import { useStyles } from '../../hooks';
+import { useStyles } from '@hooks';
 import type { ListRenderItemInfo } from 'react-native';
-import type { ColorGridProps } from '../../types';
+import type { ColorGridProps } from '@types';
 
 
 export const ColorGrid: React.FC<ColorGridProps> = ({ colors, selectedColor, onColorPress, numColumns }) => {

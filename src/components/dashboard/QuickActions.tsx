@@ -1,7 +1,7 @@
 import { View, Text } from 'react-native';
-import { GradientButton, Icon } from '../../components';
-import type { QuickAction } from '../../types';
-import { useStyles } from '../../hooks';
+import { GradientButton, Icon } from '@components';
+import type { QuickAction } from '@types';
+import { useStyles } from '@hooks';
 
 
 export const QuickActions: React.FC = () => {

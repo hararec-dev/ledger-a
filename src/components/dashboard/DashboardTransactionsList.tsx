@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity, FlatList } from 'react-native';
-import { useStyles } from '../../hooks';
+import { useStyles } from '@hooks';
 import { DashboardTransactionItem } from './DashboardTransactionItem';
-import type { DashboardTransactionsListProps } from '../../types';
+import type { DashboardTransactionsListProps } from '@types';
 
 
 export const DashboardTransactionsList: React.FC<DashboardTransactionsListProps> = ({ transactions }) => {

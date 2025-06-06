@@ -1,7 +1,7 @@
 import { TouchableOpacity } from 'react-native';
-import { GradientBackground } from '../../components';
-import { useGradient, useStyles } from '../../hooks';
-import type { GradientButtonProps } from '../../types';
+import { GradientBackground } from '@components';
+import { useGradient, useStyles } from '@hooks';
+import type { GradientButtonProps } from '@types';
 
 
 export const GradientButton = ({

@@ -1,6 +1,6 @@
 import { PieChart } from 'react-native-chart-kit';
-import { useStyles } from '../../../hooks';
-import type { PieFinancialChartProps } from '../../../types';
+import { useStyles } from '@hooks';
+import type { PieFinancialChartProps } from '@types';
 import { View } from 'react-native';
 import { LegendItem } from './LegendItem';
 import { CenterText } from './CenterText';

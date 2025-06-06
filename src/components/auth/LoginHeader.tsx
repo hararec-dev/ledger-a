@@ -1,6 +1,6 @@
 import { StyleSheet, View } from 'react-native';
-import { AuthHeader, AuthInstructions } from '../../components';
-import type { LoginHeaderProps } from '../../types';
+import { AuthHeader, AuthInstructions } from '@components';
+import type { LoginHeaderProps } from '@types';
 
 
 export const LoginHeader = ({

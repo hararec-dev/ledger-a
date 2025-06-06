@@ -1,6 +1,6 @@
 import { Text, View } from 'react-native';
-import { useStyles } from '../../hooks';
-import type { ContentDisplayProps } from '../../types';
+import { useStyles } from '@hooks';
+import type { ContentDisplayProps } from '@types';
 
 
 export const ContentDisplay = ({

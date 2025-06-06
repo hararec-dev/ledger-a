@@ -1,8 +1,8 @@
 import { View, Text, ActivityIndicator } from 'react-native';
-import { Icon } from '../../components';
-import { useStyles } from '../../hooks';
-import { AUTH_SCREEN_TEXTS } from '../../config';
-import type { AuthInstructionsProps } from '../../types';
+import { Icon } from '@components';
+import { useStyles } from '@hooks';
+import { AUTH_SCREEN_TEXTS } from '@config';
+import type { AuthInstructionsProps } from '@types';
 
 
 export const AuthInstructions: React.FC<AuthInstructionsProps> = ({

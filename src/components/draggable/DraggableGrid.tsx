@@ -1,7 +1,7 @@
 import { View, StyleSheet } from 'react-native';
-import { useDraggableGrid } from '../../hooks';
+import { useDraggableGrid } from '@hooks';
 import { DraggableGridItem } from './DraggableGridItem';
-import type { DraggableGridProps } from '../../types';
+import type { DraggableGridProps } from '@types';
 
 
 export const DraggableGrid: React.FC<DraggableGridProps> = ({

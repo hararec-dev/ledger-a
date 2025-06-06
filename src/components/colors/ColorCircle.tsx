@@ -1,6 +1,6 @@
 import { TouchableOpacity } from 'react-native';
-import { useStyles } from '../../hooks';
-import type { ColorCircleProps } from '../../types';
+import { useStyles } from '@hooks';
+import type { ColorCircleProps } from '@types';
 
 
 export const ColorCircle: React.FC<ColorCircleProps> = ({ color, selected, onPress }) => {

@@ -1,7 +1,7 @@
 import { Text, View } from 'react-native';
-import { Icon, TransactionChart } from '../../components';
-import { useTransactionItemStyles } from '../../hooks';
-import type { DashboardTransactionItemProps } from '../../types';
+import { Icon, TransactionChart } from '@components';
+import { useTransactionItemStyles } from '@hooks';
+import type { DashboardTransactionItemProps } from '@types';
 
 export const DashboardTransactionItem: React.FC<DashboardTransactionItemProps> = ({ transaction }) => {
     const styles = useTransactionItemStyles();

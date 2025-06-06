@@ -1,8 +1,8 @@
 import React from 'react';
 import { Text } from 'react-native';
-import { useStyles } from '../../hooks';
-import { AUTH_SCREEN_TEXTS } from '../../config';
-import type { LockoutMessageProps } from '../../types';
+import { useStyles } from '@hooks';
+import { AUTH_SCREEN_TEXTS } from '@config';
+import type { LockoutMessageProps } from '@types';
 
 
 export const LockoutMessage: React.FC<LockoutMessageProps> = ({ isVisible, remainingTime }) => {
