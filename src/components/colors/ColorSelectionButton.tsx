@@ -1,7 +1,7 @@
 import { Text } from 'react-native';
-import { GradientButton } from '../gradient';
-import { useStyles } from '../../hooks';
-import type { ColorSelectionButtonProps } from '../../types';
+import { GradientButton } from '@components/gradient';
+import { useStyles } from '@hooks';
+import type { ColorSelectionButtonProps } from '@types';
 
 export const ColorSelectionButton: React.FC<ColorSelectionButtonProps> = ({
     selectedColor,

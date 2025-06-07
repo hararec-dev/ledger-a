@@ -1,6 +1,6 @@
 import { View, TouchableOpacity } from 'react-native';
-import { useStyles } from '../../hooks';
-import type { ColorPaginationProps } from '../../types';
+import { useStyles } from '@hooks';
+import type { ColorPaginationProps } from '@types';
 
 export const ColorPagination: React.FC<ColorPaginationProps> = ({ currentPage, totalPages, onPageChange }) => {
     const styles = useStyles(({ isDark, colors }) => ({

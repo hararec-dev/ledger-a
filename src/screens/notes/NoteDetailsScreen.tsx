@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 import type { RouteProp } from '@react-navigation/native';
-import type { NotesStackParamList } from '../../types';
+import type { NotesStackParamList } from '@types';
 
 type NoteDetailsScreenRouteProp = RouteProp<NotesStackParamList, 'NoteDetails'>;
 

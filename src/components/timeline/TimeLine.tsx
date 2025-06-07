@@ -1,6 +1,6 @@
 import { View, Text, FlatList } from 'react-native';
-import { useStyles } from '../../hooks';
-import type { TimelineItem, TimelineProps } from '../../types';
+import { useStyles } from '@hooks';
+import type { TimelineItem, TimelineProps } from '@types';
 
 
 export const Timeline: React.FC<TimelineProps> = ({

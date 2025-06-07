@@ -1,9 +1,9 @@
 import { ScrollView, StyleSheet } from 'react-native';
 import { useFormik } from 'formik';
-import { OnboardingSetupAppForm, OnboardingSetupHeader } from '../../../components';
-import { useGradient, useThemeStore, usePinAuth, useBiometricStore } from '../../../hooks';
-import { ONBOARDING_SETUP_TEXT, validationOnboardingApp as validationSchema } from '../../../config';
-import type { FormOnboardingAppValues, OnboardingSetupNavProps } from '../../../types';
+import { OnboardingSetupAppForm, OnboardingSetupHeader } from '@components';
+import { useGradient, useThemeStore, usePinAuth, useBiometricStore } from '@hooks';
+import { ONBOARDING_SETUP_TEXT, validationOnboardingApp as validationSchema } from '@config';
+import type { FormOnboardingAppValues, OnboardingSetupNavProps } from '@types';
 
 
 export const OnboardingSetupApp: React.FC<OnboardingSetupNavProps> = ({ navigation }) => {

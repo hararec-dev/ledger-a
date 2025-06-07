@@ -1,5 +1,5 @@
-import { ErrorOverlay, LockoutMessage, PinInputOverlay } from '../../components';
-import type { LoginOverlaysProps } from '../../types';
+import { ErrorOverlay, LockoutMessage, PinInputOverlay } from '@components';
+import type { LoginOverlaysProps } from '@types';
 
 
 export const LoginOverlays = ({

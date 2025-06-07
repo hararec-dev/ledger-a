@@ -1,1 +1,1 @@
-export * from './useLocalDatabase';
+export * from '@hooks/database/useLocalDatabase';

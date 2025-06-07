@@ -3,8 +3,8 @@ import { View, FlatList, TextInput, Text, TouchableOpacity, Switch } from 'react
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Clipboard from '@react-native-clipboard/clipboard';
-import { Icon } from './Icon';
-import { useAppNavigation, useThemeStore } from '../../hooks';
+import { Icon } from '@components/icon/Icon';
+import { useAppNavigation, useThemeStore } from '@hooks';
 
 interface IconSelectorProps {
   onSelectIcon: (iconName: string) => void;

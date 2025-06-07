@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { FlatList, NativeScrollEvent, NativeSyntheticEvent } from 'react-native';
-import { SlideItem } from '../../components';
-import { SLIDE_INTERVAL_MS } from '../../config';
-import type { Slide } from '../../types';
+import { SlideItem } from '@components';
+import { SLIDE_INTERVAL_MS } from '@config';
+import type { Slide } from '@types';
 
 export const useOnboardingSlideLogic = (slides: Slide[]) => {
     const [currentSlideIndex, setCurrentSlideIndex] = useState(0);

@@ -1,3 +1,3 @@
-export * from './OnboardingButton';
-export * from './PaginationDots';
-export * from './SlideItem';
+export * from '@components/onboarding/slides/OnboardingButton';
+export * from '@components/onboarding/slides/PaginationDots';
+export * from '@components/onboarding/slides/SlideItem';

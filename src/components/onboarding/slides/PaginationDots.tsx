@@ -1,6 +1,6 @@
 import { View } from 'react-native';
-import { useStyles } from '../../../hooks';
-import type { PaginationDotsProps } from '../../../types';
+import { useStyles } from '@hooks';
+import type { PaginationDotsProps } from '@types';
 
 export const PaginationDots: React.FC<PaginationDotsProps> = ({ currentIndex, numberOfIndexes, style }) => {
     const styles = useStyles(({ colors }) => ({

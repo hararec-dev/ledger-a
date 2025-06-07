@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
-import { GradientText, Icon } from '../../components';
-import { useGradient, useStyles } from '../../hooks';
-import type { LegalInfoHeaderProps } from '../../types';
+import { GradientText, Icon } from '@components';
+import { useGradient, useStyles } from '@hooks';
+import type { LegalInfoHeaderProps } from '@types';
 
 
 export const LegalInfoHeader: React.FC<LegalInfoHeaderProps> = memo(({ navigation, title, lastUpdate }) => {

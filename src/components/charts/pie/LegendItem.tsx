@@ -1,5 +1,5 @@
 import { Text, View } from 'react-native';
-import type { LegendItemProps } from '../../../types';
+import type { LegendItemProps } from '@types';
 
 
 export const LegendItem: React.FC<LegendItemProps> = ({ item, styles, legendItemStyle, legendTextStyle }) => (

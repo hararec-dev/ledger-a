@@ -12,7 +12,7 @@ import type {
     RecordDeletionData,
     RecordIdentifier,
     RecordUpdateData,
-} from '../../types';
+} from '@types';
 
 
 export const useLocalDatabase = () => {

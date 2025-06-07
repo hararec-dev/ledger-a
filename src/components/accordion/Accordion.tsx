@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity, StyleSheet, FlatList } from 'react-native';
-import { Icon } from '../icon/Icon';
-import type { AccordionItem, AccordionProps } from '../../types';
+import { Icon } from '@components/icon/Icon';
+import type { AccordionItem, AccordionProps } from '@types';
 
 export const Accordion: React.FC<AccordionProps> = ({
     sections,

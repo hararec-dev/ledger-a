@@ -1,4 +1,4 @@
-import * as DatabaseModels from '../../database';
+import * as DatabaseModels from '@database';
 
 
 export interface DBComponentProps {

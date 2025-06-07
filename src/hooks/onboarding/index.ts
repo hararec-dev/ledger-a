@@ -1,2 +1,2 @@
-export * from './useOnboardingSlideLogic';
-export * from './useOnboardingSlides';
+export * from '@hooks/onboarding/useOnboardingSlideLogic';
+export * from '@hooks/onboarding/useOnboardingSlides';

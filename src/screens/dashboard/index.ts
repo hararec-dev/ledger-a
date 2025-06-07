@@ -1,2 +1,2 @@
-export * from './DashboardScreen';
-export * from './QuickAddTransactionScreen';
+export * from '@screens/dashboard/DashboardScreen';
+export * from '@screens/dashboard/QuickAddTransactionScreen';

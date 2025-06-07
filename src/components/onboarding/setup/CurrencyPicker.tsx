@@ -1,6 +1,6 @@
-import { currencies, ONBOARDING_SETUP_TEXT } from '../../../config';
-import type { CurrencyPickerProps } from '../../../types';
-import { OptionPicker } from '../../common';
+import { currencies, ONBOARDING_SETUP_TEXT } from '@config';
+import type { CurrencyPickerProps } from '@types';
+import { OptionPicker } from '@components/common';
 
 
 export const CurrencyPicker: React.FC<CurrencyPickerProps> = ({ formik, selectedCurrency }) => {

@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet } from 'react-native';
-import type { TransactionSummaryHeaderProps } from '../../types';
+import type { TransactionSummaryHeaderProps } from '@types';
 
 
 export const TransactionSummaryHeader: React.FC<TransactionSummaryHeaderProps> = ({

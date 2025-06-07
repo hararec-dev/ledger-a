@@ -1,6 +1,6 @@
 import { Text, View } from 'react-native';
-import { useStyles } from '../../../hooks';
-import type { FormSetupGroupProps } from '../../../types';
+import { useStyles } from '@hooks';
+import type { FormSetupGroupProps } from '@types';
 
 
 export const FormSetupGroup: React.FC<FormSetupGroupProps> = ({ label, error, touched, children, style }) => {

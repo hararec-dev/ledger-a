@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef } from 'react';
-import { useAuthAttempts, useTouchIdAuth, usePinAuth, useGradient } from '..';
-import { AUTHENTICATION_SCREEN } from '../../config';
-import type { AuthenticationProps } from '../../types';
+import { useAuthAttempts, useTouchIdAuth, usePinAuth, useGradient } from '@hooks';
+import { AUTHENTICATION_SCREEN } from '@config';
+import type { AuthenticationProps } from '@types';
 
 export const useAuthLogin = ({ navigation }: AuthenticationProps) => {
     const { themeGradient } = useGradient();

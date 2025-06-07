@@ -8,10 +8,10 @@ import {
     OnboardingBiometricSwitch,
     OnboardingPinSetup,
     OnboardingThemeSwitch,
-} from '../../../components';
-import { useBiometricStore, useStyles } from '../../../hooks';
-import { ONBOARDING_SETUP_TEXT } from '../../../config';
-import type { OnboardingFormProps } from '../../../types';
+} from '@components';
+import { useBiometricStore, useStyles } from '@hooks';
+import { ONBOARDING_SETUP_TEXT } from '@config';
+import type { OnboardingFormProps } from '@types';
 
 
 export const OnboardingSetupAppForm: React.FC<OnboardingFormProps> = ({ formik, gradientColors }) => {

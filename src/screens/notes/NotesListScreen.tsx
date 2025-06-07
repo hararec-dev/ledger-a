@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, Dimensions, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { DraggableGrid } from '../../components';
-import type { DraggableItem } from '../../types';
+import { DraggableGrid } from '@components';
+import type { DraggableItem } from '@types';
 
 const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
@@ -9,7 +9,7 @@ const numColumns = 2;
 const spacing = 16;
 const itemSize = (screenWidth - spacing * (numColumns + 1)) / numColumns;
 
-import Illustration from '../../assets/images/add-notes.svg';
+import Illustration from '@assets/images/add-notes.svg';
 
 const styles = StyleSheet.create({
     container: {

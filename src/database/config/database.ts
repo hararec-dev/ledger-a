@@ -1,7 +1,7 @@
 import { Database } from '@nozbe/watermelondb';
 import SQLiteAdapter from '@nozbe/watermelondb/adapters/sqlite';
-import { migrations } from './migrations';
-import { schema } from './schema';
+import { migrations } from '@database/config/migrations';
+import { schema } from '@database/config/schema';
 import {
     EventStoreModel,
     ExchangeRateModel,
@@ -20,7 +20,7 @@ import {
     SettingModel,
     SnapshotModel,
     TagModel,
-} from '../models';
+} from '@database/models';
 
 const adapter = new SQLiteAdapter({
     schema,

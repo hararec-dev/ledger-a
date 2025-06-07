@@ -1,1 +1,1 @@
-export * from './ColorSelectionScreen';
+export * from '@screens/colors/ColorSelectionScreen';

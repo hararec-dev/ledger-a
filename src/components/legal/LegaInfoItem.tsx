@@ -1,6 +1,6 @@
 import { Text, View } from 'react-native';
-import { useStyles } from '../../hooks';
-import type { LegalItemProps } from '../../types';
+import { useStyles } from '@hooks';
+import type { LegalItemProps } from '@types';
 
 
 export const LegaInfoItem: React.FC<LegalItemProps> = ({ item }) => {

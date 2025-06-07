@@ -1,4 +1,4 @@
-import { RootStackNavigation } from './navigation';
+import { RootStackNavigation } from '@navigation';
 import {
   AppThemeProvider,
   BiometricAuthProvider,
@@ -6,7 +6,7 @@ import {
   HttpProvider,
   NavigationProvider,
   SafeProvider,
-} from './components';
+} from '@components';
 
 
 export const App = (): React.JSX.Element => {

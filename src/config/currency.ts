@@ -1,4 +1,4 @@
-import type { CurrencyInfo } from '../types';
+import type { CurrencyInfo } from '@types';
 
 export const currencies: CurrencyInfo[] = [
     { code: 'ARS', description: 'Peso Argentino' },

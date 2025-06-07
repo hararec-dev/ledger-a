@@ -1,1 +1,1 @@
-export * from './PieFinancialChart';
+export * from '@components/charts/pie/PieFinancialChart';

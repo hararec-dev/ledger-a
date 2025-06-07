@@ -1,7 +1,7 @@
 import { View } from 'react-native';
-import { BalanceCard, DashboardTransactionsList, QuickActions } from '../../components';
-import { useStyles } from '../../hooks';
-import type { IconType } from '../../types';
+import { BalanceCard, DashboardTransactionsList, QuickActions } from '@components';
+import { useStyles } from '@hooks';
+import type { IconType } from '@types';
 
 interface CryptoHolding {
     name: string;

@@ -1,8 +1,8 @@
 import { create } from 'zustand';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { colorPalette, rneuiDarkColors, rneuiLightColors, appFonts } from '../../config';
-import type { ThemeColor, ThemeState } from '../../types';
-import { getAllColorValues, removeShade50FromPalette } from '../../helpers';
+import { colorPalette, rneuiDarkColors, rneuiLightColors, appFonts } from '@config';
+import type { ThemeColor, ThemeState } from '@types';
+import { getAllColorValues, removeShade50FromPalette } from '@helpers';
 
 const THEME_STORAGE_KEY = 'app-theme';
 

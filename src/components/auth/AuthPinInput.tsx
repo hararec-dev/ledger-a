@@ -1,5 +1,5 @@
-import { FormSetupGroup, GradientInput } from '../../components';
-import type { AuthPinInputProps } from '../../types';
+import { FormSetupGroup, GradientInput } from '@components';
+import type { AuthPinInputProps } from '@types';
 
 
 export const AuthPinInput: React.FC<AuthPinInputProps> = ({

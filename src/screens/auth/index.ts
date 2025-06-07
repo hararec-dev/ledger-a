@@ -1,1 +1,1 @@
-export * from './AuthenticationScreen';
+export * from '@screens/auth/AuthenticationScreen';

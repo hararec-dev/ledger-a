@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import type { RootTransactionDetailsProps } from '../../types';
+import type { RootTransactionDetailsProps } from '@types';
 
 export const TransactionDetailsScreen: React.FC<RootTransactionDetailsProps> = ({ route }) => {
     return (

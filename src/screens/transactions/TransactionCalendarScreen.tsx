@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Calendar, type DateData } from 'react-native-calendars';
-import { TransactionSummaryHeader } from '../../components/transactions/TransactionSummaryHeader';
-import { TransactionDetailsList } from '../../components/transactions/TransactionDetailsList';
-import { configureCalendarLocale } from '../../config';
-import { getMarkedDates, calculateTransactionSummary } from '../../helpers';
-import type { TransactionCalendarProps } from '../../types';
+import { TransactionSummaryHeader } from '@components/transactions/TransactionSummaryHeader';
+import { TransactionDetailsList } from '@components/transactions/TransactionDetailsList';
+import { configureCalendarLocale } from '@config';
+import { getMarkedDates, calculateTransactionSummary } from '@helpers';
+import type { TransactionCalendarProps } from '@types';
 import { Overlay } from '@rneui/themed';
 
 export const TransactionCalendarScreen: React.FC<TransactionCalendarProps> = ({

@@ -1,15 +1,15 @@
 import { useCallback, useMemo } from 'react';
 import { Text, TextStyle } from 'react-native';
-import { Icon } from '../../components';
+import { Icon } from '@components';
 import {
     DailyTransactionsScreen,
     MonthlyTransactionsScreen,
     TransactionCalendarScreen,
     TransactionsSearchScreen,
-} from '../../screens';
-import { useGradient, useStyles } from '../../hooks';
+} from '@screens';
+import { useGradient, useStyles } from '@hooks';
 import type { MaterialTopTabNavigationOptions } from '@react-navigation/material-top-tabs';
-import type { TransactionsTabRoute } from '../../types';
+import type { TransactionsTabRoute } from '@types';
 
 
 export const useTransactionsTopTabNavigation = (): {

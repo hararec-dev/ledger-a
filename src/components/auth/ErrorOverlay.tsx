@@ -1,10 +1,10 @@
 import React from 'react';
 import { Text } from 'react-native';
 import { Overlay } from '@rneui/themed';
-import { GradientButton } from '../../components';
-import { useStyles } from '../../hooks';
-import { AUTH_TEXTS, AUTH_SCREEN_TEXTS } from '../../config';
-import type { ErrorOverlayProps } from '../../types';
+import { GradientButton } from '@components';
+import { useStyles } from '@hooks';
+import { AUTH_TEXTS, AUTH_SCREEN_TEXTS } from '@config';
+import type { ErrorOverlayProps } from '@types';
 
 
 export const ErrorOverlay: React.FC<ErrorOverlayProps> = ({

@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 import { Dimensions, View, Text, StyleSheet } from 'react-native';
 import { LineChart } from 'react-native-chart-kit';
 import type { AbstractChartConfig } from 'react-native-chart-kit/dist/AbstractChart';
-import type { CartesianPlaneChartProps } from '../../types';
+import type { CartesianPlaneChartProps } from '@types';
 
 
 const DEFAULT_CHART_CONFIG: AbstractChartConfig = {

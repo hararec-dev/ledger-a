@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
 import * as Keychain from 'react-native-keychain';
-import { useBiometricStore } from '../store';
-import { AUTH_CONFIG, AUTH_TEXTS } from '../../config';
+import { useBiometricStore } from '@hooks/store';
+import { AUTH_CONFIG, AUTH_TEXTS } from '@config';
 
 
 export const useTouchIdAuth = (handleFailedAttempt?: () => void) => {

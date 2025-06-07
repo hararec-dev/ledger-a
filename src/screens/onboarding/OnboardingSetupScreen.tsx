@@ -1,7 +1,7 @@
 import { View, Animated } from 'react-native';
-import { OnboardingSetupAccount, OnboardingSetupApp } from '../../components';
-import { useLastActivity, usePageIndicatorAnimation, useStyles } from '../../hooks';
-import type { OnboardingSetupProps } from '../../types';
+import { OnboardingSetupAccount, OnboardingSetupApp } from '@components';
+import { useLastActivity, usePageIndicatorAnimation, useStyles } from '@hooks';
+import type { OnboardingSetupProps } from '@types';
 
 
 export const OnboardingSetupScreen: React.FC<OnboardingSetupProps> = ({ navigation, route }) => {

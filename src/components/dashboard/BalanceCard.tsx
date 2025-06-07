@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity } from 'react-native';
-import { GradientBackground, Icon } from '../../components';
-import { useCurrentStatusAppStore, useStyles } from '../../hooks';
-import type { BalanceCardProps } from '../../types';
+import { GradientBackground, Icon } from '@components';
+import { useCurrentStatusAppStore, useStyles } from '@hooks';
+import type { BalanceCardProps } from '@types';
 
 
 export const BalanceCard: React.FC<BalanceCardProps> = ({

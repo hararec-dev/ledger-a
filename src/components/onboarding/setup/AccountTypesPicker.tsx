@@ -1,6 +1,6 @@
-import { accountsInfo, ONBOARDING_SETUP_TEXT } from '../../../config';
-import type { AccountTypePickerProps } from '../../../types';
-import { OptionPicker } from '../../common';
+import { accountsInfo, ONBOARDING_SETUP_TEXT } from '@config';
+import type { AccountTypePickerProps } from '@types';
+import { OptionPicker } from '@components/common';
 
 
 export const AccountTypesPicker: React.FC<AccountTypePickerProps> = ({ formik, selectedAccountType }) => {

@@ -1,5 +1,5 @@
 import { Text, View } from 'react-native';
-import type { CenterTextProps } from '../../../types';
+import type { CenterTextProps } from '@types';
 
 
 export const CenterText: React.FC<CenterTextProps> = ({ styles, showCenterText, centerPosition, titleStyle, amountStyle, currency, total }) => {

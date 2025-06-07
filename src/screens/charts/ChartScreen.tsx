@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Dimensions } from 'react-native';
-import { DraggableGrid } from '../../components';
+import { DraggableGrid } from '@components';
 
 type ChartWidget = {
     id: string;

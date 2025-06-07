@@ -1,8 +1,8 @@
 import type { PropsWithChildren } from 'react';
 import type { StyleProp, ViewStyle } from 'react-native';
 import type { FormikProps } from 'formik';
-import type { Currency, CurrencyInfo, PersonalAccountCode, PersonalAccountInfo } from '../config';
-import type { ThemeColor } from '../hooks';
+import type { Currency, CurrencyInfo, PersonalAccountCode, PersonalAccountInfo } from '@types/config';
+import type { ThemeColor } from '@types/hooks';
 
 export interface FormOnboardingSetupValues {
     currency: Currency;

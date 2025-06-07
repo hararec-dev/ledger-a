@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { Text, View } from 'react-native';
-import { FormSetupGroup, GradientSwitch, Icon } from '../../../components';
-import { useBiometricStore, useStyles } from '../../../hooks';
-import { ONBOARDING_SETUP_TEXT } from '../../../config';
-import type { OnboardingFormProps } from '../../../types';
+import { FormSetupGroup, GradientSwitch, Icon } from '@components';
+import { useBiometricStore, useStyles } from '@hooks';
+import { ONBOARDING_SETUP_TEXT } from '@config';
+import type { OnboardingFormProps } from '@types';
 
 
 export const OnboardingBiometricSwitch: React.FC<OnboardingFormProps> = ({ formik, gradientColors }) => {

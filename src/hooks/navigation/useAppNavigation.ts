@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import type { AllRoutes, NavigationHierarchy, RouteParams, TypeLegalInfo, TypeSetup } from '../../types';
+import type { AllRoutes, NavigationHierarchy, RouteParams, TypeLegalInfo, TypeSetup } from '@types';
 
 export const useAppNavigation = () => {
     const rootNavigation = useNavigation<NavigationHierarchy>();

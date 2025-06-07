@@ -1,4 +1,4 @@
-import type { PersonalAccountInfo } from '../types';
+import type { PersonalAccountInfo } from '@types';
 
 export const accountsInfo: PersonalAccountInfo[] = [
     { code: 'ACT', description: 'Activos' },

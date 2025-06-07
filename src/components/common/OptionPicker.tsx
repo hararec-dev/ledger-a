@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Picker } from '@react-native-picker/picker';
 import { Modal, Platform, Text, TouchableOpacity, View } from 'react-native';
-import { GradientBorder } from '../../components';
-import { useStyles } from '../../hooks';
-import type { OptionItem, OptionPickerProps } from '../../types';
+import { GradientBorder } from '@components';
+import { useStyles } from '@hooks';
+import type { OptionItem, OptionPickerProps } from '@types';
 
 
 export const OptionPicker = <T extends OptionItem>({

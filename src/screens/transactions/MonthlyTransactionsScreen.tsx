@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { Accordion } from '../../components';
-import type { AccordionSection, MonthSection } from '../../types';
+import { Accordion } from '@components';
+import type { AccordionSection, MonthSection } from '@types';
 
 const MOCK_DATA: MonthSection[] = [
     {

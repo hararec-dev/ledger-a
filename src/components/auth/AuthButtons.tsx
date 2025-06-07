@@ -1,8 +1,8 @@
 import { View, Text } from 'react-native';
-import { GradientButton, Icon } from '../../components';
-import { useGradient, useStyles } from '../../hooks';
-import { AUTH_SCREEN_TEXTS } from '../../config';
-import type { AuthButtonsProps } from '../../types';
+import { GradientButton, Icon } from '@components';
+import { useGradient, useStyles } from '@hooks';
+import { AUTH_SCREEN_TEXTS } from '@config';
+import type { AuthButtonsProps } from '@types';
 
 
 export const AuthButtons: React.FC<AuthButtonsProps> = ({

@@ -1,7 +1,7 @@
 import { Platform, Linking, Share } from 'react-native';
 import * as RNFS from 'react-native-fs';
 import { Buffer } from 'buffer';
-import { nativeSaveExcelFileWithSAF } from '../helpers';
+import { nativeSaveExcelFileWithSAF } from '@helpers';
 
 
 export const writeFile = async (filePath: string, data: string, encoding: 'base64' | 'utf8' | 'ascii'): Promise<void> => {

@@ -1,8 +1,8 @@
 import { View } from 'react-native';
 import { LineChart } from 'react-native-chart-kit';
 import Animated from 'react-native-reanimated';
-import { useChartAnimation, useTransactionItemStyles } from '../../hooks';
-import type { TransactionChartProps } from '../../types';
+import { useChartAnimation, useTransactionItemStyles } from '@hooks';
+import type { TransactionChartProps } from '@types';
 
 export const TransactionChart: React.FC<TransactionChartProps> = ({
     chartData,

@@ -1,8 +1,8 @@
 import { Text, View } from 'react-native';
-import { GradientButton, Icon } from '../../../components';
-import { useCurrentStatusAppStore, useGradient, useStyles } from '../../../hooks';
-import { PAGINATION_BUTTONS_CONFIG } from '../../../config';
-import type { OnboardingButtonProps } from '../../../types';
+import { GradientButton, Icon } from '@components';
+import { useCurrentStatusAppStore, useGradient, useStyles } from '@hooks';
+import { PAGINATION_BUTTONS_CONFIG } from '@config';
+import type { OnboardingButtonProps } from '@types';
 
 
 export const OnboardingButton: React.FC<OnboardingButtonProps> = ({ onNavigate }) => {

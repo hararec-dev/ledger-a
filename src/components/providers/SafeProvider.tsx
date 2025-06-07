@@ -1,5 +1,5 @@
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
-import type { ProviderProps } from '../../types';
+import type { ProviderProps } from '@types';
 
 export const SafeProvider = ({ children }: ProviderProps) => {
     return (

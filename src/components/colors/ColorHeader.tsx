@@ -1,8 +1,8 @@
 import { View, TouchableOpacity } from 'react-native';
-import { useGradient, useStyles } from '../../hooks';
-import { Icon } from '../icon';
-import { GradientText } from '../gradient';
-import type { ColorHeaderProps } from '../../types';
+import { useGradient, useStyles } from '@hooks';
+import { Icon } from '@components/icon';
+import { GradientText } from '@components/gradient';
+import type { ColorHeaderProps } from '@types';
 
 
 export const ColorHeader: React.FC<ColorHeaderProps> = ({ title, onBackPress }) => {

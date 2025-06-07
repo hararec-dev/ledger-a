@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
-import { CURRENT_STATUS_APP_KEYS } from '../../config';
-import type { Currency, CurrentStatusAppState, LastActivity } from '../../types';
+import { CURRENT_STATUS_APP_KEYS } from '@config';
+import type { Currency, CurrentStatusAppState, LastActivity } from '@types';
 
 
 export const useCurrentStatusAppStore = create<CurrentStatusAppState>((set) => ({

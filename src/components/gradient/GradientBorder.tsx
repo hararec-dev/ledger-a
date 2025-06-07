@@ -1,7 +1,7 @@
 import { StyleSheet, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import { useGradient, useStyles } from '../../hooks';
-import type { GradientBorderProps } from '../../types';
+import { useGradient, useStyles } from '@hooks';
+import type { GradientBorderProps } from '@types';
 
 export const GradientBorder: React.FC<GradientBorderProps> = ({ children, gradientColors, style }) => {
     const themeStyles = useStyles(({ colors, isDark }) => ({

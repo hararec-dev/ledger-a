@@ -1,7 +1,7 @@
 import { Text, View } from 'react-native';
 import { LineChart } from 'react-native-chart-kit';
-import { useStyles } from '../../hooks';
-import type { CustomLineChartProps } from '../../types';
+import { useStyles } from '@hooks';
+import type { CustomLineChartProps } from '@types';
 
 
 export const LineFinancialChart: React.FC<CustomLineChartProps> = ({

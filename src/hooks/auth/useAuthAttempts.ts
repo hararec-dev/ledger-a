@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { AUTH_CONFIG, AUTH_TEXTS } from '../../config';
+import { AUTH_CONFIG, AUTH_TEXTS } from '@config';
 
 export const useAuthAttempts = () => {
     const [attempts, setAttempts] = useState(0);

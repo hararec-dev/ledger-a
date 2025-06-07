@@ -1,4 +1,4 @@
-import { IconSelector } from '../../components';
+import { IconSelector } from '@components';
 
 export const SettingsScreen = () => {
     return (

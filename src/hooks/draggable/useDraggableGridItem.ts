@@ -6,7 +6,7 @@ import {
     useSharedValue,
     withTiming,
 } from 'react-native-reanimated';
-import type { DraggablePosition, UseDraggableGridItemProps } from '../../types';
+import type { DraggablePosition, UseDraggableGridItemProps } from '@types';
 
 
 export const useDraggableGridItem = ({

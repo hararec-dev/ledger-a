@@ -1,2 +1,2 @@
-export * from './OnboardingSetupScreen';
-export * from './OnboardingSlidesScreen';
+export * from '@screens/onboarding/OnboardingSetupScreen';
+export * from '@screens/onboarding/OnboardingSlidesScreen';

@@ -1,6 +1,6 @@
 import LinearGradient from 'react-native-linear-gradient';
-import type { GradientBackgroundProps } from '../../types';
-import { useGradient } from '../../hooks';
+import type { GradientBackgroundProps } from '@types';
+import { useGradient } from '@hooks';
 
 export const GradientBackground: React.FC<GradientBackgroundProps> = ({
     gradient,

@@ -1,7 +1,7 @@
 import { StyleSheet, Switch, View } from 'react-native';
-import { GradientBackground } from '../../components';
-import { useGradient, useStyles } from '../../hooks';
-import type { GradientSwitchProps } from '../../types';
+import { GradientBackground } from '@components';
+import { useGradient, useStyles } from '@hooks';
+import type { GradientSwitchProps } from '@types';
 
 
 const SWITCH_DIMENSIONS = {

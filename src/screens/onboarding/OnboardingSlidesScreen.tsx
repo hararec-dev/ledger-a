@@ -1,6 +1,6 @@
 import { View, FlatList } from 'react-native';
-import { LegalAcceptanceFooter, OnboardingButton, PaginationDots } from '../../components';
-import { useAppNavigation, useLastActivity, useOnboardingSlideLogic, useOnboardingSlides, useStyles } from '../../hooks';
+import { LegalAcceptanceFooter, OnboardingButton, PaginationDots } from '@components';
+import { useAppNavigation, useLastActivity, useOnboardingSlideLogic, useOnboardingSlides, useStyles } from '@hooks';
 
 
 export const OnboardingSlidesScreen = () => {

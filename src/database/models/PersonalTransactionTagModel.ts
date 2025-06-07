@@ -1,9 +1,9 @@
 import { Model } from '@nozbe/watermelondb';
 import { relation, children } from '@nozbe/watermelondb/decorators';
-import type { PersonalTransactionModel } from './PersonalTransactionModel';
-import type { TagModel } from './TagModel';
-import type { EventStoreModel } from './EventStoreModel';
-import type { SnapshotModel } from './SnapshotModel';
+import type { PersonalTransactionModel } from '@database/models/PersonalTransactionModel';
+import type { TagModel } from '@database/models/TagModel';
+import type { EventStoreModel } from '@database/models/EventStoreModel';
+import type { SnapshotModel } from '@database/models/SnapshotModel';
 import type { Associations } from '@nozbe/watermelondb/Model';
 
 

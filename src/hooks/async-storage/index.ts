@@ -1,1 +1,1 @@
-export * from './useAsyncStorageLoad';
+export * from '@hooks/async-storage/useAsyncStorageLoad';

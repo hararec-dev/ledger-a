@@ -1,6 +1,6 @@
-import { ONBOARDING_SETUP_TEXT } from '../../../config';
-import { OnboardingPinInput } from '../../../components';
-import type { OnboardingFormProps } from '../../../types';
+import { ONBOARDING_SETUP_TEXT } from '@config';
+import { OnboardingPinInput } from '@components';
+import type { OnboardingFormProps } from '@types';
 
 export const OnboardingPinSetup: React.FC<OnboardingFormProps> = ({ formik, gradientColors }) => {
     return (
